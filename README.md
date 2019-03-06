@@ -8,33 +8,20 @@ This workshop will provide instructions to build application container images, t
 
 # Agenda
 
-#### Day 1
-- Localdev
-  - Installing dependencies: vagrant, virtual box, git
-  - Installing localdev repo and starting the vm
-  - Testing the installation in a browser and with cli
-- Building an App Container Image
-  - Docker 101, Dockerfile
-  - Using other tools, buildah, podman, docker
-- Image Registries
-  - Ford's Quay Registry
+#### Day 1, App Container Images
+- Setting up the CaaS localdev environment on your workstation.
+- Building your first app container image.
+- Understanding Ford's container image registry.
 
-#### Day 2
-- Running App Container in Openshift
-  - Manifest Objects
-- Managing App Container Resources
-  - Avoid defaults
-  - CPU Cores and resource limits
+#### Day 2, Running Apps in CaaS
+- Running the app container images built in the last lesson in Openshift.
+- Managing app container resources.
 
-#### Day 3
-- Monitoring Apps
-  - https://grafana-openshift-monitoring.app.caas.ford.com/?orgId=1
-- Storage
-  - Persistent storage options
-- Vanity URLs and TLS
-  - Requesting a Vanity URL
-  - TLS termination options
-- Jenkins Usage
+#### Day 3, Advanced Topics
+- Monitoring app performance.
+- Utilizing persistent storage options.
+- Configuring vanity URLs and TLS security.
+- Using Jenkins and other CI/CD tools.
 
 # Pre-requisites and Equipment
 - Working knowledge of git and github (basic stuff like cloning repos).
