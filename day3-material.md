@@ -10,7 +10,7 @@ Today's lessons will focus on more complicated use cases as well as additional t
 ### Monitoring Apps
 If your app is deployed on CaaS, you get basic monitoring of your app's resource utilization by default. The platform provides a real-time monitoring dashboard built using the Prometheus and Grafana tools without additional cost.
 
-![](images/moniotring1.png)
+![](images/monitoring1.png)
 
 Go head and bring up the monitoring dashboard in a web browser, like Chrome. Goto https://grafana-openshift-monitoring.app.caas.ford.com.
 
