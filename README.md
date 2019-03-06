@@ -35,3 +35,13 @@ This workshop will provide instructions to build application container images, t
   - Requesting a Vanity URL
   - TLS termination options
 - Jenkins Usage
+
+# Pre-requisites and Equipment
+- Working knowledge of git and github (basic stuff like cloning repos).
+- Your own developer-class laptop with minimal 4 CPU cores and 8GB of RAM. An underpowered laptop that is used mostly for checking email WILL NOT WORK.
+
+Course content is targeted for a Windows environment using Git Bash for Windows or other Bash terminal emulator. If you have a Mac and are a wiz with it, then come on. Just be aware that the instructor will not be able to answer Mac-specific questions, so you'll be on your own to translate commands from Windows to Mac and troubleshoot your own issues if things go off the rails.
+
+# Schedule
+
+The workshop is currently under development. It will be available in May 2019. Sign-up details and associated costs will be released at that time.
