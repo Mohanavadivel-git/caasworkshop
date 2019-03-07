@@ -2,7 +2,7 @@
 
 This is a hands-on, training workshop to get application development teams started in Ford's Container as a Service platform.
 
-![](images/OpenShift_Logo.svg)
+![OpenShift Logo](images/OpenShift_Logo.svg)
 
 This workshop will provide instructions to build application container images, then deploying these images to the CaaS platfom. Workshop participants will experience deploying a sample application to a local CaaS environment on their own workstation. In doing so, participants will learn how they can take the applications they build and deploy to Ford's CaaS platform.
 
