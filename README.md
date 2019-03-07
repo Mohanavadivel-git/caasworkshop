@@ -8,16 +8,16 @@ This workshop will provide instructions to build application container images, t
 
 # Agenda
 
-#### Day 1, App Container Images
+#### Lesson 1, App Container Images
 - Setting up the CaaS localdev environment on your workstation.
 - Building your first app container image.
 - Understanding Ford's container image registry.
 
-#### Day 2, Running Apps in CaaS
+#### Lesson 2, Running Apps in CaaS
 - Running the app container images built in the last lesson in Openshift.
 - Managing app container resources.
 
-#### Day 3, Advanced Topics
+#### Lesson 3, Advanced Topics
 - Monitoring app performance.
 - Utilizing persistent storage options.
 - Configuring vanity URLs and TLS security.
