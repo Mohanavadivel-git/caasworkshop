@@ -32,3 +32,7 @@ Course content is targeted for a Windows environment using Git Bash for Windows 
 # Schedule
 
 The workshop is currently under development. It will be available in May 2019. Sign-up details and associated costs will be released at that time.
+
+# Begin Workshop
+
+Begin with [Lesson 1](./lesson1.1.md).

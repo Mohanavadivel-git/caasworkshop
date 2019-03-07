@@ -7,3 +7,7 @@
   - Using other tools, buildah, podman, docker
 - Image Registries
   - Ford's Quay Registry
+  
+---  
+
+Continue to [Lesson 2](./lesson2.1.md).

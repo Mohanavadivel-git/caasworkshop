@@ -1,4 +1,7 @@
-### Vanity URLs and TLS Certificate
+# Lesson 3, Advanced Topics
+
+### Vanity URLs and TLS Certificates
+
 The CaaS platform provides the subdomain `*.app.caas.ford.com` that can be used to build a unique URL for an app. This will satisfy many uses; however, if the app is customer-facing, app teams may desire a [vanity URL](https://en.wikipedia.org/wiki/Vanity_domain).
 
 At a high-level, to establish a new vanity URL, an app team will need to:

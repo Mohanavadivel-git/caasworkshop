@@ -22,4 +22,4 @@ If your app is deployed on CaaS, you get basic monitoring of your app's resource
 
 ---
 
-On to [Lesson 3.2](./lesson3.2.md).
+Continue to [Lesson 3.2](./lesson3.2.md).
