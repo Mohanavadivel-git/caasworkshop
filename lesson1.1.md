@@ -6,7 +6,7 @@ Begin by preparing your workstation with the pre-requisite software for the work
 
 CaaS is Ford's container as a service offering. It is an app hosting platform.
 
-At Ford, we currently use RedHat's OpenShift Container Platform to provide CaaS. We could have selected a different product, so we will use the generic term CaaS to refer to the service offering.
+At Ford, we currently use RedHat's OpenShift Container Platform to provide CaaS although there are many other products in the market that could also provide a similar capability. For this reason, we will use the generic term CaaS to refer to the service offering.
 
 To use CaaS, as an app team, you have responsibility for building your app and building an associated app container image. Then you take that app container image and upload it to the CaaS platform. From there CaaS will run your app container, and in doing so, run your app.
 
@@ -18,16 +18,12 @@ In contrast, the CaaS platform is highly configurable. For example, app teams ha
 
 ### What is CaaS localdev?
 
-- Localdev
-  - Installing dependencies: vagrant, virtual box, git
-  - Installing localdev repo and starting the vm
-  - Testing the installation in a browser and with cli
-- Building an App Container Image
-  - Docker 101, Dockerfile
-  - Using other tools, buildah, podman, docker
-- Image Registries
-  - Ford's Quay Registry
-  
+The CaaS engineering team provides a light-weight installation of CaaS that you can run locally on your workstation. We call this CaaS localdev, or just localdev in this course.
+
+App teams should use localdev when building their application, app container image, and CaaS configuration manifest files. The localdev installation simulates Ford's production CaaS instance. It allows teams to test their app locally, then upload their app to Ford's production CaaS instance knowing the app will perform similarly.
+
+Localdev is also a good place to learn about CaaS. It is free; there is no onboarding delay; and you can run it without a network connection.
+
 ---  
 
-Continue to [Lesson 2](./lesson2.1.md).
+Continue to [Lesson 1.2](./lesson1.2.md).
