@@ -24,8 +24,9 @@ This workshop will provide instructions to build application container images, t
 - Using Jenkins and other CI/CD tools.
 
 # Pre-requisites and Equipment
-- Working knowledge of git and github (basic stuff like cloning repos).
 - Your own developer-class laptop with minimal 4 CPU cores and 8GB of RAM. An underpowered laptop that is used mostly for checking email WILL NOT WORK.
+- Install the required software on your laptop prior to class. The list of required software is at https://github.ford.com/containers/localdev#minimum-requirements. This includes Git, Vagrant, VirtualBox, etc...
+- Basic knowledge of command line and git/github. Simple stuff like cloning repos, moving files, etc...
 
 Course content is targeted for a Windows environment using Git Bash for Windows or other Bash terminal emulator. If you have a Mac and are a wiz with it, then come on. Just be aware that the instructor will not be able to answer Mac-specific questions, so you'll be on your own to translate commands from Windows to Mac and troubleshoot your own issues if things go off the rails.
 
