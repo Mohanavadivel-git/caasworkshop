@@ -88,4 +88,19 @@ Here are some java examples on the web.
   
 ### Jenkins Usage
 TBD
+
+CaaS onboarding https://github.ford.com/Containers/k8s-platform/blob/master/Day2/CaaS_Applications/User_docs/CaaS_Platform_Onboarding.md#application-namespace-on-boarding
+CaaS billing modelhttps://github.ford.com/Containers/k8s-platform/blob/master/Service-Management/CaaS-Operations.md#billing-model
+CaaS service model – Support/Incident https://github.ford.com/Containers/k8s-platform/blob/master/Service-Management/CaaS-Operations.md#incidents
+Container registry onboarding https://github.ford.com/Containers/k8s-platform/blob/master/Day2/CaaS_Applications/User_docs/CaaS_Platform_Onboarding.md#quay-on-boarding
+Container registry robot accounts https://github.ford.com/Containers/k8s-platform/blob/master/Day2/CaaS_Applications/User_docs/FAQ-Guide.md#quay-robot-account-process
+How to submit request for Application Mail relay registration in CaaS https://github.ford.com/Containers/k8s-platform/blob/master/Day2/CaaS_Applications/User_docs/FAQ-Guide.md#how-to-submit-request-for-application-mail-relay-registration-in-caas
+How create vanity url's https://github.ford.com/Containers/k8s-platform/blob/master/Day2/CaaS_Applications/User_docs/FAQ-Guide.md#how-to-enroll-or-create-custom-routevanity-url-in-openshift-platform-for-production
+How to expose applications externally https://github.ford.com/Containers/k8s-platform/blob/master/Day2/CaaS_Applications/User_docs/FAQ-Guide.md#how-to-enroll-or-create-custom-routevanity-url-in-openshift-platform-for-production
+
+RedHat Developer Account http://developers.redhat.com/register
+https://medium.com/@sbose78/running-keycloak-on-openshift-3-8d195c0daaf6 
+http://blog.keycloak.org/2018/05/keycloak-on-openshift.html
+
+
 -->

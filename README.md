@@ -14,7 +14,7 @@ This workshop will provide instructions to build application container images, t
 - Understanding Ford's container image registry.
 
 #### Lesson 2, Running Apps in CaaS
-- Running the app container images built in the last lesson in Openshift.
+- Running the app container images that were built in the last lesson in Openshift.
 - Managing app container resources.
 
 #### Lesson 3, Advanced Topics

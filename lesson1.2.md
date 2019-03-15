@@ -4,7 +4,7 @@
 
 Localdev uses Vagrant and VirtualBox to run a virtual machine on your workstation. The VM contains an installation of OpenShift as well as a set of container image build tools.
 
-CaaS localdev can be obtained from the localdev [repo](https://github.ford.com/containers/localdev) on GitHub. In the exercise below, you will install the pre-requisite dependencies for localdev, clone the repo, and start up localdev.
+CaaS localdev can be obtained from the localdev [repo](https://github.ford.com/containers/localdev) on GitHub. In the exercise below, you will install the pre-requisite dependencies for localdev, clone the localdev repo, and start up localdev.
 
 #### Exercise
 
@@ -44,9 +44,9 @@ Please verify if your host IP is 19.47.12.230 [y/n] y  <------------------------
 
 When you issue `vagrant up` vagrant is starting the localdev VM in the VirtualBox hypervisor. It will take a while for the VM to start. Review the [Quickstart](https://github.ford.com/containers/localdev#quick-start) section in the localdev README while you wait.
 
-Also note that we are using the `build-host` profile, so the VM that starts will not be running CaaS. You'll notice if you try to access localdev from a web browser, you'll get an error because OpenShift isn't started. That's OK because we will just be building container images in the next exercise which is what the `build-host` profile is optimized for.
+Also note that you are using the `build-host` profile, so the VM that starts will *NOT* be running CaaS. That's OK because you will just be building container images in the next exercise which is what the `build-host` profile is optimized for. Just pointing this out because you'll notice if you try to access localdev from a web browser, you'll get an error because OpenShift isn't started.
 
-Once the scrolling stops and you get your terminal prompt back, check the status of the VM. The response should look like this:
+Once the scrolling stops from the `vagrant up` command and you get your terminal prompt back, check the status of the VM. The response should look like this:
 
 ```
 $ vagrant status
