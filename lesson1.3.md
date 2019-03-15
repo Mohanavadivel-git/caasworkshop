@@ -12,7 +12,7 @@ This lesson focuses on building a container image for your app. The activities i
 
 The CaaS team maintains a repository of sample apps that will run on CaaS. You will clone this repo locally, and then go through the process of building a container image with one of the sample apps.
 
-1. Clone the [samples repo](https://github.ford.com/JPOTTE46/samples) <!--- [samples repo](https://github.ford.com/Containers/samples).. -->
+1. Clone the [samples repo](https://github.ford.com/JPOTTE46/samples) 
 ```
 # Change directory to your project workspace if you have a preferred one.
 $ cd ~/workspace
@@ -21,7 +21,7 @@ $ cd ~/workspace
 $ git clone git@github.ford.com:JPOTTE46/samples.git
 
 ``` 
-<!--- $ git clone git@github.ford.com:Containers/samples.git -->
+
 
 1. Go through the samples repository README and configure synchronized folders using to these [instructions](https://github.ford.com/JPOTTE46/samples#configure-synchronized-folders).
    - This will allow you to access your local copy of the samples repo from within the localdev VM.
