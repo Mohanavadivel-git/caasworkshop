@@ -21,10 +21,10 @@ $ cd ~/workspace
 $ git clone git@github.ford.com:JPOTTE46/samples.git
 
 ```
-1. Go through the samples repository README and configure synchronized folders using to these [instructions](https://github.ford.com/JPOTTE46/samples#configure-synchronized-folders).
+2. Go through the samples repository README and configure synchronized folders using to these [instructions](https://github.ford.com/JPOTTE46/samples#configure-synchronized-folders).
    - This will allow you to access your local copy of the samples repo from within the localdev VM.
-1. Build the container image for a sample app (let's use the python app) using these [instructions](https://github.ford.com/JPOTTE46/samples#building-the-container-image).
-1. Run the container image to test it using these [instructions](https://github.ford.com/JPOTTE46/samples#running-the-container-image-locally-to-test).
+3. Build the container image for a sample app (let's use the python app) using these [instructions](https://github.ford.com/JPOTTE46/samples#building-the-container-image).
+4. Run the container image to test it using these [instructions](https://github.ford.com/JPOTTE46/samples#running-the-container-image-locally-to-test).
 
 ---  
 
