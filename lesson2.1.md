@@ -6,6 +6,8 @@ Next you will be deploying to CaaS localdev the container image you built in the
 
 Your instance of localdev is probably still running with the `build-host` profile. Which is optimized for building container images, but does not start the OpenShift service. So before you can deploy the app container, you need to restart CaaS localdev with the `basic-cnx` profile. Instructions for doing this are included in the exercise notes below.
 
+Reminder: Must run shell as administrator
+
 #### Exercise
 
 ```
