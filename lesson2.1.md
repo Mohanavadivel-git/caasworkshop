@@ -23,6 +23,18 @@ $ vagrant box prune
 $ vagrant up
 ```
 
+#### Configure synchronized folders
+
+To set up synchronized folders, configure an `ADDITIONAL_SYNCED_FOLDERS` env var. For example, if you were to clone this repository to `/Users/CDSID/Projects/workspace/samples` then you could setup an env var to mount the samples repo to `/home/vagrant/containers` inside the VM using the commands below.
+
+```
+# On MacOS/Linux and GitBash for Windows
+$ export ADDITIONAL_SYNCED_FOLDERS='/Users/CDSID/Projects/workspace/samples=>/home/vagrant/containers'
+
+# On Windows
+$env:ADDITIONAL_SYNCED_FOLDERS = 'C:/Users/CDSID/Projects/workspace/samples=>/home/vagrant/containers'
+```
+
 Now your instance of localdev has started with a full installation of OpenShift. Test to confirm that OpenShift is running and ready by opening the web management in a browser at https://console.oc.local:8443/. Your browser will give you an error about the self-signed SSL certificate, but just tell it to proceed anyway. And you will have to do that twice because of a redirect.
 
 Once you get a log in prompt, use the following:

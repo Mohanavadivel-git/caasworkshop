@@ -25,6 +25,12 @@ $ git checkout -b tags/v3.11.82-1
 # Set an env var to use the build-host profile.
 $ export LOCAL_DEV_PROFILE='build-host'
 
+# On Windows Powershell
+$env:LOCAL_DEV_PROFILE = 'build-host'
+
+# On Windows legacy command shell
+SET LOCAL_DEV_PROFILE='build-host'
+
 # Start up localdev virtual machine.
 $ vagrant up
 
