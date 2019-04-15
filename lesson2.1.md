@@ -4,35 +4,31 @@
 
 Next you will be deploying to CaaS localdev the container image you built in the last session. Deploying to localdev is similar to how you might deploy the container image to the production instance of CaaS.
 
-Your instance of localdev is probably still running with the `build-host` profile. Which is optimized for building container images, but does not start the OpenShift service. So before you can deploy the app container, you need to restart CaaS localdev with the `basic-cnx` profile. Instructions for doing this are included in the exercise notes below.
+<!-- Your instance of localdev is probably still running with the `build-host` profile. Which is optimized for building container images, but does not start the OpenShift service. So before you can deploy the app container, you need to restart CaaS localdev with the `basic-cnx` profile. Instructions for doing this are included in the exercise notes below. -->
 
 Reminder: Must run shell as administrator
+
 
 #### Exercise
 
 ```
 # Change the localdev profile and restart VM
 $ cd ~/workspace/localdev
+
+# If not already set, then set profile.
 $ export LOCAL_DEV_PROFILE='basic-cnx'
 
-# Remove all traces of localdev that was created with previous profile
+# If not already set, then set synchronized folders. Modify the path and CDSID for your environment.
+$ export ADDITIONAL_SYNCED_FOLDERS='/Users/CDSID/Projects/workspace/samples=>/home/vagrant/containers'
+
+# On Windows
+$env:ADDITIONAL_SYNCED_FOLDERS = 'C:/Users/CDSID/Projects/workspace/samples=>/home/vagrant/containers'
+
 $ vagrant destroy -f
 $ vagrant box update
 $ vagrant box prune
 
 $ vagrant up
-```
-
-#### Configure synchronized folders
-
-To set up synchronized folders, configure an `ADDITIONAL_SYNCED_FOLDERS` env var. For example, if you were to clone this repository to `/Users/CDSID/Projects/workspace/samples` then you could setup an env var to mount the samples repo to `/home/vagrant/containers` inside the VM using the commands below.
-
-```
-# On MacOS/Linux and GitBash for Windows
-$ export ADDITIONAL_SYNCED_FOLDERS='/Users/CDSID/Projects/workspace/samples=>/home/vagrant/containers'
-
-# On Windows
-$env:ADDITIONAL_SYNCED_FOLDERS = 'C:/Users/CDSID/Projects/workspace/samples=>/home/vagrant/containers'
 ```
 
 Now your instance of localdev has started with a full installation of OpenShift. Test to confirm that OpenShift is running and ready by opening the web management in a browser at https://console.oc.local:8443/. Your browser will give you an error about the self-signed SSL certificate, but just tell it to proceed anyway. And you will have to do that twice because of a redirect.
