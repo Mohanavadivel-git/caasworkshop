@@ -19,10 +19,15 @@ $ cd ~/workspace/localdev
 $ export LOCAL_DEV_PROFILE='basic-cnx'
 
 # If not already set, then set synchronized folders. Modify the path and CDSID for your environment.
+
+#On MacOS
 $ export ADDITIONAL_SYNCED_FOLDERS='/Users/CDSID/Projects/workspace/samples=>/home/vagrant/containers'
 
-# On Windows
+# On Windows Powershell
 $env:ADDITIONAL_SYNCED_FOLDERS = 'C:/Users/CDSID/Projects/workspace/samples=>/home/vagrant/containers'
+
+#On Windows GitBash
+$ export ADDITIONAL_SYNCED_FOLDERS='/C/Users/CDSID/Projects/workspace/samples=>/home/vagrant/containers'
 
 $ vagrant destroy -f
 $ vagrant box update
