@@ -5,7 +5,7 @@ Before attending the workshop, you must pre-install some software on your laptop
 At a high level, these set up instructions will install Vagrant and VirtualBox on your workstation which will be used to run a virtual machine (VM). During the workshop, you will be working from the VM to complete the exercises.
 
 ### Install Software on Workstation
-- Ensure that you workstation meets the minimal requirement of **4 CPU cores and 8GB of RAM**.
+- Ensure that your workstation meets the minimal requirement of **4 CPU cores and 8GB of RAM**.
 - Install the following software on your workstation.
   - Text editor of your choice, such as Notepad++, Eclipse, IntelliJ, [Visual Studio Code](https://code.visualstudio.com/), etc...
   - [Git](https://git-scm.com/downloads)
@@ -69,7 +69,7 @@ openshift-enterprise-3.11.98-master running (virtualbox)
 The VM is running...
 ```
 
-If the output looks like the above, then you have a running VM on your workstation that is running a local copy of OpenShift CaaS!
+If the output looks like the output above, then you have a running VM on your workstation that is running a local copy of OpenShift CaaS!
 <!--
 Leave the terminal open because you will come back to it soon to suspend the VM.
 
