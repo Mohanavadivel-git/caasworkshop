@@ -10,9 +10,7 @@ At a high level, these set up instructions will install Vagrant and VirtualBox o
   - Text editor of your choice, such as Notepad++, Eclipse, IntelliJ, [Visual Studio Code](https://code.visualstudio.com/), etc...
   - [Git](https://git-scm.com/downloads)
   - [Vagrant v2.2.2+](https://www.vagrantup.com/downloads.html)
-  - VirtualBox v6.0.0+
-    - [VirtualBox Windows download](https://files.caas.ford.com:9443/virtualbox/6.0.4/VirtualBox-6.0.4-128413-Win.exe)
-    - [VirtualBox MacOS download](https://files.caas.ford.com:9443/virtualbox/6.0.4/VirtualBox-6.0.4-128413-OSX.dmg)
+  - VirtualBox v6.0.0+, [Windows download](https://files.caas.ford.com:9443/virtualbox/6.0.4/VirtualBox-6.0.4-128413-Win.exe) or [MacOS download](https://files.caas.ford.com:9443/virtualbox/6.0.4/VirtualBox-6.0.4-128413-OSX.dmg)
 
 ### Get CaaS Localdev
 
@@ -38,7 +36,7 @@ SET LOCAL_DEV_PROFILE='basic-cnx'     # <----- Windows legacy command/cmd shell
 vagrant up
 
 # You will be prompted to confirm your IP address. Press Y to confirm it. See example output below.
-# After that, you can take a break if you want because the install 
+# After that, you can take a break if you want because the install
 # can take up to 15 minutes even on a hard-wired network connection.
 
  INFO oc-localdev: OpenShift localdev v3.11.98-1
