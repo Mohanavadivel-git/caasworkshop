@@ -1,6 +1,8 @@
 # Lesson 1, App Container Images
 
-Begin by preparing your workstation with the pre-requisite software for the workshop. Then you will use these tools to build an app container image.
+### Pre-Requisites
+
+Did you set up your workstation with CaaS localdev yet? If not, complete the [instructions](workstation-setup.md).
 
 ### What is Ford's CaaS?
 

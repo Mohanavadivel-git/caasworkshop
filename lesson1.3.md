@@ -1,31 +1,23 @@
 # Lesson 1, App Container Images
 
-### Building Container Images with Localdev
+### Container Image Registries
 
 The big picture...
 
 ![CaaS Workflow](https://github.ford.com/Containers/localdev/blob/master/docs/images/CaaS-LocalDev.png)
 
-This lesson focuses on building a container image for your app. The activities in this lesson correspond to boxes 1, 2, and 3 in the above diagram. If you have no experience with container images, you should check out the [Get Started](https://docs.docker.com/get-started/) tutorial on Docker's website.
+This lesson focuses on understanding container image registries. At Ford, we use a tool called Quay to provide an on-premise registry to store images. If you are familiar with Docker Hub on the public internet, Quay is similar.
 
-#### Exercise
+Quay is secured and since you likely do not have an account, there is no hands-on exercise.
 
-The CaaS team maintains a repository of sample apps that will run on CaaS. You will clone this repo locally, and then go through the process of building a container image with one of the sample apps.
+Jump over to the samples repository README again and review the section on [pushing an image to a container registry](https://github.ford.com/JPOTTE46/samples#optional-pushing-an-image-to-container-registry).
 
-1. Clone the [samples repo](https://github.ford.com/JPOTTE46/samples) 
-```
-# Change directory to your project workspace if you have a preferred one.
-$ cd ~/workspace
+#### Requesting Quay Access
 
-# Clone the samples git repo.
-$ git clone git@github.ford.com:JPOTTE46/samples.git
+App teams that need access to Quay can request it using these [instructions](https://github.ford.com/Containers/k8s-platform/blob/master/Day2/CaaS_Applications/User_docs/CaaS_Platform_Onboarding.md#quay-on-boarding.)
 
-```
-2. Go through the samples repository README and configure synchronized folders using to these [instructions](https://github.ford.com/JPOTTE46/samples#configure-synchronized-folders).
-   - This will allow you to access your local copy of the samples repo from within the localdev VM.
-3. Build the container image for a sample app (let's use the python app) using these [instructions](https://github.ford.com/JPOTTE46/samples#building-the-container-image).
-4. Run the container image to test it using these [instructions](https://github.ford.com/JPOTTE46/samples#running-the-container-image-locally-to-test).
+The production instance of Quay is at https://registry.ford.com/.
 
 ---  
 
-Continue to [Lesson 1.4](./lesson1.4.md).
+Continue to [Lesson 2](./lesson2.1.md).
