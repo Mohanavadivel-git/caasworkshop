@@ -32,7 +32,9 @@ Course content is targeted for a Windows environment using Git Bash for Windows 
 
 # Schedule
 
-The workshop is currently under development. It will be available in May 2019. Sign-up details and associated costs will be released at that time.
+The workshop is offered once per month. The duration is two 4-hour sessions offered typically on two consecutive days. It is currently offered for no charge.
+
+To attend, sign up [here](https://it2.spt.ford.com/sites/dev/Lists/RegisterForEvent/newform.aspx).
 
 # Begin Workshop
 
