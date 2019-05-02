@@ -22,7 +22,6 @@ To submit a request to the DNS team:
 1. Set Category=Alias.
 1. Set Location. If you need the vanity URL external-facing, set Location=External DNS. If you need the vanity URL internal-facing, set location=Internal DNS. If you need both, submit one DNS request for each resulting in a total of two requests.
 1. Set Hostname=`caas.app.ford.com`. This is where traffic destined for the vanity URL will be forwarded (the CaaS platform).
-1. Set Subnet or IP=`19.13.2.3` for internal-facing and `136.2.64.8` for external-facing.
 1. Set Alias=`<YOUR_VANITY_URL>`. For example, `www.electrictrucks.ford.com`.
 1. Complete the remainder of the form. DO NOT click submit for this class, but if you were actually going to submit a real DNS request, you would click submit.
 
@@ -37,7 +36,6 @@ If approved, the DNS team will configure this vanity URL on Ford's DNS servers. 
 Create an OpenShift route object which includes your vanity URL.
 1. Building on the sample app, open the `manifest/python.yaml` file for editing.
 1. Add the vanity URL to the existing route object and save the file. See below.
-1. Deploy the app to CaaS again.
 
 ```
 ---
@@ -55,6 +53,13 @@ spec:
   tls:
     termintaion: edge
     insecureEdgeTerminationPolicy: Redirect
+```
+
+1. Deploy the app to CaaS again.
+
+```
+oc delete route/python
+oc create -f /home/vagrant/containers/python/manifest/python.yaml
 ```
 
 Now when traffic destined for `www.saffron.ford.com` arrives at the CaaS platform, it will be forwarded to the `python` app. This concludes the steps necessary to route traffic to the app.

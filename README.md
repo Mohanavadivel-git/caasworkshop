@@ -16,12 +16,17 @@ This workshop will provide instructions to build application container images, t
 #### Lesson 2, Running Apps in CaaS
 - Running the app container images that were built in the last lesson in Openshift.
 - Managing app container resources.
+- Best practices for CaaS apps.
 
 #### Lesson 3, Advanced Topics
 - Monitoring app performance.
+- More to come in the future.
+<!--
+- Viewing app logs.
 - Utilizing persistent storage options.
 - Configuring vanity URLs and TLS security.
 - Using Jenkins and other CI/CD tools.
+-->
 
 # Pre-requisites and Equipment
 - Your own developer-class laptop with minimal 4 CPU cores and 8GB of RAM. An underpowered laptop that is used mostly for checking email WILL NOT WORK.

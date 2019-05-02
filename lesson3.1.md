@@ -24,4 +24,5 @@ If you need more app performance monitoring capabilities than the basic monitori
 
 ---
 
-Continue to [Lesson 3.2](./lesson3.2.md).
+This is the end of the course.
+<!-- Continue to [Lesson 3.2](./lesson3.2.md). -->

@@ -6,15 +6,26 @@ In this lesson, you will deploy the container image that you built to CaaS local
 
 #### Background on CaaS manifest files
 
-The python sample app has a CaaS manifest file at `manifest/python.yml`. The file is a configuration for how OpenShift should run the app and defines the app's OpenShift resources to be created. Feel free to review the manifest for the sample app you plan to deploy in a text editor or in the terminal with `less /home/vagrant/containers/python/manifest/python.yml`. You can learn more about [resources](https://docs.openshift.com/container-platform/3.11/architecture/core_concepts/index.html#architecture-core-concepts-index) and [manifests](https://docs.openshift.com/container-platform/3.11/dev_guide/templates.html) in the OpenShift [Dev Guide](https://docs.openshift.com/container-platform/3.11/dev_guide/index.html).
+The python sample app has a CaaS manifest file at `manifest/python.yml`. The file is a configuration for how OpenShift should run the app and defines the app's OpenShift objects to be created. Feel free to review the manifest for the sample app you plan to deploy in a text editor or in the terminal with `less /home/vagrant/containers/python/manifest/python.yml`. You can learn more about [objects](https://docs.openshift.com/container-platform/3.11/architecture/core_concepts/index.html#architecture-core-concepts-index) and [manifests](https://docs.openshift.com/container-platform/3.11/dev_guide/templates.html) in the OpenShift [Dev Guide](https://docs.openshift.com/container-platform/3.11/dev_guide/index.html).
 
-The python sample app's manifest will create 5 kinds of OpenShift resources.
+The python sample app's manifest defines 5 kinds of OpenShift objects.
 
 - Deployment
 - Service
 - Route
 - PodDisruptionBudget
 - HorizontalPodAutoscaler
+
+In the Deployment object, you can define your app containers compute resources. Review the documentation on [compute resources](https://docs.openshift.com/container-platform/3.11/dev_guide/compute_resources.html#dev-compute-resources) in the OpenShift Dev Guide. In this object, you can also define probes to check the health of your app container. Review the documentation on [application health](https://docs.openshift.com/container-platform/3.11/dev_guide/application_health.html) in the OpenShift Dev Guide.
+
+The Service object configures an internal load balancer that will load balance traffic across multiple instances of your app container. The service object will be dynamically assigned an IP address and will proxy traffic to the app container. Review the documentation on [services](https://docs.openshift.com/container-platform/3.11/architecture/core_concepts/pods_and_services.html#services) in the OpenShift Dev Guide.
+
+The Route object configures a host name that is associated with the Service object allowing external clients to reach your app container through a URL. Review the documentation on [routes](https://docs.openshift.com/container-platform/3.11/architecture/networking/routes.html) in the OpenShift Dev Guide.
+
+The PodDisruptionBudget object ensures that OpenShift will maintain a minimum number of app instances during platform maintenance events. Review the documentation on [disruption budgets](https://docs.openshift.com/container-platform/3.11/admin_guide/managing_pods.html#managing-pods-poddisruptionbudget) in the OpenShift Dev Guide.
+
+The HorizontalPodAutoscaler object configures OpenShift to automatically increase and decrease the number of app instances based on CPU utilization. Review the documentation on [autoscaler](https://docs.openshift.com/container-platform/3.11/dev_guide/pod_autoscaling.html) in the OpenShift Dev Guide.
+
 
 #### Exercise
 
@@ -111,7 +122,7 @@ Date: Mon, 25 Feb 2019 21:24:09 GMT
 ```
 -->
 
-The app manifest created a route resource in front of the app. Show the route address with `oc get`.
+The app manifest created a route object in front of the app. Show the route address with `oc get`.
 
 ```
 oc get routes
@@ -142,13 +153,13 @@ Connection: keep-alive
 
 There is a good bit going on with that curl command above; `--head` sends an HTTP HEAD instead of a GET (don't send back a body), `--insecure` is necessary on localdev because the certificate that is returned is self-signed (this will not be the case in Ford's production CaaS), `--location` causes curl to follow redirects and in this case an initial, unencrypted call is being redirected to HTTPS.
 
-Feel free to view all of the resources associated with the app with `oc get` or use `oc describe` to review them in detail. Then you can delete the resources when you are finished.
+Feel free to view all of the objects associated with the app with `oc get` or use `oc describe` to review them in detail. Then you can delete the objects when you are finished.
 
 ```
-# List resources with label app=python
+# List objects with label app=python
 oc get all -l app=python
 
-# Delete all resources with label app=python when you're done.
+# Delete all objects with label app=python when you're done.
 oc delete all -l app=python
 ```
 
