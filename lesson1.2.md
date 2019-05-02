@@ -118,7 +118,7 @@ Server: Werkzeug/0.14.1 Python/2.7.13
 Date: Thu, 21 Feb 2019 20:43:27 GMT
 
 # Stop and destroy the container.
-$ sudo podman container stop ${container_id}
+[vagrant@m1 ~]$ sudo podman container stop ${container_id}
 ```
 
 ---  

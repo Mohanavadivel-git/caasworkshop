@@ -11,6 +11,8 @@ This lesson will focus on more complicated use cases as well as additional topic
 
 If your app is deployed on CaaS, you get basic monitoring of your app's resource utilization by default. The platform provides a real-time monitoring dashboard built using the Prometheus and Grafana tools without additional cost.
 
+If you need more app performance monitoring capabilities than the basic monitoring provided by the platform, you can connect your app to Ford's Dynatrace instance for a cost. You can sign up on the [Dynatrace team website](https://it1.spt.ford.com/sites/L1POE/Public/SitePages/Dynatrace.aspx).
+
 ![Grafana Screenshot](images/monitoring1.png)
 
 #### Exercise
