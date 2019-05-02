@@ -20,6 +20,9 @@ cd ~/workspace
 
 # Clone the samples git repo.
 git clone git@github.ford.com:JPOTTE46/samples.git
+
+# Or clone the repo using https if your workstation is not configured to use ssh.
+git clone https://github.ford.com/JPOTTE46/samples.git
 ```
 3. Configure synchronized folders between your workstation and the localdev VM so that you can access the samples repo from within the localdev VM. To set up a synchronized folder, customize then execute the commands below to configure an `ADDITIONAL_SYNCED_FOLDERS` environment variable. The value of this variable should be the full path to the samples repo that you cloned in the previous step, followed by the characters `=>`, followed by `/home/vagrant/containers`. For example, if you cloned the samples repository to `/c/Users/CDSID/workspace/samples`, then you would set up the env var with one of the commands below.
 ```
@@ -50,6 +53,8 @@ vagrant ssh
 best-practices.md  DTaaS  http-echo  jenkins  leap  perl  python  README.md  simple_nodejsapp  springboot  toolbox
 ```
 You should see multiple files in `/home/vagrant/containers`. If you do not, let the instructor know you need help.
+
+**>>>>>>> THIS IS A GREAT TIME FOR A BREAK <<<<<<<**
 
 <!--
 If the VM was already running before you set the ADDITIONAL_SYNCED_FOLDERS env var, then restart it so it will pick up the settings.
