@@ -8,7 +8,7 @@ Openshift comes with an NFS provisioner in localdev. The storage provisioner car
 
 ### Class Types
 
-The StorageClass are different "classes" of storage that are offered. They might differ in qualityof-service levels, backup policies, or other arbitrary policies. In localdev (and in the exercise) the, the storage class available is NFS. In production Openshift, the classes are: 
+The StorageClass are different "classes" of storage that are offered. They might differ in quality-of-service levels, backup policies, or other arbitrary policies. In localdev (and in the exercise), the storage class available is NFS. In production Openshift, the classes are: 
 
 - ecc-block-performance
 - ecc-file-performance
@@ -17,15 +17,18 @@ The StorageClass are different "classes" of storage that are offered. They might
 - edc1h1-file-extreme
 - edc1h1-file-performance
 
-> NOTE: Block volumes CANNOT be attached to multiple container instances at the same time - file volumes CAN. Mounting and cross-mounting are only for file based storage plans - block storage plans cannot be concurrently mounted. 
+> :exclamation: Block volumes CANNOT be attached to multiple container instances at the same time - file volumes CAN. Mounting and cross-mounting are only for file based storage plans - block storage plans cannot be concurrently mounted.
 
 ### Access Types
 
-- Single User (RWO)
-- Shared Access (RWX)
-- Read Only (ROX)
+- Single User (RWO - Read Write Once)
+  - The volume can be mounted as read-write by a single node
+- Shared Access (RWX - Read Write Many)
+  - The volume can be mounted as read-write by many nodes
+- Read Only (ROX - Read Only Many)
+  - The volume can be mounted read-only by many nodes
 
-> NOTE: Need to provide shared access if you want multiple applications to be able to write to it (e.g FTP Server)
+> :point_right: Need to provide shared access if you want multiple applications to be able to write to it (e.g FTP Server)
 
 ## Exercise
 
@@ -41,26 +44,26 @@ The StorageClass are different "classes" of storage that are offered. They might
 
 2. Navigate to the [python sample project](https://api.oc.local:8443/console/project/python/overview) and click the Storage tab/icon and click "Create Storage". 
 
-3. Fill out the form with the following options
+3. Fill out the form with the following options and click create
 - **Storage Class**: nfs
 - **Name**: my-storage-claim
 - **Access Mode**: Shared Access (RWX)
 - **Size**: 5 MiB
 
-> NOTE: Size of volume needs to fit within the constraints of your app size limits - hence the small size of this drive
+> :floppy_disk: Size of volume needs to fit within the constraints of your app size limits - hence the small size of this drive
 
 ### Applying the Changes in the Manifest
 
 4. Open the samples repo you previously cloned and open the python.yaml file (located at /manifest/python.yaml) in your editor of choice
 
-> NOTE: Because your samples drive is mounted to the VM, you can edit the YAML file outside the VM
+> :raised_hands: Because your samples drive is mounted to the VM, you can edit the YAML file outside the VM
 
 5. Uncomment lines 124-130 in the python.yaml and save the changes.
 
 ```
         volumeMounts:
           - name: "volume-claim"
-            mountPath: "/home/newPath"
+            mountPath: "/home/new"
       volumes:
       - name: "volume-claim"
         persistentVolumeClaim:
@@ -115,6 +118,8 @@ I am writing to my new file share
 [vagrant@m1 ~]$ oc delete all -l app=python
 [vagrant@m1 ~]$ oc delete pvc my-storage-claim
 ```
+
+> :exclamation: :collision: :fire: Deleting your PVC will delete the file storage and all files saved there. :fire: :collision: :exclamation:
 
 ### Storage Creation via Manifest
 
