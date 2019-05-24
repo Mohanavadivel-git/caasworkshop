@@ -153,14 +153,11 @@ Connection: keep-alive
 
 There is a good bit going on with that curl command above; `--head` sends an HTTP HEAD instead of a GET (don't send back a body), `--insecure` is necessary on localdev because the certificate that is returned is self-signed (this will not be the case in Ford's production CaaS), `--location` causes curl to follow redirects and in this case an initial, unencrypted call is being redirected to HTTPS.
 
-Feel free to view all of the objects associated with the app with `oc get` or use `oc describe` to review them in detail. Then you can delete the objects when you are finished.
+Feel free to view all of the objects associated with the app with `oc get` or use `oc describe` to review them in detail.
 
 ```
 # List objects with label app=python
 oc get all -l app=python
-
-# Delete all objects with label app=python when you're done.
-oc delete all -l app=python
 ```
 
 ---  
