@@ -34,19 +34,19 @@ If approved, the DNS team will configure this vanity URL on Ford's DNS servers. 
 #### Exercise
 
 Create an OpenShift route object which includes your vanity URL.
-1. Building on the sample app, open the `manifest/python.yaml` file for editing.
-1. Add the vanity URL to the existing route object and save the file. See below.
+1. Building on the sample app, open the `springboot/manifest/deployment.yaml` file for editing.
+2. Add the vanity URL to the existing route object and save the file. See below. 
 
-```
+```yaml
 ---
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
   labels:
-    app: python
-  name: python
+    app: springboot-hello-world
+  name: springboot-hello-world
 spec:
-  host: python.app.oc.local
+  host: springboot-hello-world.app.oc.local
   host: www.saffron.ford.com  <---------------- ADD THIS
   port:
     targetPort: 8080
@@ -55,14 +55,14 @@ spec:
     insecureEdgeTerminationPolicy: Redirect
 ```
 
-1. Deploy the app to CaaS again.
+3. Deploy the app to CaaS again.
 
-```
-oc delete route/python
-oc create -f /home/vagrant/containers/python/manifest/python.yaml
+```bash
+oc delete route/springboot-hello-world
+oc apply -f /home/vagrant/containers/springboot/manifest/deployment.yaml
 ```
 
-Now when traffic destined for `www.saffron.ford.com` arrives at the CaaS platform, it will be forwarded to the `python` app. This concludes the steps necessary to route traffic to the app.
+Now when traffic destined for `www.saffron.ford.com` arrives at the CaaS platform, it will be forwarded to the `springboot-hello-world` app. This concludes the steps necessary to route traffic to the app.
 
 The next steps are related to configuring TLS security for the app using the vanity URL. The app team must create a TLS certificate associated with the vanity URL and configure their app to serve this certificate.
 
@@ -109,3 +109,7 @@ http://blog.keycloak.org/2018/05/keycloak-on-openshift.html
 
 
 -->
+
+---
+
+Continue to [Lesson 3.3](./lesson3.3.md)

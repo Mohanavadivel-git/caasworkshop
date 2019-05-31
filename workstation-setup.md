@@ -9,6 +9,7 @@ At a high level, these set up instructions will install Vagrant and VirtualBox o
 - Install the following software on your workstation.
   - Text editor of your choice, such as Notepad++, Eclipse, IntelliJ, [Visual Studio Code](https://code.visualstudio.com/), etc...
   - [Git](https://git-scm.com/downloads)
+        - Set up your SSH keys so that you can clone repos. See the [Github Sharepoint Site](https://it2.spt.ford.com/sites/FCAutomatedTesting/Pages/GitHub.aspx) for guides on how to setup Github and get the Github Desktop application
   - [Vagrant v2.2.2+](https://www.vagrantup.com/downloads.html)
   - VirtualBox v6.0.0+, [Windows download](https://files.caas.ford.com:9443/virtualbox/6.0.4/VirtualBox-6.0.4-128413-Win.exe) or [MacOS download](https://files.caas.ford.com:9443/virtualbox/6.0.4/VirtualBox-6.0.4-128413-OSX.dmg)
 
@@ -18,7 +19,7 @@ CaaS localdev is a VM image that runs a small installation of OpenShift CaaS. Wh
 
 Open a terminal as Administrator and complete the instructions below. Note that the instructions are optimized for Git Bash on Windows. You may have to modify the commands slightly if you are using PowerShell or cmd as your terminal.
 
-```
+```bash
 # Change directory to your project workspace if you have a preferred one.
 cd ~/workspace
 
@@ -28,9 +29,9 @@ cd localdev
 git checkout tags/v3.11.98-1
 
 # Pick ***ONE*** of the options below to set an env var used by localdev.
-export LOCAL_DEV_PROFILE='basic-cnx'  # <----- Git Bash/MacOS/Linux OR
-$env:LOCAL_DEV_PROFILE = 'basic-cnx'  # <----- Windows Powershell OR
-SET LOCAL_DEV_PROFILE='basic-cnx'     # <----- Windows legacy command/cmd shell
+export LOCAL_DEV_PROFILE='basic-cnx'  #<----- Git Bash/MacOS/Linux OR
+$env:LOCAL_DEV_PROFILE = 'basic-cnx'  #<----- Windows Powershell OR
+SET LOCAL_DEV_PROFILE='basic-cnx'     #<----- Windows legacy command/cmd shell
 
 # Start up localdev virtual machine.
 vagrant up
@@ -44,9 +45,9 @@ vagrant up
 Bringing machine 'openshift-enterprise-3.11.98-master' up with 'virtualbox' provider...
 ==> openshift-enterprise-3.11.69-master: Running triggers before up ...
 ==> openshift-enterprise-3.11.69-master: Executing trigger before up or provision...
-No environment variable 'DEFAULT_HOST_IP' found                                          |-------------|
-Please verify if your host IP is 19.47.12.230 [y/n] y  <---------------------------------| TYPE Y HERE |
- INFO oc-localdev: Writing CoreDNS Corefile                                              |-------------|
+No environment variable 'DEFAULT_HOST_IP' found                                          #|-------------|
+Please verify if your host IP is 19.47.12.230 [y/n] y  #<---------------------------------| TYPE Y HERE |
+ INFO oc-localdev: Writing CoreDNS Corefile                                              #|-------------|
  INFO oc-localdev: Writing CoreDNS zonefile
 ...
 ...
@@ -54,7 +55,7 @@ Please verify if your host IP is 19.47.12.230 [y/n] y  <------------------------
 
 Once the scrolling stops from the commands above and you get your terminal prompt back, check the status of the VM with `vagrant status`. The response should look like this:
 
-```
+```bash
 vagrant status
 
  INFO oc-localdev: OpenShift localdev v3.11.98-1
@@ -84,7 +85,7 @@ You will know the OpenShift Web Console is working if you get a web page with a 
 -->
 You will now suspend the VM by typing `vagrant suspend` in the terminal. This will gracefully pause and save the state of the VM. The response should look like this:
 
-```
+```bash
 vagrant suspend
 
  INFO oc-localdev: OpenShift localdev v3.11.98-1
@@ -94,4 +95,10 @@ vagrant suspend
 ==> openshift-enterprise-3.11.98-master: Saving VM state and suspending execution...
 ```
 
+See the [Vagrant Documentation](https://www.vagrantup.com/intro/getting-started/teardown.html) for the specifics between suspending, halting, and destroying. 
+
 You're done! At the workshop, you will be able to resume the VM quickly with `vagrant up`. If you want to know more about CaaS localdev, you can review the README in the localdev [repo](https://github.ford.com/containers/localdev) on GitHub.
+
+---
+
+[Return to Workshop](./lesson1.1.md)

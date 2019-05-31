@@ -18,11 +18,10 @@ If you need more app performance monitoring capabilities than the basic monitori
 #### Exercise
 
 1. Bring up the CaaS monitoring dashboard in a web browser. Go to https://grafana-openshift-monitoring.app.caas.ford.com. You might want to bookmark this link for future use.
-1. Click the drop-down menu in the upper left and select the `K8s / Computer Resources / Namespace`. This brings up a dashboard where you can filter by namespace.
-1. Let's view the resource utilization of apps in the Quay namespace. Use the namespace dropdown to select `quay-enterprise`.
-1. Here you can review the CPU and memory quota and utilzation of all pods associated with the Quay namespace. Use the tools in the upper right to adjust the timeframe.
+2. Click the drop-down menu in the upper left and select the `K8s / Computer Resources / Namespace`. This brings up a dashboard where you can filter by namespace.
+3. Let's view the resource utilization of apps in the Quay namespace. Use the namespace dropdown to select `quay-enterprise`.
+4. Here you can review the CPU and memory quota and utilzation of all pods associated with the Quay namespace. Use the tools in the upper right to adjust the timeframe.
 
 ---
 
-This is the end of the course.
-<!-- Continue to [Lesson 3.2](./lesson3.2.md). -->
+Continue to [Lesson 3.2](./lesson3.2.md)

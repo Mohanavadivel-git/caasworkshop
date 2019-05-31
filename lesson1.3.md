@@ -22,7 +22,7 @@ The production instance of Quay is at https://registry.ford.com/.
 
 At the end of the day, you should stop your localdev instance with the following commands from the terminal.
 
-```
+```bash
 # Exit out of the VM
 [vagrant@m1 ~]$ exit
 logout

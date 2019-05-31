@@ -11,20 +11,16 @@ Reminder: Must run shell as administrator
 
 #### Exercise
 
-```
+```bash
 # Set localdev profile.
-export LOCAL_DEV_PROFILE='basic-cnx'
+export LOCAL_DEV_PROFILE='basic-cnx'        # On Git Bash for Windows or MacOS
+$env:LOCAL_DEV_PROFILE='basic-cnx'          # On Windows Powershell 
 
-# Set synchronized folders like you did in the earlier lesson. Modify the path and CDSID for your environment.
+# Set synchronized folders like you did in the earlier lesson.
 
-    # On Git Bash for Windows
-    export ADDITIONAL_SYNCED_FOLDERS='/c/Users/CDSID/workspace/samples=>/home/vagrant/containers'
-
-    # On MacOS
-    export ADDITIONAL_SYNCED_FOLDERS='/Users/CDSID/workspace/samples=>/home/vagrant/containers'
-
-    # On Windows Powershell
-    $env:ADDITIONAL_SYNCED_FOLDERS = 'C:/Users/CDSID/workspace/samples=>/home/vagrant/containers'
+export ADDITIONAL_SYNCED_FOLDERS='/c/YOUR_PATH_TO_REPO/samples=>/home/vagrant/containers'  # Git Bash for Windows
+export ADDITIONAL_SYNCED_FOLDERS='/YOUR_PATH_TO_REPO/samples=>/home/vagrant/containers'    # MacOS
+$env:ADDITIONAL_SYNCED_FOLDERS = 'C:/YOUR_PATH_TO_REPO/samples=>/home/vagrant/containers'  # Windows Powershell
 
 # Change the localdev profile.
 cd ~/workspace/localdev
@@ -37,13 +33,13 @@ Now your instance of localdev has started and is running a full installation of 
 
 Once you get a log in prompt, use the following:
 
-```
+```yaml
 Username: admin
 Password: sandbox
 ```
 
 In addition to the web interface, you can communicate directly with the OpenShift API using a command line tool called `oc` from Red Hat, or the more generic Kubernetes command-line tool `kubectl`. This workshop uses `oc`. Go ahead log into the VM and authenticate to the OpenShift instance with the `oc` tool.
-```
+```bash
 vagrant ssh
 
 [vagrant@m1 ~]$ oc login https://api.oc.local:8443

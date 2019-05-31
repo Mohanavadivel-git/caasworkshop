@@ -8,7 +8,7 @@ Openshift comes with an NFS provisioner in localdev. The provisioner carries out
 
 ### Class Types
 
-The StorageClass are different "classes" of storage that are offered. They might differ in quality-of-service levels, backup policies, or other arbitrary policies. In localdev (and in the exercise), the storage class available is NFS. In production Openshift, the classes are: 
+The StorageClass are different "classes" of storage that are offered. They might differ in quality-of-service levels, backup policies, or other arbitrary policies. In localdev, the available storage classes are nfs and rook-ceph-block-replicated. We will be using nfs. In production Openshift, the classes are: 
 
 - ecc-block-performance
 - ecc-file-performance
@@ -34,13 +34,13 @@ The StorageClass are different "classes" of storage that are offered. They might
 
 ### Storage Creation via Web Console
 
-1. If you have not already completed building the sample application and pushing it to Openshift, return to [Lesson 1.2](https://github.ford.com/JPOTTE46/caas-workshop/blob/master/lesson1.2.md) and complete through Lesson 2.2. Then, delete the python app configuration. 
+1. If you have not already completed building the sample application and pushing it to Openshift, return to [Lesson 1.2](https://github.ford.com/JPOTTE46/caas-workshop/blob/master/lesson1.2.md) and work to this lesson. Then, delete the springboot app configuration. 
 
-```
-[vagrant@m1 ~]$ oc delete all -l app=python
+```bash
+[vagrant@m1 ~]$ oc delete all -l app=springboot-hello-world
 ```
 
-2. Navigate to the python sample project and click the Storage tab/icon and click "Create Storage". ([Direct Link](https://api.oc.local:8443/console/project/python/browse/storage))
+2. Navigate to the Springboot sample project and click the Storage tab/icon and click "Create". ([Direct Link](https://api.oc.local:8443/console/project/springboot-hello-world/browse/storage))
 
 3. Fill out the form with the following options and click create
 - **Storage Class**: nfs
@@ -52,18 +52,20 @@ The StorageClass are different "classes" of storage that are offered. They might
 
 ### Applying the Changes in the Manifest
 
-4. Open the samples repo you previously cloned and open the python.yaml file (located at /manifest/python.yaml) in your editor of choice
+4. Open the samples repo you previously cloned and open the deployment.yaml file (located at springboot/manifest/deployment.yaml) in your editor of choice
 
 > :raised_hands: Because your samples drive is mounted to the VM, you can edit the YAML file outside the VM
 
-5. Uncomment lines 124-130 in the python.yaml and save the changes. 
+5. Uncomment lines 124-130 in the deployment.yaml and save the changes. 
 
-> :eyes: If those lines are not there or do not align with the code below, please add them and ensure the tabbing/spacing aligns with the rest of the yaml file. 
+If you do not have those lines, please retrieve the [latest yaml file](https://github.ford.com/JPOTTE46/samples/blob/master/springboot/manifest/deployment.yaml) which will contain them. 
 
-```
+> :eyes: If you manually add these lines, the yaml needs to be properly aligned. In this example - volumeMounts needs to be aligned with "readinessProbe" and "volumes" needs to be aligned with "containers"
+
+```yaml
         volumeMounts:
           - name: "volume-claim"
-            mountPath: "/home/new"
+            mountPath: "/var/lib/new"
       volumes:
       - name: "volume-claim"
         persistentVolumeClaim:
@@ -75,48 +77,78 @@ The StorageClass are different "classes" of storage that are offered. They might
 
 6. Run the following command to apply the changes
 
-```
-
-[vagrant@m1 ~]$ oc apply -f ~/containers/python/manifest/python.yaml
+```bash
+[vagrant@m1 ~]$ oc apply -f ~/containers/springboot/manifest/deployment.yaml
 ```
 
 ### Verifying Results
 
-7. In the Openshift web console, [in the Python project, go to Applications->Pods](https://api.oc.local:8443/console/project/python/browse/pods). Selecting the Pod with a "Running" status and click the terminal tab. 
+7. In the Openshift web console, [in the Python project, go to Applications->Pods](https://api.oc.local:8443/console/project/springboot-hello-world/browse/pods). Selecting the Pod with a "Running" status and click the terminal tab. 
 
 8. In the Openshift terminal, confirm the mount path defined in the yaml file exists
 
-```
-(app-root)sh-4.2$ ls /home
-new
+```bash
+(app-root)sh-4.2$ ls /var/lib
+alternatives  dbus  games  initramfs  machines  misc  new  rhsm  rpm  rpm-state  systemd  yum
+# The drive "new" exists so we know the path was created successfully
 ```
 
-9. Write a new text file to this file share
-
+We can also access this pod terminal through our existing bash/powershell window using [`oc rsh <pod>`](https://docs.openshift.com/container-platform/3.11/dev_guide/ssh_environment.html)
+```bash
+[vagrant@m1 ~]$ oc rsh $(oc get pods -o name)
+sh-4.2$ ls /var/lib
+alternatives  dbus  games  initramfs  machines  misc  new  rhsm  rpm  rpm-state  systemd  yum
 ```
-(app-root)sh-4.2$ cd /home/new
+
+9. Let's write a text file to this file share. You can use the console method or the remote shell method. 
+
+```bash
+# Console Method
+(app-root)sh-4.2$ cd /var/lib/new
 (app-root)sh-4.2$ echo "I am writing to my new file share" > myFile.txt
 (app-root)sh-4.2$ cat myFile.txt
 I am writing to my new file share
 ```
 
-10. Return to your Bash/Powershell terminal and run the following commands to delete all existing pods
-
-```
-[vagrant@m1 ~]$ oc delete pod --all
-```
-
-11. After successfull deletion, return to the Openshift console and go to [Applicatons->Pods](https://api.oc.local:8443/console/project/python/browse/pods) and select the new running pod. Run the following command to confirm your file share still exists in the new pod. 
-
-```
-(app-root)sh-4.2$ cat /home/new/myFile.txt
+```bash
+# Remote shell method
+sh-4.2$ cd /var/lib/new
+sh-4.2$ echo "I am writing to my new file share" > myFile.txt
+sh-4.2$ cat myFile.txt
 I am writing to my new file share
 ```
 
-12. Return to your Bash/Powershell terminal and delete the file share and app configurations.
+10. We now are going to delete all the existing pods to demonstrate that the file persists. To do this, you must return to your bash/powershell window. If you `oc rsh` into the pod, then you must exit the pod first. 
 
+```bash
+# If you did not `rsh` into the pod, do not run the exit command
+sh-4.2$ exit       
+exit
+[vagrant@m1 ~]$ oc delete pod --all
 ```
-[vagrant@m1 ~]$ oc delete all -l app=python
+
+11. After successfull deletion of the pod, a new will pod will be spun up automatically. We will now show that file perisisted. You can either return to the Openshift console and go to [Applicatons->Pods](https://api.oc.local:8443/console/project/springboot-hello-world/browse/pods), select the new running pod, and go to the terminal.  Alternatively, you can `oc rsh` into the new pod from your bash/powershell window. 
+
+```bash
+# Console terminal method
+(app-root)sh-4.2$ cat /var/lib/new/myFile.txt
+I am writing to my new file share
+```
+
+```bash
+# Remote Shell Method
+[vagrant@m1 ~]$ oc rsh $(oc get pods -o name)
+sh-4.2$ cat /var/lib/new/myFile.txt
+I am writing to my new file share
+```
+
+12. If you ran the commands in the Console terminal, return to your Bash/Powershell terminal and delete the file share and app configurations. If you ran the command while `oc rsh` into the pod, exit first, and then run the delete command
+
+```bash
+# Run the below command only if you `oc rsh` into the pod
+sh-4.2$ exit
+
+[vagrant@m1 ~]$ oc delete all -l app=springboot-hello-world
 [vagrant@m1 ~]$ oc delete pvc my-storage-claim
 ```
 
@@ -124,11 +156,11 @@ I am writing to my new file share
 
 ### Storage Creation via Manifest
 
-13. Re-open the python.yaml in the manifest folder and uncomment lines 131-142
+13. Re-open the deployment.yaml in the manifest folder and uncomment lines 131-142
 
 > :eyes: If those lines are not there, please add them and ensure the tabbing/spacing aligns with the rest of the yaml file. 
 
-```
+```yaml
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -147,29 +179,52 @@ Everything we defined in step 3 we are now doing in the yaml file. We are defini
 
 14. Since we are using a different name, edit line 130 of the file to reflect this change.
 
-```
+```yaml
 claimName: "my-manifest-claim"
 ```
 
-15. Since we deleted to application configurations, run the create command again. 
+15. Since we deleted the application configurations, run the create command again. 
 
-```
-[vagrant@m1 ~]$ oc create -f /home/vagrant/containers/python/manifest/python.yaml
-```
-
-You'll see that the [storage was created with the name specified in line 135](https://api.oc.local:8443/console/project/python/browse/storage). Navigating to the terminal of a running pod, you will find the same mount path has been created. 
-
-```
-(app-root)sh-4.2$ ls /home
-new
+```bash
+[vagrant@m1 ~]$ oc create -f /home/vagrant/containers/springboot/manifest/deployment.yaml
 ```
 
-This path DOES NOT contain the myFile.txt we created earlier because that storage was deleted. When the storage is deleted, the provisioner in Openshift will delete the actual storage and contents.
+You'll see that the [storage was created with the name specified in line 135](https://api.oc.local:8443/console/project/springboot-hello-world/browse/storage). Navigating to the terminal of a running pod, you will find the same mount path has been created. 
 
-16. Return to your Bash/Powershell terminal and delete the file share and app configurations.
-
+```bash
+(app-root)sh-4.2$ ls /var/lib
+alternatives  dbus  games  initramfs  machines  misc  new  rhsm  rpm  rpm-state  systemd  yum
 ```
-[vagrant@m1 ~]$ oc delete all -l app=python
+
+Again, you can run this in the bash/powershell window after you `exec` into the pod. 
+
+```bash
+[vagrant@m1 ~]$ oc rsh $(oc get pods -o name)
+sh-4.2$ ls /var/lib
+alternatives  dbus  games  initramfs  machines  misc  new  rhsm  rpm  rpm-state  systemd  yum
+```
+
+As you can see, the `new` folder was created which serves as the mount point for our VM and the persistent volume claim. 
+
+This path **DOES NOT** contain the myFile.txt we created earlier because that storage was deleted. When the storage is deleted, the provisioner in Openshift will delete the actual storage and contents.
+
+16. Return to your Bash/Powershell terminal and delete the file share and app configurations. Once again, if you are `oc rsh` into the pod, exit first. 
+
+```bash
+# Only run the exit command if you are `rsh` into the pod
+sh-4.2$ exit
+exit
+[vagrant@m1 ~]$ oc delete all -l app=springboot-hello-world
 [vagrant@m1 ~]$ oc delete pvc my-manifest-claim
 ```
 
+17. Exit VM and destroy 
+```bash
+[vagrant@m1 ~]$ exit
+logout
+Connection to 127.0.0.1 closed.
+
+$ vagrant destroy -f
+```
+
+You have reached the end of the workshop :clap:

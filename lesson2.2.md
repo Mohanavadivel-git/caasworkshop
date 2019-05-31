@@ -6,9 +6,9 @@ In this lesson, you will deploy the container image that you built to CaaS local
 
 #### Background on CaaS manifest files
 
-The python sample app has a CaaS manifest file at `manifest/python.yml`. The file is a configuration for how OpenShift should run the app and defines the app's OpenShift objects to be created. Feel free to review the manifest for the sample app you plan to deploy in a text editor or in the terminal with `less /home/vagrant/containers/python/manifest/python.yml`. You can learn more about [objects](https://docs.openshift.com/container-platform/3.11/architecture/core_concepts/index.html#architecture-core-concepts-index) and [manifests](https://docs.openshift.com/container-platform/3.11/dev_guide/templates.html) in the OpenShift [Dev Guide](https://docs.openshift.com/container-platform/3.11/dev_guide/index.html).
+The Spring sample app has a CaaS manifest file at [`manifest/deployment.yaml`](https://github.ford.com/JPOTTE46/samples/blob/master/springboot/manifest/deployment.yaml). The file is a configuration for how OpenShift should run the app and defines the app's OpenShift objects to be created. Feel free to review the manifest using the link above, a text editor, or in the terminal with `cat /home/vagrant/containers/springboot/manifest/deployment.yaml`. You can learn more about [objects](https://docs.openshift.com/container-platform/3.11/architecture/core_concepts/index.html#architecture-core-concepts-index) and [manifests](https://docs.openshift.com/container-platform/3.11/dev_guide/templates.html) in the OpenShift [Dev Guide](https://docs.openshift.com/container-platform/3.11/dev_guide/index.html).
 
-The python sample app's manifest defines 5 kinds of OpenShift objects.
+The Spring sample app's manifest defines 5 kinds of OpenShift objects.
 
 - Deployment
 - Service
@@ -29,6 +29,15 @@ The HorizontalPodAutoscaler object configures OpenShift to automatically increas
 
 #### Exercise
 
+Ensure you have your image already built before moving on. If you destroyed the VM or powered off your PC, you might have to run the build script again. 
+```bash
+[vagrant@m1 ~]$ sudo podman images | grep springboot-hello-world -c
+1
+
+#If this is 0, you must run the build script again
+
+[vagrant@m1 ~]$ /home/vagrant/containers/springboot/image/build.sh
+```
 
 #### Push container image to local registry
 
@@ -36,43 +45,45 @@ To keep this example simple and running locally, CaaS localdev is configured to 
 
 So push a copy of the container image you previously built (which was saved in the local Buildah/Podman registry) to the local Docker image registry. For example:
 
-```
+```bash
 sudo podman push \
-    registry.ford.com/devenablement/python:0.0.1 \
-    docker-daemon:registry.ford.com/devenablement/python:0.0.1
+    registry.ford.com/devenablement/springboot-hello-world:0.0.1 \
+    docker-daemon:registry.ford.com/devenablement/springboot-hello-world:0.0.1
 
 Getting image source signatures
-Copying blob sha256:3444e243271421dbf2df714b76c0ce39daf5c2861f7761e7f03f171d4c60bf2a
- 203.78 MiB / 203.78 MiB [==================================================] 5s
+Copying blob sha256:050c734bd2868bcd3b69ab0ca033aa3bc95a00a4a1e5317e732394e1c36ef59e
+ 203.90 MB / 203.90 MB [====================================================] 2s
  ...
 Writing manifest to image destination
 Storing signatures
-Successfully pushed registry.ford.com/devenablement/python:0.0.1@sha256:109a30737aac44e6b3a9f718d770...
 ```
 
-You can confirm that the localdev docker registry now contains the `registry.ford.com/devenablement/python` image.
+You can confirm that the localdev docker registry now contains the `registry.ford.com/devenablement/springboot-hello-world` image.
 
-```
+```bash
 docker images
 
-REPOSITORY                                TAG      IMAGE ID        CREATED          SIZE
-registry.ford.com/devenablement/python    0.0.1    767ba4f075af    11 minutes ago   639 MB
+REPOSITORY                                                TAG      IMAGE ID        CREATED          SIZE
+registry.ford.com/devenablement/springboot-hello-world    0.0.1    a88663823aa4    11 minutes ago   506 MB
 ```
 
 #### Create app on CaaS
 
 Now deploy the app to the localdev instance of CaaS by referencing its manifest. For example:
 
-```
+```bash
 # Create a new project to hold the app and keep things organized.
-oc new-project python
+oc new-project springboot-hello-world
 
 # Deploy the app.
-oc create -f /home/vagrant/containers/python/manifest/python.yaml
+oc create -f /home/vagrant/containers/springboot/manifest/deployment.yaml
 
 # Check for any errors.
-oc get all -l app=python
+oc get all -l app=springboot-hello-world
 ```
+
+Access the [Swagger UI](https://springboot-hello-world.app.oc.local/swagger-ui.html#/hello-controller) - in Chrome - to test the endpoint. It may take a minute for the app to build, so refresh the page to see the Swagger UI. 
+
 <!---
 The manifest created a deployment, replica set, and pod. You can get the pod IP address with the `oc describe` and curl an instance of the app with that IP address on port 8080.
 
@@ -124,40 +135,41 @@ Date: Mon, 25 Feb 2019 21:24:09 GMT
 
 The app manifest created a route object in front of the app. Show the route address with `oc get`.
 
-```
-oc get routes
-
-NAME      HOST/PORT             PATH      SERVICES   PORT      TERMINATION     WILDCARD
-python    python.app.oc.local             python     8080      edge/Redirect   None
+```bash
+[vagrant@m1 ~]$ oc get routes
+NAME                    HOST/PORT                            PATH    SERVICES                 PORT   TERMINATION    WILDCARD
+springboot-hello-world  springboot-hello-world.app.oc.local          springboot-hello-world   8080   edge/Redirect  None
 ```
 
 Then curl the route as a test to see that the app is reachable. For example:
 
-```
-curl --head --insecure --location python.app.oc.local
+```bash
+curl --head --insecure --location springboot-hello-world.app.oc.local/api/v1/hello
 
 HTTP/1.1 302 Found
 Cache-Control: no-cache
 Content-length: 0
-Location: https://python.app.oc.local/
+Location: https://springboot-hello-world.app.oc.local/api/v1/hello
 
-HTTP/1.0 200 OK
-Content-Type: text/html; charset=utf-8
-Content-Length: 65
-Server: Werkzeug/0.14.1 Python/2.7.13
-Date: Mon, 11 Mar 2019 21:38:10 GMT
-Set-Cookie: d546a7595cc7638a3c8a0b2a8989c2e2=1dd59f720884749cfeb2b347e77de707; path=/; HttpOnly; Secure
-Cache-control: private
-Connection: keep-alive
+HTTP/1.1 200
+X-Request-Info: timestamp=1559133674; execution=1;
+X-Application-Info: name=${spring.application.name}; version=unspecified;
+...
+Content-Length: 44
+Date: Wed, 29 May 2019 12:41:14 GMT
+Set-Cookie: 4f939fb11c90700077a542505da8476d=b79c4b7022647a05b55da5ac3545ec80; path=/; HttpOnly; Secure
 ```
 
 There is a good bit going on with that curl command above; `--head` sends an HTTP HEAD instead of a GET (don't send back a body), `--insecure` is necessary on localdev because the certificate that is returned is self-signed (this will not be the case in Ford's production CaaS), `--location` causes curl to follow redirects and in this case an initial, unencrypted call is being redirected to HTTPS.
 
 Feel free to view all of the objects associated with the app with `oc get` or use `oc describe` to review them in detail.
 
-```
-# List objects with label app=python
-oc get all -l app=python
+```bash
+# List objects with label app=springboot-hello-world
+oc get all -l app=springboot-hello-world
+
+# Delete all objects with the springboot-hello-world label
+oc delete all -l app=springboot-hello-world
 ```
 
 ---  
