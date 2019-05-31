@@ -20,6 +20,9 @@ cd ~/workspace
 
 # Clone the samples git repo.
 git clone git@github.ford.com:JPOTTE46/samples.git
+
+# Or clone the repo using https if your workstation is not configured to use ssh.
+git clone https://github.ford.com/JPOTTE46/samples.git
 ```
 
 3. After clonging the repo you will notice it contains a number of sample applications. For the workshop, we will use the Springboot application. To do so, we need to build the application using gradle. 
@@ -68,6 +71,8 @@ vagrant ssh
 best-practices.md  DTaaS  http-echo  jenkins  leap  perl  python  README.md  simple_nodejsapp  springboot  toolbox
 ```
 You should see multiple files in `/home/vagrant/containers`. If you do not, let the instructor know you need help. If you are completing this outside of the workshop, check your file locations, ensure you're passing in the correct file location, and check the spelling.  
+
+**>>>>>>> THIS IS A GREAT TIME FOR A BREAK <<<<<<<**
 
 <!--
 If the VM was already running before you set the ADDITIONAL_SYNCED_FOLDERS env var, then restart it so it will pick up the settings.
