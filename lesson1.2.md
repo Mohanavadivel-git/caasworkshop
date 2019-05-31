@@ -28,7 +28,7 @@ git clone https://github.ford.com/JPOTTE46/samples.git
 3. After clonging the repo you will notice it contains a number of sample applications. For the workshop, we will use the Springboot application. To do so, we need to build the application using gradle. 
 
 ```bash
-$ cd LOCATION_OF_CLONED_REPO
+$ cd <LOCATION_OF_CLONED_REPO>
 $ ls
 best-practices.md  DTaaS  http-echo  leap  mailx  perl  python  README.md  simple_nodejsapp  springboot  toolbox
 $ cd springboot
