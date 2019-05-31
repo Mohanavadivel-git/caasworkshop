@@ -1,6 +1,11 @@
-# Workstation Setup
+# Workstation Setup and Homework
 
 Before attending the workshop, you must pre-install some software on your laptop or workstation. You will likely be on wireless during the workshop, and the initial installation and setup of these packages will take hours if performed over wireless. So please install ahead of time to avoid wasting class time.
+
+Additionally, you will get much more out of the class if you come in with a high-level understanding of Containers and Kubernetes. Please take 20 minutes to review these videos prior to class.
+
+- [What is a Container?](https://www.youtube.com/watch?v=EnJ7qX9fkcU&t=969s) You only need to watch up to 12:30. The remainder of video is specific Docker which is not directly relevant to CaaS.
+- [Kubernetes in 5 Minutes](https://www.youtube.com/watch?v=PH-2FfFD2PU)
 
 At a high level, these set up instructions will install Vagrant and VirtualBox on your workstation which will be used to run a virtual machine (VM). During the workshop, you will be working from the VM to complete the exercises.
 
