@@ -4,6 +4,8 @@
 
 Did you set up your workstation with CaaS localdev yet? If not, complete the [instructions](workstation-setup.md).
 
+If you face any issues during setup, see the [Troubleshooting and Common Errors](./troubleshooting.md) section. 
+
 ### What is Ford's CaaS?
 
 CaaS is Ford's container as a service offering. It is an app hosting platform.

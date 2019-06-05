@@ -1,5 +1,9 @@
 # Workstation Setup and Homework
 
+[Troubleshooting and Common Errors](./troubleshooting.md)
+
+---
+
 Before attending the workshop, you must pre-install some software on your laptop or workstation. You will likely be on wireless during the workshop, and the initial installation and setup of these packages will take hours if performed over wireless. So please install ahead of time to avoid wasting class time.
 
 Additionally, you will get much more out of the class if you come in with a high-level understanding of Containers and Kubernetes. Please take 20 minutes to review these videos prior to class.
