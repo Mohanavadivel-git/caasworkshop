@@ -84,7 +84,10 @@ error: The server uses a certificate signed by unknown authority. You may need t
 ### Root Cause and Workaround
 
 Localdev uses a self-signed cert. Use the `--insecure-skip-tls-verify` flag when logging in: `oc login https://console.oc.local:8443 --insecure-skip-tls-verify`
+
+
 ---
+
 ## Issue - Builder Pod Cannot Authenticate with GitHub
 ### Behavior
 ```bash
@@ -111,7 +114,9 @@ I wrote a bash script in a Windows text editor, but when I try to execute that s
 ### Root Cause and Workaround
 
 The error is telling use that the bash binary is not found at `/bin/bash^M`. The `^M` is due to the script containing Windows/DOS line endings being executed in a Linux environment. Windows/DOS uses carriage return and line feed ("\r\n") as a line ending while Unix uses just line feed ("\n"). To resolve, convert the script to Unix line endings, i.e. `dos2unix build.sh`.
+
 ---
+
 ## Issue - IP Prompt
 ### Behavior
 You are not be prompted for your IP address after running vagrant up. 
