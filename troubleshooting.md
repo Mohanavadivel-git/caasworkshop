@@ -95,7 +95,9 @@ Please make sure you have the correct access rights
 and the repository exists.
 ```
 ### Root Cause and Workaround
+
 Localdev builder pod needs SSH keys to clone repos from Ford's GitHub. See section below to set up a source clone secret and use it when creating a new-app. Also see https://docs.openshift.com/container-platform/3.11/dev_guide/builds/build_inputs.html#source-clone-secrets.
+
 ---
 ## Bash Script Failing to Run
 ### Behavior
@@ -160,5 +162,37 @@ Go to C:\Program Files\BeyondTrust\PowerBroker for Windows Client\Tools\Diagnost
 Run PBWDiagnosticsApp.exe
 Stop all running services
 Try 'vagrant up' command again
+---
+## VM Failure
+### Behavior
+```
+INFO oc-localdev: completed trigger processing
+==> openshift-enterprise-3.11.98-master: Importing base box 'openshift-enterprise-basic-cnx-3.11'...
+==> openshift-enterprise-3.11.98-master: Matching MAC address for NAT networking...
+==> openshift-enterprise-3.11.98-master: Checking if box 'openshift-enterprise-basic-cnx-3.11' version '3.11.98-1' is up to date...
+==> openshift-enterprise-3.11.98-master: Setting the name of the VM: CaaS-localdev
+The name of your virtual machine couldn't be set because VirtualBox
+is reporting another VM with that name already exists. Most of the
+time, this is because of an error with VirtualBox not cleaning up
+properly. To fix this, verify that no VMs with that name do exist
+(by opening the VirtualBox GUI). If they don't, then look at the
+folder in the error message from VirtualBox below and remove it
+if there isn't any information you need in there.
+```
 
+or
+
+```
+VBoxManage.exe: error: Could not rename the directory 'C:\Users\CDSID\VirtualBox VMs\openshift-enterprise-3.11.98-master_1558533015087_71698' to 'C:\Users\CDSID\VirtualBox VMs\CaaS-localdev' to save the settings file (VERR_ALREADY_EXISTS)
+VBoxManage.exe: error: Details: code E_FAIL (0x80004005), component SessionMachine, interface IMachine, callee IUnknown
+VBoxManage.exe: error: Context: "SaveSettings()" at line 3111 of file VBoxManageModifyVM.cpp
+```
+
+### Root Cause and Workaround
+To resolve this error, delete the VM `CaaS-localdev` from VirtualBox. 
+1. Open Virtual Box Manager from the windows start menu
+2. Locate the VM named `CaaS-localdev` in the Virtual box manager, then open a windows explorer window to the storage location for Virtual Box VMs
+    - This location should be in the error message, generally in `C:\Users\CDSID\VirtualBox VMs`
+3. Locate and delete the folder `CaaS-localdev`
+4. Retry starting localdev again by issuing the `vagrant up` command from the terminal
 
