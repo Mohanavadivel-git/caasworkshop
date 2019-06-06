@@ -74,7 +74,9 @@ $ curl -s -v https://console.oc.local:8443
 ### Root Cause and Workaround
 
 Localdev uses a self-signed cert. Use the `--insecure-skip-tls-verify` flag when logging in: `oc login https://console.oc.local:8443 --insecure-skip-tls-verify`
+
 ---
+
 ## Issue - Self-Signed TLS Certificate
 ### Behavior
 ```bash
@@ -83,7 +85,7 @@ error: The server uses a certificate signed by unknown authority. You may need t
 ```
 ### Root Cause and Workaround
 
-Localdev uses a self-signed cert. Use the `--insecure-skip-tls-verify` flag when logging in: `oc login https://console.oc.local:8443 --insecure-skip-tls-verify`
+Localdev uses a self-signed cert. Use the `--insecure-skip-tls-verify` flag when logging in: `oc login https://console.oc.local:8443 --insecure-skip-tls-verify`.
 
 
 ---
@@ -171,7 +173,9 @@ Go to C:\Program Files\BeyondTrust\PowerBroker for Windows Client\Tools\Diagnost
 Run PBWDiagnosticsApp.exe
 Stop all running services
 Try 'vagrant up' command again
+
 ---
+
 ## Issue - VM Failure
 ### Behavior
 ```
