@@ -1,7 +1,7 @@
 
 # Troubleshooting for OpenShift localdev Setup
 
-## VPN
+## Issue - VPN
 ### Behavior
 Vagrant up will fail/timeout at this section. 
 
@@ -17,7 +17,7 @@ Vagrant up will fail/timeout at this section.
 As a general note - localdev will NOT work over VPN. There is no current workaround. 
 
 ---
-## Timeout/Endless Loop
+## Issue - Timeout/Endless Loop
 ### Behavior
 
 After issuing the `vagrant up` command, you reach a point of an endless loop that looks similar to the examples below: 
@@ -49,7 +49,7 @@ openshift-enterprise-3.11.98-master: Waiting for apiserver-* pod to start 75 sec
 This is a result of the number of CPU cores your machine has. You must have a 4 core CPU. 
 
 ---
-## Proxy Settings
+## Issue - Proxy Settings
 ### Behavior
 $ oc login https://console.oc.local:8443
 error: Service Unavailable
@@ -61,7 +61,7 @@ export NO_PROXY=$NO_PROXY,.local
 export no_proxy=$no_proxy,.local
 ```
 ---
-## Local DNS Issue
+## Issue - Local DNS Issue
 ### Behavior
 $ curl -s -v https://console.oc.local:8443
 ```bash
@@ -72,18 +72,20 @@ $ curl -s -v https://console.oc.local:8443
 *Closing connection 0
 ```
 ### Root Cause and Workaround
+
 Localdev uses a self-signed cert. Use the `--insecure-skip-tls-verify` flag when logging in: `oc login https://console.oc.local:8443 --insecure-skip-tls-verify`
 ---
-## Self-Signed TLS Certificate
+## Issue - Self-Signed TLS Certificate
 ### Behavior
 ```bash
 oc login https://console.oc.local:8443
 error: The server uses a certificate signed by unknown authority. You may need to use the --certificate-authority flag to provide the path to a certificate file for the certificate authority, or --insecure-skip-tls-verify to bypass the certificate check and use insecure connections.
 ```
 ### Root Cause and Workaround
+
 Localdev uses a self-signed cert. Use the `--insecure-skip-tls-verify` flag when logging in: `oc login https://console.oc.local:8443 --insecure-skip-tls-verify`
 ---
-## Builder Pod Cannot Authenticate with GitHub
+## Issue - Builder Pod Cannot Authenticate with GitHub
 ### Behavior
 ```bash
 $ oc new-app git@github.ford.com:YES/my-demo.git
@@ -99,7 +101,7 @@ and the repository exists.
 Localdev builder pod needs SSH keys to clone repos from Ford's GitHub. See section below to set up a source clone secret and use it when creating a new-app. Also see https://docs.openshift.com/container-platform/3.11/dev_guide/builds/build_inputs.html#source-clone-secrets.
 
 ---
-## Bash Script Failing to Run
+## Issue - Bash Script Failing to Run
 ### Behavior
 I wrote a bash script in a Windows text editor, but when I try to execute that script from the CaaS/localdev virtual machine, it fails with the following.
 ```bash
@@ -107,9 +109,10 @@ I wrote a bash script in a Windows text editor, but when I try to execute that s
 -bash: ./build.sh: /bin/bash^M: bad interpreter: No such file or directory
 ```
 ### Root Cause and Workaround
+
 The error is telling use that the bash binary is not found at `/bin/bash^M`. The `^M` is due to the script containing Windows/DOS line endings being executed in a Linux environment. Windows/DOS uses carriage return and line feed ("\r\n") as a line ending while Unix uses just line feed ("\n"). To resolve, convert the script to Unix line endings, i.e. `dos2unix build.sh`.
 ---
-## IP Prompt
+## Issue - IP Prompt
 ### Behavior
 You are not be prompted for your IP address after running vagrant up. 
 ```bash
@@ -132,7 +135,7 @@ unset DEFAULT_HOST_IP
 ```
 
 ---
-## Failed to start Virtual Box
+## Issue - Failed to start Virtual Box
 ### Behavior
 ```bash
 >vagrant up
@@ -157,13 +160,14 @@ Open C:\Users\{CDSID}\VirtualBox VMs\CaaS-localdev\logs\VBoxHardening.log, it wi
 4624.5910: supR3HardNtChildWaitFor[1]: Quitting: ExitCode=0x1 (rcNtWait=0x0, rcNt1=0x0, rcNt2=0x103, rcNt3=0x103, 23 ms, the end);
 ```
 ### Root Cause and Workaround
+
 BeyondTrust Services interrupt Virtual Box starting process.
 Go to C:\Program Files\BeyondTrust\PowerBroker for Windows Client\Tools\Diagnostics
 Run PBWDiagnosticsApp.exe
 Stop all running services
 Try 'vagrant up' command again
 ---
-## VM Failure
+## Issue - VM Failure
 ### Behavior
 ```
 INFO oc-localdev: completed trigger processing
