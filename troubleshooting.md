@@ -209,3 +209,14 @@ To resolve this error, delete the VM `CaaS-localdev` from VirtualBox.
 3. Locate and delete the folder `CaaS-localdev`
 4. Retry starting localdev again by issuing the `vagrant up` command from the terminal
 
+---
+
+## Build Script/Console Error
+
+### Behavior 
+
+Unable to view the web console or execute the build script to completetion after already successfully executing `vagrant up`
+
+### Root Cause and Workaround 
+
+If you changed buildings or switched between Wifi/wired connection, your IP address will change, causing a failure. You must halt/destroy the machine with `vagrant destroy -f` or `vagrant halt` and then `vagrant up` again to be prompted for your IP address. 
