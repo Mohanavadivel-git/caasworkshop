@@ -10,11 +10,11 @@ If you already started the localdev VM before creating the env var for synced fo
 
 If you have no experience with container images, you should check out the [Get Started](https://docs.docker.com/get-started/) tutorial on Docker's website.
 
-The springboot sample app has a build script at [`image/build.sh`](https://github.ford.com/JPOTTE46/samples/blob/master/springboot/image/build.sh) to make building a container image easier. Feel free to review the build script by clicking the above link, in a text editor, or in the terminal with `cat /home/vagrant/containers/springboot/image/build.sh`. The build script sets up the environment variables necessary to use Ford's web proxy server as required. It then builds the container image using a tool call Buildah.
+The springboot sample app has a build script at [`image/build.sh`](https://github.ford.com/JPOTTE46/samples/blob/master/springboot/image/build.sh) to make building a container image easier. The build script sets up the environment variables necessary to use Ford's web proxy server as required. It then builds the container image using a tool call Buildah.
 
 > Note that Red Hat, Ford's CaaS vendor, is promoting the use of the Buildah tool over Docker, so the build scripts in these samples use Buildah. If you're familiar with Docker, you will find Buildah behaves almost identically. This [blog](https://www.projectatomic.io/blog/2017/11/getting-started-with-buildah/) and this [Red Hat doc](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8-beta/html/building_running_and_managing_containers/building-container-images-with-buildah_building-running-and-managing-containers) have some basic Buildah examples.
 
-The springboot sample app also has a Dockerfile at [`image/Dockerfile`](https://github.ford.com/JPOTTE46/samples/blob/master/springboot/image/Dockerfile) that defines the container image to be built when the build script is executed. Feel free to review the Dockerfile clicking the link above, in a text editor, or in the terminal with `cat /home/vagrant/containers/springboot/image/Dockerfile`. As an app team deploying an app to Ford's CaaS environment, you will be responsible for developing and maintaining your app's Dockerfile.
+The springboot sample app also has a Dockerfile at [`image/Dockerfile`](https://github.ford.com/JPOTTE46/samples/blob/master/springboot/image/Dockerfile) that defines the container image to be built when the build script is executed. As an app team deploying an app to Ford's CaaS environment, you will be responsible for developing and maintaining your app's Dockerfile.
 
 
 Now, if you're ready to build the container image, run the `image/build.sh` script for the sample app you plan to deploy. For example:
@@ -64,7 +64,7 @@ registry.access.redhat.com/redhat-openjdk-18/openjdk18-openshift   latest   b4b9
 The commands below use Podman to run the app container image in detached mode and publish the container's port 8080 to the host's port 8080. The command saves the container_id as a variable so you can destroy the container later. Then curl is used to test the python web app. If successful, the app responds with a 200 OK http code. Note that the app is not yet exposed beyond the VM, so you cannot access it in a web browser from your workstation yet.
 
 ```bash
-[vagrant@m1 ~]$ container_id=$(sudo podman run -p 8080:8080 -d registry.ford.com/devenablement/springboot-hello-world:0.0.1)
+[vagrant@m1 ~]$ container_id=$(sudo podman run -p 8080:8080 -d springboot-hello-world:0.0.1)
 
 [vagrant@m1 ~]$ curl --head 127.0.0.1:8080/api/v1/hello
 HTTP/1.1 200

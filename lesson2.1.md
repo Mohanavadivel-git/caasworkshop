@@ -8,8 +8,9 @@ Next you will be deploying to CaaS localdev the container image you built in the
 
 Reminder: Must run shell as administrator
 
-
 #### Exercise
+
+Ensure you still have the proper environment variables set. 
 
 ```bash
 # Set localdev profile.
@@ -39,6 +40,7 @@ Password: sandbox
 ```
 
 In addition to the web interface, you can communicate directly with the OpenShift API using a command line tool called `oc` from Red Hat, or the more generic Kubernetes command-line tool `kubectl`. This workshop uses `oc`. Go ahead log into the VM and authenticate to the OpenShift instance with the `oc` tool.
+
 ```bash
 vagrant ssh
 
