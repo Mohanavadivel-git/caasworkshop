@@ -5,13 +5,13 @@
 The Openshift Enterprise is deployed with the EFK stack to aggregate logs for a range of Openshift Enterprise services. As application developers, you can view the logs of the projects for which you have view access. The EFK stack aggregates logs from hosts and applications, whether coming from multiple containers or even deleted pods. 
 
 The EFK Stack consists of:
- - Elasticsearch: An object store where all logs are stored
- - Fluentd: Gathers logs from nodes and feeds them to Elasticsearch
- - Kibana: A web UI for Elasticsearch
+ - **Elasticsearch**: An object store where all logs are stored
+ - **Fluentd**: Gathers logs from nodes and feeds them to Elasticsearch
+ - **Kibana**: A web UI for Elasticsearch
 
 ### View Logs in Kibana
 
-To view logs in Kibana, you must be a member of the namespace in Openshift. You can follow along with the steps below using the namespace that you are a member of and using search parameters that apply to your application or service. 
+To view logs in Kibana, you must be a member of the namespace in Openshift. You can follow along with the steps below using the namespace that you are a member of and using search parameters that apply to your application or service. For the rest of the steps, simply replace the use of the `devenablement` namespace with your namespace. 
 
 1. Go to [https://kibana.app.caas.ford.com/](https://kibana.app.caas.ford.com/)
 
@@ -33,7 +33,7 @@ project.devenablement-dev.3f491109-75b6-11e9-afd8-30e171556d10.*
 
 This contains project, namespace name, and namespace ID components that were just mentioned. The `*` indicates a wildcard, which essentially says to include all the logs from this namespace as part of this index. Using this, we can now create our Index Pattern by clicking on "Create Index Pattern." Here, you will enter your index pattern with the `*` after the namespace ID as shown above and select a time filter field name. 
 
-![Create an Index Pattern](https://github.ford.com/Containers/localdev/blob/master/docs/images/Kibana_IndexPattern.png)
+![Create an Index Pattern](https://github.ford.com/DevEnablement/caas-workshop/blob/master/images/Kibana_IndexPattern.PNG)
 
 When you create your index pattern, there is a star icon that you can click to set it as your default index pattern. 
 
@@ -116,7 +116,7 @@ Looking through the fields, we can see kubernetets logging fields usch as our na
 
 7. We can limit the fields to be included in our search results as well. On the left hand side, we can view the selected fields. For example, say we just wanted to view the pod name, and message. We can hover over those fields and select "add" and the table will re-format to ONLY show those fields. The image below shows a re-formatted table based on selected fields. 
 
-![Create an Index Pattern](https://github.ford.com/Containers/localdev/blob/master/docs/images/Kibana_SelectFields.png)
+![Selecting fields](https://github.ford.com/DevEnablement/caas-workshop/blob/master/images/Kibana_SelectFields.PNG)
 
 #### Visualize
 
