@@ -138,6 +138,10 @@ Your dashboard is a custom collection of all your visualizations that you can ar
 
 12. Click the share button at the top to see the different sharing options available. Copy and paste the sharing URL and see it take you directly to your dashboard. 
 
+The image below displays what a more realistic, basic dashboard might look like. 
+
+![Sample Dashboard](https://github.ford.com/DevEnablement/caas-workshop/blob/master/images/Kibana_GoodSample.PNG)
+
 #### Timelion
 
 Timelion is a time series data visualizer that enables you to combine totally independent data sources within a single visualization. It’s driven by a simple expression language you use to retrieve time series data, perform calculations to tease out the answers to complex questions, and visualize the results.
