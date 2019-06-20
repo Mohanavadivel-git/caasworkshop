@@ -92,7 +92,7 @@ This change adds another command line argument, `-Dspring.config.location` with 
 
 Looking at the yaml file above, we see our previous `volumes` and `volumeMounts` definitions that we used to create our persistent volume claim. We will now create two new `volumes` - `config-volume` and `properties-volume`, which will hold our logback.xml and application-prod.properties files respectively. The sections marked with the "#<---New line" comment are for you to add, giving you some exposure to writing and properly formatting yaml files.
 
-6. Now, we need to repeat our previous steps in building our Docker image and pushing our image to a registry. We will push the image to the local docker dameon this time. Ensure your VM is up and that you are SSH'd into the VM. 
+6. Now, we need to repeat our previous steps in building our Docker image and push/pull the image from the registry. If you used the local docker registry to push your image, you will need to push it to your local registry again. If you pushed to Quay last time, follow the instructions that follow to change your image. 
 
 ```bash
 [vagrant@m1 ~]$ /home/vagrant/containers/springboot/image/build.sh
@@ -107,32 +107,55 @@ Password: sandbox
 Login successful.
 ```
 
-8. Push the image to your local docker registry. 
+8. If your project does not already exist, create it. 
+```bash
+[vagrant@m1 ~]$ oc new-project springboot-hello-world
+```
+
+9. Push the image to your local docker registry or to Quay. 
 
 ```bash
+#Pushing your image to the local registry
 [vagrant@m1 ~]$ sudo podman push \
                   springboot-hello-world:0.0.1 \
                   docker-daemon:registry.ford.com/devenablement/workshop:0.0.1
 ```
 
-9. If your project does not already exist, create it. 
 ```bash
-[vagrant@m1 ~]$ oc new-project springboot-hello-world
+# Pushing the container to Quay
+# You will be given the credentials of the robot account to login in class
+[vagrant@m1 ~]$ sudo podman login registry.ford.com
+Username:
+Password:
+Login Succeeded!
+
+# Pushing your image to Quay and deploy your secret
+[vagrant@m1 ~]$ sudo podman push \
+                    springboot-hello-world:0.0.1 \
+                    registry.ford.com/devenablement/workshop:YOUR_VERSION_NUMBER
+
+[vagrant@m1 ~]$ oc create -f /home/vagrant/containers/springboot/manifest/pullsecret.yaml
+secret/devenablement-workshop-pull-secret created
 ```
+
+If you push your image to Quay, ensure that `YOUR_VERSION_NUMBER` matches the version number in your `deployment.yaml` file. 
 
 10. We will now create our ConfigMaps for our two files. 
 
 ```bash
 [vagrant@m1 ~]$ oc create configmap logconfig \
-      --from-file=/c/LOCATION_TO_YOUR_SAMPLES_DIRECTORY/springboot/src/main/resources/logback.xml
+      --from-file=/home/vagrant/containers/springboot/src/main/resources/logback.xml
+configmap/logconfig created
 
 [vagrant@m1 ~]$ oc create configmap app-properties \
-      --from-file=/c/LOCATION_TO_YOUR_SAMPLES_DIRECTORY/springboot/src/main/resources/application-prod.properties
+      --from-file=/home/vagrant/containers/springboot/src/main/resources/application-prod.properties
+configmap/app-properties created
 ```
 
 As you can see, the names we gave the config maps are the names that we defined in the `deployment.yaml` for the configMap. 
 
-11. After creating our configMaps, we can run our application. 
+11. After creating our configMaps, we can deploy the rest of our application. 
+
 ```bash
 oc create -f /home/vagrant/containers/springboot/manifest/deployment.yaml
 ```
@@ -145,9 +168,9 @@ app.log
 sh-4.2$ cat /var/lib/new/app.log
 ```
 
-13. To confirm that your application logs will persist, in the Openshift console, delete your pod. After deleting your pod, wait for the new one to start up and repeat step 12. You should see your new container's application logs appended to the previously written logs. 
+14. To confirm that your application logs will persist, in the Openshift console, delete your pod. After deleting your pod, wait for the new one to start up and repeat step 12. You should see your new container's application logs appended to the previously written logs. 
 
-13. Delete your app configurations and your persistent volume claim. 
+15. Delete your app configurations and your persistent volume claim. 
 ```bash
 # Only run the exit command if you are `rsh` into the pod
 [vagrant@m1 ~]$ oc delete all -l app=springboot-hello-world
