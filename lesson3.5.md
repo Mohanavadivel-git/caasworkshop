@@ -124,10 +124,10 @@ Login successful.
 
 ```bash
 [vagrant@m1 ~]$ oc create configmap logconfig \
-              --from-file=/c/LOCATION_TO_YOUR_SAMPLES_DIRECTORY/springboot/src/main/resources/logback.xml
+      --from-file=/c/LOCATION_TO_YOUR_SAMPLES_DIRECTORY/springboot/src/main/resources/logback.xml
 
 [vagrant@m1 ~]$ oc create configmap app-properties \
-                --from-file=/c/LOCATION_TO_YOUR_SAMPLES_DIRECTORY/springboot/src/main/resources/application-prod.properties
+      --from-file=/c/LOCATION_TO_YOUR_SAMPLES_DIRECTORY/springboot/src/main/resources/application-prod.properties
 ```
 
 As you can see, the names we gave the config maps are the names that we defined in the `deployment.yaml` for the configMap. 
