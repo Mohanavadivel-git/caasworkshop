@@ -163,4 +163,4 @@ Review the [Dev Tools Guide](https://www.elastic.co/guide/en/kibana/5.6/devtools
 
 ---
 
-Continue to [Lesson 3.4](./lesson3.5.md)
+Continue to [Lesson 3.5](./lesson3.5.md)

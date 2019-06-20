@@ -83,7 +83,7 @@ If you do not have those lines, please retrieve the [latest yaml file](https://g
 
 ### Verifying Results
 
-7. In the Openshift web console, [in the Python project, go to Applications->Pods](https://api.oc.local:8443/console/project/springboot-hello-world/browse/pods). Selecting the Pod with a "Running" status and click the terminal tab. 
+7. In the Openshift web console, [in the Spring project, go to Applications->Pods](https://api.oc.local:8443/console/project/springboot-hello-world/browse/pods). Selecting the Pod with a "Running" status and click the terminal tab. 
 
 8. In the Openshift terminal, confirm the mount path defined in the yaml file exists
 
