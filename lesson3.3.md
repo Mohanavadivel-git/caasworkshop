@@ -217,7 +217,7 @@ exit
 [vagrant@m1 ~]$ oc delete all -l app=springboot-hello-world
 [vagrant@m1 ~]$ oc delete pvc my-manifest-claim
 ```
-
+<!--
 17. Exit VM and destroy 
 ```bash
 [vagrant@m1 ~]$ exit
@@ -228,3 +228,6 @@ $ vagrant destroy -f
 ```
 
 You have reached the end of the workshop :clap:
+-->
+
+Continue to [Lesson 3.4](./lesson3.4.md)

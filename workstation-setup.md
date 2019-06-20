@@ -35,7 +35,7 @@ cd ~/workspace
 # Clone the localdev git repo and checkout the latest version.
 git clone git@github.ford.com:Containers/localdev.git
 cd localdev
-git checkout tags/v3.11.98-1
+git checkout tags/v3.11.98-2
 
 # Pick ***ONE*** of the options below to set an env var used by localdev.
 export LOCAL_DEV_PROFILE='basic-cnx'  #<----- Git Bash/MacOS/Linux OR
