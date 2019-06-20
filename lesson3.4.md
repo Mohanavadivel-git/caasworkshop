@@ -140,7 +140,7 @@ Your dashboard is a custom collection of all your visualizations that you can ar
 
 The image below displays what a more realistic, basic dashboard might look like. 
 
-![Sample Dashboard](https://github.ford.com/DevEnablement/caas-workshop/blob/master/images/Kibana_GoodSample.PNG)
+![Sample Dashboard](https://github.ford.com/DevEnablement/caas-workshop/blob/master/images/Kibana_GoodSample.png)
 
 #### Timelion
 
