@@ -195,7 +195,7 @@ Let's break down this command:
 - **$(oc get pods | grep 'springboot-hello-world' | head -1 | awk '{print $1}'):/var/lib/new** - A piped command that consists of a few parts
     - **oc get pods** - Returns a list of all the pods in the project you are currently working on
     - **grep 'springboot-hello-world'** - Filters the list of pods that contain the name `springboot-hello-world`
-    - **head -1** - Returns the first result of the tiler
+    - **head -1** - Returns the first result of the filter
     - **awk '{print $1}'** - Returns the first bit of information - which in this case - is the pod name
 - **:/var/lib/new** - The directory within the container that is mounted to our persistent volume claim where we are writing the app logs
 - **./** - The local directory, which here, is the current working directory (`/containers/springboot`)
