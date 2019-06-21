@@ -168,9 +168,41 @@ app.log
 sh-4.2$ cat /var/lib/new/app.log
 ```
 
-14. To confirm that your application logs will persist, in the Openshift console, delete your pod. After deleting your pod, wait for the new one to start up and repeat step 12. You should see your new container's application logs appended to the previously written logs. 
+13. To confirm that your application logs will persist, in the Openshift console, delete your pod. After deleting your pod, wait for the new one to start up and repeat step 12. You should see your new container's application logs appended to the previously written logs. 
 
-15. Delete your app configurations and your persistent volume claim. 
+#### Saving Logs Locally
+
+Having the logs in the container is one thing, but it is difficult to view them simply by using the `cat` command. We might want to store these logs if we cannot access them directly at all times. 
+
+14. Return to your terminal and run the following commands to create a directory for the logs. 
+
+```bash
+[vagrant@m1 ~]$ cd /home/vagrant/containers/springboot
+[vagrant@m1 ~]$ mkdir logs
+```
+
+15. We will now use the `rsync` command to copy the directory of files locally. 
+
+> NOTE: You must have admin rights on your namespace to execute these commands. You are an admin in localdev, but in the production version of Openshift, admin rights will likely reside with LL6+
+
+```bash
+[vagrant@m1 ~]$ oc rsync $(oc get pods | grep 'springboot-hello-world' | head -1 | awk '{print $1}'):/var/lib/new ./
+```
+
+Let's break down this command: 
+
+- **oc rsync** - oc cli command to copy contents from a container directory to a local directory, or vice versa
+- **$(oc get pods | grep 'springboot-hello-world' | head -1 | awk '{print $1}'):/var/lib/new** - A piped command that consists of a few parts
+    - **oc get pods** - Returns a list of all the pods in the project you are currently working on
+    - **grep 'springboot-hello-world'** - Filters the list of pods that contain the name `springboot-hello-world`
+    - **head -1** - Returns the first result of the tiler
+    - **awk '{print $1}'** - Returns the first bit of information - which in this case - is the pod name
+- **:/var/lib/new** - The directory within the container that is mounted to our persistent volume claim where we are writing the app logs
+- **./** - The local directory, which here, is the current working directory (`/containers/springboot`)
+
+After we run this command, we can go into our springboot directory and see that we have a new folder called `new` which contains all of the contents we had within the container. 
+
+16. Delete your app configurations and your persistent volume claim. 
 ```bash
 # Only run the exit command if you are `rsh` into the pod
 [vagrant@m1 ~]$ oc delete all -l app=springboot-hello-world
