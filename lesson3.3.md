@@ -8,7 +8,7 @@ Openshift comes with an NFS provisioner in localdev. The provisioner carries out
 
 ### Diagram
 
-![Dynamic Persistent Volume](https://github.ford.com/Containers/localdev/blob/master/docs/images/PVC_Diagram.png)
+![Dynamic Persistent Volume](https://github.ford.com/DevEnablement/caas-workshop/blob/master/images/PVC_Diagram.png)
 
 ### Class Types
 
