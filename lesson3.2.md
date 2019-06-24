@@ -1,4 +1,4 @@
-# Lesson 3, Advanced Topics
+# Lesson 3: Logging, Monitoring, and Storage
 
 ### Vanity URLs and TLS Certificates
 

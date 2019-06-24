@@ -18,6 +18,7 @@ App teams that need access to Quay can request it using these [instructions](htt
 
 The production instance of Quay is at https://registry.ford.com/.
 
+<!--
 #### Shutting Down LocalDev
 
 At the end of the day, you should stop your localdev instance with the following commands from the terminal.
@@ -31,7 +32,7 @@ Connection to 127.0.0.1 closed.
 # Stop the VM. This takes about a minute.
 vagrant halt
 ```
-
+-->
 ---  
 
 Continue to [Lesson 2](./lesson2.1.md).

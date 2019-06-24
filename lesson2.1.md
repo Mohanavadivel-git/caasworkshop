@@ -10,6 +10,7 @@ Reminder: Must run shell as administrator
 
 #### Exercise
 
+<!--
 Ensure you still have the proper environment variables set. 
 
 ```bash
@@ -29,7 +30,7 @@ cd ~/workspace/localdev
 # Start the VM. This will take about 5 minutes.
 vagrant up
 ```
-
+-->
 Now your instance of localdev has started and is running a full installation of OpenShift. Test to confirm that OpenShift is running and ready by opening the web management in a browser at https://console.oc.local:8443/. Your browser will give you an error about the self-signed SSL certificate, but just tell it to proceed anyway. And you will have to do that twice because of a redirect.
 
 Once you get a log in prompt, use the following:

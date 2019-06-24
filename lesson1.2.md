@@ -10,6 +10,7 @@ This lesson focuses on building a container image for your app. The activities i
 
 #### Exercise
 
+<!--
 The CaaS team maintains a repository of sample apps that will run on CaaS. You will clone this repo locally, and then go through the process of building a container image with one of the sample apps.
 
 1. Open a terminal **as Administrator** on your workstation. Git Bash for Windows is recommended.
@@ -24,20 +25,25 @@ git clone git@github.ford.com:JPOTTE46/samples.git
 # Or clone the repo using https if your workstation is not configured to use ssh.
 git clone https://github.ford.com/JPOTTE46/samples.git
 ```
-
-3. After clonging the repo you will notice it contains a number of sample applications. For the workshop, we will use the Springboot application. To do so, we need to build the application using gradle. 
+-->
+1. Open a terminal as administrator and navigate to the samples directory you cloned in the [Workstation Setup](./workstation-setup.md). 
 
 ```bash
 $ cd <LOCATION_OF_CLONED_REPO>
 $ ls
 best-practices.md  DTaaS  http-echo  leap  mailx  perl  python  README.md  simple_nodejsapp  springboot  toolbox
+```
+
+2. For the workshop, we will use the Springboot application. To do so, we need to build the application using gradle. 
+
+```bash
 $ cd springboot
 $ ./gradlew clean build
 ```
 
 Continue to the next steps only when the build is successful. 
 
-4. Configure synchronized folders between your workstation and the localdev VM so that you can access the samples repo from within the localdev VM. To set up a synchronized folder, customize then execute the commands below to configure an `ADDITIONAL_SYNCED_FOLDERS` environment variable. The value of this variable should be the full path to the samples repo that you cloned in the previous step, followed by the characters `=>`, followed by `/home/vagrant/containers`. So, on the left side the of `=>` is the location where you saved the samples repo. Let's export this as an environment variable. 
+3. Configure synchronized folders between your workstation and the localdev VM so that you can access the samples repo from within the localdev VM. To set up a synchronized folder, customize then execute the commands below to configure an `ADDITIONAL_SYNCED_FOLDERS` environment variable. The value of this variable should be the full path to the samples repo that you cloned in the previous step, followed by the characters `=>`, followed by `/home/vagrant/containers`. So, on the left side the of `=>` is the location where you saved the samples repo. Let's export this as an environment variable. 
 
 ```bash
 # Git Bash for Windows

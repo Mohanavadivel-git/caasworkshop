@@ -1,4 +1,4 @@
-# Lesson 3, Advanced Topics
+# Lesson 3: Logging, Monitoring, and Storage
 
 By now you have a basic understanding of how to:
 - Build a container image for your app

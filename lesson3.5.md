@@ -1,214 +1,166 @@
-# Lesson 3, Advanced Topics
+# Lesson 3: Logging, Monitoring, and Storage
 
 ## Application Logging
 
-If you wish to write application log files, you can still do so in Openshift. Depending on your application, this may require further editing of your application and Dockerfile. 
+The Openshift Enterprise is deployed with the EFK stack to aggregate logs for a range of Openshift Enterprise services. As application developers, you can view the logs of the projects for which you have view access. The EFK stack aggregates logs from hosts and applications, whether coming from multiple containers or even deleted pods. 
 
-### Configuring Application to Write Logs
+The EFK Stack consists of:
+ - **Elasticsearch**: An object store where all logs are stored
+ - **Fluentd**: Gathers logs from nodes and feeds them to Elasticsearch
+ - **Kibana**: A web UI for Elasticsearch
 
-For this exercise, we will continue using the Springboot application and making some modifications to it. We will use the knowledge you applied to creating a persistent volume claim to writing application logs to a file. We will use ConfigMaps and program arguments for our sample application. 
+### View Logs in Kibana
 
-#### Config Maps
+To view logs in Kibana, you must be a member of the namespace in Openshift. You can follow along with the steps below using the namespace that you are a member of and using search parameters that apply to your application or service. For the rest of the steps, simply replace the use of the `devenablement` namespace with your namespace. 
 
-The ConfigMap object provides mechanisms to inject containers with configuration data. A ConfigMap can be used to store information like individual properties or information like entire configuration files or JSON blobs.
+1. Go to [https://kibana.app.caas.ford.com/](https://kibana.app.caas.ford.com/)
 
-The ConfigMap API object holds key-value pairs of configuration data that can be consumed in pods or used to store configuration data for system components such as controllers. ConfigMap is similar to secrets, but designed to more conveniently support working with strings that do not contain sensitive information.
+#### Indexes
 
-### Exercise
-
-#### Editing Files
-
-1. First, let's create a new application.properties file. Your application.properties file for the Springboot sample sits at `springboot\src\main\resources\application.properties`. Duplicate this file and re-name it `application-prod.properties`. 
-
-2. Add the following line at the end of your `application-prod.properties` file: 
+2. If this is your first time using Kibana, you will be re-directed to the Management tab where you will be asked to choose or create an Index Pattern. An index pattern identifies one or more Elasticsearch indices that you want to explore with Kibana. Below is an example of what an index looks like. 
 
 ```
-logging.config=file:/opt/configuration/logback.xml
+project.devenablement-dev.3f491109-75b6-11e9-afd8-30e171556d10.2019.06.19
 ```
 
-This location defined here is not local - it will be the location within the container defined by our ConfigMap. This is the reason it is applied in a different file from our application.properties file - our gradle build will fail if it tries to access this location which does not exist locally. 
+This index contains a prefix `project`, which is the case for all projects in Openshift. It also contains the namespace used in this example, which is `devenablement-dev`. The next part is the namespace ID, which is `3f491109-75b6-11e9-afd8-30e171556d10`. The final part of the index is the date that specific log entry was created. 
 
-3. In the same resources directory, create a new file called `logback.xml`. Copy/Paste the following XML configuration to that file and save it. 
+To select an index pattern, search for your namespace name in the Management tab. You will come across an index that looks similar to this: 
 
-```xml
-<configuration scan="true" scanPeriod="30 seconds">
-    <property name="fileName" value="/var/lib/new/app.log" />
-    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-      <encoder>
-         <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
-      </encoder>
-    </appender>
-    <appender name="FILE-ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
-      <file> ${fileName} </file>
-      <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-        <fileNamePattern>/var/lib/new/archived/app.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
-        <maxFileSize>1MB</maxFileSize>
-        <totalSizeCap>20GB</totalSizeCap>
-        <maxHistory>60</maxHistory>
-      </rollingPolicy>
-      <encoder>
-         <pattern>%d{yyyy-MM-dd} | %d{HH:mm:ss} | %-20.20thread | %5p | %-25.25logger{25} | %m%n</pattern>
-         <charset>utf8</charset>
-      </encoder>
-   </appender>
-   <root level="info">
-      <appender-ref ref="FILE-ROLLING"/>
-      <appender-ref ref="STDOUT"/>
-   </root>
-</configuration>
+```
+project.devenablement-dev.3f491109-75b6-11e9-afd8-30e171556d10.*
 ```
 
-This XML formats our logs and provides a root level of info for the logs to be provided. You will notice that these logs write files to the location `/var/lib/new/` - which is the same file storage we created in [Lesson 3.3](./lesson3.3.md). 
+This contains project, namespace name, and namespace ID components that were just mentioned. The `*` indicates a wildcard, which essentially says to include all the logs from this namespace as part of this index. Using this, we can now create our Index Pattern by clicking on "Create Index Pattern." Here, you will enter your index pattern with the `*` after the namespace ID as shown above and select a time filter field name. 
 
-4. Open the Dockerfile located at `springboot\image\Dockerfile`. Replace the last line, the `ENTRYPOINT` command, to the following: 
+![Create an Index Pattern](https://github.ford.com/DevEnablement/caas-workshop/blob/master/images/Kibana_IndexPattern.PNG)
 
-```dockerfile
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-Dspring.config.location=file:/opt/properties/application-prod.properties","-jar","devenablement-service-helloworld.jar"]
+When you create your index pattern, there is a star icon that you can click to set it as your default index pattern. 
+
+3. When we have created our index pattern, we can view all the fields that the container and application outputs. Simply click on the index pattern name and you can view and filter all the fields. 
+
+#### Discover
+
+4. We will now look at the Discover tab where you can view the entirety of the logs for your namespace. Depending on the number of applications or pods running in your namespace, and the extent of the logs that are output, this may be a large amount that you want to create filters and queries for. 
+
+5. Looking at the search bar, we see the `*` wildcard is being used, which means all the logs are being shown. We can search using the [Lucene query syntax](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/query-dsl-query-string-query.html#query-string-syntax) to find specific logs for this application. In this example for our Springboot applicaiton, we are going to search for the log where the application starts. 
+
+In the search bar, we enter the follow:
+```
+message:("Started HelloworldApplication")
+```
+Here, the message refers to the field that we viewed in step 3 when we viewed the index pattern's list of fields. The content after the `:` refers to the message we are looking for. For more complicated searches, view the Lucene query syntax linked above for syntax guidelines. 
+
+6. When the search is completed, we can view the results in a table or in JSON format. Below is an example of the JSON output from one entry of our search results. 
+
+```json
+{
+  "_index": "project.devenablement-dev.3f491109-75b6-11e9-afd8-30e171556d10.2019.06.19",
+  "_type": "com.redhat.viaq.common",
+  "_id": "ZjEwYjQ2NzAtZTJiMS00ODgxLTk2OTYtNDJhMTE3YWU2OTY5",
+  "_version": 1,
+  "_score": null,
+  "_source": {
+    "docker": {
+      "container_id": "007c86f13c743133836dd74a46feae1f65a10e82f27bb37998fce2add0f5fe1e"
+    },
+    "kubernetes": {
+      "container_name": "springboot-hello-world",
+      "namespace_name": "devenablement-dev",
+      "pod_name": "springboot-hello-world-855b5b4ddc-skxks",
+      "pod_id": "aa7adc97-92c1-11e9-9d03-30e171556d10",
+      "labels": {
+        "app": "springboot-hello-world",
+        "pod-template-hash": "4116160887"
+      },
+      "host": "worker7.caas.ford.com",
+      "master_url": "https://kubernetes.default.svc.cluster.local",
+      "namespace_id": "3f491109-75b6-11e9-afd8-30e171556d10"
+    },
+    "message": "2019-06-19 18:40:31.903  INFO 1 --- [           main] c.f.d.helloworld.HelloworldApplication   : Started HelloworldApplication in 15.788 seconds (JVM running for 18.326)\n",
+    "level": "info",
+    "hostname": "worker7.caas.ford.com",
+    "pipeline_metadata": {
+      "collector": {
+        "ipaddr4": "19.2.17.126",
+        "ipaddr6": "fe80::9041:bff:fecb:1e79",
+        "inputname": "fluent-plugin-systemd",
+        "name": "fluentd",
+        "received_at": "2019-06-19T18:40:58.475509+00:00",
+        "version": "0.12.43 1.6.0"
+      }
+    },
+    "@timestamp": "2019-06-19T18:40:31.903398+00:00",
+    "viaq_msg_id": "ZjEwYjQ2NzAtZTJiMS00ODgxLTk2OTYtNDJhMTE3YWU2OTY5"
+  },
+  "fields": {
+    "@timestamp": [
+      1560969631903
+    ],
+    "pipeline_metadata.collector.received_at": [
+      1560969658475
+    ]
+  },
+  "highlight": {
+    "message": [
+      "2019-06-19 18:40:31.903  INFO 1 --- [           main] c.f.d.helloworld.HelloworldApplication   : @kibana-highlighted-field@Started@/kibana-highlighted-field@ @kibana-highlighted-field@HelloworldApplication@/kibana-highlighted-field@ in 15.788 seconds (JVM running for 18.326)\n"
+    ]
+  },
+  "sort": [
+    1560969631903
+  ]
+}
 ```
 
-This change adds another command line argument, `-Dspring.config.location` with the location for where we will store the `application-prod.properties` file in our container. 
+Looking through the fields, we can see kubernetets logging fields usch as our namespace name and ID defined in `kubernetes.namespace_name` and `kubernetes.namespace_id`. We can also see some application level logs such as `level` and `message`. We see in this example, the level of this message is `info` and also can see our message contains "Started HelloworldApplication", which was given in our search criteria. 
 
-5. Open the deployment.yaml file located at `springboot\manifest\deployment.yaml`. Where you had previously uncommented the sections related to the PersistentVolumeClaim, we will now add volume configurations for our ConfigMaps. This section begins at line 124. 
+7. We can limit the fields to be included in our search results as well. On the left hand side, we can view the selected fields. For example, say we just wanted to view the pod name, and message. We can hover over those fields and select "add" and the table will re-format to ONLY show those fields. The image below shows a re-formatted table based on selected fields. 
 
-```yaml
-        volumeMounts:                       
-        - name: "volume-claim"       
-          mountPath: "/var/lib/new"        
-        - name: "config-volume"           #<---New line
-          mountPath: "/opt/configuration" #<---New line
-        - name: "properties-volume"       #<---New line
-          mountPath: "/opt/properties"    #<---New line
-      volumes:
-      - name: "volume-claim"
-        persistentVolumeClaim:
-          claimName: "my-manifest-claim"
-      - name: "config-volume"             #<---New line
-        configMap:                        #<---New line
-          name: logconfig                 #<---New line
-      - name: "properties-volume"         #<---New line
-        configMap:                        #<---New line
-          name: "app-properties"          #<---New line
-```
+![Selecting fields](https://github.ford.com/DevEnablement/caas-workshop/blob/master/images/Kibana_SelectFields.PNG)
 
-Looking at the yaml file above, we see our previous `volumes` and `volumeMounts` definitions that we used to create our persistent volume claim. We will now create two new `volumes` - `config-volume` and `properties-volume`, which will hold our logback.xml and application-prod.properties files respectively. The sections marked with the "#<---New line" comment are for you to add, giving you some exposure to writing and properly formatting yaml files.
+#### Visualize
 
-6. Now, we need to repeat our previous steps in building our Docker image and push/pull the image from the registry. If you used the local docker registry to push your image, you will need to push it to your local registry again. If you pushed to Quay last time, follow the instructions that follow to change your image. 
+The visualize tab allows us to view data in several different ways. We can select between basic charts like pie and bar graphs, data charts like tables and gauges, maps, time series, markdowns, word clouds, etc. Here we will create a basic line graph showing the amount of unique pods per day. 
 
-```bash
-[vagrant@m1 ~]$ /home/vagrant/containers/springboot/image/build.sh
-```
+8. If you have no current visualizations, click "Create a visualization." We will select a line graph. Search and select your index. We will change the default for the Y-Axis from `Count` to `Unique Count`. Choose `kubernetes.pod_name` as the field. In the `buckets` section, we will select `X-Axis` and choose `Date Histogram` as the data aggregation, select `Date Histogram` as the aggregation, `@timestamp` as the field, and `auto` as the interval. 
 
-7. After our image is built, login to the console using the `oc` CLI. 
+9. Save this visualization as `Pods per day`
 
-```bash
-[vagrant@m1 ~]$ oc login https://api.oc.local:8443
-Username: admin
-Password: sandbox
-Login successful.
-```
+> NOTE: The time selection you have currently set in the top right of the page will dictate how your graph is currently viewed. 
 
-8. If your project does not already exist, create it. 
-```bash
-[vagrant@m1 ~]$ oc new-project springboot-hello-world
-```
+10. Highlight different ranges on the graph to see how the data zooms in to those ranges. Choose different fields and different aggregators to see how the graphs formulate. Use a filter to look for specific things. For example, you can define a filter to search your logs for errors and keep a count of errors. You can select the field to be searches if your application contains search and get a count of unqiue searches per day. 
 
-9. Push the image to your local docker registry or to Quay. 
+#### Dashboard
 
-```bash
-#Pushing your image to the local registry
-[vagrant@m1 ~]$ sudo podman push \
-                  springboot-hello-world:0.0.1 \
-                  docker-daemon:registry.ford.com/devenablement/workshop:0.0.1
-```
+Your dashboard is a custom collection of all your visualizations that you can arrange and share. Add individual visualizations that you have saved. If you have not created a dashboard, you will be prompted to create one or add one. 
 
-```bash
-# Pushing the container to Quay
-# You will be given the credentials of the robot account to login in class
-[vagrant@m1 ~]$ sudo podman login registry.ford.com
-Username:
-Password:
-Login Succeeded!
+11. Create a new dashboard and add a visualization. Select the `Pods per day` chart. 
 
-# Pushing your image to Quay and deploy your secret
-[vagrant@m1 ~]$ sudo podman push \
-                    springboot-hello-world:0.0.1 \
-                    registry.ford.com/devenablement/workshop:YOUR_VERSION_NUMBER
+12. Click the share button at the top to see the different sharing options available. Copy and paste the sharing URL and see it take you directly to your dashboard. 
 
-[vagrant@m1 ~]$ oc create -f /home/vagrant/containers/springboot/manifest/pullsecret.yaml
-secret/devenablement-workshop-pull-secret created
-```
+The image below displays what a more realistic, basic dashboard might look like. 
 
-If you push your image to Quay, ensure that `YOUR_VERSION_NUMBER` matches the version number in your `deployment.yaml` file. 
+![Sample Dashboard](https://github.ford.com/DevEnablement/caas-workshop/blob/master/images/Kibana_GoodSample.png)
 
-10. We will now create our ConfigMaps for our two files. 
+#### Timelion
 
-```bash
-[vagrant@m1 ~]$ oc create configmap logconfig \
-      --from-file=/home/vagrant/containers/springboot/src/main/resources/logback.xml
-configmap/logconfig created
+Timelion is a time series data visualizer that enables you to combine totally independent data sources within a single visualization. It’s driven by a simple expression language you use to retrieve time series data, perform calculations to tease out the answers to complex questions, and visualize the results.
 
-[vagrant@m1 ~]$ oc create configmap app-properties \
-      --from-file=/home/vagrant/containers/springboot/src/main/resources/application-prod.properties
-configmap/app-properties created
-```
+Review the [timelion getting started guide](https://www.elastic.co/guide/en/kibana/5.6/timelion-getting-started.html)
 
-As you can see, the names we gave the config maps are the names that we defined in the `deployment.yaml` for the configMap. 
+#### Dev Tools
 
-11. After creating our configMaps, we can deploy the rest of our application. 
+The Dev Tools page contains development tools that you can use to interact with your data in Kibana. There are number of different interactions you can use withing the Dev tools: 
 
-```bash
-oc create -f /home/vagrant/containers/springboot/manifest/deployment.yaml
-```
+- Use the Console UI
+  - UI that allows you to interact with the REST API of Elasticseach
+  - Contains an editor section and a response/output section
+- Profiler API
+  - Insepect and analyze your search queries
+  - Includes search profile tool to visualize the metadata of your queries
 
-12. After running the `deployment.yaml` file, we can go to the terminal of a running pod as we did in [Lesson 3.3](./lesson3.3.md). Navigate to this drive and view your application's running logs. 
-
-```bash
-sh-4.2$ ls /var/lib/new
-app.log
-sh-4.2$ cat /var/lib/new/app.log
-```
-
-13. To confirm that your application logs will persist, in the Openshift console, delete your pod. After deleting your pod, wait for the new one to start up and repeat step 12. You should see your new container's application logs appended to the previously written logs. 
-
-#### Saving Logs Locally
-
-Having the logs in the container is one thing, but it is difficult to view them simply by using the `cat` command. We might want to store these logs if we cannot access them directly at all times. 
-
-14. Return to your terminal and run the following commands to create a directory for the logs. 
-
-```bash
-[vagrant@m1 ~]$ cd /home/vagrant/containers/springboot
-[vagrant@m1 ~]$ mkdir logs
-```
-
-15. We will now use the `rsync` command to copy the directory of files locally. 
-
-> NOTE: You must have admin rights on your namespace to execute these commands. You are an admin in localdev, but in the production version of Openshift, admin rights will likely reside with LL6+
-
-```bash
-[vagrant@m1 ~]$ oc rsync $(oc get pods | grep 'springboot-hello-world' | head -1 | awk '{print $1}'):/var/lib/new ./
-```
-
-Let's break down this command: 
-
-- **oc rsync** - oc cli command to copy contents from a container directory to a local directory, or vice versa
-- **$(oc get pods | grep 'springboot-hello-world' | head -1 | awk '{print $1}'):/var/lib/new** - A piped command that consists of a few parts
-    - **oc get pods** - Returns a list of all the pods in the project you are currently working on
-    - **grep 'springboot-hello-world'** - Filters the list of pods that contain the name `springboot-hello-world`
-    - **head -1** - Returns the first result of the filter
-    - **awk '{print $1}'** - Returns the first bit of information - which in this case - is the pod name
-- **:/var/lib/new** - The directory within the container that is mounted to our persistent volume claim where we are writing the app logs
-- **./** - The local directory, which here, is the current working directory (`/containers/springboot`)
-
-After we run this command, we can go into our springboot directory and see that we have a new folder called `new` which contains all of the contents we had within the container. 
-
-16. Delete your app configurations and your persistent volume claim. 
-```bash
-# Only run the exit command if you are `rsh` into the pod
-[vagrant@m1 ~]$ oc delete all -l app=springboot-hello-world
-[vagrant@m1 ~]$ oc delete pvc my-manifest-claim
-```
+Review the [Dev Tools Guide](https://www.elastic.co/guide/en/kibana/5.6/devtools-kibana.html)
 
 ---
 
-You have reached the end of the workshop :clap:
+Continue to [Lesson 3.6](./lesson3.6.md)

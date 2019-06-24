@@ -1,166 +1,205 @@
-# Lesson 3, Advanced Topics
+# Lesson 3: Logging, Monitoring, and Storage
 
-## Application Logging
+Further Reading: [Storage Operations and Troubleshooting Guide](https://github.ford.com/Containers/k8s-platform/blob/master/Day2/CaaS_Applications/User_docs/storage_troubleshooting_day2_guide.md#storage-operations-and-troubleshooting-guide)
 
-The Openshift Enterprise is deployed with the EFK stack to aggregate logs for a range of Openshift Enterprise services. As application developers, you can view the logs of the projects for which you have view access. The EFK stack aggregates logs from hosts and applications, whether coming from multiple containers or even deleted pods. 
+## Exercise
 
-The EFK Stack consists of:
- - **Elasticsearch**: An object store where all logs are stored
- - **Fluentd**: Gathers logs from nodes and feeds them to Elasticsearch
- - **Kibana**: A web UI for Elasticsearch
+### Storage Creation via Web Console
 
-### View Logs in Kibana
+1. If you have not already completed building the sample application and pushing it to Openshift, return to [Lesson 1.2](https://github.ford.com/JPOTTE46/caas-workshop/blob/master/lesson1.2.md) and work to this lesson. Then, delete the springboot app configuration. 
 
-To view logs in Kibana, you must be a member of the namespace in Openshift. You can follow along with the steps below using the namespace that you are a member of and using search parameters that apply to your application or service. For the rest of the steps, simply replace the use of the `devenablement` namespace with your namespace. 
-
-1. Go to [https://kibana.app.caas.ford.com/](https://kibana.app.caas.ford.com/)
-
-#### Indexes
-
-2. If this is your first time using Kibana, you will be re-directed to the Management tab where you will be asked to choose or create an Index Pattern. An index pattern identifies one or more Elasticsearch indices that you want to explore with Kibana. Below is an example of what an index looks like. 
-
-```
-project.devenablement-dev.3f491109-75b6-11e9-afd8-30e171556d10.2019.06.19
+```bash
+[vagrant@m1 ~]$ oc delete all -l app=springboot-hello-world
 ```
 
-This index contains a prefix `project`, which is the case for all projects in Openshift. It also contains the namespace used in this example, which is `devenablement-dev`. The next part is the namespace ID, which is `3f491109-75b6-11e9-afd8-30e171556d10`. The final part of the index is the date that specific log entry was created. 
+2. Navigate to the Springboot sample project and click the Storage tab/icon and click "Create". ([Direct Link](https://api.oc.local:8443/console/project/springboot-hello-world/browse/storage))
 
-To select an index pattern, search for your namespace name in the Management tab. You will come across an index that looks similar to this: 
+3. Fill out the form with the following options and click create
+- **Storage Class**: nfs
+- **Name**: my-storage-claim
+- **Access Mode**: Shared Access (RWX)
+- **Size**: 5 MiB
 
-```
-project.devenablement-dev.3f491109-75b6-11e9-afd8-30e171556d10.*
-```
+> :floppy_disk: Size of volume needs to fit within the constraints of your app size limits - hence the small size of this drive
 
-This contains project, namespace name, and namespace ID components that were just mentioned. The `*` indicates a wildcard, which essentially says to include all the logs from this namespace as part of this index. Using this, we can now create our Index Pattern by clicking on "Create Index Pattern." Here, you will enter your index pattern with the `*` after the namespace ID as shown above and select a time filter field name. 
+### Applying the Changes in the Manifest
 
-![Create an Index Pattern](https://github.ford.com/DevEnablement/caas-workshop/blob/master/images/Kibana_IndexPattern.PNG)
+4. Open the samples repo you previously cloned and open the deployment.yaml file (located at springboot/manifest/deployment.yaml) in your editor of choice
 
-When you create your index pattern, there is a star icon that you can click to set it as your default index pattern. 
+> :raised_hands: Because your samples drive is mounted to the VM, you can edit the YAML file outside the VM
 
-3. When we have created our index pattern, we can view all the fields that the container and application outputs. Simply click on the index pattern name and you can view and filter all the fields. 
+5. Uncomment lines 124-130 in the deployment.yaml and save the changes. 
 
-#### Discover
+If you do not have those lines, please retrieve the [latest yaml file](https://github.ford.com/JPOTTE46/samples/blob/master/springboot/manifest/deployment.yaml) which will contain them. 
 
-4. We will now look at the Discover tab where you can view the entirety of the logs for your namespace. Depending on the number of applications or pods running in your namespace, and the extent of the logs that are output, this may be a large amount that you want to create filters and queries for. 
+> :eyes: If you manually add these lines, the yaml needs to be properly aligned. In this example - volumeMounts needs to be aligned with "readinessProbe" and "volumes" needs to be aligned with "containers"
 
-5. Looking at the search bar, we see the `*` wildcard is being used, which means all the logs are being shown. We can search using the [Lucene query syntax](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/query-dsl-query-string-query.html#query-string-syntax) to find specific logs for this application. In this example for our Springboot applicaiton, we are going to search for the log where the application starts. 
-
-In the search bar, we enter the follow:
-```
-message:("Started HelloworldApplication")
-```
-Here, the message refers to the field that we viewed in step 3 when we viewed the index pattern's list of fields. The content after the `:` refers to the message we are looking for. For more complicated searches, view the Lucene query syntax linked above for syntax guidelines. 
-
-6. When the search is completed, we can view the results in a table or in JSON format. Below is an example of the JSON output from one entry of our search results. 
-
-```json
-{
-  "_index": "project.devenablement-dev.3f491109-75b6-11e9-afd8-30e171556d10.2019.06.19",
-  "_type": "com.redhat.viaq.common",
-  "_id": "ZjEwYjQ2NzAtZTJiMS00ODgxLTk2OTYtNDJhMTE3YWU2OTY5",
-  "_version": 1,
-  "_score": null,
-  "_source": {
-    "docker": {
-      "container_id": "007c86f13c743133836dd74a46feae1f65a10e82f27bb37998fce2add0f5fe1e"
-    },
-    "kubernetes": {
-      "container_name": "springboot-hello-world",
-      "namespace_name": "devenablement-dev",
-      "pod_name": "springboot-hello-world-855b5b4ddc-skxks",
-      "pod_id": "aa7adc97-92c1-11e9-9d03-30e171556d10",
-      "labels": {
-        "app": "springboot-hello-world",
-        "pod-template-hash": "4116160887"
-      },
-      "host": "worker7.caas.ford.com",
-      "master_url": "https://kubernetes.default.svc.cluster.local",
-      "namespace_id": "3f491109-75b6-11e9-afd8-30e171556d10"
-    },
-    "message": "2019-06-19 18:40:31.903  INFO 1 --- [           main] c.f.d.helloworld.HelloworldApplication   : Started HelloworldApplication in 15.788 seconds (JVM running for 18.326)\n",
-    "level": "info",
-    "hostname": "worker7.caas.ford.com",
-    "pipeline_metadata": {
-      "collector": {
-        "ipaddr4": "19.2.17.126",
-        "ipaddr6": "fe80::9041:bff:fecb:1e79",
-        "inputname": "fluent-plugin-systemd",
-        "name": "fluentd",
-        "received_at": "2019-06-19T18:40:58.475509+00:00",
-        "version": "0.12.43 1.6.0"
-      }
-    },
-    "@timestamp": "2019-06-19T18:40:31.903398+00:00",
-    "viaq_msg_id": "ZjEwYjQ2NzAtZTJiMS00ODgxLTk2OTYtNDJhMTE3YWU2OTY5"
-  },
-  "fields": {
-    "@timestamp": [
-      1560969631903
-    ],
-    "pipeline_metadata.collector.received_at": [
-      1560969658475
-    ]
-  },
-  "highlight": {
-    "message": [
-      "2019-06-19 18:40:31.903  INFO 1 --- [           main] c.f.d.helloworld.HelloworldApplication   : @kibana-highlighted-field@Started@/kibana-highlighted-field@ @kibana-highlighted-field@HelloworldApplication@/kibana-highlighted-field@ in 15.788 seconds (JVM running for 18.326)\n"
-    ]
-  },
-  "sort": [
-    1560969631903
-  ]
-}
+```yaml
+        volumeMounts:
+          - name: "volume-claim"
+            mountPath: "/var/lib/new"
+      volumes:
+      - name: "volume-claim"
+        persistentVolumeClaim:
+          claimName: "my-storage-claim"
 ```
 
-Looking through the fields, we can see kubernetets logging fields usch as our namespace name and ID defined in `kubernetes.namespace_name` and `kubernetes.namespace_id`. We can also see some application level logs such as `level` and `message`. We see in this example, the level of this message is `info` and also can see our message contains "Started HelloworldApplication", which was given in our search criteria. 
+- claimName: Refers the name of the storage you defined in the web console
+- mountPath: Refers to the path within the container that will be mounted to the volume share
 
-7. We can limit the fields to be included in our search results as well. On the left hand side, we can view the selected fields. For example, say we just wanted to view the pod name, and message. We can hover over those fields and select "add" and the table will re-format to ONLY show those fields. The image below shows a re-formatted table based on selected fields. 
+6. Run the following command to apply the changes
 
-![Selecting fields](https://github.ford.com/DevEnablement/caas-workshop/blob/master/images/Kibana_SelectFields.PNG)
+```bash
+[vagrant@m1 ~]$ oc apply -f ~/containers/springboot/manifest/deployment.yaml
+```
 
-#### Visualize
+### Verifying Results
 
-The visualize tab allows us to view data in several different ways. We can select between basic charts like pie and bar graphs, data charts like tables and gauges, maps, time series, markdowns, word clouds, etc. Here we will create a basic line graph showing the amount of unique pods per day. 
+7. In the Openshift web console, [in the Spring project, go to Applications->Pods](https://api.oc.local:8443/console/project/springboot-hello-world/browse/pods). Selecting the Pod with a "Running" status and click the terminal tab. 
 
-8. If you have no current visualizations, click "Create a visualization." We will select a line graph. Search and select your index. We will change the default for the Y-Axis from `Count` to `Unique Count`. Choose `kubernetes.pod_name` as the field. In the `buckets` section, we will select `X-Axis` and choose `Date Histogram` as the data aggregation, select `Date Histogram` as the aggregation, `@timestamp` as the field, and `auto` as the interval. 
+8. In the Openshift terminal, confirm the mount path defined in the yaml file exists
 
-9. Save this visualization as `Pods per day`
+```bash
+(app-root)sh-4.2$ ls /var/lib
+alternatives  dbus  games  initramfs  machines  misc  new  rhsm  rpm  rpm-state  systemd  yum
+# The drive "new" exists so we know the path was created successfully
+```
 
-> NOTE: The time selection you have currently set in the top right of the page will dictate how your graph is currently viewed. 
+We can also access this pod terminal through our existing bash/powershell window using [`oc rsh <pod>`](https://docs.openshift.com/container-platform/3.11/dev_guide/ssh_environment.html)
+```bash
+[vagrant@m1 ~]$ oc rsh $(oc get pods -o name)
+sh-4.2$ ls /var/lib
+alternatives  dbus  games  initramfs  machines  misc  new  rhsm  rpm  rpm-state  systemd  yum
+```
 
-10. Highlight different ranges on the graph to see how the data zooms in to those ranges. Choose different fields and different aggregators to see how the graphs formulate. Use a filter to look for specific things. For example, you can define a filter to search your logs for errors and keep a count of errors. You can select the field to be searches if your application contains search and get a count of unqiue searches per day. 
+9. Let's write a text file to this file share. You can use the console method or the remote shell method. 
 
-#### Dashboard
+```bash
+# Console Method
+(app-root)sh-4.2$ cd /var/lib/new
+(app-root)sh-4.2$ echo "I am writing to my new file share" > myFile.txt
+(app-root)sh-4.2$ cat myFile.txt
+I am writing to my new file share
+```
 
-Your dashboard is a custom collection of all your visualizations that you can arrange and share. Add individual visualizations that you have saved. If you have not created a dashboard, you will be prompted to create one or add one. 
+```bash
+# Remote shell method
+sh-4.2$ cd /var/lib/new
+sh-4.2$ echo "I am writing to my new file share" > myFile.txt
+sh-4.2$ cat myFile.txt
+I am writing to my new file share
+```
 
-11. Create a new dashboard and add a visualization. Select the `Pods per day` chart. 
+10. We now are going to delete all the existing pods to demonstrate that the file persists. To do this, you must return to your bash/powershell window. If you `oc rsh` into the pod, then you must exit the pod first. 
 
-12. Click the share button at the top to see the different sharing options available. Copy and paste the sharing URL and see it take you directly to your dashboard. 
+```bash
+# If you did not `rsh` into the pod, do not run the exit command
+sh-4.2$ exit       
+exit
+[vagrant@m1 ~]$ oc delete pod --all
+```
 
-The image below displays what a more realistic, basic dashboard might look like. 
+11. After successfull deletion of the pod, a new will pod will be spun up automatically. We will now show that file perisisted. You can either return to the Openshift console and go to [Applicatons->Pods](https://api.oc.local:8443/console/project/springboot-hello-world/browse/pods), select the new running pod, and go to the terminal.  Alternatively, you can `oc rsh` into the new pod from your bash/powershell window. 
 
-![Sample Dashboard](https://github.ford.com/DevEnablement/caas-workshop/blob/master/images/Kibana_GoodSample.png)
+```bash
+# Console terminal method
+(app-root)sh-4.2$ cat /var/lib/new/myFile.txt
+I am writing to my new file share
+```
 
-#### Timelion
+```bash
+# Remote Shell Method
+[vagrant@m1 ~]$ oc rsh $(oc get pods -o name)
+sh-4.2$ cat /var/lib/new/myFile.txt
+I am writing to my new file share
+```
 
-Timelion is a time series data visualizer that enables you to combine totally independent data sources within a single visualization. It’s driven by a simple expression language you use to retrieve time series data, perform calculations to tease out the answers to complex questions, and visualize the results.
+12. If you ran the commands in the Console terminal, return to your Bash/Powershell terminal and delete the file share and app configurations. If you ran the command while `oc rsh` into the pod, exit first, and then run the delete command
 
-Review the [timelion getting started guide](https://www.elastic.co/guide/en/kibana/5.6/timelion-getting-started.html)
+```bash
+# Run the below command only if you `oc rsh` into the pod
+sh-4.2$ exit
 
-#### Dev Tools
+[vagrant@m1 ~]$ oc delete all -l app=springboot-hello-world
+[vagrant@m1 ~]$ oc delete pvc my-storage-claim
+```
 
-The Dev Tools page contains development tools that you can use to interact with your data in Kibana. There are number of different interactions you can use withing the Dev tools: 
+> :exclamation: :collision: :fire: Deleting your PVC will delete the file storage and all files saved there. Do not execute this command in production unless you are SURE you want to delete your storage and all associated files :fire: :collision: :exclamation:
 
-- Use the Console UI
-  - UI that allows you to interact with the REST API of Elasticseach
-  - Contains an editor section and a response/output section
-- Profiler API
-  - Insepect and analyze your search queries
-  - Includes search profile tool to visualize the metadata of your queries
+### Storage Creation via Manifest
 
-Review the [Dev Tools Guide](https://www.elastic.co/guide/en/kibana/5.6/devtools-kibana.html)
+13. Re-open the deployment.yaml in the manifest folder and uncomment lines 131-142
 
+> :eyes: If those lines are not there, please add them and ensure the tabbing/spacing aligns with the rest of the yaml file. 
+
+```yaml
 ---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: my-manifest-claim
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: nfs
+  resources:
+    requests:
+      storage: 10Mi
+```
+
+Everything we defined in step 3 we are now doing in the yaml file. We are defining a PVC, giving it a name, defining its access mode, storage class, and size to be allocated. 
+
+14. Since we are using a different name, edit line 130 of the file to reflect this change.
+
+```yaml
+claimName: "my-manifest-claim"
+```
+
+15. Since we deleted the application configurations, run the create command again. 
+
+```bash
+[vagrant@m1 ~]$ oc create -f /home/vagrant/containers/springboot/manifest/deployment.yaml
+```
+
+You'll see that the [storage was created with the name specified in line 135](https://api.oc.local:8443/console/project/springboot-hello-world/browse/storage). Navigating to the terminal of a running pod, you will find the same mount path has been created. 
+
+```bash
+(app-root)sh-4.2$ ls /var/lib
+alternatives  dbus  games  initramfs  machines  misc  new  rhsm  rpm  rpm-state  systemd  yum
+```
+
+Again, you can run this in the bash/powershell window after you `exec` into the pod. 
+
+```bash
+[vagrant@m1 ~]$ oc rsh $(oc get pods -o name)
+sh-4.2$ ls /var/lib
+alternatives  dbus  games  initramfs  machines  misc  new  rhsm  rpm  rpm-state  systemd  yum
+```
+
+As you can see, the `new` folder was created which serves as the mount point for our VM and the persistent volume claim. 
+
+This path **DOES NOT** contain the myFile.txt we created earlier because that storage was deleted. When the storage is deleted, the provisioner in Openshift will delete the actual storage and contents.
+
+16. Return to your Bash/Powershell terminal and delete the file share and app configurations. Once again, if you are `oc rsh` into the pod, exit first. 
+
+```bash
+# Only run the exit command if you are `rsh` into the pod
+sh-4.2$ exit
+exit
+[vagrant@m1 ~]$ oc delete all -l app=springboot-hello-world
+[vagrant@m1 ~]$ oc delete pvc my-manifest-claim
+```
+<!--
+17. Exit VM and destroy 
+```bash
+[vagrant@m1 ~]$ exit
+logout
+Connection to 127.0.0.1 closed.
+
+$ vagrant destroy -f
+```
+
+You have reached the end of the workshop :clap:
+-->
 
 Continue to [Lesson 3.5](./lesson3.5.md)

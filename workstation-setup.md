@@ -28,21 +28,39 @@ CaaS localdev is a VM image that runs a small installation of OpenShift CaaS. Wh
 
 Open a terminal as Administrator and complete the instructions below. Note that the instructions are optimized for Git Bash on Windows. You may have to modify the commands slightly if you are using PowerShell or cmd as your terminal.
 
+1. Change to a directory of your choosing to clone the localdev repo. 
 ```bash
-# Change directory to your project workspace if you have a preferred one.
+# Example directory
 cd ~/workspace
+```
+2. Clone the localdev repo and checkout the latest version. 
 
-# Clone the localdev git repo and checkout the latest version.
-git clone git@github.ford.com:Containers/localdev.git
+> You can also use the Github desktop application to clone the repo instead of the terminal method shown below
+
+```bash
+git clone git@github.ford.com:Containers/localdev.git # Using SSH
+git clone https://github.ford.com/Containers/localdev.git # Using HTTPS
+```
+
+3. Navigate to the directory you cloned the repo and checkout the latest version. 
+```bash
 cd localdev
 git checkout tags/v3.11.98-2
+```
 
+4. Export the LOCAL_DEV_PROFILE environment variable
+
+> Note - This method will create an environment variable for just the running terminal. You will need to create a permanent environment variable to have this value persist for new/future terminals
+
+```bash
 # Pick ***ONE*** of the options below to set an env var used by localdev.
 export LOCAL_DEV_PROFILE='basic-cnx'  #<----- Git Bash/MacOS/Linux OR
 $env:LOCAL_DEV_PROFILE = 'basic-cnx'  #<----- Windows Powershell OR
 SET LOCAL_DEV_PROFILE='basic-cnx'     #<----- Windows legacy command/cmd shell
+```
 
-# Start up localdev virtual machine.
+5. Start up the localdev virtual machine. If you face issues in the next few steps, see the troubleshooting guide above. 
+```bash
 vagrant up
 
 # You will be prompted to confirm your IP address. Press Y to confirm it. See example output below.
@@ -62,7 +80,7 @@ Please verify if your host IP is 19.47.12.230 [y/n] y  #<-----------------------
 ...
 ```
 
-Once the scrolling stops from the commands above and you get your terminal prompt back, check the status of the VM with `vagrant status`. The response should look like this:
+6. Once the scrolling stops from the commands above and you get your terminal prompt back, check the status of the VM with `vagrant status`. The response should look like this:
 
 ```bash
 vagrant status
@@ -92,7 +110,7 @@ You will know the OpenShift Web Console is working if you get a web page with a 
     Password: sandbox
     ```
 -->
-You will now suspend the VM by typing `vagrant suspend` in the terminal. This will gracefully pause and save the state of the VM. The response should look like this:
+7. You will now suspend the VM by typing `vagrant suspend` in the terminal. This will gracefully pause and save the state of the VM. The response should look like this:
 
 ```bash
 vagrant suspend
@@ -106,8 +124,27 @@ vagrant suspend
 
 See the [Vagrant Documentation](https://www.vagrantup.com/intro/getting-started/teardown.html) for the specifics between suspending, halting, and destroying. 
 
-You're done! At the workshop, you will be able to resume the VM quickly with `vagrant up`. If you want to know more about CaaS localdev, you can review the README in the localdev [repo](https://github.ford.com/containers/localdev) on GitHub.
+You're done setting up localdev. At the workshop, you will be able to resume the VM quickly with `vagrant up`. If you want to know more about CaaS localdev, you can review the README in the localdev [repo](https://github.ford.com/containers/localdev) on GitHub.
 
+### Samples Repository
+
+1. The CaaS team maintains a repository of sample apps that will run on CaaS. You will clone this repo locally, and then go through the process of building a container image with one of the sample apps.
+
+2. Navigate to a directory **diferent from the localdev directory**. 
+
+```bash
+# Example
+cd ~/workspace
+```
+
+3. Clone the samples repository. If you have the Github desktop application, you can use that to clone the repository. 
+
+```bash
+git clone git@github.ford.com:JPOTTE46/samples.git # Using SSH
+git clone https://github.ford.com/JPOTTE46/samples.git # Using HTTPS
+```
+
+You're all set and ready for the workshop! 
 ---
 
 [Return to Workshop](./lesson1.1.md)
