@@ -34,4 +34,14 @@ The StorageClass are different "classes" of storage that are offered. They might
 
 > :point_right: Need to provide shared access if you want multiple applications to be able to write to it (e.g FTP Server)
 
+---
+
+Please watch this short series of videos for further information
+
+- [Intro to Persistent Volume Claims](https://www.youtube.com/watch?v=VB7vI9OT-WQ)
+- [Understanding Persistent Volume and Persistent Volume Claim](https://www.youtube.com/watch?v=OulmwTYTauI&t=)
+- [How Things Connect](https://www.youtube.com/watch?v=X6Vkz-ny574)
+
+---
+
 Continue to [Lesson 3.4](./lesson3.4.md)
