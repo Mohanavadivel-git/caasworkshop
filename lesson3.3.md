@@ -23,6 +23,19 @@ The StorageClass are different "classes" of storage that are offered. They might
 
 > :exclamation: Block volumes CANNOT be attached to multiple container instances at the same time - file volumes CAN. Mounting and cross-mounting are only for file based storage plans - block storage plans cannot be concurrently mounted.
 
+Below are further definitions for the storage classes. IOPS are a measure of I/O per second. 
+
+- **File** - NAS
+- **Block** - SAN
+- **Performance** 
+    - Maximum SLO: 4096 IOPS/TB
+    - Minimum SLA: 2048 IOPS/TB
+    - Database and virtualized applications
+- **Extreme** 
+    - Maximum SLO: 12288 IOPS/TB
+    - Minimum SLA: 6144 IOPS/TB
+    - Latency-sensitive applications
+
 ### Access Types
 
 - Single User (RWO - Read Write Once)

@@ -20,6 +20,8 @@ This workshop will provide instructions to build application container images, t
 
 #### Lesson 3, Advanced Topics
 - Monitoring app performance.
+- Persistent Volume Claims
+- Logging with Kibana
 - More to come in the future.
 <!--
 - Viewing app logs.

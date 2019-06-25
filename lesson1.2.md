@@ -66,7 +66,7 @@ vagrant up
 
 > Note: You should receive a message to verify your host IP. If you do not, you will likely run into issues throughout the workshop  
 
-6. After the VM is built, SSH into the VM and confirm the samples repo was mounted. 
+6. After the VM is built, SSH into the VM and confirm the samples repo was mounted. You should see multiple files in `/home/vagrant/containers`.
 ```bash
 # SSH into the VM
 vagrant ssh
@@ -76,7 +76,8 @@ vagrant ssh
 
 best-practices.md  DTaaS  http-echo  jenkins  leap  perl  python  README.md  simple_nodejsapp  springboot  toolbox
 ```
-You should see multiple files in `/home/vagrant/containers`. If you do not, let the instructor know you need help. If you are completing this outside of the workshop, check your file locations, ensure you're passing in the correct file location, and check the spelling. 
+
+If you already started the localdev VM before creating the env var for synced folders, you may find `/home/vagrant/containers` is empty. In that case, exit out of ssh. Ensure that your environment variable is properly set, then, reload the VM with `vagrant reload` so the synced folders will take effect. If that still does not work, then do a `vagrant destroy`, `vagrant update`, `vagrant prune`, and `vagrant up` which will rebuild the VM from scratch.
 
 Before building the Docker image, we will take a closer looking at Dockerfiles and the best practices in writing them.
 

@@ -2,10 +2,6 @@
 
 ### Building Container Images with Localdev
 
-If the VM was already running before you set the ADDITIONAL_SYNCED_FOLDERS env var, then restart it so it will pick up the settings.
-
-If you already started the localdev VM before creating the env var for synced folders, you may find `/home/vagrant/containers` is empty. In that case, exit out of ssh and reload the VM with `vagrant reload` so the synced folders will take effect. If that still does not work, then do a `vagrant destroy`, `vagrant update`, `vagrant prune`, and `vagrant up` which will rebuild the VM from scratch.
-
 1. Build the container image for the Springboot app. 
 
 If you have no experience with container images, you should check out the [Get Started](https://docs.docker.com/get-started/) tutorial on Docker's website.
