@@ -1,4 +1,6 @@
-# Lesson 1, App Container Images
+## Day 1 - Lesson 1
+
+## Introduction
 
 ### Pre-Requisites
 
@@ -31,3 +33,5 @@ Localdev is also a good place to learn about CaaS. It is free; there is no onboa
 ---  
 
 Continue to [Lesson 1.2](./lesson1.2.md).
+
+Return to [Table of Contents](https://github.ford.com/DevEnablement/caas-workshop/tree/workshop-reformat#agenda)

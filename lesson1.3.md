@@ -1,12 +1,12 @@
-# Lesson 1, App Container Images
+## Day 1 - Lesson 1
 
-### Writing Dockerfiles
+## Writing Dockerfiles
 
 A Dockerfile is a text file that defines our Docker image. An image building tool; like docker, buildah, or podman; takes a Dockerfile as input and outputs a Docker image.
 
 Before creating our Docker image using the Springboot app, let's evaluate an example Dockerfile. The Dockerfile example below is a very simple one that is for a python application. The Dockerfile for a real-world production application will likely be much more complex, so be sure to review this external [best practices article](https://takacsmark.com/dockerfile-tutorial-by-example-dockerfile-best-practices-2018/) for how to write good, slim Dockerfiles.
 
-```bash
+```dockerfile
 FROM registry.redhat.io/rhscl/python-27-rhel7
 
 ARG LD_LIBRARY_PATH=/opt/rh/python27/root/usr/lib64
@@ -56,3 +56,5 @@ The capitalized keywords at the beginning of each line above are Docker instruct
 --- 
 
 Continue to [Lesson 1.4](./lesson1.4.md).
+
+Return to [Table of Contents](https://github.ford.com/DevEnablement/caas-workshop/tree/workshop-reformat#agenda)

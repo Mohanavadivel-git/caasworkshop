@@ -1,4 +1,4 @@
-# Lesson 3: Logging, Monitoring, and Storage
+## Day 2 - Lesson 5
 
 ## Kubernetes Volumes
 
@@ -28,13 +28,17 @@ Below are further definitions for the storage classes. IOPS are a measure of I/O
 - **File** - NAS
 - **Block** - SAN
 - **Performance** 
-    - Maximum SLO: 4096 IOPS/TB
-    - Minimum SLA: 2048 IOPS/TB
+    - Maximum SLO: 4,096 IOPS/TB
+    - Minimum SLA: 2,048 IOPS/TB
     - Database and virtualized applications
+    - 8 cents/GB per month
 - **Extreme** 
-    - Maximum SLO: 12288 IOPS/TB
-    - Minimum SLA: 6144 IOPS/TB
+    - Maximum SLO: 12,288 IOPS/TB
+    - Minimum SLA: 6,144 IOPS/TB
     - Latency-sensitive applications
+    - 12 cents/GB per month
+
+> Note: Prices listed are base prices. Copies/replicas of storage will have increased costs. See https://www.cloudportal.ford.com/storage for details. 
 
 ### Access Types
 
@@ -57,4 +61,6 @@ Please watch this short series of videos for further information
 
 ---
 
-Continue to [Lesson 3.4](./lesson3.4.md)
+Continue to [Lesson 4.2](./lesson4.2.md)
+
+Return to [Table of Contents](https://github.ford.com/DevEnablement/caas-workshop/tree/workshop-reformat#agenda)

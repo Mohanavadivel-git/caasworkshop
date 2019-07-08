@@ -1,6 +1,6 @@
-# Lesson 1, App Container Images
+## Day 1 - Lesson 1
 
-### Building Container Images with Localdev
+## The Big Picture and Mounting Directories
 
 The big picture...
 
@@ -26,7 +26,7 @@ git clone git@github.ford.com:JPOTTE46/samples.git
 git clone https://github.ford.com/JPOTTE46/samples.git
 ```
 -->
-1. Open a terminal as administrator and navigate to the samples directory you cloned in the [Workstation Setup](./workstation-setup.md). 
+1. Open a terminal as administrator and navigate to the samples directory you cloned in the [Workstation Setup](https://github.ford.com/DevEnablement/caas-workshop/blob/master/workstation-setup.md#samples-repository). 
 
 ```bash
 $ cd <LOCATION_OF_CLONED_REPO>
@@ -35,6 +35,8 @@ best-practices.md  DTaaS  http-echo  leap  mailx  perl  python  README.md  simpl
 ```
 
 2. For the workshop, we will use the Springboot application. To do so, we need to build the application using gradle. 
+
+> Note: For this sample app, you will need to point your `JAVA_HOME` environment variable to your JDK8 path if you are currently using Java 10 or 11
 
 ```bash
 $ cd springboot
@@ -58,7 +60,7 @@ The commands above will result in the samples repo (which is located on your hos
 5. Issue the vagrant up command after navigating to the localdev directory. 
 ```bash
 # Change directory into your localdev directory.
-cd ~/workspace/localdev
+cd <PATH_TO_LOCALDEV_DIRECTORY>
 
 # Start the localdev VM. If it is already running, skip this step.
 vagrant up
@@ -77,13 +79,22 @@ vagrant ssh
 best-practices.md  DTaaS  http-echo  jenkins  leap  perl  python  README.md  simple_nodejsapp  springboot  toolbox
 ```
 
-If you already started the localdev VM before creating the env var for synced folders, you may find `/home/vagrant/containers` is empty. In that case, exit out of ssh. Ensure that your environment variable is properly set, then, reload the VM with `vagrant reload` so the synced folders will take effect. If that still does not work, then do a `vagrant destroy`, `vagrant update`, `vagrant prune`, and `vagrant up` which will rebuild the VM from scratch.
+If you already started the localdev VM before creating the env var for synced folders, you may find `/home/vagrant/containers` is empty. In that case, exit out of ssh. Ensure that your environment variable is properly set, then, reload the VM with `vagrant reload` so the synced folders will take effect. 
+
+If that still does not work, then execute the following steps in order aftering exiting the VM to rebuild the VM. 
+1. `vagrant destroy`
+2. `vagrant box update`
+3. `vagrant box prune`
+4. `vagrant up`
+
 
 Before building the Docker image, we will take a closer looking at Dockerfiles and the best practices in writing them.
 
 ---
 
 Continue to [Lesson 1.3](./lesson1.3.md).
+
+Return to [Table of Contents](https://github.ford.com/DevEnablement/caas-workshop/tree/workshop-reformat#agenda)
 
 
 <!--

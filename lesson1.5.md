@@ -1,6 +1,6 @@
-# Lesson 1, App Container Images
+## Day 1 - Lesson 1
 
-### Container Image Registries
+## Container Image Registries
 
 The big picture...
 
@@ -36,3 +36,5 @@ vagrant halt
 ---  
 
 Continue to [Lesson 2](./lesson2.1.md).
+
+Return to [Table of Contents](https://github.ford.com/DevEnablement/caas-workshop/tree/workshop-reformat#agenda)

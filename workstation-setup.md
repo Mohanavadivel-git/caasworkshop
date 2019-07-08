@@ -130,7 +130,7 @@ You're done setting up localdev. At the workshop, you will be able to resume the
 
 1. The CaaS team maintains a repository of sample apps that will run on CaaS. You will clone this repo locally, and then go through the process of building a container image with one of the sample apps.
 
-2. Navigate to a directory **diferent from the localdev directory**. 
+2. Navigate to a directory **different from the localdev directory**. 
 
 ```bash
 # Example

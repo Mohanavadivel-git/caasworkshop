@@ -1,8 +1,8 @@
-# Lesson 3: Logging, Monitoring, and Storage
+## Day 2 - Lesson 5
+
+## Create Volumes
 
 Further Reading: [Storage Operations and Troubleshooting Guide](https://github.ford.com/Containers/k8s-platform/blob/master/Day2/CaaS_Applications/User_docs/storage_troubleshooting_day2_guide.md#storage-operations-and-troubleshooting-guide)
-
-## Exercise
 
 ### Storage Creation via Web Console
 
@@ -202,4 +202,6 @@ $ vagrant destroy -f
 You have reached the end of the workshop :clap:
 -->
 
-Continue to [Lesson 3.5](./lesson3.5.md)
+Continue to [Lesson 5.1](./lesson5.1.md)
+
+Return to [Table of Contents](https://github.ford.com/DevEnablement/caas-workshop/tree/workshop-reformat#agenda)

@@ -1,4 +1,4 @@
-# Lesson 3: Logging, Monitoring, and Storage
+## Day 2 - Lesson 5
 
 ## Application Logging
 
@@ -163,4 +163,6 @@ Review the [Dev Tools Guide](https://www.elastic.co/guide/en/kibana/5.6/devtools
 
 ---
 
-Continue to [Lesson 3.6](./lesson3.6.md)
+Continue to [Lesson 5.2](./lesson5.2.md)
+
+Return to [Table of Contents](https://github.ford.com/DevEnablement/caas-workshop/tree/workshop-reformat#agenda)

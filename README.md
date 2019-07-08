@@ -8,6 +8,34 @@ This workshop will provide instructions to build application container images, t
 
 # Agenda
 
+#### Day 1
+
+- **Lesson 1** - App Container Images
+    - [Introduction](./lesson1.1.md)
+    - [The Big Picture and Mounting Directories](./lesson1.2.md)
+    - [Writing Dockerfiles](./lesson1.3.md)
+    - [Building a Container image](./lesson1.4.md)
+    - [Ford's Docker Registry](./lesson1.5.md)
+- **Lesson 2** - Running Apps in Openshift
+    - [Acessing the Console and oc CLI](./lesson2.1.md)
+    - [Manifests and Openshift Objects](./lesson2.2.md)
+    - [Pushing Container Image to Registry](./lesson2.3.md)
+    - [Deploying Application to Openshift](./lesson2.4.md)
+    - [Best Practices](./lesson2.5.md)
+
+#### Day 2
+
+- **Lesson 3** - Application Monitoring
+    - [Grafana and Dynatrace](./lesson3.1.md)
+- **Lesson 4** - Volumes
+    - [Volume and Storage Overview](./lesson4.1.md)
+    - [Deploying Application w. Persistent Volume Claim](./lesson4.2.md)
+- **Lesson 5** - Application Logging
+    - [Elasticsearch and Kibana](./lesson5.1.md)
+    - [Writing application logs to storage](./lesson5.2.md)
+- **Lesson 6** - [Vanity URLs and Routes](./lesson6.1.md)
+
+<!--
 #### Lesson 1, App Container Images
 - Setting up the CaaS localdev environment on your workstation.
 - Building your first app container image.
@@ -23,7 +51,7 @@ This workshop will provide instructions to build application container images, t
 - Persistent Volume Claims
 - Logging with Kibana
 - More to come in the future.
-<!--
+
 - Viewing app logs.
 - Utilizing persistent storage options.
 - Configuring vanity URLs and TLS security.

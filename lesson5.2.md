@@ -1,4 +1,4 @@
-# Lesson 3: Logging, Monitoring, and Storage
+## Day 2 - Lesson 5
 
 ## Application Logging
 
@@ -211,4 +211,6 @@ After we run this command, we can go into our springboot directory and see that 
 
 ---
 
-You have reached the end of the workshop :clap:
+Continue to [Lesson 6.1](./lesson6.1.md)
+
+Return to [Table of Contents](https://github.ford.com/DevEnablement/caas-workshop/tree/workshop-reformat#agenda)

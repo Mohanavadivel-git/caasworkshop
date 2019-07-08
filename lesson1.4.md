@@ -1,6 +1,6 @@
-# Lesson 1, App Container Images
+## Day 1 - Lesson 1
 
-### Building Container Images with Localdev
+## Building Container Images with Localdev
 
 1. Build the container image for the Springboot app. 
 
@@ -36,7 +36,7 @@ STEP 3: FROM 9da79f7a3ab568b4f3bca66a280d76e4ca09815e06ec170caafb744e382216b3
 STEP 11: COMMIT registry.ford.com/devenablement/springboot-hello-world:0.0.1
 ```
 
-2. If the build was successful, the script used the `image/Dockerfile` as input to build the app's container image, and saved that image locally. To confirm that the image is there, list the images with Buildah like this:
+2. If the build was successful, the script used the `image/Dockerfile` as input to build the app's container image, and saved that image locally. To confirm that the image is there, list the images with `sudo buildah images`
 ```bash
 [vagrant@m1 ~]$ sudo buildah images
 IMAGE NAME                                                        IMAGE TAG  IMAGE ID      CREATED AT          SIZE
@@ -55,9 +55,9 @@ registry.ford.com/devenablement/springboot-hello-world             0.0.1    54bf
 registry.access.redhat.com/redhat-openjdk-18/openjdk18-openshift   latest   b4b953ca8f5b   5 weeks ago     498 MB
 ```
 
-4. Before running this image in CaaS, you can test it by running it locally with a tool like Podman or Docker. This example uses Podman.
+4. Before running this image in CaaS, you can test it by running it locally with a tool like Podman or Docker. The commands below use Podman to run the app container image in detached mode and publish the container's port 8080 to the host's port 8080. The command saves the container_id as a variable so you can destroy the container later. Then curl is used to test the python web app. If successful, the app responds with a 200 OK http code. 
 
-The commands below use Podman to run the app container image in detached mode and publish the container's port 8080 to the host's port 8080. The command saves the container_id as a variable so you can destroy the container later. Then curl is used to test the python web app. If successful, the app responds with a 200 OK http code. Note that the app is not yet exposed beyond the VM, so you cannot access it in a web browser from your workstation yet.
+> NOTE: The app is not yet exposed beyond the VM, so you cannot access it in a web browser from your workstation yet.
 
 ```bash
 [vagrant@m1 ~]$ container_id=$(sudo podman run -p 8080:8080 -d springboot-hello-world:0.0.1)
@@ -77,3 +77,5 @@ Date: Wed, 29 May 2019 12:32:13 GMT
 ---  
 
 Continue to [Lesson 1.5](./lesson1.5.md).
+
+Return to [Table of Contents](https://github.ford.com/DevEnablement/caas-workshop/tree/workshop-reformat#agenda)

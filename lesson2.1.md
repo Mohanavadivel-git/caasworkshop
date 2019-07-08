@@ -1,12 +1,8 @@
-# Lesson 2, Running Apps in CaaS
+## Day 1 - Lesson 2
 
-### Restarting CaaS localdev
+## Openshift Console and CLI
 
-Next you will be deploying to CaaS localdev the container image you built in the last lesson. Deploying to localdev is similar to how you might deploy the container image to the production instance of CaaS.
-
-<!-- Your instance of localdev is probably still running with the `build-host` profile. Which is optimized for building container images, but does not start the OpenShift service. So before you can deploy the app container, you need to restart CaaS localdev with the `basic-cnx` profile. Instructions for doing this are included in the exercise notes below. -->
-
-Reminder: Must run shell as administrator
+Next you will be deploying to CaaS localdev the container image you built in the last lesson. Deploying to localdev is similar to how you might deploy the container image to the production instance of CaaS. To do that, we will need to access the Openshift console and/or use the `oc` CLI. 
 
 #### Exercise
 
@@ -31,7 +27,7 @@ cd ~/workspace/localdev
 vagrant up
 ```
 -->
-Now your instance of localdev has started and is running a full installation of OpenShift. Test to confirm that OpenShift is running and ready by opening the web management in a browser at https://console.oc.local:8443/. Your browser will give you an error about the self-signed SSL certificate, but just tell it to proceed anyway. And you will have to do that twice because of a redirect.
+Your instance of localdev has started and is running a full installation of OpenShift. Test to confirm that OpenShift is running and ready by opening the web management in a browser at https://console.oc.local:8443/. Your browser will give you an error about the self-signed SSL certificate, but just tell it to proceed anyway. And you will have to do that twice because of a redirect.
 
 Once you get a log in prompt, use the following:
 
@@ -57,3 +53,5 @@ If you get an error like, "no such host" or "couldn't resolve host", the issue i
 ---  
 
 Continue to [Lesson 2.2](./lesson2.2.md).
+
+Return to [Table of Contents](https://github.ford.com/DevEnablement/caas-workshop/tree/workshop-reformat#agenda)
