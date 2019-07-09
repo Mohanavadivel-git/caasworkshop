@@ -2,9 +2,11 @@
 
 ## Vanity URLs and TLS Certificates
 
-### Flowchart 
+### Flowcharts & Diagrams 
 
-![Flowchart](https://github.ford.com/Containers/k8s-platform/blob/519eb82d7ece0e161bd3e017dc872cba6c124fdc/Day2/CaaS_Applications/User_docs/Images/Flow-chart1.PNG)
+- Review the [CaaS Engineering DNS Overview](https://github.ford.com/Containers/k8s-platform/blob/519eb82d7ece0e161bd3e017dc872cba6c124fdc/Day2/CaaS_Applications/User_docs/FAQ-Guide.md#overview--flow-chart)
+
+![Route and Service Diagram](https://github.ford.com/DevEnablement/caas-workshop/blob/master/images/RouteServiceDiagram.PNG)
 
 This lesson is a "hands-off" exercise in which we detail the necessary steps to set up and configure your vanity URL for your application with passthrough TLS termination. 
 
