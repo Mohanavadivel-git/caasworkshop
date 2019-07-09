@@ -49,11 +49,11 @@ Continue to the next steps only when the build is successful.
 
 ```bash
 # Git Bash for Windows
-export ADDITIONAL_SYNCED_FOLDERS='/c/YOUR_PATH_TO_REPO/samples=>/home/vagrant/containers'
+export ADDITIONAL_SYNCED_FOLDERS='/c/YOUR_PATH_TO_SAMPLES_REPO/samples=>/home/vagrant/containers'
 # Terminal for MacOS
-export ADDITIONAL_SYNCED_FOLDERS='/YOUR_PATH_TO_REPO/samples=>/home/vagrant/containers'
+export ADDITIONAL_SYNCED_FOLDERS='/YOUR_PATH_TO_SAMPLES_REPO/samples=>/home/vagrant/containers'
 # Windows Powershell
-$env:ADDITIONAL_SYNCED_FOLDERS = 'C:/YOUR_PATH_TO_REPO/samples=>/home/vagrant/containers'
+$env:ADDITIONAL_SYNCED_FOLDERS = 'C:/YOUR_PATH_TO_SAMPLES_REPO/samples=>/home/vagrant/containers'
 ```
 The commands above will result in the samples repo (which is located on your host workstation's filesystem) being mounted to `/home/vagrant/containers` in the VM's filesystem. To confirm that this stepped work, start the VM, log into the VM with ssh, and confirm that the folder was synchronized correctly.
 

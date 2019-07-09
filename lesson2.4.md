@@ -132,7 +132,7 @@ oc get all -l app=springboot-hello-world
 
 ```bash
 # Delete all objects with the springboot-hello-world label
-oc delete all -l app=springboot-hello-world
+oc delete -f /home/vagrant/containers/springboot/manifest/deployment.yaml
 ```
 ---  
 

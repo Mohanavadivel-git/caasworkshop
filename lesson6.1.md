@@ -133,6 +133,20 @@ To enable HTTPS with passthrough termination, there are number of edits you must
   - Mount your secret and configMap, if any
     - **Secret** - This will either be your TLS secret that contains your key/cert or your generic secret that contains your keystore
     - **ConfigMap** - Way to inject your application properties at the creation of the container
+    ```yaml
+        volumeMounts:
+          - name: keystore-volume
+            mountPath: "/etc/keystore"
+          - name: "properties-volume"
+            mountPath: "/opt/properties"
+      volumes:
+      - name: keystore-volume
+        secret:
+          secretName: workshop-keystore
+      - name: "properties-volume"
+        configMap:
+          name: "app-properties"
+    ```
 - Service
   - Define port and name for HTTPS
   ```yaml
@@ -185,6 +199,22 @@ Now you need to configure your app to serve the TLS certificate that you created
 Here are some java examples on the web.
 - [How to enable HTTPS in a Spring Boot Java application](https://www.thomasvitale.com/https-spring-boot-ssl-certificate/)
 - [Spring Boot SSL HTTPS Example](https://howtodoinjava.com/spring-boot/spring-boot-ssl-https-example/)
+
+#### HTTP
+
+If you need your application to be accessible over HTTP and HTTPS, you define the same information shown above for HTTPS and HTTP. For example, you would define the ports in your service as such: 
+
+  ```yaml
+    ports:
+    - protocol: TCP
+      name: https
+      port: 8443
+      targetPort: 8443
+    - protocol: TCP
+      name: http
+      port: 8080
+      targetport: 8080
+  ```
 
 <!---
 ### Storage

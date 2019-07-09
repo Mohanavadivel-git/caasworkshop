@@ -34,7 +34,7 @@ $ export ADDITIONAL_SYNCED_FOLDERS='/c/YOUR_PATH_TO_REPO/samples=>/home/vagrant/
 $ vagrant up
 ```
 
-2. Navigate to https://api.oc.local:8443/console/ and look for your springboot-hello-world project. If you properly suspended your VM from Day 1, the project ought to still exist. If not, re-create the project using the steps below. 
+2. SSH into the VM and select the springboot-hello-world project.  
 
 ```bash
 # SSH into the VM
@@ -46,6 +46,12 @@ Username: admin
 Password: sandbox
 Login successful.
 
+[vagrant@m1 ~]$ oc project springboot-hello-world
+Now using project "springboot-hello-world"
+```
+
+3. If you received a message saying the project does not exist or that you are not a member of that project, you will have to re-create the project. Use the steps below only if you need to re-create your project. 
+```bash
 # Create the project
 [vagrant@m1 ~]$ oc new-project springboot-hello-world
 
