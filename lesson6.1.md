@@ -204,6 +204,7 @@ Here are some java examples on the web.
 - [How to enable HTTPS in a Spring Boot Java application](https://www.thomasvitale.com/https-spring-boot-ssl-certificate/)
 - [Spring Boot SSL HTTPS Example](https://howtodoinjava.com/spring-boot/spring-boot-ssl-https-example/)
 
+<!--
 #### HTTP
 
 If you need your application to be accessible over HTTP and HTTPS, you define the same information shown above for HTTPS and HTTP. For example, you would define the ports in your service as such: 
@@ -219,7 +220,7 @@ If you need your application to be accessible over HTTP and HTTPS, you define th
       port: 8080
       targetport: 8080
   ```
-
+-->
 <!---
 ### Storage
   - Persistent storage options, TBD
