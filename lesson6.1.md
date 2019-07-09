@@ -5,9 +5,8 @@
 ### Flowcharts & Diagrams 
 
 - Review the [CaaS Engineering DNS Overview](https://github.ford.com/Containers/k8s-platform/blob/519eb82d7ece0e161bd3e017dc872cba6c124fdc/Day2/CaaS_Applications/User_docs/FAQ-Guide.md#overview--flow-chart)
-
 <!--![Route and Service Diagram](https://github.ford.com/DevEnablement/caas-workshop/blob/master/images/RouteServiceDiagram.PNG)-->
-- Routes and Services
+- Routes and Services Diagram
 <p align="center">
   <img src="https://github.ford.com/DevEnablement/caas-workshop/blob/master/images/RouteServiceDiagram.PNG" width="625" height="425">
 </p>
