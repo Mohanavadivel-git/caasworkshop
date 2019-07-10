@@ -166,13 +166,24 @@ Open C:\Users\{CDSID}\VirtualBox VMs\CaaS-localdev\logs\VBoxHardening.log, it wi
 5798.4578: More than one thread in process
 4624.5910: supR3HardNtChildWaitFor[1]: Quitting: ExitCode=0x1 (rcNtWait=0x0, rcNt1=0x0, rcNt2=0x103, rcNt3=0x103, 23 ms, the end);
 ```
-### Root Cause and Workaround
+### Root Cause and Workaround - 1
 
 BeyondTrust Services interrupt Virtual Box starting process.
 Go to C:\Program Files\BeyondTrust\PowerBroker for Windows Client\Tools\Diagnostics
 Run PBWDiagnosticsApp.exe
 Stop all running services
 Try 'vagrant up' command again
+
+### Root Cause and Workaround - 2
+
+If you do NOT have BeyondTrust and faced this error, you will likely need to execute the following steps: 
+
+1. Uninstall Vagrant
+2. Uninstall Virtualbox
+3. Delete your Virtualbox folders related to CaaS or Openshift
+    - Generally located in `C:\Users\CDSID\VirtualBox VMs`
+4. Re-install vagrant and virtual box
+5. Issue the `vagrant up` command from the localdev directory in bash/powershell
 
 ---
 
