@@ -126,6 +126,17 @@ See the [Vagrant Documentation](https://www.vagrantup.com/intro/getting-started/
 
 You're done setting up localdev. At the workshop, you will be able to resume the VM quickly with `vagrant up`. If you want to know more about CaaS localdev, you can review the README in the localdev [repo](https://github.ford.com/containers/localdev) on GitHub.
 
+### JDK 8 
+
+To run the springboot application, you will need JDK 8 installed on your machine. 
+
+1. Download the all-in-one software distributions package [here](https://00000-javacoe-dev-ns01.s3-object.ford.com:9021/jcoe/distros/ford.zip)
+2. Unzip the contents into `C:\ford`
+3. Navigate to that unzipped direction and go to the `jdk` folder
+4. Either within the `jdk` or folder or within the `ibm` folder, there will be a `ibm-jdk8u151-b12.zip` file
+5. Extract the contents of that zip 
+6. Set your `JAVA_HOME` environment variable to point the path of the `ibm-jdk8u151-b12` folder
+
 ### Samples Repository
 
 1. The CaaS team maintains a repository of sample apps that will run on CaaS. You will clone this repo locally, and then go through the process of building a container image with one of the sample apps.

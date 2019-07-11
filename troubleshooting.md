@@ -181,7 +181,10 @@ If you do NOT have BeyondTrust and faced this error, you will likely need to exe
 1. Uninstall Vagrant
 2. Uninstall Virtualbox
 3. Delete your Virtualbox folders related to CaaS or Openshift
-    - Generally located in `C:\Users\CDSID\VirtualBox VMs`
+    - Generally located at `C:\Users`
+        - Delete `VirtualBox VMs`
+        - Delete `.VirtualBox`
+            - You might need to view hidden folders to see `.VirtualBox`
 4. Re-install vagrant and virtual box
 5. Issue the `vagrant up` command from the localdev directory in bash/powershell
 

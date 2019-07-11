@@ -1,6 +1,6 @@
 ## Day 1 - Lesson 2
 
-## Push Container to Image Registry
+## Push Container Image to Image Registry
 
 In this lesson, you will learn take the image that you built in [Lesson 1.4](./lesson1.4.md) and push that image to Ford's container registry - Quay. There are also instructions for how to push the image to the local Docker registry. 
 
