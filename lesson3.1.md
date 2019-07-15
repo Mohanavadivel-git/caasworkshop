@@ -65,12 +65,12 @@ secret/devenablement-workshop-pull-secret created
 [vagrant@m1 ~]$ oc create -f /home/vagrant/containers/springboot/manifest/deployment.yaml
 ```
 
-3. Bring up the localdev instance of Grafana in a web browser. Go to https://grafana-openshift-monitoring.app.oc.local/. 
+5. Bring up the localdev instance of Grafana in a web browser. Go to https://grafana-openshift-monitoring.app.oc.local/. 
     - Login using the localdev credentials: `admin` and `sandbox` as the username and password, respectively
-4. View the different options available to admins. 
-5. Click the drop-down menu in the upper left and select the `K8s / Computer Resources / Namespace`. This brings up a dashboard where you can filter by namespace.
-6. Click the `namespace` dropdown and search for `my-namespace` 
-7. Review the CPU and memory quota and utilization for the projects running in your localdev instance of Openshift.
+6. View the different options available to admins. 
+7. Click the drop-down menu in the upper left and select the `K8s / Computer Resources / Namespace`. This brings up a dashboard where you can filter by namespace.
+8. Click the `namespace` dropdown and search for `my-namespace` 
+9. Review the CPU and memory quota and utilization for the projects running in your localdev instance of Openshift.
 
 ---
 

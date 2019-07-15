@@ -12,6 +12,12 @@ Another yaml file is located at [`manifest/pullsecret.yaml`](https://github.ford
 
 > NOTE: If you have previously cloned the samples repo, you may need to pull the latest changes to ensure you have the correct credentials in the `pullsecret.yaml` file. Please view your `pullsecret.yaml` file and ensure it matches the one at the github link above. 
 
+### Object Diagram
+
+<p align="center">
+  <img src="https://github.ford.com/DevEnablement/caas-workshop/blob/master/images/RouteServiceDiagram.PNG" width="700" height="450">
+</p>
+
 #### Openshift Objects
 
 The Spring sample app's manifest defines 6 kinds of OpenShift objects. `Secret` is the only one which is located in a different yaml file in this example. `ConfigMap` is not defined in the deployment, but will be created separately in a later lesson. 
@@ -37,12 +43,6 @@ The **HorizontalPodAutoscaler** object configures OpenShift to automatically inc
 The **Secret** object type provides a mechanism to hold sensitive information, such as passwords, OpenShift Container Platform client configuration files, `dockercfg` files, private source repoistory credentials, and so on. Review the documentation on [secrets](https://docs.openshift.com/container-platform/3.9/dev_guide/secrets.html) and [using image pull secrets](https://docs.openshift.com/container-platform/3.11/dev_guide/managing_images.html#using-image-pull-secrets) in the Openshift Dev Guide.
 
 The **ConfigMap** object provides mechanisms to inject containers with configuration data while keeping containers agnostic of Openshift Container Platform. It is similar to Secrets, but designed to more convienently support working with strings/files that do not contain sensitive information. For example, this may be values for your application.properties of a Springboot application. 
-
-### Routes and Services
-
-<p align="center">
-  <img src="https://github.ford.com/DevEnablement/caas-workshop/blob/master/images/RouteServiceDiagram.PNG" width="625" height="425">
-</p>
 
 ---  
 

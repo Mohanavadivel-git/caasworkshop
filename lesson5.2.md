@@ -58,7 +58,7 @@ This location defined here is not local - it will be the location within the con
 </configuration>
 ```
 
-This XML formats our logs and provides a root level of info for the logs to be provided. You will notice that these logs write files to the location `/var/lib/new/` - which is the same file storage we created in [Lesson 3.3](./lesson3.3.md). 
+This XML formats our logs and provides a root level of info for the logs to be provided. You will notice that these logs write files to the location `/var/lib/new/` - which is the same file storage we created in [Lesson 4.2](./lesson4.2.md). 
 
 4. Open the Dockerfile located at `springboot\image\Dockerfile`. Replace the last line, the `ENTRYPOINT` command, to the following: 
 
@@ -142,7 +142,7 @@ As you can see, the names we gave the config maps are the names that we defined 
 oc create -f /home/vagrant/containers/springboot/manifest/deployment.yaml
 ```
 
-11. After running the `deployment.yaml` file, we can go to the terminal of a running pod as we did in [Lesson 3.3](./lesson3.3.md). Navigate to this drive and view your application's running logs. 
+11. After running the `deployment.yaml` file, we can go to the terminal of a running pod as we did in the previous lesson. Navigate to this drive and view your application's running logs. 
 
 ```bash
 sh-4.2$ ls /var/lib/new

@@ -39,10 +39,13 @@ horizontalpodautoscaler.autoscaling/springboot-hello-world created
 [vagrant@m1 ~]$ oc get all -l app=springboot-hello-world
 ```
 
-5. Access the Openshift Console and navigate to the springboot-hello-world application. You can select the [running pod](https://api.oc.local:8443/console/project/springboot-hello-world/browse/pods) and view the logs of the application. 
+5. Access the Openshift Console and navigate to the springboot-hello-world application. You can select the [running pod](https://api.oc.local:8443/console/project/my-namespace/browse/pods) and view the logs of the application. 
 
+You can also hit the [application's endpoint](https://springboot-hello-world.app.oc.local/api/v1/hello) to check that the app is up and running. 
+
+<!--
 - Additionally, access the [Swagger UI](https://springboot-hello-world.app.oc.local/swagger-ui.html#/hello-controller) - in Chrome - to test the endpoint. It may take a minute for the application to build, so refresh the page to see the Swagger UI. 
-
+-->
 <!---
 The manifest created a deployment, replica set, and pod. You can get the pod IP address with the `oc describe` and curl an instance of the app with that IP address on port 8080.
 
