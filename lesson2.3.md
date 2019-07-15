@@ -53,14 +53,14 @@ If you are following this guide as part of the workshop, we will push the image 
 
 Recall in the `build.sh` script, we defined the IMAGE_NAME to be `springboot-hello-world` and the VERSION to be `0.0.1`. Normally, you would change these values in `build.sh` to match the repository you will push to in Quay. For the purposes of the workshop, however, we will push the image to the `workshop` repository in the `devenablement` organization, and you will use a version number assigned to you.
 
+[Click here](https://gist.github.ford.com/JPOTTE46/388b8eb535811c9e98ccae7aeb0e3d22) to copy the command to login with the Quay credentials provided to you for the workshop. 
+
 ```bash
 # Pushing the container to Quay
-# You will be given the credentials of the robot account to login in class
-[vagrant@m1 ~]$ sudo podman login registry.ford.com
-Username:
-Password:
-Login Succeeded!
+# The command below is just an example - copy the actual command from the link above
+[vagrant@m1 ~]$ sudo podman login -u="USERNAME" -p="PASSWORD" registry.ford.com
 
+# Push your image to Quay using your version number
 [vagrant@m1 ~]$ sudo podman push \
                     springboot-hello-world:0.0.1 \
                     registry.ford.com/devenablement/workshop:YOUR_VERSION_NUMBER

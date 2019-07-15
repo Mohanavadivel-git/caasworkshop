@@ -20,22 +20,12 @@ To view logs in Kibana, you must be a member of the namespace in Openshift. You 
 2. If this is your first time using Kibana, you will be re-directed to the Management tab where you will be asked to choose or create an Index Pattern. An index pattern identifies one or more Elasticsearch indices that you want to explore with Kibana. Below is an example of what an index looks like. 
 
 ```
-project.devenablement-dev.3f491109-75b6-11e9-afd8-30e171556d10.2019.06.19
-```
-
-This index contains a prefix `project`, which is the case for all projects in Openshift. It also contains the namespace used in this example, which is `devenablement-dev`. The next part is the namespace ID, which is `3f491109-75b6-11e9-afd8-30e171556d10`. The final part of the index is the date that specific log entry was created. 
-
-To select an index pattern, search for your namespace name in the Management tab. You will come across an index that looks similar to this: 
-
-```
 project.devenablement-dev.3f491109-75b6-11e9-afd8-30e171556d10.*
 ```
 
-This contains project, namespace name, and namespace ID components that were just mentioned. The `*` indicates a wildcard, which essentially says to include all the logs from this namespace as part of this index. Using this, we can now create our Index Pattern by clicking on "Create Index Pattern." Here, you will enter your index pattern with the `*` after the namespace ID as shown above and select a time filter field name. 
+This index contains a prefix `project`, which is the case for all projects in Openshift. It also contains the namespace used in this example, which is `devenablement-dev`. The next part is the namespace ID, which is `3f491109-75b6-11e9-afd8-30e171556d10`. The final part, the `*`, is a wildcard that tells Kibana to return all the logs for that namespace. 
 
-![Create an Index Pattern](https://github.ford.com/DevEnablement/caas-workshop/blob/master/images/Kibana_IndexPattern.PNG)
-
-When you create your index pattern, there is a star icon that you can click to set it as your default index pattern. 
+All existing namespaces in Openshift get index patterns automatically created for them. To find your team's namespace, simply `Ctrl+F` and search your team's namespace, click it, and save it as your default. 
 
 3. When we have created our index pattern, we can view all the fields that the container and application outputs. Simply click on the index pattern name and you can view and filter all the fields. 
 

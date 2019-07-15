@@ -10,7 +10,7 @@ Now that the image has been saved either to the local registry or to Quay, we wi
 
 ```bash
 # Create a new project to hold the app and keep things organized.
-[vagrant@m1 ~]$ oc new-project springboot-hello-world
+[vagrant@m1 ~]$ oc new-project my-namespace
 ```
 
 > NOTE: You can only create a project this way in localdev. Visit the [Ford Cloud Portal](https://www.cloudportal.ford.com/openshift) if you wish to get a project/namespace in the production instance of Openshift

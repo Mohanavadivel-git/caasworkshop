@@ -38,6 +38,12 @@ The **Secret** object type provides a mechanism to hold sensitive information, s
 
 The **ConfigMap** object provides mechanisms to inject containers with configuration data while keeping containers agnostic of Openshift Container Platform. It is similar to Secrets, but designed to more convienently support working with strings/files that do not contain sensitive information. For example, this may be values for your application.properties of a Springboot application. 
 
+### Routes and Services
+
+<p align="center">
+  <img src="https://github.ford.com/DevEnablement/caas-workshop/blob/master/images/RouteServiceDiagram.PNG" width="625" height="425">
+</p>
+
 ---  
 
 Continue to [Lesson 2.3](./lesson2.3.md).

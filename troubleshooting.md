@@ -234,3 +234,15 @@ Unable to view the web console or execute the build script to completetion after
 ### Root Cause and Workaround 
 
 If you changed buildings or switched between Wifi/wired connection, your IP address will change, causing a failure. You must halt/destroy the machine with `vagrant destroy -f` or `vagrant halt` and then `vagrant up` again to be prompted for your IP address. 
+
+---
+
+## SSH Error
+
+### Behavior 
+
+Unable to `vagrant ssh` after a successful `vagrant up`. The error given for the ssh mentions proxies. 
+
+### Root Cause and Workaround 
+
+In your `.ssh` folder (typically located in your user profile drive) you must remove or comment out the reference to hard-coded proxies. 

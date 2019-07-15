@@ -34,7 +34,7 @@ $ export ADDITIONAL_SYNCED_FOLDERS='/c/YOUR_PATH_TO_REPO/samples=>/home/vagrant/
 $ vagrant up
 ```
 
-2. SSH into the VM and select the springboot-hello-world project.  
+2. SSH into the VM and select the `my-namespace` project.  
 
 ```bash
 # SSH into the VM
@@ -46,21 +46,22 @@ Username: admin
 Password: sandbox
 Login successful.
 
-[vagrant@m1 ~]$ oc project springboot-hello-world
-Now using project "springboot-hello-world"
+[vagrant@m1 ~]$ oc project my-namespace
+Now using project "my-namespace"
 ```
 
-3. If you received a message saying the project does not exist or that you are not a member of that project, you will have to re-create the project. Use the steps below only if you need to re-create your project. 
+3. If you received a message saying the project does not exist or that you are not a member of that project, you will have to re-create the project. Use the steps below only if you need to re-create your project and deploy your secret. 
 ```bash
 # Create the project
-[vagrant@m1 ~]$ oc new-project springboot-hello-world
+[vagrant@m1 ~]$ oc new-project my-namespace
 
 # Deploy your secret
 [vagrant@m1 ~]$ oc create -f /home/vagrant/containers/springboot/manifest/pullsecret.yaml
 secret/devenablement-workshop-pull-secret created
+```
 
-# Deploy your app
-# Since we already pushed our image to Quay and edited our manifest in Day 1, we do not need to repeat those steps again
+4. Since at the end of Day 1 we deleted our app configuration, we will deploy it again and wait for our container to start. Since we already pushed our image to Quay and edited our manifest in Day 1, we do not need to repeat those steps again. 
+```
 [vagrant@m1 ~]$ oc create -f /home/vagrant/containers/springboot/manifest/deployment.yaml
 ```
 
@@ -68,7 +69,7 @@ secret/devenablement-workshop-pull-secret created
     - Login using the localdev credentials: `admin` and `sandbox` as the username and password, respectively
 4. View the different options available to admins. 
 5. Click the drop-down menu in the upper left and select the `K8s / Computer Resources / Namespace`. This brings up a dashboard where you can filter by namespace.
-6. Click the `namespace` dropdown and search for `springboot-hello-world` 
+6. Click the `namespace` dropdown and search for `my-namespace` 
 7. Review the CPU and memory quota and utilization for the projects running in your localdev instance of Openshift.
 
 ---

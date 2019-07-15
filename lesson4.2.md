@@ -1,4 +1,4 @@
-## Day 2 - Lesson 5
+## Day 2 - Lesson 4
 
 ## Create Volumes
 
@@ -9,10 +9,10 @@ Further Reading: [Storage Operations and Troubleshooting Guide](https://github.f
 1. If you have not already completed building the sample application and pushing it to Openshift, return to [Lesson 1.2](https://github.ford.com/JPOTTE46/caas-workshop/blob/master/lesson1.2.md) and work to this lesson. Then, delete the springboot app configuration. 
 
 ```bash
-[vagrant@m1 ~]$ oc delete all -l app=springboot-hello-world
+[vagrant@m1 ~]$ oc delete -f /home/vagrant/containers/springboot/manifest/deployment.yaml
 ```
 
-2. Navigate to the Springboot sample project and click the Storage tab/icon and click "Create". ([Direct Link](https://api.oc.local:8443/console/project/springboot-hello-world/browse/storage))
+2. Navigate to the Springboot sample project and click the Storage tab/icon and click "Create". ([Direct Link](https://api.oc.local:8443/console/project/my-namespace/browse/storage))
 
 3. Fill out the form with the following options and click create
 - **Storage Class**: nfs
@@ -50,12 +50,12 @@ If you do not have those lines, please retrieve the [latest yaml file](https://g
 6. Run the following command to apply the changes
 
 ```bash
-[vagrant@m1 ~]$ oc apply -f ~/containers/springboot/manifest/deployment.yaml
+[vagrant@m1 ~]$ oc create -f /home/vagrant/containers/springboot/manifest/deployment.yaml
 ```
 
 ### Verifying Results
 
-7. In the Openshift web console, [in the Spring project, go to Applications->Pods](https://api.oc.local:8443/console/project/springboot-hello-world/browse/pods). Selecting the Pod with a "Running" status and click the terminal tab. 
+7. In the Openshift web console, [in the Spring project, go to Applications->Pods](https://api.oc.local:8443/console/project/my-namespace/browse/pods). Selecting the Pod with a "Running" status and click the terminal tab. 
 
 8. In the Openshift terminal, confirm the mount path defined in the yaml file exists
 
@@ -99,7 +99,7 @@ exit
 [vagrant@m1 ~]$ oc delete pod --all
 ```
 
-11. After successfull deletion of the pod, a new will pod will be spun up automatically. We will now show that file perisisted. You can either return to the Openshift console and go to [Applicatons->Pods](https://api.oc.local:8443/console/project/springboot-hello-world/browse/pods), select the new running pod, and go to the terminal.  Alternatively, you can `oc rsh` into the new pod from your bash/powershell window. 
+11. After successfull deletion of the pod, a new will pod will be spun up automatically. We will now show that file perisisted. You can either return to the Openshift console and go to [Applicatons->Pods](https://api.oc.local:8443/console/project/my-namespace/browse/pods), select the new running pod, and go to the terminal.  Alternatively, you can `oc rsh` into the new pod from your bash/powershell window. 
 
 ```bash
 # Console terminal method
@@ -120,7 +120,7 @@ I am writing to my new file share
 # Run the below command only if you `oc rsh` into the pod
 sh-4.2$ exit
 
-[vagrant@m1 ~]$ oc delete all -l app=springboot-hello-world
+[vagrant@m1 ~]$ oc delete -f /home/vagrant/containers/springboot/manifest/deployment.yaml
 [vagrant@m1 ~]$ oc delete pvc my-storage-claim
 ```
 
@@ -161,7 +161,7 @@ claimName: "my-manifest-claim"
 [vagrant@m1 ~]$ oc create -f /home/vagrant/containers/springboot/manifest/deployment.yaml
 ```
 
-You'll see that the [storage was created with the name specified in line 135](https://api.oc.local:8443/console/project/springboot-hello-world/browse/storage). Navigating to the terminal of a running pod, you will find the same mount path has been created. 
+You'll see that the [storage was created with the name specified in line 135](https://api.oc.local:8443/console/project/my-namespace/browse/storage). Navigating to the terminal of a running pod, you will find the same mount path has been created. 
 
 ```bash
 (app-root)sh-4.2$ ls /var/lib
@@ -186,7 +186,7 @@ This path **DOES NOT** contain the myFile.txt we created earlier because that st
 # Only run the exit command if you are `rsh` into the pod
 sh-4.2$ exit
 exit
-[vagrant@m1 ~]$ oc delete all -l app=springboot-hello-world
+[vagrant@m1 ~]$ oc delete -f /home/vagrant/containers/springboot/manifest/deployment.yaml
 [vagrant@m1 ~]$ oc delete pvc my-manifest-claim
 ```
 <!--

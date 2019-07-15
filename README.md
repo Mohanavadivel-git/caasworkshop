@@ -73,4 +73,4 @@ To attend, sign up [here](https://it2.spt.ford.com/sites/dev/Lists/RegisterForEv
 
 # Begin Workshop
 
-Begin with an [Overview of CaaS at Ford](https://it2.spt.ford.com/sites/dev/Documents/CaaS-At-Ford.pptx) then [Lesson 1](./lesson1.1.md).
+Begin with an [Overview of CaaS at Ford](https://it2.spt.ford.com/sites/dev/Documents/CaaS-At-Ford_Workshop.pptx) then [Lesson 1](./lesson1.1.md).

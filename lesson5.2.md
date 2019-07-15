@@ -98,21 +98,20 @@ Looking at the yaml file above, we see our previous `volumes` and `volumeMounts`
 [vagrant@m1 ~]$ /home/vagrant/containers/springboot/image/build.sh
 ```
 
-7. After our image is built, login to the console using the `oc` CLI. 
+7. Log in to registry.ford.com using the credentials from Day 1. [Click here](https://gist.github.ford.com/JPOTTE46/388b8eb535811c9e98ccae7aeb0e3d22) to retrieve the credentials. You can skip this step if you are pushing your image to the local registry. 
+
+8. Push the image to Quay or to your local docker registry. 
 
 ```bash
-[vagrant@m1 ~]$ oc login https://api.oc.local:8443
-Username: admin
-Password: sandbox
-Login successful.
-```
+# Pushing the container to Quay
+# The command below is just an example - copy the actual command from the link above
+[vagrant@m1 ~]$ sudo podman login -u="USERNAME" -p="PASSWORD" registry.ford.com
 
-8. If your project does not already exist, create it. 
-```bash
-[vagrant@m1 ~]$ oc new-project springboot-hello-world
+# Pushing your image to Quay
+[vagrant@m1 ~]$ sudo podman push \
+                    springboot-hello-world:0.0.1 \
+                    registry.ford.com/devenablement/workshop:YOUR_VERSION_NUMBER
 ```
-
-9. Push the image to your local docker registry or to Quay. 
 
 ```bash
 #Pushing your image to the local registry
@@ -121,26 +120,9 @@ Login successful.
                   docker-daemon:registry.ford.com/devenablement/workshop:0.0.1
 ```
 
-```bash
-# Pushing the container to Quay
-# You will be given the credentials of the robot account to login in class
-[vagrant@m1 ~]$ sudo podman login registry.ford.com
-Username:
-Password:
-Login Succeeded!
-
-# Pushing your image to Quay and deploy your secret
-[vagrant@m1 ~]$ sudo podman push \
-                    springboot-hello-world:0.0.1 \
-                    registry.ford.com/devenablement/workshop:YOUR_VERSION_NUMBER
-
-[vagrant@m1 ~]$ oc create -f /home/vagrant/containers/springboot/manifest/pullsecret.yaml
-secret/devenablement-workshop-pull-secret created
-```
-
 If you push your image to Quay, ensure that `YOUR_VERSION_NUMBER` matches the version number in your `deployment.yaml` file. 
 
-10. We will now create our ConfigMaps for our two files. 
+9. We will now create our ConfigMaps for our two files. 
 
 ```bash
 [vagrant@m1 ~]$ oc create configmap logconfig \
@@ -154,13 +136,13 @@ configmap/app-properties created
 
 As you can see, the names we gave the config maps are the names that we defined in the `deployment.yaml` for the configMap. 
 
-11. After creating our configMaps, we can deploy the rest of our application. 
+10. After creating our configMaps, we can deploy the rest of our application. 
 
 ```bash
 oc create -f /home/vagrant/containers/springboot/manifest/deployment.yaml
 ```
 
-12. After running the `deployment.yaml` file, we can go to the terminal of a running pod as we did in [Lesson 3.3](./lesson3.3.md). Navigate to this drive and view your application's running logs. 
+11. After running the `deployment.yaml` file, we can go to the terminal of a running pod as we did in [Lesson 3.3](./lesson3.3.md). Navigate to this drive and view your application's running logs. 
 
 ```bash
 sh-4.2$ ls /var/lib/new
@@ -168,20 +150,20 @@ app.log
 sh-4.2$ cat /var/lib/new/app.log
 ```
 
-13. To confirm that your application logs will persist, in the Openshift console, delete your pod. After deleting your pod, wait for the new one to start up and repeat step 12. You should see your new container's application logs appended to the previously written logs. 
+12. To confirm that your application logs will persist, in the Openshift console, delete your pod. After deleting your pod, wait for the new one to start up and repeat step 12. You should see your new container's application logs appended to the previously written logs. 
 
 #### Saving Logs Locally
 
 Having the logs in the container is one thing, but it is difficult to view them simply by using the `cat` command. We might want to store these logs if we cannot access them directly at all times. 
 
-14. Return to your terminal and run the following commands to create a directory for the logs. 
+13. Return to your terminal and run the following commands to create a directory for the logs. 
 
 ```bash
 [vagrant@m1 ~]$ cd /home/vagrant/containers/springboot
 [vagrant@m1 ~]$ mkdir logs
 ```
 
-15. We will now use the `rsync` command to copy the directory of files locally. 
+14. We will now use the `rsync` command to copy the directory of files locally. 
 
 > NOTE: You must have admin rights on your namespace to execute these commands. You are an admin in localdev, but in the production version of Openshift, admin rights will likely reside with LL6+
 
@@ -202,10 +184,10 @@ Let's break down this command:
 
 After we run this command, we can go into our springboot directory and see that we have a new folder called `new` which contains all of the contents we had within the container. 
 
-16. Delete your app configurations and your persistent volume claim. 
+15. Delete your app configurations and your persistent volume claim. 
 ```bash
 # Only run the exit command if you are `rsh` into the pod
-[vagrant@m1 ~]$ oc delete all -l app=springboot-hello-world
+[vagrant@m1 ~]$ oc delete -f /home/vagrant/containers/springboot/manifest/deployment.yaml
 [vagrant@m1 ~]$ oc delete pvc my-manifest-claim
 ```
 
