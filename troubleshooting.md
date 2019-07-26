@@ -246,3 +246,16 @@ Unable to `vagrant ssh` after a successful `vagrant up`. The error given for the
 ### Root Cause and Workaround 
 
 In your `.ssh` folder (typically located in your user profile drive) you must remove or comment out the reference to hard-coded proxies. 
+
+---
+
+## Issue - Docker
+### Behavior
+
+On a Windows machine with Docker installed, VirtualBox does not work. 
+
+### Root Cause and Workaround 
+
+The root cause of the issue is Hyper-V. Docker for Windows requires Hyper-V to be enabled and VirtualBox will not work when Hyper-V is enabled. To use localdev you must disable Hyper-V. 
+
+---
