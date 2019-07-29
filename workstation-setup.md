@@ -45,7 +45,7 @@ git clone https://github.ford.com/Containers/localdev.git # Using HTTPS
 3. Navigate to the directory you cloned the repo and checkout the latest version. 
 ```bash
 cd localdev
-git checkout tags/v3.11.98-2
+git checkout -b tags/v3.11.129-1
 ```
 
 4. Export the LOCAL_DEV_PROFILE environment variable
