@@ -1,8 +1,6 @@
-## Day 2 - Lesson 4
-
 ## Kubernetes Volumes
 
-Since containers are not persistent, all their contents are cleared whenever the pod they are contianed within is destroyed. The file system is completely fresh with each pod and file systems do not persist unless you define them through persisten volume claims. 
+Since containers are not persistent, all their contents are cleared whenever the pod they are contianed within is destroyed. The file system is completely fresh with each pod and file systems do not persist unless you define them through persistent volume claims. 
 
 Openshift comes with an NFS provisioner in localdev. The provisioner carries out the responsibility of creating or deleting new storages. You can request storage by providing a class type, a name, an access type, and a storage size. 
 
@@ -12,7 +10,7 @@ Openshift comes with an NFS provisioner in localdev. The provisioner carries out
 
 ### Class Types
 
-The StorageClass are different "classes" of storage that are offered. They might differ in quality-of-service levels, backup policies, or other arbitrary policies. In localdev, the available storage classes are nfs and rook-ceph-block-replicated. We will be using nfs. In production Openshift, the classes are: 
+The StorageClass are different "classes" of storage that are offered. They might differ in quality-of-service levels, backup policies, or other arbitrary policies. In localdev, the available storage class is nfs. In production Openshift, the classes are: 
 
 - ecc-block-performance
 - ecc-file-performance
@@ -61,6 +59,6 @@ Please watch this short series of videos for further information
 
 ---
 
-Continue to [Lesson 4.2](./lesson4.2.md)
+Continue to [volumes exercise](./11-VolumesExercise.md)
 
-Return to [Table of Contents](https://github.ford.com/DevEnablement/caas-workshop/tree/workshop-reformat#agenda)
+Return to [Table of Contents](../README.md#agenda)

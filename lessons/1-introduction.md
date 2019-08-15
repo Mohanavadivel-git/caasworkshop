@@ -1,12 +1,10 @@
-## Day 1 - Lesson 1
-
 ## Introduction
 
 ### Pre-Requisites
 
-Did you set up your workstation with CaaS localdev yet? If not, complete the [instructions](workstation-setup.md).
+Did you set up your workstation with CaaS localdev yet? If not, complete the [instructions](../workstation-setup.md).
 
-If you face any issues during setup, see the [Troubleshooting and Common Errors](./troubleshooting.md) section. 
+If you face any issues during setup, see the [Troubleshooting and Common Errors](../troubleshooting.md) section. 
 
 ### What is Ford's CaaS?
 
@@ -32,6 +30,6 @@ Localdev is also a good place to learn about CaaS. It is free; there is no onboa
 
 ---  
 
-Continue to [Lesson 1.2](./lesson1.2.md).
+Continue to [Application Code and Mounting Directories](./2-buildapp.md).
 
-Return to [Table of Contents](https://github.ford.com/DevEnablement/caas-workshop/tree/workshop-reformat#agenda)
+Return to [Table of Contents](../README.md#agenda)

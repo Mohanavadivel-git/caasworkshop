@@ -151,8 +151,12 @@ The Dev Tools page contains development tools that you can use to interact with 
 
 Review the [Dev Tools Guide](https://www.elastic.co/guide/en/kibana/5.6/devtools-kibana.html)
 
+### Splunk 
+
+You can also stream your application's logs to Splunk. The production implementation is still in a POC stage. Contact the team if you have further interest in using Splunk. 
+
 ---
 
-Continue to [Lesson 5.2](./lesson5.2.md)
+Continue to [Monitoring](./14-Monitoring.md)
 
-Return to [Table of Contents](https://github.ford.com/DevEnablement/caas-workshop/tree/workshop-reformat#agenda)
+Return to [Table of Contents](../README.md#agenda)

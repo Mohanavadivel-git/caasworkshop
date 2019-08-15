@@ -1,14 +1,29 @@
-## Day 1 - Lesson 2
+### Start Up
 
-## Best Practices for CaaS Manifests
+When bringing up localdev, if you do not save your environment variables as permanent environment variables, you will have to re-declare your environment variables again.
 
-Through the CaaS manifest you have significant control over how CaaS will run your application. App teams can define, test, and revise the resources allocation to an application without any action from an operations team.
+```bash
+$ export LOCAL_DEV_PROFILE='basic-cnx'
+$ export ADDITIONAL_SYNCED_FOLDERS='/c/YOUR_PATH_TO_REPO/samples=>/home/vagrant/containers'
+```
 
-#### Avoid defaults
+Navigate to the localdev directory and bring it up. 
+```bash
+$ cd <PATH_TO_LOCALDEV_DIRECTORY>
+$ vagrant up
+```
 
-If you do not specify a value in the manifest, CaaS will use a ridiculous default, i.e. 10 MB of RAM. So if your app exhibits unexpected behavior or poor performance, check that you have explicitly defined values such as CPU, memory, readiness health endpoints, etc... in the app's manifest.
+Additionally, when you start up localdev, it will default to the `cluster-ops` project. You must change to using your project when you log in. 
 
-The manifests in the samples repository should get you started. For more details, read the [Developer Guide](https://docs.openshift.com/container-platform/3.11/dev_guide) on the OpenShift website.
+```bash
+[vagrant@m1 ~]$ oc project my-namespace
+```
+
+If you had to delete your VM, you will need to re-deploy the secret for Quay. 
+```bash
+[vagrant@m1 ~]$ oc create -f /home/vagrant/containers/springboot/manifest/pullsecret.yaml
+secret/devenablement-workshop-pull-secret created
+```
 
 ### Teardown
 
@@ -30,17 +45,15 @@ When you want to take a break, work an another project, or stop for the day, you
     - `vagrant up` is a completely fresh start
     - Takes extra time to reimport machine and re-provision it
     
-To end Day 1 of the workshop, we will execute a `vagrant suspend`. To do so, you must exit out of SSH first. 
+For the purposes of the workshop, execute a `vagrant suspend` so that we can return to our material already loaded and created. 
 
 ```bash
 [vagrant@m1 ~]$ exit
 $ vagrant suspend
 ```
 
-When we issue a `vagrant up` command on Day 2, we will still have our project, secret, and connections saved. 
+When we return and issue a `vagrant up`, we will still have our project, secret, and connections saved. 
 
 ---  
-
-Continue to [Lesson 3](./lesson3.1.md).
 
 Return to [Table of Contents](https://github.ford.com/DevEnablement/caas-workshop/tree/workshop-reformat#agenda)

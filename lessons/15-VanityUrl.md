@@ -1,12 +1,12 @@
-## Day 2 - Lesson 6
-
 ## Vanity URLs and TLS Certificates
 
 ### Flowcharts & Diagrams 
 
 - Review the [CaaS Engineering DNS Overview](https://github.ford.com/Containers/k8s-platform/blob/519eb82d7ece0e161bd3e017dc872cba6c124fdc/Day2/CaaS_Applications/User_docs/FAQ-Guide.md#overview--flow-chart)
+
 ![Route and Service Diagram](https://github.ford.com/DevEnablement/caas-workshop/blob/master/images/RouteServiceDiagram.PNG)
-This lesson is a "hands-off" exercise in which we detail the necessary steps to set up and configure your vanity URL for your application with passthrough TLS termination. 
+
+This lesson is a "hands-off" exercise in which we detail the necessary steps to set up and configure your vanity URL for your application with passthrough TLS termination. You can follow along by opening `deployment-4.yaml` to view a working example of sample application deployment using a vanity URL. 
 
 ### Vanity URL Instructions
 
@@ -35,7 +35,7 @@ To submit a request to the DNS team:
 
 Here is an example DNS request for internal-facing vanity URL.
 
-![DNS Request Screenshot](images/dns1.png)
+![DNS Request Screenshot](../images/dns1.png)
 
 If approved, the DNS team will configure this vanity URL on Ford's DNS servers. This means traffic destined for the vanity URL will be forwarded to the CaaS platform. The next steps are related to configuring TLS security for the app using the vanity URL. The app team must create a TLS certificate associated with the vanity URL and configure their app to serve this certificate.
 
@@ -107,16 +107,16 @@ $ oc create secret generic workshop-keystore --from-file=keystore.p12=caas-works
 
 #### Edit Manifest
 
-To enable HTTPS with passthrough termination, there are number of edits you must make to your manifest file. Depending on the type of application of you have, this will involve targeting specific ports and importing your key/cert/keystore as a volume. This involves changing the following Openshift Objects:
+To enable HTTPS with passthrough termination, there are number of edits you must make to your manifest file. Depending on the type of application of you have, this will involve targeting specific ports and importing your key/cert/keystore as a volume. You can follow along with these changes in `deployment-4.yaml`
 
 - Deployment
-  - Add container port for HTTPS
+  - Add container port for HTTPS (lines 53-55)
   ```yaml
   ports:
   - name: https
     containerPort: 8443
   ```
-  - Change liveness/readiness probe port and scheme
+  - Change liveness/readiness probe port and scheme (lines 93-108)
   ```yaml
   livenessProbe:
     httpGet:
@@ -130,7 +130,7 @@ To enable HTTPS with passthrough termination, there are number of edits you must
       port: 8443
       scheme: HTTPS
   ```
-  - Mount your secret and configMap, if any
+  - Mount your secret and configMap, if any (lines 109-120)
     - **Secret** - This will either be your TLS secret that contains your key/cert or your generic secret that contains your keystore
     - **ConfigMap** - Way to inject your application properties at the creation of the container
     ```yaml
@@ -143,12 +143,12 @@ To enable HTTPS with passthrough termination, there are number of edits you must
       - name: keystore-volume
         secret:
           secretName: workshop-keystore
-      - name: "properties-volume"
-        configMap:
-          name: "app-properties"
+      - name: "properties-volume"       
+        configMap:                      
+          name: "app-properties"        
     ```
 - Service
-  - Define port and name for HTTPS
+  - Define port and name for HTTPS (lines 134-137)
   ```yaml
     ports:
     - protocol: TCP
@@ -157,7 +157,7 @@ To enable HTTPS with passthrough termination, there are number of edits you must
       targetPort: 8443
   ```
 - Route
-  - Change termination to `passthrough` and the targetport and add your vanity URL
+  - Change termination to `passthrough` and the targetport and add your vanity URL (lines 151-156)
   ```yaml
   spec:
     host: springboot-hello-world.app.caas.ford.com
@@ -180,21 +180,9 @@ To enable HTTPS with passthrough termination, there are number of edits you must
   server.ssl.key-store=file:/etc/keystore/keystore.p12
   ```
 
-Go to the [Springboot Passthrough Deployment Sample]() to see a sample Springboot application deployment.yaml with these configurations changed to enable passthrough termination. 
-
-#### Apply Changes
-
-Once you have finished all your changes to your manifest file(s), you will need to apply your changes for them to take affect. 
-
-```bash
-oc apply -f /home/vagrant/containers/springboot/manifest/deployment.yaml
-```
-
-Now when traffic destined for `www.caas-workshop.ford.com` arrives at the CaaS platform, it will be forwarded to the `springboot-hello-world` app. This concludes the steps necessary to route traffic to the app.
-
 #### Other Dependencies
 
-Now you need to configure your app to serve the TLS certificate that you created. This is unique depending on your development language. With java, you will likely be creating a JKS keystore and placing it in your project's `resources` folder.
+This example walked through a Java/Springboot way of serving the TLS certificate, with more detailed instructions provided below. Depending on your development language/stack, the way you serve your certificates may be different and require other dependencies. 
 
 Here are some java examples on the web.
 - [How to enable HTTPS in a Spring Boot Java application](https://www.thomasvitale.com/https-spring-boot-ssl-certificate/)
@@ -242,6 +230,6 @@ http://blog.keycloak.org/2018/05/keycloak-on-openshift.html
 
 ---
 
-You have reached the end of the workshop :clap:
+Continue to [Advanced Topics](./16-AdvancedTopics.md)
 
-Return to [Table of Contents](https://github.ford.com/DevEnablement/caas-workshop/tree/workshop-reformat#agenda)
+Return to [Table of Contents](../README.md#agenda)

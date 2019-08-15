@@ -1,8 +1,14 @@
-## Day 1 - Lesson 1
+## Building Container Images Using Dockerfiles
 
-## Building Container Images with Localdev
+### The Big Picture - Step 3
 
-1. Build the container image for the Springboot app. 
+![CaaS Workflow](https://github.ford.com/Containers/localdev/blob/master/docs/images/CaaS-LocalDev.png)
+
+This lesson will go over how build a container/OCI/docker image. These three names are used interchangeably when referring to images. 
+
+---
+
+### Build Container Image In localdev
 
 If you have no experience with container images, you should check out the [Get Started](https://docs.docker.com/get-started/) tutorial on Docker's website.
 
@@ -12,8 +18,8 @@ The springboot sample app has a build script at [`image/build.sh`](https://githu
 
 The springboot sample app also has a Dockerfile at [`image/Dockerfile`](https://github.ford.com/JPOTTE46/samples/blob/master/springboot/image/Dockerfile) that defines the container image to be built when the build script is executed. As an app team deploying an app to Ford's CaaS environment, you will be responsible for developing and maintaining your app's Dockerfile.
 
+1. Now, if you're ready to build the container image, run the `image/build.sh` script for the springboot sample application. 
 
-Now, if you're ready to build the container image, run the `image/build.sh` script for the sample app you plan to deploy. For example:
 ```bash
 [vagrant@m1 ~]$ /home/vagrant/containers/springboot/image/build.sh
 Setting proxy env vars.....
@@ -42,10 +48,9 @@ STEP 11: COMMIT registry.ford.com/devenablement/springboot-hello-world:0.0.1
 IMAGE NAME                                                        IMAGE TAG  IMAGE ID      CREATED AT          SIZE
 registry.access.redhat.com/redhat-openjdk-18/openjdk18-openshift  latest     b4b953ca8f5  Apr 18, 2019 15:11  498 MB
 registry.ford.com/devenablement/springboot-hello-world            0.0.1      54bf7824222  May 29, 2019 12:15  528 MB
-
 ```
 
-One image is a cached copy of the `openjdk18-openshift` image that was the base image for your app container image. It was downloaded from Red Hat's image registry by the Buildah tool. The other image `registry.ford.com/devenablement/springboot-hello-world` is your app container image that was output by the Buildah tool.
+One image is a cached copy of the `openjdk18-openshift` image that was the base image for your app container image. It was downloaded from Red Hat's image registry by the Buildah tool. The other image - `registry.ford.com/devenablement/springboot-hello-world` - is your app container image that was output by the Buildah tool.
 
 3. Also, note that both the Buildah and Podman tools share this same image location. To demonstrate this, if you use Podman to list container images, you should see the same list.
 ```bash
@@ -55,7 +60,7 @@ registry.ford.com/devenablement/springboot-hello-world             0.0.1    54bf
 registry.access.redhat.com/redhat-openjdk-18/openjdk18-openshift   latest   b4b953ca8f5b   5 weeks ago     498 MB
 ```
 
-4. Before running this image in CaaS, you can test it by running it locally with a tool like Podman or Docker. The commands below use Podman to run the app container image in detached mode and publish the container's port 8080 to the host's port 8080. The command saves the container_id as a variable so you can destroy the container later. Then curl is used to test the python web app. If successful, the app responds with a 200 OK http code. 
+4. Before running this image in CaaS, you can test it by running it locally with a tool like Podman or Docker. The commands below use Podman to run the app container image in detached mode and publish the container's port 8080 to the host's port 8080. The command saves the `container_id` as a variable so you can destroy the container later. Then curl is used to test the Springboot app. If successful, the app responds with a 200 OK http code. 
 
 > NOTE: The app is not yet exposed beyond the VM, so you cannot access it in a web browser from your workstation yet.
 
@@ -76,6 +81,6 @@ Date: Wed, 29 May 2019 12:32:13 GMT
 
 ---  
 
-Continue to [Lesson 1.5](./lesson1.5.md).
+Continue to [Container Registries](./5-quay.md).
 
-Return to [Table of Contents](https://github.ford.com/DevEnablement/caas-workshop/tree/workshop-reformat#agenda)
+Return to [Table of Contents](../README.md#agenda)

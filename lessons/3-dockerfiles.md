@@ -1,8 +1,14 @@
-## Day 1 - Lesson 1
-
 ## Writing Dockerfiles
 
-A Dockerfile is a text file that defines our Docker image. An image building tool; like docker, buildah, or podman; takes a Dockerfile as input and outputs a Docker image.
+### The Big Picture - Step 2
+
+![CaaS Workflow](https://github.ford.com/Containers/localdev/blob/master/docs/images/CaaS-LocalDev.png)
+
+This lesson will go over docker file basics and the process of writing a docker file. 
+
+---
+
+A Dockerfile is a text file that defines our Docker (OCI) image. An image building tool; like docker, buildah, or podman; takes a Dockerfile as input and outputs a Docker image.
 
 Before creating our Docker image using the Springboot app, let's evaluate an example Dockerfile. The Dockerfile example below is a very simple one that is for a python application. The Dockerfile for a real-world production application will likely be much more complex, so be sure to review this external [best practices article](https://takacsmark.com/dockerfile-tutorial-by-example-dockerfile-best-practices-2018/) for how to write good, slim Dockerfiles.
 
@@ -55,6 +61,6 @@ The capitalized keywords at the beginning of each line above are Docker instruct
 
 --- 
 
-Continue to [Lesson 1.4](./lesson1.4.md).
+Continue to [Building OCI Images](./4-buildimage.md).
 
-Return to [Table of Contents](https://github.ford.com/DevEnablement/caas-workshop/tree/workshop-reformat#agenda)
+Return to [Table of Contents](../README.md#agenda)
