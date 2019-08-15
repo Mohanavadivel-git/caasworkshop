@@ -1,6 +1,4 @@
-## Day 2 - Lesson 5
-
-## Application Logging
+## Application Logs in Kibana
 
 The Openshift Enterprise is deployed with the EFK stack to aggregate logs for a range of Openshift Enterprise services. As application developers, you can view the logs of the projects for which you have view access. The EFK stack aggregates logs from hosts and applications, whether coming from multiple containers or even deleted pods. 
 
