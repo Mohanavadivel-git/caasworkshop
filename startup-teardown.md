@@ -3,8 +3,13 @@
 When bringing up localdev, if you do not save your environment variables as permanent environment variables, you will have to re-declare your environment variables again.
 
 ```bash
-$ export LOCAL_DEV_PROFILE='basic-cnx'
-$ export ADDITIONAL_SYNCED_FOLDERS='/c/YOUR_PATH_TO_REPO/samples=>/home/vagrant/containers'
+# Bash/Mac
+export LOCAL_DEV_PROFILE='basic-cnx'
+export ADDITIONAL_SYNCED_FOLDERS='/c/YOUR_PATH_TO_REPO/samples=>/home/vagrant/containers'
+
+#Powershell
+$env:LOCAL_DEV_PROFILE='basic-cnx'
+$env:ADDITIONAL_SYNCED_FOLDERS='/c/YOUR_PATH_TO_REPO/samples=>/home/vagrant/containers'
 ```
 
 Navigate to the localdev directory and bring it up. 
