@@ -178,7 +178,7 @@ spec:
   port:
     targetPort: 8080
   tls:
-    termintaion: edge
+    termination: edge
     insecureEdgeTerminationPolicy: Allow
   to:
     kind: Service
