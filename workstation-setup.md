@@ -26,7 +26,7 @@ At a high level, these set up instructions will install Vagrant and VirtualBox o
 
 CaaS localdev is a VM image that runs a small installation of OpenShift CaaS. When you are finished with the instructions below, you will have a VM on your workstation that you can use to build and run app container images.
 
-Open a terminal as Administrator and complete the instructions below. Note that the instructions are optimized for Git Bash on Windows. You may have to modify the commands slightly if you are using PowerShell or cmd as your terminal.
+**Open a terminal as Administrator** and complete the instructions below. Note that the instructions are optimized for Git Bash on Windows. You may have to modify the commands slightly if you are using PowerShell or cmd as your terminal.
 
 1. Change to a directory of your choosing to clone the localdev repo. 
 ```bash
