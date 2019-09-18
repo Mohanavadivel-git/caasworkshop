@@ -158,4 +158,4 @@ git clone https://github.ford.com/JPOTTE46/samples.git  # Using HTTPS
 You're all set and ready for the workshop! 
 ---
 
-Return to [Table of Contents](../README.md#agenda)
+Return to [Table of Contents](./README.md#agenda)
