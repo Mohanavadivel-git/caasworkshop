@@ -137,6 +137,8 @@ To run the springboot application, you will need JDK 8 installed on your machine
 5. Extract the contents of that zip 
 6. Set your `JAVA_HOME` environment variable to point the path of the `ibm-jdk8u151-b12` folder
 
+![Java Home](https://github.ford.com/DevEnablement/caas-workshop/blob/master/images/java_home.png)
+
 ### Samples Repository
 
 1. The CaaS team maintains a repository of sample apps that will run on CaaS. You will clone this repo locally, and then go through the process of building a container image with one of the sample apps.
