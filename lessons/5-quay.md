@@ -31,7 +31,7 @@ Recall in the `build.sh` script, we defined the IMAGE_NAME to be `springboot-hel
 
 #### Update Manifest
 
-In the `sample/springboot/manifest/deployment-1.yaml` file, there is a reference to the image at line 59. 
+In the `samples/springboot/manifest/deployment-1.yaml` file, there is a reference to the image at line 59. 
 
 ```yaml
 containers:
