@@ -13,7 +13,7 @@ This lesson will go over building the sample Springboot application and mounting
 1. Open a terminal as administrator and navigate to the samples directory you cloned in the [Workstation Setup](../workstation-setup.md#samples-repository). 
 
 ```bash
-$ cd <LOCATION_OF_CLONED_REPO>
+$ cd <LOCATION_OF_SAMPLES_REPO>
 $ ls
 best-practices.md  DTaaS  http-echo  leap  mailx  perl  python  README.md  simple_nodejsapp  springboot  toolbox
 ```
