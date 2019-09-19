@@ -61,4 +61,4 @@ When we return and issue a `vagrant up`, we will still have our project, secret,
 
 ---  
 
-Return to [Table of Contents](https://github.ford.com/DevEnablement/caas-workshop/tree/workshop-reformat#agenda)
+Return to [Table of Contents](https://github.ford.com/DevEnablement/caas-workshop#agenda)
