@@ -6,6 +6,12 @@ If your app is deployed on CaaS, you get basic monitoring of your app's resource
 
 If you need more app performance monitoring capabilities than the basic monitoring provided by the platform, you can connect your app to Ford's Dynatrace instance for a cost. You can sign up on the [Dynatrace team website](https://it1.spt.ford.com/sites/L1POE/Public/SitePages/Dynatrace.aspx).
 
+### Grafana
+
+![Grafana](https://github.ford.com/DevEnablement/caas-workshop/blob/master/images/monitoring.png)
+
+Grafana is a basic, out of the box monitoring tool. It allows teams to monitor their CPU and memory utilization. Teams can view the current or most recently running pods and see the CPU and memory usage over time. 
+
 ### SysDig
 
 SysDig is a monitoring tool that will allow for basic monitoring and alerting. The following is a list of some features and monitoring it provides: 
