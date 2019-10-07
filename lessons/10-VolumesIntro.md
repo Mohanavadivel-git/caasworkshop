@@ -1,8 +1,8 @@
 ## Kubernetes Volumes
 
-Since containers are not persistent, all their contents are cleared whenever the pod they are contianed within is destroyed. The file system is completely fresh with each pod and file systems do not persist unless you define them through persistent volume claims. 
+Since containers are not persistent, all their contents are cleared whenever the pod they are contianed within is destroyed. The file system is completely fresh with each pod and file systems do not persist unless you define them through persistent volume claims.
 
-Openshift comes with an NFS provisioner in localdev. The provisioner carries out the responsibility of creating or deleting new storages. You can request storage by providing a class type, a name, an access type, and a storage size. 
+Openshift comes with an NFS provisioner in localdev. The provisioner carries out the responsibility of creating or deleting new storages. You can request storage by providing a class type, a name, an access type, and a storage size.
 
 ### Diagram
 
@@ -10,7 +10,7 @@ Openshift comes with an NFS provisioner in localdev. The provisioner carries out
 
 ### Class Types
 
-The StorageClass are different "classes" of storage that are offered. They might differ in quality-of-service levels, backup policies, or other arbitrary policies. In localdev, the available storage class is nfs. In production Openshift, the classes are: 
+The StorageClass are different "classes" of storage that are offered. They might differ in quality-of-service levels, backup policies, or other arbitrary policies. In localdev, the available storage class is nfs. In production Openshift, the classes are:
 
 - ecc-block-performance
 - ecc-file-performance
@@ -21,22 +21,22 @@ The StorageClass are different "classes" of storage that are offered. They might
 
 > :exclamation: Block volumes CANNOT be attached to multiple container instances at the same time - file volumes CAN. Mounting and cross-mounting are only for file based storage plans - block storage plans cannot be concurrently mounted.
 
-Below are further definitions for the storage classes. IOPS are a measure of I/O per second. 
+Below are further definitions for the storage classes. IOPS are a measure of I/O per second.
 
 - **File** - NAS
 - **Block** - SAN
-- **Performance** 
+- **Performance**
     - Maximum SLO: 4,096 IOPS/TB
     - Minimum SLA: 2,048 IOPS/TB
     - Database and virtualized applications
     - 8 cents/GB per month
-- **Extreme** 
+- **Extreme**
     - Maximum SLO: 12,288 IOPS/TB
     - Minimum SLA: 6,144 IOPS/TB
     - Latency-sensitive applications
     - 12 cents/GB per month
 
-> Note: Prices listed are base prices. Copies/replicas of storage will have increased costs. See https://www.cloudportal.ford.com/storage for details. 
+> Note: Prices listed are base prices. Copies/replicas of storage will have increased costs. See https://www.cloudportal.ford.com/storage for details.
 
 ### Access Types
 
@@ -46,8 +46,6 @@ Below are further definitions for the storage classes. IOPS are a measure of I/O
   - The volume can be mounted as read-write by many nodes
 - Read Only (ROX - Read Only Many)
   - The volume can be mounted read-only by many nodes
-
-> :point_right: Need to provide shared access if you want multiple applications to be able to write to it (e.g FTP Server)
 
 ---
 
