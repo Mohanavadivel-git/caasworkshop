@@ -20,7 +20,7 @@ At a high level, these set up instructions will install Vagrant and VirtualBox o
   - [Git](https://git-scm.com/downloads)
         - Set up your SSH keys so that you can clone repos. See the [Github Sharepoint Site](https://it2.spt.ford.com/sites/FCAutomatedTesting/Pages/GitHub.aspx) for guides on how to setup Github and get the Github Desktop application
   - [Vagrant v2.2.2+](https://www.vagrantup.com/downloads.html)
-  - VirtualBox v6.0.0+, [Windows download](https://files.caas.ford.com:9443/virtualbox/latest/VirtualBox-6.0.12-133076-Win.exe) or [MacOS download](https://files.caas.ford.com:9443/virtualbox/6.0.4/VirtualBox-6.0.4-128413-OSX.dmg)
+  - VirtualBox v6.0.0+, [Windows download](https://files.caas.ford.com:9443/virtualbox/latest/VirtualBox-6.0.12-133076-Win.exe) or [MacOS download](https://files.caas.ford.com:9443/virtualbox/latest/VirtualBox-6.0.12-133076-OSX.dmg)
 
 ### Get CaaS Localdev
 
