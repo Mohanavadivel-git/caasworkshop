@@ -16,6 +16,7 @@ Navigate to the localdev directory and bring it up.
 ```bash
 $ cd <PATH_TO_LOCALDEV_DIRECTORY>
 $ vagrant up
+$ vagrant ssh
 ```
 
 Additionally, when you start up localdev, it will default to the `cluster-ops` project. You must change to using your project when you log in. 
