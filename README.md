@@ -26,11 +26,16 @@ This workshop will provide instructions to build application container images, t
 1. [Advanced Topics](./lessons/16-AdvancedTopics.md)
 
 ## Pre-requisites and Equipment
+<!-- 
 - Your own developer-class laptop with minimal 4 CPU cores and 8GB of RAM. An underpowered laptop that is used mostly for checking email WILL NOT WORK.
 - Install the required software on your laptop prior to class. [Instructions](workstation-setup.md) will be sent out to registered attendees.
 - Basic knowledge of command line and git/github. Simple stuff like cloning repos, moving files, etc...
 
 Course content is targeted for a Windows environment using Git Bash for Windows or other Bash terminal emulator. If you have a Mac and are a wiz with it, then come on. Just be aware that the instructor will not be able to answer Mac-specific questions, so you'll be on your own to translate commands from Windows to Mac and troubleshoot your own issues if things go off the rails.
+-->
+
+- Install the required software on your laptop **prior** to the class. See the [workstation setup guide](workstation-setup.md). 
+- Login to https://api.caas.ford.com/console/catalog with your CDSID and password. You should be able to log in and see the `devenablement-workshop-dev` namespace. **DO NOT** deploy/create objects until the workshop.
 
 ## Schedule
 

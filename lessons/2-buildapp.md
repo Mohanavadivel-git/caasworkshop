@@ -31,51 +31,14 @@ BUILD SUCCESSFUL in 19s
 7 actionable tasks: 7 executed
 ```
 
-Continue to the next steps only when the build is successful. 
-
-3. Configure synchronized folders between your workstation and the localdev VM so that you can access the samples repo from within the localdev VM. To set up a synchronized folder, customize and then execute the commands below to configure an `ADDITIONAL_SYNCED_FOLDERS` environment variable. 
-
-The value of this variable should be the full path to the samples repo that you cloned in the previous step, followed by the characters `=>`, followed by `/home/vagrant/containers`. So, on the left side the of `=>` is the location where you saved the samples repo. Let's export this as an environment variable. 
+3. Check the contents of the `build/libs` directory. You should see the output `.jar` called `devenablement-service-helloworld.jar`. 
 
 ```bash
-# Git Bash for Windows
-export ADDITIONAL_SYNCED_FOLDERS='/c/YOUR_PATH/samples=>/home/vagrant/containers'
-# Terminal for MacOS
-export ADDITIONAL_SYNCED_FOLDERS='/YOUR_PATH/samples=>/home/vagrant/containers'
-# Windows Powershell
-$env:ADDITIONAL_SYNCED_FOLDERS = 'C:/YOUR_PATH/samples=>/home/vagrant/containers'
-```
-The commands above will result in the samples repo (which is located on your host workstation's filesystem) being mounted to `/home/vagrant/containers` in the VM's filesystem. The next steps will confirm whether or not the mounting was done correctly. 
-
-4. Issue the vagrant up command after navigating to the localdev directory. If you already brought vagrant up, execute a vagrant reload. 
-
-```bash
-# Change directory into your localdev directory.
-cd <PATH_TO_LOCALDEV_DIRECTORY>
-
-# Start the localdev VM if you have not already
-vagrant up
-
-# Re-load the VM if you already have the VM running 
-vagrant reload
+$ ls build/libs
+devenablement-service-helloworld.jar
 ```
 
-> Note: You should receive a message to verify your host IP. If you do not, you will likely run into issues throughout the workshop  
-
-5. After the VM is built, SSH into the VM and confirm the samples repo was mounted. You should see multiple files in `/home/vagrant/containers`.
-```bash
-# SSH into the VM
-vagrant ssh
-
-# From your SSH session in the VM, list the contents of the samples repo.
-[vagrant@m1 ~]$ ls /home/vagrant/containers   #<------------- LIST THE CONTENTS OF THE SAMPLES REPO
-
-best-practices.md  DTaaS  http-echo  jenkins  leap  perl  python  README.md  simple_nodejsapp  springboot  toolbox
-```
-
-#### Issues
-
-If the `ls /home/vagrant/containers` command returns an empty result, either your environment variable is set up incorrectly or you need to execute a `vagrant reload`.   
+Now that we have our application build artifact, we can begin the process of building our container image to be deployed in CaaS Openshift. 
 
 ---
 

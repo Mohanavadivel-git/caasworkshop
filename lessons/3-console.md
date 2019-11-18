@@ -1,6 +1,8 @@
 ## Openshift Console and CLI
 
-Next, you will be deploying the container image you built in the last lesson to CaaS localdev. Deploying to localdev is similar to how you might deploy the container image to the production instance of CaaS. To do that, we will need to access the Openshift console and/or use the `oc` CLI. 
+Before we build our container image and deploy the application, we will interact with the Openshift console and use the `oc` CLI. 
+
+If you did not add the `oc` CLI as mentioned in the pre-requesites, please follow the [download instructions](). 
 
 #### Exercise
 
