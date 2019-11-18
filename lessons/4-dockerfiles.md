@@ -61,6 +61,6 @@ The capitalized keywords at the beginning of each line above are Docker instruct
 
 --- 
 
-Continue to [Building OCI Images](./4-buildimage.md).
+Continue to [container image registry](./5-quay.md).
 
 Return to [Table of Contents](../README.md#agenda)

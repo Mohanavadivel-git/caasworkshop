@@ -8,64 +8,32 @@ This lesson focuses on understanding container image registries. At Ford, we use
 
 ---
 
-### Exercise 
+### Quay 
 
-### Push Container Image to Quay
+Quay is Ford's container image registry. All the images you build will be stored in Quay. The format in Quay follows an Organization->Repository style. For your organization, you may have one or more repositories.
 
-If you are following this guide as part of the workshop, we will push the image we created to the DevEnablement organization in Quay. If you are following this workshop on your own, go to the [next section](./5-quay.md#exercise---post-workshop).
+Any single repository corresponds to a single application's container image. You may keep your version history within Quay as well to allow for rollbacks. 
 
-Recall in the `build.sh` script, we defined the IMAGE_NAME to be `springboot-hello-world` and the VERSION to be `0.0.1`. Normally, you would change these values in `build.sh` to match the repository you will push to in Quay. For the purposes of the workshop, however, we will push the image to the `workshop` repository in the `devenablement` organization, and you will use a version number assigned to you.
+To be able to push container images to Quay you will need to provide authentication. Quay has a version of generic accounts called "robots" that can be maintained by the owner of a repository. 
 
-[Click here](https://gist.github.ford.com/JPOTTE46/388b8eb535811c9e98ccae7aeb0e3d22) to copy the command to login with the Quay credentials provided to you for the workshop. 
+### Exercise - Understanding Robots
 
-```bash
-# Pushing the container to Quay
-# The command below is just an example - copy the actual command from the link above
-[vagrant@m1 ~]$ sudo podman login -u="USERNAME" -p="PASSWORD" registry.ford.com
+1. Navigate to https://registry.ford.com/ 
+2. On the right side of the page, in the `Users and Organizations` section, click your CDSID. 
+3. On the left side of the page, click the Robot icon. 
+4. Click `Create Robot Account`
+5. Choose any name (example: `test`) and descriptor for this Robot. 
+6. On the next page, click `Close` without choosing a repository. 
+7. After the creation of the robot, click the robot and then click `Kubernetes Secret`. 
+8. Click the button that says `View <my-robot-name>.yml`.
 
-# Push your image to Quay using your version number
-[vagrant@m1 ~]$ sudo podman push \
-                    springboot-hello-world:0.0.1 \
-                    registry.ford.com/devenablement/workshop:YOUR_VERSION_NUMBER
-```
+What you are viewing here is the Kubernetes secet for your Robot. Providing this secret to Openshift will allow Openshift to access any repository that this robot has access to. Robot permissions can be set for single or multiple repositores and set as read or write. 
 
-#### Update Manifest
+### Workshop Secret
 
-In the `samples/springboot/manifest/deployment-1.yaml` file, there is a reference to the image at line 59. 
+You are currently set with developer mode in the namespace. Therefore, you are unable to create or manage secrets. This is to enforce some separation of duties for developers. 
 
-```yaml
-containers:
-      - name: springboot-hello-world
-        # image will be pulled from localdev Docker Registry if present
-        image: registry.ford.com/devenablement/workshop:0.0.1 # <---------- Update version here
-        imagePullPolicy: IfNotPresent
-```
-
-Openshift will attempt to access the image located at the location provided, which in this case, is `registry.ford.com/devenablement/workshop:0.0.1`. If this image is not available locally, it will attempt to access the image via the URL provided. 
-
-For Openshift to get the correct image, you must update the `deployment-1.yaml` file to reference the correct image tag. 
-
-### Exercise - Post-Workshop
-
-When you go to develop at the end of the workshops, you will not have access to the DevEnablement Quay organization and the workshop repository. If you or your team do not have an organization in Quay, you can still push your container images to a registry. Instead of the registry on Quay, you will push your container to your local container image registry, which localdev provides. 
-
-```bash
-# Pushing the container to local registry
-sudo podman push \
-    springboot-hello-world:0.0.1 \
-    docker-daemon:registry.ford.com/devenablement/workshop:0.0.1
-
-Getting image source signatures
-Copying blob sha256:050c734bd2868bcd3b69ab0ca033aa3bc95a00a4a1e5317e732394e1c36ef59e
- 203.90 MB / 203.90 MB [====================================================] 2s
- ...
-Writing manifest to image destination
-Storing signatures
-```
-
-Looking at the command, you can see we are pushing the image to the local docker daemon. You can see we have kept the name `registry.ford.com/devenablement/workshop:0.0.1`, so no changes are needed to the `deployment-1.yaml` file other than needing the version number here to match the version number in your `deployment-1.yaml` file. 
-
-If you wish, you can change this name. For example, in place of `registry.ford.com/devenablement/workshop:0.0.1`, you could put `springboot-hello-world:0.0.1` or `my-app:1.0.0`. You would then need to change the `deployment-1.yaml` file (on line 59) to read `springboot-hello-world:0.0.1` or `my-app:1.0.0` instead of `registry.ford.com/devenablement/workshop:0.0.1`. 
+Similarly to the robot account you created for yourself, a robot account was created for the workshop repository. This robot has read and write access to the workshop repository. This will allow you to create and push container images to this repository and deploy them later on. 
 
 ---
 
@@ -75,6 +43,6 @@ App teams that need access to Quay can request it using these [instructions](htt
 
 ---  
 
-Continue to [Openshift console and CLI](./6-console.md).
+Continue to [Openshift console and CLI](./6-buildimage.md).
 
 Return to [Table of Contents](../README.md#agenda)

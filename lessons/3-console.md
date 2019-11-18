@@ -42,6 +42,6 @@ $ Now using project "devenablement-workshop-dev" on server "https://api.caas.for
 
 ---  
 
-Continue to [Openshift objects](./7-objects.md).
+Continue to [writing Dockerfiles](./4-dockerfiles.md).
 
 Return to [Table of Contents](../README.md#agenda)

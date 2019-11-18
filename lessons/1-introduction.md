@@ -20,6 +20,6 @@ In contrast, the CaaS platform is highly configurable. For example, app teams ha
 
 ---  
 
-Continue to [Application Code and Mounting Directories](./2-buildapp.md).
+Continue to [sample application](./2-buildapp.md).
 
 Return to [Table of Contents](../README.md#agenda)
