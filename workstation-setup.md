@@ -1,16 +1,8 @@
 # Workstation Setup and Homework
----
 
-Before attending the workshop, you must pre-install some software on your laptop or workstation. You will likely be on wireless during the workshop, and the initial installation and setup of these packages will take hours if performed over wireless. So please install ahead of time to avoid wasting class time.
+Before attending the workshop, you must pre-install some software on your laptop or workstation. You will likely be on wireless during the workshop, and the initial installation and setup of these packages will take time if done over wireless. 
 
 ---
-<!--
-### Install Software on Workstation
-- `oc` CLI
-- Text editor of your choice, such as Notepad++, Eclipse, IntelliJ, [Visual Studio Code](https://code.visualstudio.com/), etc...
-- [Git](https://git-scm.com/downloads)
-  - Set up your SSH keys so that you can clone repos. See the [Github Sharepoint Site](https://it2.spt.ford.com/sites/FCAutomatedTesting/Pages/GitHub.aspx) for guides on how to setup Github and get the Github Desktop application
-  -->
 
 ### JDK 8 
 
@@ -23,7 +15,7 @@ To build the springboot application, you will need JDK 8 installed on your machi
 5. Extract the contents of that zip into the current directory. 
 6. Set your `JAVA_HOME` environment variable to point the path of the `ibm-jdk8u151-b12` folder
 
-![Java Home](https://github.ford.com/DevEnablement/caas-workshop/blob/master/images/java_home.png)
+![Java Home](./images/java_home.png)
 
 ### Samples Repository
 
@@ -50,11 +42,12 @@ To deploy objects into Openshift, you will need the `oc` CLI.
 2. Extract the contents of the `.zip` to a permanent location (such as C:/Users/<YOUR_CDSID>)
 3. Add the path to the `oc` binary to your system's path.
   - Windows
-    1. Go to start, type `Path`, and click `Edit the System Environment Variables`
-    2. Click the `Environment Variables` button. 
-    3. In the `System Variables` section, find the variable called `Path` and double click it. 
-    4. Click `New` and paste the location to the `oc` binary. 
+
+![oc cli](./images/oc_cli.png)
+
   - Mac: 
+
+
 
 You're all set and ready for the workshop! 
 
