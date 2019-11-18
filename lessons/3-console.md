@@ -1,39 +1,45 @@
 ## Openshift Console and CLI
 
-Before we build our container image and deploy the application, we will interact with the Openshift console and use the `oc` CLI. 
+Before we build our container image and deploy the application, we will interact with the Openshift console and use the `oc` CLI. In this class, we will be interacting with the production cluster of Openshift. You will be granted access to a namespace to run your application in the production cluster. 
 
-If you did not add the `oc` CLI as mentioned in the pre-requesites, please follow the [download instructions](). 
+In Openshift, `project` and `namespace` are used interchangeably. It is a logicial construct where you deploy your Openshift objects. Your application instances/replicas may span different nodes and data centers, but you can manage them all within your single namespace. 
 
-#### Exercise
+**Note**: If you did not add the `oc` CLI as mentioned in the pre-requesites, please follow the [download instructions](../workstation-setup.md#oc-cli). 
 
-1. Your instance of localdev has started and is running a full installation of OpenShift. Test to confirm that OpenShift is running and ready by opening the web management in a browser at https://console.oc.local:8443/. Your browser will give you an error about the self-signed SSL certificate, but just tell it to proceed anyway. You will have to do that twice because of a redirect.
+#### Exercise - GUI
 
-Once you get a log in prompt, use the following credentials:
+1. Go to https://api.caas.ford.com
+2. Login with your CDSID and password
+3. Confirm you see the `devenablement-workshop-dev` namespace on the far right side of the webpage. 
 
-```yaml
-Username: admin
-Password: sandbox
-```
+#### Exercise - CLI
 
-2. In addition to the web interface, you can communicate directly with the OpenShift API using a command line tool called `oc` from Red Hat, or the more generic Kubernetes command-line tool `kubectl`. This workshop uses `oc` and it is recommended that you use `oc` for all interactions with Openshift.
+1. Open git bash, the command line, or powershell. 
+2. Enter the following command and provide your CDSID and password when prompted. 
 
 ```bash
-# Login to Openshift
-[vagrant@m1 ~]$ oc login api.oc.local:8443
-Username: admin
-Password: sandbox
+# If using git bash
+$ winpty oc login api.caas.ford.com
 
-# Create a new project to hold the app and keep things organized.
-[vagrant@m1 ~]$ oc new-project my-namespace
+# If using powershell/command prompt
+$ oc login api.caas.ford.com
+```
+
+3. Confirm your project selection with the following commands. 
+
+```bash
+$ oc project
+Using project "devenablement-workshop-dev" on server "https://api.caas.ford.com:443".
+```
+
+If you are defaulted to a different project, run the command below: 
+
+```bash
+$ Now using project "devenablement-workshop-dev" on server "https://api.caas.ford.com:443".
 ```
 
 > NOTE: You can only create a project this way in localdev. Visit the [Ford Cloud Portal](https://www.cloudportal.ford.com/openshift) if you wish to get a project/namespace in the production instance of Openshift
 
-In Openshift, `project` and `namespace` are used interchangeably. It is a logicial construct where you deploy your Openshift objects. Your application instances/replicas may span different nodes and data centers, but you can manage them all within your single namespace. 
-
-<!---
-If you get an error like, "no such host" or "couldn't resolve host", the issue is likely with the name resolution of `console.oc.local`. The localdev installation runs a local DNS service to provide name resolution for the `oc.local` domain. Sometimes, you will need to wait a bit longer for the DNS service to start, or manually flush your DNS cache with `ipconfig /flushdns` on Windows (or escape the fwd slash in Git Bash like `ipconfig //flushdns`).
--->
 ---  
 
 Continue to [Openshift objects](./7-objects.md).

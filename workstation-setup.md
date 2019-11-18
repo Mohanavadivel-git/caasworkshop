@@ -48,7 +48,6 @@ To deploy objects into Openshift, you will need the `oc` CLI.
   - Mac: 
 
 
-
 You're all set and ready for the workshop! 
 
 ---
