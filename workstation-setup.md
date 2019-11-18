@@ -43,7 +43,7 @@ To deploy objects into Openshift, you will need the `oc` CLI.
 3. Add the path to the `oc` binary to your system's path.
   - Windows
 
-![oc cli](./images/oc_cli.png)
+![oc cli](./images/oc_cli.PNG)
 
   - Mac: 
 
