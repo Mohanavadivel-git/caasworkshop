@@ -22,7 +22,7 @@ There are various ways to build and deploy container images. This workshop focus
     - Can store history of container images
     - Customizable credentials used to write and read images from the repository
 - ImageStreams
-    - Listener on a certain tag for an image in Quay 
+    - Listener on a certain tag (i.e. version) for an image in Quay 
     - Updated whenever the tag in Quay is updated 
 - DeploymentConfig
     - Handles actual deployment of application 

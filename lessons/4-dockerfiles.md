@@ -61,6 +61,6 @@ The capitalized keywords at the beginning of each line above are Docker instruct
 
 --- 
 
-Continue to [container image registry](./5-quay.md).
+Continue to [container image registry](./5-registry.md).
 
 Return to [Table of Contents](../README.md#agenda)

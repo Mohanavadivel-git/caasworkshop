@@ -8,7 +8,7 @@ This lesson focuses on understanding container image registries. At Ford, we use
 
 ---
 
-### Quay 
+## Quay 
 
 Quay is Ford's container image registry. All the images you build should be stored in Quay. The format in Quay follows an Organization->Repository style. For your organization, you may have one or more repositories. 
 
@@ -35,7 +35,7 @@ kind: Secret
 metadata:
   name: workshop-test-pull-secret
 data:
-  .dockerconfigjson: ewogICJhdXRocyI6IHsKICAgICJyZWdpc3RyeS5mb3JkLmNvbSI6IHsKICAgICAgImF1dGgiOiAiYldGc2VXRnpjeXQwWlhOME9sbERVMFJhT0VveVEwRmFRa3hTUlVSUVExaFdURTh5TmtORFNrRk1NVFpPVjFCWVNVVlJNRlZRUjFGTk5sRlROMDFOVFZoRU0xRlNNbHBLVlRaVFMwVT0iLAogICAgICAiZW1haWwiOiAiIgogICAgfQogIH0KfQ==
+  .dockerconfigjson: ewogICJhdXRocyI6IHsKICAgICJyZWdpc3RyeS5mb3JkLmNvbSI6IHsKICAgICAgImF1dj5iOiAiYldGc2VXRnpjeXQwWlhOME9sbERVMFJhT0VveVEwRmFRa3hTUlVSUVExaFdURTh5TmtORFNrRk1NVFpPVjFCWVNVVlJNRlZRUjFGTk5sP3FOMDFOVFZoRU0xRlNNbHBLVlRaVFMwVT0iLAogICAgICAiZW1haWw0fE4iIgogICAgfQogIH0KfQ==
 type: kubernetes.io/dockerconfigjson
 ```
 
@@ -65,11 +65,17 @@ Error from server (Forbidden): error when creating "pulpull-secret-test.yaml": s
 
 The reason why you receive this error is because you are set with developer permissions in the namespace. To have some forms of separtion of duties, developers cannot create or view secrets.
 
-These exercises showed you how to create and deploy Quay credentials to a namespace so that if are an admin on a namespace, you will know how to. As a developer, however, you will not be able to access certain features to enact some separation of duties. 
+These exercises showed you how to create and deploy Quay credentials to a namespace so that if are an admin on a namespace, you will know how to.
 
 ### Workshop Secret
 
 Similarly to the robot account you created for yourself, a robot account was created for the workshop repository. This robot has read and write access to the workshop repository. This will allow you to create and push container images to this repository and deploy them later on. 
+
+## RedHat 
+
+You may also find that you need to authenticate against RedHat's container catalog to use their images. In this class, you will notice the `FROM` statement of the `Dockerfile` is from RedHat's registry, not Quay. To be able to authenticate against RedHat's registry in your namespace, see [these instructions](). 
+
+For the purpose of the workshop, this credential has already been created and we will be able to use it to utilize RedHat's container catalog, which you can view [here](https://registry.redhat.io). 
 
 ---
 

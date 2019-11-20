@@ -20,6 +20,6 @@ In contrast, the CaaS platform is highly configurable. For example, app teams ha
 
 ---
 
-Continue to [sample application](./2-overivew.md).
+Continue to [overview](./2-overview.md).
 
 Return to [Table of Contents](../README.md#agenda)
