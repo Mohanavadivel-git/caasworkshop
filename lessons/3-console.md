@@ -32,13 +32,14 @@ $ oc project
 Using project "devenablement-workshop-dev" on server "https://api.caas.ford.com:443".
 ```
 
-If you are defaulted to a different project, run the command below: 
+If you are defaulted to a different project, run the command below to select the `devenablement-workshop-dev` namespace. 
 
 ```bash
-$ Now using project "devenablement-workshop-dev" on server "https://api.caas.ford.com:443".
+$ oc project devenablement-workshop-dev
+Now using project "devenablement-workshop-dev" on server "https://api.caas.ford.com:443".
 ```
 
-> NOTE: You can only create a project this way in localdev. Visit the [Ford Cloud Portal](https://www.cloudportal.ford.com/openshift) if you wish to get a project/namespace in the production instance of Openshift
+As mentioned previously, this is a namespace specifically for the workshop that you were added. To procure your own namepsace, visit the [Ford Cloud Portal](https://www.cloudportal.ford.com/openshift). A free-trial version exists where you can receive a namespace for 90 days.  
 
 ---  
 

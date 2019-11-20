@@ -8,19 +8,19 @@ This lesson will go over how build a container/OCI/docker image. These three nam
 
 ---
 
-### Build Container Image In localdev
-
-If you have no experience with container images, you should check out the [Get Started](https://docs.docker.com/get-started/) tutorial on Docker's website.
-
 ### BuildConfigs - Introduction
 
 There are numerous build tools that are used to build container images, such as Docker, Buildah, and Podman. You can install these tools on your system or use a virtual machine (such as [localdev]()). 
 
-Openshift, however, provides a way to build container images within the cluster itself. This way, builds can be automated and never dependent on system tools. You can review the documentation for `BuildConfigs` [here](https://docs.openshift.com/container-platform/4.2/builds/understanding-image-builds.html). 
+Openshift, however, provides a way to build container images within the cluster itself. This way, builds can be automated and never dependent on system tools. This is done through an Openshift-specific object called a `BuildConfig`. You can review the documentation for `BuildConfigs` [here](https://docs.openshift.com/container-platform/4.2/builds/understanding-image-builds.html). 
 
-Behind the scenes, `BuildConfigs` uses `Buildah` to build your container image. 
+`BuildConfigs` allow you to define the necessary parameters to build your container image. This way, you can have a repeatable process and always build your container image the same way. 
 
-### BuildConfigs - Parameters
+### BuildConfigs - Sample
+
+In this section, we will review a very basic `BuildConfig` to build an image which we will later overwrite. 
+
+1. 
 
 
 

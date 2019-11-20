@@ -18,8 +18,8 @@ Pivotal often describes PCF as an "[opinionated platform](https://content.pivota
 
 In contrast, the CaaS platform is highly configurable. For example, app teams have total control over their apps' resource allocation, data center location, TLS termination, and packages, libraries and other dependencies included in their container image. The trade-off is there is a pretty steep learning curve for CaaS. Be sure you have the desire to get into the weeds with cloud hosting with CaaS.
 
----  
+---
 
-Continue to [sample application](./2-buildapp.md).
+Continue to [sample application](./2-overivew.md).
 
 Return to [Table of Contents](../README.md#agenda)

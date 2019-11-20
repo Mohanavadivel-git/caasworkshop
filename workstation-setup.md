@@ -4,19 +4,6 @@ Before attending the workshop, you must pre-install some software on your laptop
 
 ---
 
-### JDK 8 
-
-To build the springboot application, you will need JDK 8 installed on your machine. 
-
-1. Download the all-in-one software distributions package [here](https://00000-javacoe-dev-ns01.s3-object.ford.com:9021/jcoe/distros/ford.zip)
-2. Unzip the contents into `C:\ford`
-3. Navigate to that unzipped direction and go to the `jdk` folder
-4. Either within the `jdk` or folder or within the `ibm` folder, there will be a `ibm-jdk8u151-b12.zip` file
-5. Extract the contents of that zip into the current directory. 
-6. Set your `JAVA_HOME` environment variable to point the path of the `ibm-jdk8u151-b12` folder
-
-![Java Home](./images/java_home.png)
-
 ### Samples Repository
 
 1. The CaaS team maintains a repository of sample apps that will run on CaaS. You will clone this repo locally, and then go through the process of building a container image with one of the sample apps.
@@ -47,8 +34,18 @@ To deploy objects into Openshift, you will need the `oc` CLI.
 
   - Mac: 
 
+### JDK 8 
 
-You're all set and ready for the workshop! 
+To build the springboot application, you will need JDK 8 installed on your machine. 
+
+1. Download the all-in-one software distributions package [here](https://00000-javacoe-dev-ns01.s3-object.ford.com:9021/jcoe/distros/ford.zip)
+2. Unzip the contents into `C:\ford`
+3. Navigate to that unzipped direction and go to the `jdk` folder
+4. Either within the `jdk` or folder or within the `ibm` folder, there will be a `ibm-jdk8u151-b12.zip` file
+5. Extract the contents of that zip into the current directory. 
+6. Set your `JAVA_HOME` environment variable to point the path of the `ibm-jdk8u151-b12` folder
+
+![Java Home](./images/java_home.png)
 
 ---
 

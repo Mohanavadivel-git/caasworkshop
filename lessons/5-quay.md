@@ -10,7 +10,7 @@ This lesson focuses on understanding container image registries. At Ford, we use
 
 ### Quay 
 
-Quay is Ford's container image registry. All the images you build will be stored in Quay. The format in Quay follows an Organization->Repository style. For your organization, you may have one or more repositories.
+Quay is Ford's container image registry. All the images you build should be stored in Quay. The format in Quay follows an Organization->Repository style. For your organization, you may have one or more repositories. 
 
 Any single repository corresponds to a single application's container image. You may keep your version history within Quay as well to allow for rollbacks. 
 
@@ -24,14 +24,50 @@ To be able to push container images to Quay you will need to provide authenticat
 4. Click `Create Robot Account`
 5. Choose any name (example: `test`) and descriptor for this Robot. 
 6. On the next page, click `Close` without choosing a repository. 
-7. After the creation of the robot, click the robot and then click `Kubernetes Secret`. 
+7. After the creation of the robot, click the robot name and then click `Kubernetes Secret`. 
 8. Click the button that says `View <my-robot-name>.yml`.
 
-What you are viewing here is the Kubernetes secet for your Robot. Providing this secret to Openshift will allow Openshift to access any repository that this robot has access to. Robot permissions can be set for single or multiple repositores and set as read or write. 
+Sample Kubernetes secret: 
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: workshop-test-pull-secret
+data:
+  .dockerconfigjson: ewogICJhdXRocyI6IHsKICAgICJyZWdpc3RyeS5mb3JkLmNvbSI6IHsKICAgICAgImF1dGgiOiAiYldGc2VXRnpjeXQwWlhOME9sbERVMFJhT0VveVEwRmFRa3hTUlVSUVExaFdURTh5TmtORFNrRk1NVFpPVjFCWVNVVlJNRlZRUjFGTk5sRlROMDFOVFZoRU0xRlNNbHBLVlRaVFMwVT0iLAogICAgICAiZW1haWwiOiAiIgogICAgfQogIH0KfQ==
+type: kubernetes.io/dockerconfigjson
+```
+
+What you are viewing here is the Kubernetes secet for your Robot. You can see the "kind" of object is a `secret`. It provides a type called `kubernetes.io/dockerconfigjson`, which is the type for a Kubernetes credential, aka, a credential for a container image repository.
+
+Providing this secret to Openshift will allow Openshift to access any repository that this robot has access to. Robot permissions can be set for single or multiple repositores and set as read or write. 
+
+### Exercise - Deploy Secret
+
+Let's practice deploying this secret to our namespace. We will use bash/command line to create it. 
+
+1. Download this `yaml` file and save it to the samples repository in `samples/springboot/manifest` with the other yaml files. 
+2. Save the file as `pull-secret-test.yaml` 
+3. Run the command below to create the secret. 
+
+```bash
+# Navigate to the springboot directory if you have not already 
+$ cd springboot
+$ oc create -f ./manifest/pull-secret-test.yaml
+```
+
+You should receive the following error: 
+
+```bash
+Error from server (Forbidden): error when creating "pulpull-secret-test.yaml": secrets is forbidden: User <YOUR-CDSID> cannot create secrets in the namespace "devenablement-workshop-dev": no RBAC policy matched
+```
+
+The reason why you receive this error is because you are set with developer permissions in the namespace. To have some forms of separtion of duties, developers cannot create or view secrets.
+
+These exercises showed you how to create and deploy Quay credentials to a namespace so that if are an admin on a namespace, you will know how to. As a developer, however, you will not be able to access certain features to enact some separation of duties. 
 
 ### Workshop Secret
-
-You are currently set with developer mode in the namespace. Therefore, you are unable to create or manage secrets. This is to enforce some separation of duties for developers. 
 
 Similarly to the robot account you created for yourself, a robot account was created for the workshop repository. This robot has read and write access to the workshop repository. This will allow you to create and push container images to this repository and deploy them later on. 
 
