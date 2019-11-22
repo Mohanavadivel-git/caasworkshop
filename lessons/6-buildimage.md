@@ -1,4 +1,4 @@
-## Building Container Images Using Dockerfiles
+## Building Container Images
 
 ### The Big Picture - Step 3
 
@@ -20,12 +20,47 @@ Openshift, however, provides a way to build container images within the cluster 
 
 In this section, we will review a very basic `BuildConfig` to build an image which we will later overwrite. 
 
-1. 
+1. Open `build-config-1.yaml` and review the file. 
 
+- Metadata
+  - Relevant metadata can be provided, with a name provided at minimum 
+- Output
+  - pushSecret: The name of the secret containing your Quay robot credentials
+    - See [these instructions]() to create the robot credential
+  - To: Location and tag of the output container
+- Resources:
+  - Resources to allocate for the build process
+- Source:
+  - Necessary input to complete the container image build
+  - Can include but is not limited to: source code, Dockerfile, build artifact, etc. (this example uses an inline Dockerfile)
 
+2. Replace the spots that say `<YOUR-CDSID>` with your CDSID. 
+
+3. Using the terminal, let's create the `BuildConfig`. Ensure you are in the `workshop` directory. 
+
+```bash
+$ oc create -f ./manifests/build-config-1.yaml
+buildconfig.build.openshift.io/example-dvncaas created
+```
+
+4. Start the build. You can do this via the console or from the terminal. 
+
+Console: 
+
+- Go to [builds](https://api.caas.ford.com/console/project/devenablement-workshop-dev/browse/builds) section. 
+- Click on your build. 
+- On the far right, click "start build"
+
+Terminal: 
+
+- Replace <MY-CDSID> with your CDSID
+
+```bash
+$ oc start-build example-<MY-CDSID> --wait=true
+```
 
 ---  
-
+<!--oc import-image redhat-openjdk-18/openjdk18-openshift --from=registry.redhat.io/redhat-openjdk-18/openjdk18-openshift --confirm-->
 Continue to [Container Registries](./5-quay.md).
 
 Return to [Table of Contents](../README.md#agenda)

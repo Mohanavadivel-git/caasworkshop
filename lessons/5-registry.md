@@ -4,6 +4,8 @@
 
 ![CaaS Workflow](https://github.ford.com/Containers/localdev/blob/master/docs/images/CaaS-LocalDev.png)
 
+![CaaS Objects](../images/overview.png)
+
 This lesson focuses on understanding container image registries. At Ford, we use a tool called Quay to provide an on-premise registry to store images. If you are familiar with Docker Hub on the public internet, Quay is similar. The production instance of Quay is at https://registry.ford.com/.
 
 ---
@@ -15,6 +17,10 @@ Quay is Ford's container image registry. All the images you build should be stor
 Any single repository corresponds to a single application's container image. You may keep your version history within Quay as well to allow for rollbacks. 
 
 To be able to push container images to Quay you will need to provide authentication. Quay has a version of generic accounts called "robots" that can be maintained by the owner of a repository. 
+
+You can see [this page]() on the dev guide for how to create and use robot's in Quay. 
+
+<!--
 
 ### Exercise - Understanding Robots
 
@@ -60,24 +66,23 @@ $ oc create -f ./manifest/pull-secret-test.yaml
 You should receive the following error: 
 
 ```bash
-Error from server (Forbidden): error when creating "pulpull-secret-test.yaml": secrets is forbidden: User <YOUR-CDSID> cannot create secrets in the namespace "devenablement-workshop-dev": no RBAC policy matched
+Error from server (Forbidden): error when creating "pull-secret-test.yaml": secrets is forbidden: User <YOUR-CDSID> cannot create secrets in the namespace "devenablement-workshop-dev": no RBAC policy matched
 ```
 
 The reason why you receive this error is because you are set with developer permissions in the namespace. To have some forms of separtion of duties, developers cannot create or view secrets.
 
 These exercises showed you how to create and deploy Quay credentials to a namespace so that if are an admin on a namespace, you will know how to.
+-->
 
 ### Workshop Secret
 
-Similarly to the robot account you created for yourself, a robot account was created for the workshop repository. This robot has read and write access to the workshop repository. This will allow you to create and push container images to this repository and deploy them later on. 
+A robot account was created for the workshop repository. This robot has read and write access to the workshop repository. This will allow you to create and push container images to this repository and deploy them later on. 
 
 ## RedHat 
 
 You may also find that you need to authenticate against RedHat's container catalog to use their images. In this class, you will notice the `FROM` statement of the `Dockerfile` is from RedHat's registry, not Quay. To be able to authenticate against RedHat's registry in your namespace, see [these instructions](). 
 
 For the purpose of the workshop, this credential has already been created and we will be able to use it to utilize RedHat's container catalog, which you can view [here](https://registry.redhat.io). 
-
----
 
 ### Requesting Quay Access
 

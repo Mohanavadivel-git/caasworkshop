@@ -10,7 +10,7 @@ This lesson will go over docker file basics and the process of writing a docker 
 
 A Dockerfile is a text file that defines our Docker (OCI) image. An image building tool; like docker, buildah, or podman; takes a Dockerfile as input and outputs a Docker image.
 
-Before creating our Docker image using the Springboot app, let's evaluate an example Dockerfile. The Dockerfile example below is a very simple one that is for a python application. The Dockerfile for a real-world production application will likely be much more complex, so be sure to review this external [best practices article](https://takacsmark.com/dockerfile-tutorial-by-example-dockerfile-best-practices-2018/) for how to write good, slim Dockerfiles.
+Before creating our Docker image using the Springboot app, let's evaluate an example Dockerfile. The Dockerfile example below is for a python application. The Dockerfile for a real-world production application will likely be much more complex, so be sure to review this external [best practices article](https://takacsmark.com/dockerfile-tutorial-by-example-dockerfile-best-practices-2018/) for how to write good, slim Dockerfiles.
 
 ```dockerfile
 FROM registry.redhat.io/rhscl/python-27-rhel7

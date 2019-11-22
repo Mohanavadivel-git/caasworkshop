@@ -2,7 +2,7 @@
 
 ### Pre-Requisites
 
-Did you set up your workstation with CaaS localdev yet? If not, complete the [instructions](../workstation-setup.md).
+Complete the [workstation setup](../workstation-setup.md).
 
 ### What is Ford's CaaS?
 

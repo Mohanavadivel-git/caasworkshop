@@ -16,18 +16,18 @@ There are various ways to build and deploy container images. This workshop focus
     - Your source code/build artifacts can be sent to CaaS in various ways. You can achieve this through GitHub or through your local machine. Your choice will require different configurations to be set up.
 - [BuildConfig](https://docs.openshift.com/container-platform/4.2/builds/understanding-image-builds.html)
     - Takes as input a combination of source code, application artifacts (.jar, .zip, etc), and Dockerfiles.
-    - Outputs a container image to a container Registry. 
+    - Outputs a container image to a container image registry
 - [Quay](https://registry.ford.com/)
-    - Container image registry
+    - Ford's container image registry
     - Can store history of container images
-    - Customizable credentials used to write and read images from the repository
+    - Customizable credentials used to write and read images from the registry
 - [ImageStreams](https://docs.openshift.com/container-platform/4.2/openshift_images/image-streams-manage.html)
-    - Listener on a certain tag (i.e. version) for an image in Quay 
-    - Updated whenever the tag in Quay is updated 
+    - Listener for an image in a container image registry  
+    - Updated whenever the image is updated
 - [DeploymentConfig](https://docs.openshift.com/container-platform/4.2/applications/deployments/what-deployments-are.html)
     - Handles actual deployment of application 
-    - Can be triggered based on image updates
-    - Handles bringing up new instances and scaling down old instances of application 
+    - Can be triggered based on image updates (i.e. when the `ImageStream` is updated)
+    - Handles bringing up new instances and scaling down old instances of the application 
 
 ---
 
