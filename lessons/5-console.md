@@ -45,7 +45,7 @@ Now using project "devenablement-workshop-dev" on server "https://api.caas.ford.
 
 ## Requesting a Namespace
 
-As mentioned previously, this is a namespace used only for this workshop. The workshop will be wiped clean in preparation for the next workshop and your credentials will be removed from accessing this namespace at the end of the workshop. To procure your own namepsace, visit the [Ford Cloud Portal](https://www.cloudportal.ford.com/openshift). A free-trial version exists where you can receive a namespace for 90 days.
+As mentioned previously, this is a namespace used only for this workshop. The workshop will be wiped clean in preparation for the next workshop and your credentials will be removed from accessing this namespace at the end of the workshop. To procure your own namepsace, visit the [Ford Cloud Portal](https://www.cloudportal.ford.com/openshift). A free-trial version exists where you can receive a namespace for 120 days.
 
 ---  
 
