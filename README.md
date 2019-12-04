@@ -28,6 +28,8 @@ This workshop will provide instructions to build application container images, t
 1. [Other Objects](./lessons/13-objects.md)
 1. [Object Manifests](./lessons/14-objectmanifest.md)
 1. [End to End Example](./lessons/15-endtoend.md)
+1. [Intro to Volumes](./lessons/16-volumesintro.md)
+1. [Monitoring](./lessons/17-monitoring.md)
 
 Temp Link: https://github.ford.com/MALYASS/samples
 
