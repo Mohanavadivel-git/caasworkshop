@@ -29,6 +29,8 @@ This workshop will provide instructions to build application container images, t
 1. [Object Manifests](./lessons/14-objectmanifest.md)
 1. [End to End Example](./lessons/15-endtoend.md)
 
+Temp Link: https://github.ford.com/MALYASS/samples
+
 ## Schedule
 
 The workshop is offered once per month. The duration is two 4-hour sessions offered typically on two consecutive days. It is currently offered for no charge.
