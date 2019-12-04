@@ -143,14 +143,14 @@ spec:
 
 1. Open the `deployment.yaml` file. Replace all the `<CDSID>`'s with your CDSID. (Lines 4, 6, 11, 15, 30, 40, 56, and 57). Use Ctrl+H (CMD+H on Mac) to replace all at once. 
 
-2. We can create our application using the `deployment.yaml` file. 
+2. We can deploy our application using the `deployment.yaml` file. 
 
 ```bash
 $ oc create -f ./manifest/deployment.yaml
 deployment.apps/<CDSID>-deployment created
 ```
 
-3. Access the Openshift Console and navigate to the springboot-hello-world application. You can select the [running pod](https://api.caas.ford.com/console/project/devenablement-workshop-dev/browse/pods) and view the logs of the application. 
+3. Access the Openshift Console and navigate to your deployment. You can select the [running pod](https://api.caas.ford.com/console/project/devenablement-workshop-dev/browse/pods) and view the logs of the application. 
 
 ---  
 
