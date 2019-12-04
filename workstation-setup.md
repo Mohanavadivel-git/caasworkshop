@@ -32,8 +32,6 @@ To deploy objects into Openshift, you will need the `oc` CLI.
 
 ![oc cli](./images/oc_cli.PNG)
 
-  - Mac: 
-
 ### JDK 8 
 
 To build the springboot application, you will need JDK 8 installed on your machine. 
