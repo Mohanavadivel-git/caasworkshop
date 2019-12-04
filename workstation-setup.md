@@ -17,8 +17,8 @@ cd ~/workspace
 3. Clone the samples repository. If you have the Github desktop application, you can use that to clone the repository. 
 
 ```bash
-git clone git@github.ford.com:JPOTTE46/samples.git      # Using SSH
-git clone https://github.ford.com/JPOTTE46/samples.git  # Using HTTPS
+git clone git@github.ford.com:MALYASS/samples.git      # Using SSH
+git clone https://github.ford.com/MALYASS/samples.git  # Using HTTPS
 ```
 
 ### OC CLI
