@@ -22,7 +22,7 @@ In Openshift, `project` and `namespace` are used interchangeably. It is a logici
 2. Enter the following command and provide your CDSID and password when prompted. 
 
 ```bash
-# If using git bash or a Mac terminal
+# If using git bash
 $ winpty oc login api.caas.ford.com
 
 # If using powershell/command prompt
