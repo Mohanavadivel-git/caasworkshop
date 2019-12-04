@@ -1,12 +1,8 @@
-## Writing Dockerfiles
+## Writing Dockerfiles 
 
-### The Big Picture - Step 2
+This lesson will go over Dockerfile basics and the process of writing a Dockerfile. 
 
-![CaaS Workflow](https://github.ford.com/Containers/localdev/blob/master/docs/images/CaaS-LocalDev.png)
-
-This lesson will go over docker file basics and the process of writing a docker file. 
-
----
+--- 
 
 A Dockerfile is a text file that defines our Docker (OCI) image. An image building tool; like docker, buildah, or podman; takes a Dockerfile as input and outputs a Docker image.
 
@@ -61,6 +57,6 @@ The capitalized keywords at the beginning of each line above are Docker instruct
 
 --- 
 
-Continue to [container image registry](./5-registry.md).
+Continue to [container image registry](./5-buildtools.md).
 
 Return to [Table of Contents](../README.md#agenda)

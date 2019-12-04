@@ -1,10 +1,10 @@
-# Introduction
+## Introduction
 
-## Pre-Requisites
+### Pre-Requisites
 
 Complete the [workstation setup](../workstation-setup.md).
 
-## What is Ford's CaaS?
+### What is Ford's CaaS?
 
 CaaS is Ford's container as a service offering. It is an app hosting platform.
 
@@ -20,6 +20,6 @@ In contrast, the CaaS platform is highly configurable. For example, app teams ha
 
 ---
 
-Continue to [overview](./2-development.md).
+Continue to [overview](./2-overview.md).
 
 Return to [Table of Contents](../README.md#agenda)
