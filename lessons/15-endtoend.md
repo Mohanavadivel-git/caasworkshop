@@ -1,5 +1,9 @@
 ## End to End Test
 
+<p align="center">
+  <img src="../images/overview.png" width="700" height="450">
+</p>
+
 Now that we've introduced a number of concepts and objects, let's make a code change. After we make the code change, we will start our build and see that Openshift handles everything afterwards automatically.
 
 ### Change Code
