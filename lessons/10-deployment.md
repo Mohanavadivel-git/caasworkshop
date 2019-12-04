@@ -146,7 +146,7 @@ spec:
 2. We can deploy our application using the `deployment.yaml` file. 
 
 ```bash
-$ oc create -f ./manifest/deployment.yaml
+$ oc create -f ./manifests/deployment.yaml
 deployment.apps/<CDSID>-deployment created
 ```
 
