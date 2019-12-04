@@ -30,6 +30,6 @@ A `BuildConfig` can be triggered in various ways. The most common way to trigger
 
 ---
 
-Continue to [container image registry](./7-buildconfig.md).
+Continue to [container image registry](./8-buildconfig.md).
 
 Return to [Table of Contents](../README.md#agenda)

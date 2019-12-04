@@ -23,7 +23,7 @@ $ oc create -f ./manifests/build-config-1.yaml
 buildconfig.build.openshift.io/example-dvncaas created
 ```
 
-6. Start the build. You can do this via the console or from the terminal. 
+6. Start the build. You can do this via the console or from the terminal.
 
 Console: 
 
@@ -33,15 +33,47 @@ Console:
 
 Terminal: 
 
-- Replace <MY-CDSID> with your CDSID
+- Replace <CDSID> with your CDSID
 
 ```bash
-$ oc start-build example-<MY-CDSID> --wait=true
+$ oc start-build test-build-<CDSID> --wait=true
+build.build.openshift.io/test-build-<CDSID>-1 started
 ```
+
+7. When the build is completed, we can view the image [in Quay](https://registry.ford.com/repository/devenablement/workshop?tab=tags). 
+
 
 ## Exercise - Sample Application BuildConfig
 
+1. Open `build-config-2.yaml` in a text editor (Visual Studio Code, Notepad++, etc). 
 
+2. Replace the parts that say <CDSID> with your CDSID (lines 4 and 11).
+
+3. Create the `BuildConfig` object in the same fashion: 
+
+```bash
+$ oc create -f ./manifests/build-config-1.yaml
+buildconfig.build.openshift.io/example-dvncaas created
+```
+
+4. Start the build in the same way either through the console or the command line. 
+
+```bash
+$ oc start-build app-build-<CDSID> --wait=true
+build.build.openshift.io/app-build-<CDSID>-1 started
+```
+
+5. Notice that this build failed. That's because our `Dockerfile` is expecting our `.jar` file. What we can do is pass along our `Dockerfile` to the `BuildConfig` object, and we can do this from the command line. 
+
+```bash
+$ oc start-build app-build-<CDSID> --from-dir=./build/libs --wait=true
+Uploading directory "build\\libs" as binary input for the build ...
+......
+Uploading finished
+build.build.openshift.io/app-build-<CDSID>-1 started
+```
+
+6. When the build is completed, we can view the image [in Quay](https://registry.ford.com/repository/devenablement/workshop?tab=tags). Notice the image is now larger than our first image because it does contain our `.jar` and more files from the java base image. 
 
 ---
 

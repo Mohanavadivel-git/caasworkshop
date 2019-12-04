@@ -47,6 +47,6 @@ As mentioned previously, this is a namespace used only for this workshop. The wo
 
 ---  
 
-Continue to [writing Dockerfiles](./4-dockerfiles.md).
+Continue to [writing Dockerfiles](./6-buildtools.md).
 
 Return to [Table of Contents](../README.md#agenda)

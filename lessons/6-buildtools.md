@@ -26,6 +26,6 @@ This workshop uses `BuildConfigs` to build our container images. If you have a d
 
 ---
 
-Continue to [container image registry](./6-buildintro.md).
+Continue to [container image registry](./7-buildintro.md).
 
 Return to [Table of Contents](../README.md#agenda)
