@@ -1,6 +1,6 @@
 ## Deployment
 
-The `Deployment` object provides the definition for deploying our container image in CaaS.
+The `Deployment` object provides the definition for deploying our container image in CaaS. `Deployments` are the object that spins up individual pods. You could opt to define a `pod` definition, but that requires more hands on work to constantly update and configure the pods. `Deployments` can do this automatically and handle the task of bringing up our requested number of pods. 
 
 #### *Basic Definition*
 
