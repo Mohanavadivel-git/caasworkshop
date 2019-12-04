@@ -8,7 +8,7 @@ Now that we've introduced a number of concepts and objects, let's make a code ch
 
 ### Change Code
 
-1. Open the `HelloController.java` file located in `src/main/java/com/ford/devenablement/helloworld/hello/api/`
+1. Open the `HelloController.java` file located in `src/main/java/com/ford/devenablement/helloworld/hello/`
 
 2. In line 24, change `Hello` to your name or some other message. Copy this message when you are done. 
 
