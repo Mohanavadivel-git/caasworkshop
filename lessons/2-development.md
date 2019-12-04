@@ -6,11 +6,11 @@ This image represents a high level overview of developing applications for CaaS.
 
 ## Application Code
 
-You application code (generally) will not change. You might make some tweaks to you application preferences, but generally, you will still need to produce an application artifact (a .jar, .zip, etc) from your application code.  
+You application code (generally) will not change. You might make some tweaks to you application preferences, you will still need to produce an application artifact (.jar, .zip, etc) from your application code.
 
 ## Dockerfile
 
-A `Dockerfile` is a list of commands that are used to assemble a container image. It is here you will specify all the necessary tools that are needed to run your application. For example, to run a basic python application, your Dockerfile would provide the instructions to download python and pip (a package isntaller for python). We look more at `Dockerfiles` in a later lesson. 
+A `Dockerfile` is a list of commands used to assemble a container image. It is here you will specify all the necessary tools that are needed to run your application. For example, to run a basic python application, your Dockerfile would provide the instructions to download python and pip (a package isntaller for python). 
 
 ## Building Container Image
 
@@ -18,11 +18,11 @@ Since a `Dockerfile` is simply a set of instructions for building your container
 
 ## Storing Container Image
 
-Once you build a container image, you need to store it somewhere. Similarly to storing code in GitHub, container images are stored in a repository. CaaS provides a container image registry called Quay where you can have repositories of images. Every image you want to deploy to CaaS must be first stored in Quay. 
+Once you build a container image, you need to store it somewhere. Similarly to storing code in GitHub, container images are stored in a repository. CaaS provides a container image registry, called Quay, where you can have repositories of images. Every image you want to deploy to CaaS must be first stored in Quay. 
 
 ## Deploying Container Image
 
-Once your container image is stored in Quay, you can then deploy it to CaaS. There are numerous ways to do this, as well as a strategy to automatically handle it. We will look at those methods in a later lesson. 
+Once your container image is stored in Quay, you can then deploy it to CaaS. There are numerous ways to do this, as well as a strategy to automatically handle it.
 
 ## Testing 
 
@@ -34,6 +34,6 @@ Some monitoring is provided out of the box with CaaS where you can view the memo
 
 ---
 
-Continue to [overview](./3-application.md).
+Continue to [building a sample application](./3-application.md).
 
 Return to [Table of Contents](../README.md#agenda)

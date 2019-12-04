@@ -57,6 +57,6 @@ The capitalized keywords at the beginning of each line above are Docker instruct
 
 --- 
 
-Continue to [container image registry](./5-console.md).
+Continue to [Openshift console](./5-console.md).
 
 Return to [Table of Contents](../README.md#agenda)

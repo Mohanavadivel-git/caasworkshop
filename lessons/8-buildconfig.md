@@ -77,6 +77,6 @@ build.build.openshift.io/app-build-<CDSID>-1 started
 
 ---
 
-Continue to [container image registry](./7-buildconfigs.md).
+Continue to [container image registry](./9-quay.md).
 
 Return to [Table of Contents](../README.md#agenda)

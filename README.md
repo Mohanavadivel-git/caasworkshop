@@ -14,21 +14,18 @@ This workshop will provide instructions to build application container images, t
 ## Agenda
 
 1. [Introduction](./lessons/1-introduction.md)
-1. [Application Code and Mounting Directories](./lessons/2-buildapp.md)
-1. [Intro to Dockerfiles](./lessons/3-dockerfiles.md)
-1. [Building Images in Localdev](./lessons/4-buildimage.md)
-1. [Container Image Registry](./lessons/5-quay.md)
-1. [Openshift Console and CLI](./lessons/6-console.md)
-1. [Intro to Openshift Objects](./lessons/7-objects.md)
-1. [Intro to Openshift Manifests](./lessons/8-manifest.md)
-1. [Deploying to Openshift](./lessons/9-deploy.md)
-1. [Intro to Volumes](./lessons/10-VolumesIntro.md)
-1. [Volumes Exercise](./lessons/11-VolumesExercise.md)
-1. [Saving Logs](./lessons/12-VolumeLogs.md)
-1. [Kibana (Logging Aggregator)](./lessons/13-Kibana.md)
-1. [Monitoring](./lessons/14-Monitoring.md)
-1. [Vanity URLs](./lessons/15-VanityUrl.md)
-1. [Advanced Topics](./lessons/16-AdvancedTopics.md)
+1. [Application Code and Mounting Directories](./lessons/2-development.md)
+1. [Intro to Dockerfiles](./lessons/3-application.md)
+1. [Building Images in Localdev](./lessons/4-dockerfiles.md)
+1. [Container Image Registry](./lessons/5-console.md)
+1. [Openshift Console and CLI](./lessons/6-buildtools.md)
+1. [Intro to Openshift Objects](./lessons/7-buildintro.md)
+1. [Intro to Openshift Manifests](./lessons/8-buildconfig.md)
+1. [Deploying to Openshift](./lessons/9-quay.md)
+1. [Intro to Volumes](./lessons/10-deployment.md)
+1. [Volumes Exercise](./lessons/11-imagestreams.md)
+1. [Saving Logs](./lessons/12-deploymentconfig.md)
+
 
 ## Schedule
 

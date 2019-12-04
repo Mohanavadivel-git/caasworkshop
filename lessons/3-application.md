@@ -36,6 +36,6 @@ Now that we have our application build artifact, we can begin the process of bui
 
 ---
 
-Continue to [Openshift console](./4-dockerfiles.md).
+Continue to [Dockerfiles](./4-dockerfiles.md).
 
 Return to [Table of Contents](../README.md#agenda)

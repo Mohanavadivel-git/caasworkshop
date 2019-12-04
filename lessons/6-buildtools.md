@@ -18,14 +18,14 @@ The disadvantage of localdev is that it requires a lot of setup and a powerful m
 
 ## BuildConfigs 
 
-The Openshift product provides a way to build container images within the cluster itself with an object called `BuildConfigs`. This way, we avoid installing any command line tools or virtual machines. This makes it a quicker and cleaner process that is less prone to machine errors. 
+The Openshift product provides a way to build container images within the cluster itself with an object called `BuildConfigs`. This way, we avoid installing any other command line tools or virtual machines. This makes it a quicker and cleaner process that is less prone to machine errors. 
 
 The disadvantage is that you now can no longer test and view your container images locally. Generally, the building of your container image will be done in your team's DEV environment to compensate for this disadvantage. 
 
-This workshop uses `BuildConfigs` to build our container images. If you have a developer machine, you are still encouraged to download `localdev` and can build container images that way if you want the ability to test and run images locally. 
+This workshop uses `BuildConfigs` to build our container images. If you have a developer machine, you are still encouraged to download [localdev]() and can build container images that way if you want the ability to test and run images locally. 
 
 ---
 
-Continue to [container image registry](./7-buildintro.md).
+Continue to [build configs introduction](./7-buildintro.md).
 
 Return to [Table of Contents](../README.md#agenda)
