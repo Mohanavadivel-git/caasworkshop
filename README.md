@@ -14,18 +14,20 @@ This workshop will provide instructions to build application container images, t
 ## Agenda
 
 1. [Introduction](./lessons/1-introduction.md)
-1. [Application Code and Mounting Directories](./lessons/2-development.md)
-1. [Intro to Dockerfiles](./lessons/3-application.md)
-1. [Building Images in Localdev](./lessons/4-dockerfiles.md)
-1. [Container Image Registry](./lessons/5-console.md)
-1. [Openshift Console and CLI](./lessons/6-buildtools.md)
-1. [Intro to Openshift Objects](./lessons/7-buildintro.md)
-1. [Intro to Openshift Manifests](./lessons/8-buildconfig.md)
-1. [Deploying to Openshift](./lessons/9-quay.md)
-1. [Intro to Volumes](./lessons/10-deployment.md)
-1. [Volumes Exercise](./lessons/11-imagestreams.md)
-1. [Saving Logs](./lessons/12-deploymentconfig.md)
-
+1. [Development Process](./lessons/2-development.md)
+1. [Sample Application](./lessons/3-application.md)
+1. [Dockerfiles](./lessons/4-dockerfiles.md)
+1. [Openshift Console and CLI](./lessons/5-console.md)
+1. [Other Build Tools](./lessons/6-buildtools.md)
+1. [BuildConfig Introduction](./lessons/7-buildintro.md)
+1. [Buildconfig Exercise](./lessons/8-buildconfig.md)
+1. [Quay](./lessons/9-quay.md)
+1. [Deployments](./lessons/10-deployment.md)
+1. [ImageStreams](./lessons/11-imagestreams.md)
+1. [DeploymentConfigs](./lessons/12-deploymentconfig.md)
+1. [Other Objects](./lessons/13-objects.md)
+1. [Object Manifests](./lessons/14-objectmanifest.md)
+1. [End to End Example](./lessons/15-endtoend.md)
 
 ## Schedule
 
