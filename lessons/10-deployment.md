@@ -154,6 +154,6 @@ deployment.apps/<CDSID>-deployment created
 
 ---  
 
-Continue to [Manifest Definition](./11-imagestreams.md).
+Continue to [image streams](./11-imagestreams.md).
 
 Return to [Table of Contents](../README.md#agenda)

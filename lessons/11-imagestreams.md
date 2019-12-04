@@ -18,6 +18,6 @@ $ oc create -f ./manifests/image-stream.yaml
 
 ---  
 
-Continue to [Openshift console and CLI](./12-deploymentconfig.md).
+Continue to [DeploymentConfigs](./12-deploymentconfig.md).
 
 Return to [Table of Contents](../README.md#agenda)
