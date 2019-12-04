@@ -16,11 +16,11 @@ To be able to push container images to Quay you will need to provide authenticat
 
 ### Workshop Secret
 
-A robot account was created for the workshop repository. This robot has read and write access to the workshop repository. This will allow you to create and push container images to this repository and deploy them later on. 
+A robot account was created for the workshop repository. This robot has read and write access to the workshop repository. This will allow you to create and push container images to this repository and deploy. You will notice the `BuildConfig` object reference a secret called `devenablement-workshop-pull-secret`. This is the robot account for the workshop repository in Quay, which gives us access to write images to this repository.
 
 ## RedHat 
 
-You may also find that you need to authenticate against RedHat's container catalog to use their images. In this class, you will notice the `FROM` statement of the `Dockerfile` is from RedHat's registry, not Quay. To be able to authenticate against RedHat's registry in your namespace.<!--, see [these instructions](). -->
+You may also find that you need to authenticate against RedHat's container catalog to use their images. In this class, you will notice the `FROM` statement of the `Dockerfile` is from RedHat's registry, not Quay. To be able to authenticate against RedHat's registry in your namespace, you need a RedHat developer account (which is free to signup for). <!--, see [these instructions](). -->
 
 For the purpose of the workshop, this credential has already been created and we will be able to use it to utilize RedHat's container catalog, which you can view [here](https://registry.redhat.io). 
 

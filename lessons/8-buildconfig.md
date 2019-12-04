@@ -20,7 +20,7 @@ In this lesson we will deploy a test `BuildConfig` and the `BuildConfig` for the
 
 ```bash
 $ oc create -f ./manifests/build-config-1.yaml
-buildconfig.build.openshift.io/example-dvncaas created
+buildconfig.build.openshift.io/test-build-<CDSID> created
 ```
 
 6. Start the build. You can do this via the console or from the terminal.
@@ -52,7 +52,7 @@ build.build.openshift.io/test-build-<CDSID>-1 started
 3. Create the `BuildConfig` object in the same fashion: 
 
 ```bash
-$ oc create -f ./manifests/build-config-1.yaml
+$ oc create -f ./manifests/build-config-2.yaml
 buildconfig.build.openshift.io/example-dvncaas created
 ```
 
@@ -63,7 +63,7 @@ $ oc start-build app-build-<CDSID> --wait=true
 build.build.openshift.io/app-build-<CDSID>-1 started
 ```
 
-5. Notice that this build failed. That's because our `Dockerfile` is expecting our `.jar` file. What we can do is pass along our `Dockerfile` to the `BuildConfig` object, and we can do this from the command line. 
+5. Notice that this build failed. That's because our `Dockerfile` is expecting our `.jar` file. What we can do is pass along our `.jar` to the `BuildConfig` object, and we can do this from the command line. 
 
 ```bash
 $ oc start-build app-build-<CDSID> --from-dir=./build/libs --wait=true
