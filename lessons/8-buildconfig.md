@@ -1,6 +1,6 @@
 ## Building a Container Image Using BuildConfigs
 
-In this lesson we will deploy a test `BuildConfig` and the `BuildConfig` for sample application. 
+In this lesson we will deploy a test `BuildConfig` and the `BuildConfig` for the sample application. 
 
 ---
 
@@ -12,7 +12,7 @@ In this lesson we will deploy a test `BuildConfig` and the `BuildConfig` for sam
 
 2. Open `build-config-1.yaml` in a text editor (Visual Studio Code, Notepad++, etc). 
 
-3. Replace the parts that say <CDSID> with your CDSID (lines 4 and 11).
+3. Replace the parts that say `<CDSID>` with your CDSID (lines 4 and 11).
 
 4. In your terminal window, ensure you are still at the root of the `workshop` directory. 
 
@@ -33,7 +33,7 @@ Console:
 
 Terminal: 
 
-- Replace <CDSID> with your CDSID
+- Replace `<CDSID>` with your CDSID
 
 ```bash
 $ oc start-build test-build-<CDSID> --wait=true
@@ -47,7 +47,7 @@ build.build.openshift.io/test-build-<CDSID>-1 started
 
 1. Open `build-config-2.yaml` in a text editor (Visual Studio Code, Notepad++, etc). 
 
-2. Replace the parts that say <CDSID> with your CDSID (lines 4 and 11).
+2. Replace the parts that say `<CDSID>` with your CDSID (lines 4 and 11).
 
 3. Create the `BuildConfig` object in the same fashion: 
 

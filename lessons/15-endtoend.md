@@ -47,7 +47,7 @@ build.build.openshift.io/app-build-<CDSID>-2 started
 - Scale down and delete your old deployment
 - Make the new deployment the actively running deployment 
 
-10. When these steps are made, your can go to your route (<CDSID>.app.caas.ford.com/api/v1/hello) and see your new greeting. 
+10. When these steps are made, your can go to your route (MY-CDSID.app.caas.ford.com/api/v1/hello) and see your new greeting. 
 
 ---
 

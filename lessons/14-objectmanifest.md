@@ -92,7 +92,7 @@ spec:
 
 To view our running application we only need a route and a service at the moment. 
 
-1. Open the `Route.yaml` and `Service.yaml` files. Replace any instance of <CDSID> with your CDSID. 
+1. Open the `Route.yaml` and `Service.yaml` files. Replace any instance of `<CDSID>` with your CDSID. 
 
 2. Create the objects: 
 
@@ -108,7 +108,7 @@ route.route.openshift.io/<CDSID>-route created
 
 4. Go to the [routes](https://api.caas.ford.com/console/project/devenablement-workshop-dev/browse/routes) section of the console and select your route. Select your route, but add `api/v1/hello` to the end of your URL. For example, the URL you would visit is: 
 
-https://<CDSID>.app.caas.ford.com/api/v1/hello
+https://MY-CDSID.app.caas.ford.com/api/v1/hello
 
 We now have a fully running application that is accessible via a route and service that handles load balancing. 
 

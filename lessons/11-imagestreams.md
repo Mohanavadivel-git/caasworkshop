@@ -4,7 +4,7 @@ An `ImageStream` object acts as a pointer to Quay. It polls Quay and receives up
 
 ---
 
-1. Open the `image-stream.yaml` file. Replace <CDSID> with your CDSID. 
+1. Open the `image-stream.yaml` file. Replace `<CDSID>` with your CDSID. 
 
 2. Deploy the `ImageStream` object. 
 

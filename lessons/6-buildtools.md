@@ -4,7 +4,7 @@ There are numerous ways of building a container image. We will provide an overvi
 
 ## Docker
 
-For those with administrative rights on their machine, you can download Docker from the public internet. This will give you the ability to build, run, and store Docker images in Quay. You will get the Docker CLI, which comes with commands such as `docker build` and `docker push` to build your container image and deploy your image to Quay. 
+For those with administrative rights on their machine, you can download Docker from the public internet. This will give you the ability to build, run, and store Docker images on your machine. You will get the Docker CLI, which comes with commands such as `docker build` and `docker push` to build your container image and save your image to Quay. 
 
 ## LocalDev
 

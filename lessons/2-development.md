@@ -6,7 +6,7 @@ This image represents a high level overview of developing applications for CaaS.
 
 ## Application Code
 
-You application code (generally) will not change. You might make some tweaks to you application preferences, you will still need to produce an application artifact (.jar, .zip, etc) from your application code.
+You application code (generally) will not change. You might make some tweaks to you application preferences, but you will still need your source code or an application artifact.
 
 ## Dockerfile
 
@@ -26,7 +26,7 @@ Once your container image is stored in Quay, you can then deploy it to CaaS. The
 
 ## Testing 
 
-There are different methods of testing that can be employed before, during, and after the deployment of your container image. Your unit and code level tests should still occur as normal, prior to building your container image. Kubernetes (and by extension, CaaS) allows you to have health tests during the deployment of your application. Finally, you can run smoke tests on live versions of your application. You can have multiple environments in CaaS to do your testing (e.g DEV, QA, PROD). 
+There are different methods of testing that can be employed before, during, and after the deployment of your container image. Your unit and code level tests should still occur as normal, prior to building your container image. Kubernetes (and by extension, CaaS) allows you to have health tests during the deployment of your application. Finally, you can run smoke tests on live versions of your application. You can have multiple environments in CaaS to do your testing (i.e DEV and QA environments) 
 
 ## Monitoring
 

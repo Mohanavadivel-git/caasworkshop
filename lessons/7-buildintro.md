@@ -1,6 +1,6 @@
 ## Building a Container Image Using BuildConfigs
 
-In the next lessons, we will walk through an example `BuildConfig` and then one for our application. 
+In the next lessons, we will briefly explain and walk through an example `BuildConfig`, and then one for our application. 
 
 ---
 
@@ -12,17 +12,17 @@ In the next lessons, we will walk through an example `BuildConfig` and then one 
 
 There are a variety of different inputs that `BuildConfigs` accept. The simple way that we will be using is directly providing a `Dockerfile` within the `BuildConfig`.
 
-Another way to provide an input for a `BuildConfig` is through GitHub. This does require extra steps (which will be discussed later in the workshop) to setup the authenitcation with GitHub. When set up, the `BuildConfig` can then clone your repository and will have access to your code. Most importantly, it can have access to a `Dockerfile` that you provide in the GitHub repository. 
+Another way to provide an input for a `BuildConfig` is through GitHub. This does require extra steps to setup the authenitcation with GitHub. When set up, the `BuildConfig` can then clone your repository and will have access to your code. Most importantly, it can have access to a `Dockerfile` that you provide in the GitHub repository. 
 
 ### Strategy
 
 There are two types of strategies that are available in CaaS: Docker and Source. 
 
-Docker strategies are what we will use in the workshop, which is when a `Dockerfile` is provided. A source strategy, called a `Source-to-Image` (S2I) build, simply takes as input your source code.
+Docker strategies are what we will use in the workshop, which is when a `Dockerfile` is provided. A source strategy, called a `Source-to-Image` (S2I) build, simply takes as input your source code. There are advantages to using the S2I approach, which you can review [here](https://docs.openshift.com/container-platform/4.2/builds/build-strategies.html#build-strategy-s2i_build-strategies).
 
 ### Outputs
 
-The output of a `BuildConfig` is a container image. That container image will be stored in Quay. The container image can be output to other locations other than Quay, but for images deployed to Openshift, Quay is the preferred container image store. 
+The output of a `BuildConfig` is a container image. That container image will be stored in Quay. The container image can be output to image registries other than Quay, but for images deployed to Openshift, Quay is the preferred container image store. 
 
 ### Triggers
 

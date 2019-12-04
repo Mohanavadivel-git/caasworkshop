@@ -8,6 +8,8 @@ In Openshift, `project` and `namespace` are used interchangeably. It is a logici
 
 **Note**: If you did not add the `oc` CLI as mentioned in the pre-requesites, please follow the [download instructions](../workstation-setup.md#oc-cli). 
 
+---
+
 #### Exercise - GUI
 
 1. Go to https://api.caas.ford.com
