@@ -33,7 +33,7 @@ To deploy objects into Openshift, you will need the `oc` CLI.
         - Restart the terminal
 
 <p align="center">
-    <img src="../images/oc_cli.PNG" width="750" height="400">
+    <img src="../images/oc_cli.PNG" width="825" height="400">
 </p>
 
 ### Openshift Console
