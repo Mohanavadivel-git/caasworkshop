@@ -51,7 +51,7 @@ To deploy objects into Openshift, you will need the `oc` CLI.
 # If using git bash
 $ winpty oc login api.caas.ford.com
 
-# If using powershell/command prompt
+# If using terminal/powershell
 $ oc login api.caas.ford.com
 ```
 
