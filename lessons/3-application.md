@@ -17,11 +17,13 @@ git clone git@github.ford.com:DevEnablement/caas-workshop.git      # Using SSH
 git clone https://github.ford.com/DevEnablement/caas-workshop.git  # Using HTTPS
 ```
 
+**NOTE**: If you are unable to clone the repository, go to the [repository home page](https://github.ford.com/DevEnablement/caas-workshop) and click the green `Clone or download` button where you can download the `.ZIP` of the repository. Unzip the content in a directory of your choosing. 
+
 3. View the contents of the `application` directory: 
 
-    - manifests: This directory contains all the manifests that we will use to build and deploy this application to CaaS
-    - src: Since this is a simple python application, the src sections contains the simple python code and the requirements listing the necessary python packages. 
-    - Dockerfile: This is the `Dockerfile` that will be used to build our container image
+    - **manifests**: This directory contains all the manifests that we will use to build and deploy this application to CaaS
+    - **src**: Since this is a simple python application, the src sections contains the simple python code and the requirements listing the necessary python packages. 
+    - **Dockerfile**: This is the `Dockerfile` that will be used to build our container image
 
 ---
 

@@ -6,9 +6,33 @@ At the moment, there is only a single, production cluster of CaaS. This is diffe
 
 In Openshift, `project` and `namespace` are used interchangeably. It is a logicial construct where you deploy your Openshift objects. Your application instances/replicas may span different nodes and data centers, but you can manage them all within your single namespace. 
 
-**Note**: If you did not add the `oc` CLI as mentioned in the pre-requesites, please follow the [download instructions](../workstation-setup.md#oc-cli). 
-
 ---
+
+### Download OC CLI
+
+To deploy objects into Openshift, you will need the `oc` CLI. 
+
+1. Go to https://files.caas.ford.com:9443/oc-cli/latest/ and click on the proper download for your operating system.
+
+1. Extract the contents of the zip/tar. If you are on Windows, the contents will be `oc.exe` and on Mac it will be the `oc` file. 
+
+1. Add the path to the `oc` binary to your system's path.
+    - Windows:
+         - **Option 1**
+            - Copy the `oc.exe` file into your `System32` directory (C:\Windows\System32)
+         - **Option 2**
+            - Move the `oc.exe` to a more permanent location outside of your `Downloads` folder
+                - Example: `C:\Users\<CDSID>`
+            - Copy the path you chose to save the `oc.exe` file
+            - Open up your system environment variables by typing `path` into the windows search and click `Environment Variables` 
+            - Add the path to the `oc.exe` to the system variable's `PATH`
+    <p align="center">
+        <img src="../images/oc_cli.png" width="400" height="400">
+    </p>
+    - Mac: 
+
+
+![oc cli](./images/oc_cli.PNG)
 
 #### Exercise - GUI
 

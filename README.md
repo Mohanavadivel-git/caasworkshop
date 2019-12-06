@@ -1,14 +1,10 @@
 ## Deploying Apps to Ford's CaaS Platform
 
-This is a hands-on, training workshop to get application development teams started in Ford's Container as a Service platform.
-
 ![OpenShift Logo](images/OpenShift_Logo.svg)
 
+This is a hands-on, training workshop to get application development teams started in Ford's Container as a Service platform.
+
 This workshop will provide instructions to build application container images, then deploying these images to the CaaS platform. Workshop participants will experience deploying a sample application to the CaaS environment from their workstation. 
-
-## Setup
-
-- Login to https://api.caas.ford.com/ with your CDSID and password. You should be able to log in and see the `devenablement-workshop-dev` namespace. **DO NOT** deploy/create objects until the workshop.
 
 ## Agenda
 
@@ -29,8 +25,6 @@ This workshop will provide instructions to build application container images, t
 1. [End to End Example](./lessons/15-endtoend.md)
 1. [Intro to Volumes](./lessons/16-volumesintro.md)
 1. [Monitoring](./lessons/17-monitoring.md)
-
-Temp Link: https://github.ford.com/MALYASS/samples
 
 ## Schedule
 
