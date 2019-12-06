@@ -27,20 +27,21 @@ To deploy objects into Openshift, you will need the `oc` CLI.
             - Open up your system environment variables by typing `path` into the windows search and click `Environment Variables` 
             - Add the path to the `oc.exe` to the system variable's `PATH`
     <p align="center">
-        <img src="../images/oc_cli.png" width="400" height="400">
+        <img src="../images/oc_cli.PNG" width="400" height="400">
     </p>
     - Mac: 
+        - Open up a terminal
+        - Type `echo $PATH`
+        - Choose one of paths that was printed and move the `oc` file in that location
+        - Restart the terminal
 
-
-![oc cli](./images/oc_cli.PNG)
-
-#### Exercise - GUI
+### Openshift Console
 
 1. Go to https://api.caas.ford.com
 2. Login with your CDSID and password
 3. Confirm you see the `devenablement-workshop-dev` namespace on the far right side of the webpage. 
 
-#### Exercise - CLI
+### Terminal Login
 
 1. Open git bash, the command line, or powershell. 
 2. Enter the following command and provide your CDSID and password when prompted. 
