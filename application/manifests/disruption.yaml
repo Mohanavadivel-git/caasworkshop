@@ -1,0 +1,10 @@
+apiVersion: policy/v1beta1
+kind: PodDisruptionBudget
+metadata:
+  labels:
+    name: <CDSID>-deployment-config
+  name: <CDSID>-disruption
+spec:
+  selector:
+    app: <CDSID>-deployment-config
+  minAvailable: 1

@@ -34,6 +34,6 @@ Some monitoring is provided out of the box with CaaS where you can view the memo
 
 ---
 
-Continue to [building a sample application](./3-application.md).
+Continue to [building a sample application](./3-samples.md).
 
 Return to [Table of Contents](../README.md#agenda)

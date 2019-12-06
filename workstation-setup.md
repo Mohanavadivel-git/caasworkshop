@@ -32,19 +32,6 @@ To deploy objects into Openshift, you will need the `oc` CLI.
 
 ![oc cli](./images/oc_cli.PNG)
 
-### JDK 8 
-
-To build the springboot application, you will need JDK 8 installed on your machine. 
-
-1. Download the all-in-one software distributions package [here](https://00000-javacoe-dev-ns01.s3-object.ford.com:9021/jcoe/distros/ford.zip)
-2. Unzip the contents into `C:\ford`
-3. Navigate to that unzipped direction and go to the `jdk` folder
-4. Either within the `jdk` or folder or within the `ibm` folder, there will be a `ibm-jdk8u151-b12.zip` file
-5. Extract the contents of that zip into the current directory. 
-6. Set your `JAVA_HOME` environment variable to point the path of the `ibm-jdk8u151-b12` folder
-
-![Java Home](./images/java_home.png)
-
 ---
 
 Additionally, you will get much more out of the class if you come in with a high-level understanding of Containers and Kubernetes. Please take 20 minutes to review these videos prior to class.

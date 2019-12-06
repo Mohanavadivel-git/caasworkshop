@@ -8,7 +8,6 @@ This workshop will provide instructions to build application container images, t
 
 ## Setup
 
-- Install the required software on your laptop **prior** to the class. See the [workstation setup guide](workstation-setup.md). 
 - Login to https://api.caas.ford.com/ with your CDSID and password. You should be able to log in and see the `devenablement-workshop-dev` namespace. **DO NOT** deploy/create objects until the workshop.
 
 ## Agenda

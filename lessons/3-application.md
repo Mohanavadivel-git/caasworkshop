@@ -1,38 +1,27 @@
-## Building A Sample Application
+## Sample Application
 
-This lesson will focus on building a sample application from which we will build a container image. 
+For this workshop, we will use a sample application located within the `application` directory of this repository. 
 
-### Exercise
+### Clone/Download Repository 
 
-1. Open a terminal and navigate to the samples directory you cloned in the [Workstation Setup](../workstation-setup.md#samples-repository). 
-
-```bash
-$ cd <LOCATION_OF_SAMPLES_REPO>
-$ ls
-best-practices.md  DTaaS  http-echo  leap  mailx  perl  python  README.md  simple_nodejsapp  springboot  toolbox  workshop
-```
-
-2. For the workshop, we will use the `workshop` directory, which contains a sample Springboot application. To do so, we need to build the application using `gradlew clean build`. 
-
-> Note: For this sample app, you will need to point your `JAVA_HOME` environment variable to your JDK8 path. If you are currently using Java 10 or 11, see the [workstation setup](../workstation-setup.md#jdk-8) for instructions for getting JDK8. 
+1. Open a terminal and navigate to any workspace directory of your choosing. 
 
 ```bash
-$ cd workshop
-$ ./gradlew clean build
-Starting a Gradle Daemon (subsequent builds will be faster)
-...
-BUILD SUCCESSFUL in 19s
-7 actionable tasks: 7 executed
+cd ~/workspace
 ```
 
-3. Check the contents of the `build/libs` directory. You should see the output `.jar` called `devenablement-service-helloworld.jar`. 
+2. Clone the workshop repository. If you have the Github desktop application, you can use that to clone the repository. 
 
 ```bash
-$ ls build/libs
-devenablement-service-helloworld.jar
+git clone git@github.ford.com:DevEnablement/caas-workshop.git      # Using SSH
+git clone https://github.ford.com/DevEnablement/caas-workshop.git  # Using HTTPS
 ```
 
-Now that we have our application build artifact, we can begin the process of building our container image to be deployed in CaaS. 
+3. View the contents of the `application` directory: 
+
+    - manifests: This directory contains all the manifests that we will use to build and deploy this application to CaaS
+    - src: Since this is a simple python application, the src sections contains the simple python code and the requirements listing the necessary python packages. 
+    - Dockerfile: This is the `Dockerfile` that will be used to build our container image
 
 ---
 
