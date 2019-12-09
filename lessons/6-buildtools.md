@@ -16,13 +16,15 @@ Localdev comes packaged with Docker, Buildah, and Podman. Buildah and Podman are
 
 The disadvantage of localdev is that it requires a lot of setup and a powerful machine. To properly set up localdev, you will need a 4 core CPU machine and 8 GB of RAM (i.e. a developer machine). Localdev also runs on VirtualBox, which is prone to errors and is notoriously buggy. 
 
+**Note**: Localdev uses VirtualBox, which conflicts with `Hyper-V` used by Docker. You can only have 1 running on your system at a time without workarounds. 
+
 ## BuildConfigs 
 
 The Openshift product provides a way to build container images within the cluster itself with an object called `BuildConfigs`. This way, we avoid installing any other command line tools or virtual machines. This makes it a quicker and cleaner process that is less prone to machine errors. 
 
 The disadvantage is that you now can no longer test and view your container images locally. Generally, the building of your container image will be done in your team's DEV environment to compensate for this disadvantage. 
 
-This workshop uses `BuildConfigs` to build our container images. If you have a developer machine, you are still encouraged to download [localdev]() and can build container images that way if you want the ability to test and run images locally. 
+This workshop uses `BuildConfigs` to build our container images. If you have a developer machine, you are still encouraged to download [localdev](https://github.ford.com/Containers/localdev) and can build container images that way if you want the ability to test and run images locall. A [troubleshooting guide](https://github.ford.com/DevEnablement/caas-workshop/blob/archived/troubleshooting.md) is provided in the old version of the workshop. 
 
 ---
 

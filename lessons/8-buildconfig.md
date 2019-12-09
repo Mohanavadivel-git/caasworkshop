@@ -1,14 +1,12 @@
-## Building a Container Image Using BuildConfigs
+# Building a Container Image Using BuildConfigs
 
 In this lesson we will deploy a test `BuildConfig` and the `BuildConfig` for the sample application. 
 
 ---
 
-**Note**: You need the [Openshift CLI](../workstation-setup.md#oc-cli)
-
 ## Exercise - Test BuildConfig
 
-1. Navigate to the directory you cloned the samples repository. Open the `workshop` directory. 
+1. Navigate to the directory you cloned the samples repository. Open the `application` directory. We will make all the edits within this directory.  
 
 2. Open `build-config-1.yaml` in a text editor (Visual Studio Code, Notepad++, etc). 
 
@@ -16,10 +14,9 @@ In this lesson we will deploy a test `BuildConfig` and the `BuildConfig` for the
 
 4. In your terminal window, ensure you are still at the root of the `caas-workshop` directory. 
 
-5. Navigate to the `application` directory. This is the directory we will be working out of for all of the examples. 
+5. Navigate to the `application` directory in a terminal. This is the directory we will be working out of for all of the examples. List the contents of the directory to ensure it aligns with the contents shown below. 
 
 ```bash
-$ cd ./application
 $ ls
 Dockerfile  manifests/  README.md  src/
 ```
@@ -53,7 +50,7 @@ build.build.openshift.io/test-build-<CDSID>-1 started
 
 ## Exercise - Sample Application BuildConfig
 
-1. Open `build-config-2.yaml` in a text editor (Visual Studio Code, Notepad++, etc). 
+1. Open `build-config-2.yaml` in a text editor. 
 
 2. Replace the parts that say `<CDSID>` with your CDSID (lines 4 and 11).
 
@@ -61,7 +58,7 @@ build.build.openshift.io/test-build-<CDSID>-1 started
 
 ```bash
 $ oc create -f ./manifests/build-config-2.yaml
-buildconfig.build.openshift.io/example-dvncaas created
+buildconfig.build.openshift.io/app-build-<CDSID> created
 ```
 
 4. Start the build in the same way either through the console or the command line. 
