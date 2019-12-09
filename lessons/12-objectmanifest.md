@@ -106,9 +106,9 @@ route.route.openshift.io/<CDSID>-route created
 
 3. Go to the [services](https://api.caas.ford.com/console/project/devenablement-workshop-dev/browse/services) section of the console and select your service. At the bottom of the page, you should see your service has identified your running pods. 
 
-4. Go to the [routes](https://api.caas.ford.com/console/project/devenablement-workshop-dev/browse/routes) section of the console and select your route. Select your route, but add `api/v1/hello` to the end of your URL. For example, the URL you would visit is: 
+4. Go to the [routes](https://api.caas.ford.com/console/project/devenablement-workshop-dev/browse/routes) section of the console and select your route.
 
-https://MY-CDSID.app.caas.ford.com/api/v1/hello
+https://MY-CDSID.app.caas.ford.com/
 
 We now have a fully running application that is accessible via a route and service that handles load balancing. 
 

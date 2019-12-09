@@ -54,7 +54,7 @@ spec:
       - name: devenablement-workshop-pull-secret
       containers:
       - name: malyass-deployment
-        image: registry.ford.com/devenablement/workshop:malyass
+        image: registry.ford.com/devenablement/workshop:malyass-v2
         imagePullPolicy: Always        
         ports:
           - name: http

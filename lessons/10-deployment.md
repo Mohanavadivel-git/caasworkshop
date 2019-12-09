@@ -1,4 +1,4 @@
-## Deployment
+## Deployment Manifest
 
 The `Deployment` object provides the definition for deploying our container image in CaaS. `Deployments` are the object that spins up individual pods. You could opt to define a `pod` definition, but that requires more hands on work to constantly update and configure the pods. `Deployments` can do this automatically and handle the task of bringing up our requested number of pods. 
 
@@ -57,6 +57,8 @@ spec:
   - kubernetes.io/hostname - The topology key for nodes
   - failure-domain.ford.com/zone - The topology key for data centers
 
+See the [pod affinity guide](./something) for more information on affinity rules. 
+
 #### *Image Reference*
 ```yaml
       imagePullSecrets:
@@ -105,11 +107,11 @@ spec:
 ```yaml
         resources:
           requests:
-            memory: "150Mi"
-            cpu: "250m"
+            memory: "50Mi"
+            cpu: "50m"
           limits:
-            memory: "300Mi"
-            cpu: "500m"
+            memory: "100Mi"
+            cpu: "100m"
 ```
 - Requests: The guaranteed resources your container will have allocated to it. 
 - Limits: The upper-bound limit resources your container can vertically scale up to 
@@ -119,7 +121,7 @@ spec:
 ```yaml
         livenessProbe:
           httpGet:
-            path: /api/v1/hello
+            path: /
             port: 8080
             scheme: HTTP
           initialDelaySeconds: 30
@@ -127,7 +129,7 @@ spec:
           timeoutSeconds: 5
         readinessProbe:
           httpGet:
-            path: /api/v1/hello
+            path: /
             port: 8080
             scheme: HTTP
           initialDelaySeconds: 30
@@ -139,7 +141,7 @@ spec:
 - Probe Types: Probes can be HTTP(S) checks, simple commands, entire scripts, or TCP socket checks
 - For interval definitions, see the [Kubernetes Dev Guide](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/#configure-probes)
 
-## Deploy Application
+## Exercise - Deploy Application
 
 1. Open the `deployment.yaml` file. Replace all the `<CDSID>`'s with your CDSID. (Lines 4, 6, 11, 15, 30, 40, 56, and 57). Use Ctrl+H (CMD+H on Mac) to replace all at once. 
 
