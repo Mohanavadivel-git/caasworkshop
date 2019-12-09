@@ -14,16 +14,24 @@ In this lesson we will deploy a test `BuildConfig` and the `BuildConfig` for the
 
 3. Replace the parts that say `<CDSID>` with your CDSID (lines 4 and 11).
 
-4. In your terminal window, ensure you are still at the root of the `workshop` directory. 
+4. In your terminal window, ensure you are still at the root of the `caas-workshop` directory. 
 
-5. Create the `BuildConfig` object using the following command: 
+5. Navigate to the `application` directory. This is the directory we will be working out of for all of the examples. 
+
+```bash
+$ cd ./application
+$ ls
+Dockerfile  manifests/  README.md  src/
+```
+
+6. Create the `BuildConfig` object using the following command: 
 
 ```bash
 $ oc create -f ./manifests/build-config-1.yaml
 buildconfig.build.openshift.io/test-build-<CDSID> created
 ```
 
-6. Start the build. You can do this via the console or from the terminal.
+7. Start the build. You can do this via the console or from the terminal.
 
 Console: 
 
@@ -40,7 +48,7 @@ $ oc start-build test-build-<CDSID> --wait=true
 build.build.openshift.io/test-build-<CDSID>-1 started
 ```
 
-7. When the build is completed, we can view the image [in Quay](https://registry.ford.com/repository/devenablement/workshop?tab=tags). 
+8. When the build is completed, we can view the image [in Quay](https://registry.ford.com/repository/devenablement/workshop?tab=tags). 
 
 
 ## Exercise - Sample Application BuildConfig
@@ -63,17 +71,17 @@ $ oc start-build app-build-<CDSID> --wait=true
 build.build.openshift.io/app-build-<CDSID>-1 started
 ```
 
-5. Notice that this build failed. That's because our `Dockerfile` is expecting our `.jar` file. What we can do is pass along our `.jar` to the `BuildConfig` object, and we can do this from the command line. 
+5. Notice that this build failed. That's because our `Dockerfile` is expecting our `src` directory. What we can do is pass along our `src` directory to the `BuildConfig` object, and we can do this from the command line. 
 
 ```bash
-$ oc start-build app-build-<CDSID> --from-dir=./build/libs --wait=true
-Uploading directory "build\\libs" as binary input for the build ...
+$ oc start-build app-build-<CDSID> --from-dir=./ --wait=true
+Uploading directory "." as binary input for the build ...
 ......
 Uploading finished
-build.build.openshift.io/app-build-<CDSID>-1 started
+build.build.openshift.io/app-build-<CDSID>-2 started
 ```
 
-6. When the build is completed, we can view the image [in Quay](https://registry.ford.com/repository/devenablement/workshop?tab=tags). Notice the image is now larger than our first image because it does contain our `.jar` and more files from the java base image. 
+6. When the build is completed, we can view the image [in Quay](https://registry.ford.com/repository/devenablement/workshop?tab=tags). Notice the image is now larger than our first image because it contains our application code and the larger, python base image. 
 
 ---
 
