@@ -18,13 +18,15 @@ This workshop will provide instructions to build application container images, t
 1. [Buildconfig Exercise](./lessons/8-buildconfig.md)
 1. [Quay](./lessons/9-quay.md)
 1. [Deployments](./lessons/10-deployment.md)
-1. [ImageStreams](./lessons/11-imagestreams.md)
-1. [DeploymentConfigs](./lessons/12-deploymentconfig.md)
-1. [Other Objects](./lessons/13-objects.md)
-1. [Object Manifests](./lessons/14-objectmanifest.md)
-1. [End to End Example](./lessons/15-endtoend.md)
-1. [Intro to Volumes](./lessons/16-volumesintro.md)
-1. [Monitoring](./lessons/17-monitoring.md)
+1. [Other Objects](./lessons/11-objects.md)
+1. [Object Manifests](./lessons/12-objectmanifest.md)
+1. [Updating Deployments](./lessons/13-deploymentchange.md)
+1. [Continuous Deployments](./lessons/14-contdeploy.md)
+1. [ImageStreams](./lessons/15-imagestreams.md)
+1. [DeploymentConfigs](./lessons/16-deploymentconfig.md)
+1. [End to End Example](./lessons/17-endtoend.md)
+1. [Intro to Volumes](./lessons/18-volumesintro.md)
+1. [Monitoring](./lessons/19-monitoring.md)
 
 ## Schedule
 

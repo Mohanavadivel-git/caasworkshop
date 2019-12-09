@@ -55,6 +55,6 @@ build.build.openshift.io/app-build-<CDSID>-2 started
 
 ---
 
-Continue to [volumes](./16-volumesintro.md).
+Continue to [volumes](./18-volumesintro.md).
 
 Return to [Table of Contents](../README.md#agenda)

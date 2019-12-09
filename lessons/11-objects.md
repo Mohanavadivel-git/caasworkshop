@@ -35,6 +35,6 @@ The **ConfigMap** object provides mechanisms to inject containers with configura
 
 ---  
 
-Continue to [manifest definitions](./14-objectmanifest.md).
+Continue to [manifest definitions](./12-objectmanifest.md).
 
 Return to [Table of Contents](../README.md#agenda)

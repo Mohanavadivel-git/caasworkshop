@@ -46,6 +46,6 @@ deployment.apps/malyass-deployment configured
 
 ---  
 
-Continue to [image streams](./11-imagestreams.md).
+Continue to [continuous deployment](./14-contdeploy.md).
 
 Return to [Table of Contents](../README.md#agenda)

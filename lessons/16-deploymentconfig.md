@@ -18,6 +18,6 @@ $ oc create -f ./manifests/deploymentconfig.yaml
 
 ---  
 
-Continue to [Openshift Objects](./13-objects.md).
+Continue to [end to end example](./17-endtoend.md).
 
 Return to [Table of Contents](../README.md#agenda)

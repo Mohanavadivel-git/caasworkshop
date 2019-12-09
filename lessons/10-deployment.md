@@ -156,6 +156,6 @@ deployment.apps/<CDSID>-deployment created
 
 ---  
 
-Continue to [image streams](./11-imagestreams.md).
+Continue to [Openshift objects](./11-objects.md).
 
 Return to [Table of Contents](../README.md#agenda)

@@ -126,6 +126,6 @@ The manifests in the samples repository should get you started. For more details
 
 ---
 
-Continue to [code change example](./15-endtoend.md).
+Continue to [deployment updates](./13-deploymentchange.md).
 
 Return to [Table of Contents](../README.md#agenda)
