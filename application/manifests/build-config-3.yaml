@@ -8,7 +8,7 @@ spec:
       name: devenablement-workshop-pull-secret
     to:
       kind: DockerImage
-      name: 'registry.ford.com/devenablement/workshop:malyass'
+      name: 'registry.ford.com/devenablement/workshop:<CDSID>'
   resources:
     requests:
       cpu: 250m
