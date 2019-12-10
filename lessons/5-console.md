@@ -4,7 +4,7 @@ Before we build our container image and deploy the application, we will interact
 
 At the moment, there is only a single, production cluster of CaaS. This is different from PCF, which has separate "clusters" (referred to as foundations in PCF) for pre-prod and prod and different "clusters" for the different data centers. To have separate environments in CaaS, you will have a separate namespace for each environment. For example, you could have 3 separate namespaces, `dev`, `qa`, and `prod`, for your single application.  
 
-In Openshift, `project` and `namespace` are used interchangeably. It is a logicial construct where you deploy your Openshift objects. Your application instances/replicas may span different nodes and data centers, but you can manage them all within your single namespace. 
+In Openshift, `project` and `namespace` are used interchangeably. It is a logical construct where you deploy your Openshift objects. Your application instances/replicas may span different nodes and data centers, but you can manage them all within your single namespace. 
 
 ---
 
@@ -74,6 +74,7 @@ Now using project "devenablement-workshop-dev" on server "https://api.caas.ford.
 ## Requesting a Namespace
 
 As mentioned previously, this is a namespace used only for this workshop. The workshop will be wiped clean in preparation for the next workshop and your credentials will be removed from accessing this namespace at the end of the workshop. To procure your own namespace, visit the [Ford Cloud Portal](https://www.cloudportal.ford.com/openshift). A free-trial version exists where you can receive a namespace for 120 days.
+
 
 ---  
 

@@ -39,7 +39,7 @@ Again, this is an unrealistic use case provided as an opposite example.
 
 ![CaaS Workflow](./SameHost_Database.png)
 
-This example is a replica of the first example. However, here we introduce a database as well. In this example, we define `podAffinity` rules for the database in our application's manifest. This means that Kubernetes will put the database on the same node as an application replicas. 
+This example is a replica of the first example. However, here we introduce a database as well. In this example, we define `podAffinity` rules for the database in our application's manifest. This means that Kubernetes will put the database on the same node as an application replicas. In this example, a `podAntiAffinity` rule would be set on the database for the `zone` and the `host` to ensure the databases are in different datacenters and different nodes. 
 
 ## Example 5
 
