@@ -1,6 +1,6 @@
-# Continuous Deployment
+# Continuous Delivery
 
-As you can see from the sample deployment, image changes need to be constantly updated in the deployment and then applied. You can always use a tool to handle your continuous deployment (such as Jenkins). Alternatively, you can use some Openshift specific objects to handle some forms of continuous deployment. 
+As you can see from the sample deployment, image changes need to be constantly updated in the deployment and then applied. You can always use a tool to handle your continuous delivery (such as Jenkins). Alternatively, you can use some Openshift specific objects to handle some forms of continuous delivery. 
 
 **Note**: Like `BuildConfigs`, the following objects (`ImageStreams` and `DeploymentConfigs`) are Openshift specific. The other objects, such as `Deployments`, `Routes`, `Services`, etc. can be lifted and shifted to any other Kubernetes orchestration system. Keep that under consideration when using Openshift-specific objects. 
 

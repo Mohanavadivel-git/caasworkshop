@@ -44,6 +44,6 @@ deployment.apps/malyass-deployment configured
 
 ---  
 
-Continue to [continuous deployment](./14-contdeploy.md).
+Continue to [continuous delivery](./14-contdeploy.md).
 
 Return to [Table of Contents](../README.md#agenda)
