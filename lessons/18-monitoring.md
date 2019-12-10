@@ -70,4 +70,6 @@ These additions to your Dockerfile will enable your pods to send data to Dynatra
 -->
 ---
 
+Continue to [Github integration](./19-contint.md)
+
 Return to [Table of Contents](../README.md#agenda)

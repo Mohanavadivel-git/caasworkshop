@@ -57,3 +57,7 @@ https://api.caas.ford.com:443/apis/build.openshift.io/v1/namespaces/devenablemen
 ```
 
 In Github, you would copy and paste this URL as the webhook payload. You would then replace `<secret>` with a password of some kind. That password gets stored as an Openshift secret, which is then referenced in the yaml. In this example, `githooksecret` contains the password for this payload. 
+
+---
+
+Return to [Table of Contents](../README.md#agenda)

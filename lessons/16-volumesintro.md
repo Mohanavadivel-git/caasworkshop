@@ -57,6 +57,6 @@ Please watch this short series of videos for further information
 
 ---
 
-Continue to [monitoring](./17-statefulset.md)
+Continue to [stateful sets](./17-statefulset.md)
 
 Return to [Table of Contents](../README.md#agenda)
