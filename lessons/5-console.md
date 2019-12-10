@@ -4,7 +4,7 @@ Before we build our container image and deploy the application, we will interact
 
 At the moment, there is only a single, production cluster of CaaS. This is different from PCF, which has separate "clusters" (referred to as foundations in PCF) for pre-prod and prod and different "clusters" for the different data centers. To have separate environments in CaaS, you will have a separate namespace for each environment. For example, you could have 3 separate namespaces, `dev`, `qa`, and `prod`, for your single application.  
 
-In Openshift, `project` and `namespace` are used interchangeably. It is a logicial construct where you deploy your Openshift objects. Your application instances/replicas may span different nodes and data centers, but you can manage them all within your single namespace. 
+In Openshift, `project` and `namespace` are used interchangeably. It is a logical construct where you deploy your Openshift objects. Your application instances/replicas may span different nodes and data centers, but you can manage them all within your single namespace. 
 
 ---
 
