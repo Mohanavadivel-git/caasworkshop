@@ -6,7 +6,7 @@ This image represents a high level overview of developing applications for CaaS.
 
 ## Application Code
 
-You application code (generally) will not change. You might make some tweaks to you application preferences, but you will still need your source code or an application artifact to build your container image.
+You might make some tweaks to you application preferences, but you will still need your source code or an application artifact to build your container image.
 
 ## Dockerfile
 
