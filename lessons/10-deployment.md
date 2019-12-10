@@ -57,7 +57,7 @@ spec:
   - kubernetes.io/hostname - The topology key for nodes
   - failure-domain.ford.com/zone - The topology key for data centers
 
-See the [pod affinity guide](./something) for more information on affinity rules. 
+See the [pod affinity guide](../images/affinity/README.md) for more information on affinity rules. 
 
 #### *Image Reference*
 ```yaml

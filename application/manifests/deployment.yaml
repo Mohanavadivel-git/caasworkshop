@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: malyass-deployment
+  name: <CDSID>-deployment
   labels:
-    app: malyass-deployment
+    app: <CDSID>-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: malyass-deployment
+      app: <CDSID>-deployment
   template:
     metadata:
       labels:
-        app: malyass-deployment
+        app: <CDSID>-deployment
     spec:
       # https://docs.openshift.com/container-platform/3.11/admin_guide/scheduling/pod_affinity.html
       # https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#affinity-and-anti-affinity
@@ -27,7 +27,7 @@ spec:
               - key: app
                 operator: In
                 values:
-                - malyass-deployment
+                - <CDSID>-deployment
             topologyKey: "kubernetes.io/hostname"
           preferredDuringSchedulingIgnoredDuringExecution:
           - weight: 100
@@ -37,7 +37,7 @@ spec:
                 - key: app
                   operator: In
                   values:
-                  - malyass-deployment
+                  - <CDSID>-deployment
               topologyKey: failure-domain.ford.com/zone
       #tolerations:
       ## Allow this pod to be rescheduled while the node is in "critical add-ons only" mode.
@@ -53,8 +53,8 @@ spec:
       imagePullSecrets:
       - name: devenablement-workshop-pull-secret
       containers:
-      - name: malyass-deployment
-        image: registry.ford.com/devenablement/workshop:malyass-v2
+      - name: <CDSID>-deployment
+        image: registry.ford.com/devenablement/workshop:<CDSID>
         imagePullPolicy: Always        
         ports:
           - name: http
