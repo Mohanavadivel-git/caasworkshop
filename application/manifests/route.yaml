@@ -2,10 +2,10 @@ apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
   labels:
-    app: <CDSID>-deployment-config
-  name: <CDSID>-route
+    app: malyass-deployment-config
+  name: malyass-route
 spec:
-  host: <CDSID>.app.caas.ford.com
+  host: malyass.app.caas.ford.com
   port:
     targetPort: 8080
   tls:
@@ -14,6 +14,6 @@ spec:
     insecureEdgeTerminationPolicy: Redirect
   to:
     kind: Service
-    name: <CDSID>-service
+    name: malyass-service
     weight: 100
   wildcardPolicy: None

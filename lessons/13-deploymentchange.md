@@ -13,7 +13,7 @@ In this exercise, we will change a small part of the code and then re-build the 
 4. Apply the changes to your build config with the following command: 
 
 ```bash
-$ oc apply -f ./manifest/build-config-2.yaml
+$ oc apply -f ./manifests/build-config-2.yaml
 buildconfig.build.openshift.io/app-build-<CDSID> configured
 ```
 
@@ -27,22 +27,20 @@ Uploading finished
 build.build.openshift.io/app-build-<CDSID>-3 started
 ```
 
-6. Confirm that your build is successful. 
-
 ## Exercise - Apply Image Change
 
-1. Re-open `deployment.yaml`. 
+1. When you build is successful, re-open `deployment.yaml`. 
 
-2. Change line 57 to reference your new image with the same tag you applied to the `BuildConfig`. 
+2. Change line 57 to reference your new image with the same tag you applied to the `BuildConfig`. (i.e `<CDSID>` to `<CDSID>-v2`)
 
 3. Apply the changes to your deployment with the following command: 
 
 ```bash
-$ oc apply -f ./manifest/deployment.yaml
+$ oc apply -f ./manifests/deployment.yaml
 deployment.apps/malyass-deployment configured
 ```
 
-4. Due to a configuration change, your deployment will begin creating a new pod with your new image. 
+4. Due to a configuration change, your deployment will begin creating a new pod with your new image. You can view the `Deployments` section in the console. You can also go to your route and consistently refresh. You will be able to see how your application changes are deployed without any downtime. 
 
 ---  
 
