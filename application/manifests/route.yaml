@@ -1,0 +1,19 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  labels:
+    app: <CDSID>-deployment-config
+  name: <CDSID>-route
+spec:
+  host: <CDSID>.app.caas.ford.com
+  port:
+    targetPort: 8080
+  tls:
+    termintaion: edge
+    #termination: passthrough
+    insecureEdgeTerminationPolicy: Redirect
+  to:
+    kind: Service
+    name: <CDSID>-service
+    weight: 100
+  wildcardPolicy: None

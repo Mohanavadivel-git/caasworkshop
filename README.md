@@ -1,36 +1,32 @@
 ## Deploying Apps to Ford's CaaS Platform
 
-This is a hands-on, training workshop to get application development teams started in Ford's Container as a Service platform.
-
 ![OpenShift Logo](images/OpenShift_Logo.svg)
 
-This workshop will provide instructions to build application container images, then deploying these images to the CaaS platform. Workshop participants will experience deploying a sample application to a local CaaS environment on their own workstation. In doing so, participants will learn how they can take the applications they build and deploy to Ford's CaaS platform.
+This is a hands-on, training workshop to get application development teams started in Ford's Container as a Service platform.
+
+This workshop will provide instructions to build application container images, then deploying these images to the CaaS platform. Workshop participants will experience deploying a sample application to the CaaS environment from their workstation. 
 
 ## Agenda
 
 1. [Introduction](./lessons/1-introduction.md)
-1. [Application Code and Mounting Directories](./lessons/2-buildapp.md)
-1. [Intro to Dockerfiles](./lessons/3-dockerfiles.md)
-1. [Building Images in Localdev](./lessons/4-buildimage.md)
-1. [Container Image Registry](./lessons/5-quay.md)
-1. [Openshift Console and CLI](./lessons/6-console.md)
-1. [Intro to Openshift Objects](./lessons/7-objects.md)
-1. [Intro to Openshift Manifests](./lessons/8-manifest.md)
-1. [Deploying to Openshift](./lessons/9-deploy.md)
-1. [Intro to Volumes](./lessons/10-VolumesIntro.md)
-1. [Volumes Exercise](./lessons/11-VolumesExercise.md)
-1. [Saving Logs](./lessons/12-VolumeLogs.md)
-1. [Kibana (Logging Aggregator)](./lessons/13-Kibana.md)
-1. [Monitoring](./lessons/14-Monitoring.md)
-1. [Vanity URLs](./lessons/15-VanityUrl.md)
-1. [Advanced Topics](./lessons/16-AdvancedTopics.md)
-
-## Pre-requisites and Equipment
-- Your own developer-class laptop with minimal 4 CPU cores and 8GB of RAM. An underpowered laptop that is used mostly for checking email WILL NOT WORK.
-- Install the required software on your laptop prior to class. [Instructions](workstation-setup.md) will be sent out to registered attendees.
-- Basic knowledge of command line and git/github. Simple stuff like cloning repos, moving files, etc...
-
-Course content is targeted for a Windows environment using Git Bash for Windows or other Bash terminal emulator. If you have a Mac and are a wiz with it, then come on. Just be aware that the instructor will not be able to answer Mac-specific questions, so you'll be on your own to translate commands from Windows to Mac and troubleshoot your own issues if things go off the rails.
+1. [Development Process](./lessons/2-development.md)
+1. [Sample Application](./lessons/3-application.md)
+1. [Dockerfiles](./lessons/4-dockerfiles.md)
+1. [Openshift Console and CLI](./lessons/5-console.md)
+1. [Other Build Tools](./lessons/6-buildtools.md)
+1. [BuildConfig Introduction](./lessons/7-buildintro.md)
+1. [Buildconfig Exercise](./lessons/8-buildconfig.md)
+1. [Quay](./lessons/9-quay.md)
+1. [Deployments](./lessons/10-deployment.md)
+1. [Other Objects](./lessons/11-objects.md)
+1. [Object Manifests](./lessons/12-objectmanifest.md)
+1. [Updating Deployments](./lessons/13-deploymentchange.md)
+1. [Continuous Delivery](./lessons/14-contdeploy.md)
+1. [End to End Example](./lessons/15-endtoend.md)
+1. [Intro to Volumes](./lessons/16-volumesintro.md)
+1. [Stateful Sets](./lessons/17-statefulsets.md)
+1. [Monitoring](./lessons/18-monitoring.md)
+1. [Github Integration](./lessons/19-contint.md)
 
 ## Schedule
 

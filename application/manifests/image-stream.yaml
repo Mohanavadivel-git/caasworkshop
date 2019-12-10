@@ -1,0 +1,18 @@
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  name: <CDSID>-image
+spec:
+  lookupPolicy:
+    local: false
+  tags:
+    - annotations: null
+      from:
+        kind: DockerImage
+        name: registry.ford.com/devenablement/workshop:<CDSID>
+      generation: 1
+      name: latest
+      importPolicy:
+        scheduled: true
+      referencePolicy:
+        type: ""

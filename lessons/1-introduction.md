@@ -1,12 +1,6 @@
-## Introduction
+# Introduction
 
-### Pre-Requisites
-
-Did you set up your workstation with CaaS localdev yet? If not, complete the [instructions](../workstation-setup.md).
-
-If you face any issues during setup, see the [Troubleshooting and Common Errors](../troubleshooting.md) section. 
-
-### What is Ford's CaaS?
+## What is Ford's CaaS?
 
 CaaS is Ford's container as a service offering. It is an app hosting platform.
 
@@ -20,16 +14,8 @@ Pivotal often describes PCF as an "[opinionated platform](https://content.pivota
 
 In contrast, the CaaS platform is highly configurable. For example, app teams have total control over their apps' resource allocation, data center location, TLS termination, and packages, libraries and other dependencies included in their container image. The trade-off is there is a pretty steep learning curve for CaaS. Be sure you have the desire to get into the weeds with cloud hosting with CaaS.
 
-### What is CaaS localdev?
+---
 
-The CaaS engineering team provides a light-weight installation of CaaS that you can run locally on your workstation. We call this CaaS localdev, or just localdev in this course.
-
-App teams should use localdev when building their application, app container image, and CaaS configuration manifest files. The localdev installation simulates Ford's production CaaS instance. It allows teams to test their app locally, then upload their app to Ford's production CaaS instance knowing the app will perform similarly.
-
-Localdev is also a good place to learn about CaaS. It is free; there is no onboarding delay; and you can run it without a network connection.
-
----  
-
-Continue to [Application Code and Mounting Directories](./2-buildapp.md).
+Continue to an [overview](./2-development.md).
 
 Return to [Table of Contents](../README.md#agenda)

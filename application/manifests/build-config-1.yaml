@@ -1,0 +1,27 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  name: test-build-<CDSID>
+spec:
+  output:
+    pushSecret:
+      name: devenablement-workshop-pull-secret
+    to:
+      kind: DockerImage
+      name: 'registry.ford.com/devenablement/workshop:<CDSID>'
+  resources:
+    requests:
+      cpu: 250m
+      memory: 250Mi
+    limits:
+      cpu: 500m
+      memory: 500Mi
+  source:
+    dockerfile: |-
+      FROM registry.ford.com/websphere/liberty:prod
+      USER example
+  strategy:
+    dockerStrategy:
+      pullSecret:
+        name: devenablement-workshop-pull-secret
+    type: Docker

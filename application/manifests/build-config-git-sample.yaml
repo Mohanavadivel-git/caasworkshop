@@ -1,0 +1,63 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  name: spring-sample
+  namespace: devenablement-dev
+spec:
+  failedBuildsHistoryLimit: 5
+  nodeSelector: null
+  output:
+    pushSecret:
+      name: devenablement-readwrite-pull-secret
+    to:
+      kind: DockerImage
+      name: 'registry.ford.com/devenablement/springboot-pipeline:latest'
+  postCommit: {}
+  resources:
+    limits:
+      cpu: 500m
+      memory: 256Mi
+  runPolicy: Serial
+  source:
+    contextDir: /image
+    git:
+      uri: 'git@github.ford.com:MALYASS/auto-build.git'
+    sourceSecret:
+      name: github-repo
+    type: Git
+  strategy:
+    dockerStrategy:
+      env:
+        - name: BUILD_LOGLEVEL
+          value: '5'
+        - name: BUILD
+          valueFrom:
+            configMapKeyRef:
+              key: build-number
+              name: latest-build
+        - name: PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: password
+              name: nexus-private-devenablement
+        - name: USERNAME
+          valueFrom:
+            secretKeyRef:
+              key: username
+              name: nexus-private-devenablement
+      from:
+        kind: ImageStreamTag
+        name: 'redhat-openjdk8:latest'
+      pullSecret:
+        name: redhat-registry
+    type: Docker
+  successfulBuildsHistoryLimit: 5
+  triggers:
+    - github:
+        secretReference:
+          name: githooksecret
+      type: GitHub
+status:
+  lastVersion: 50
+
+# oc create secret generic <SECRET-NAME> --from-file=ssh-privatekey=<PATH-TO-PRIVATE-KEY> --type=kubernetes.io/ssh-auth
