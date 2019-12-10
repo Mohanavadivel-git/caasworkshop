@@ -26,12 +26,14 @@ To deploy objects into Openshift, you will need the `oc` CLI.
             - Copy the path you chose to save the `oc.exe` file
             - Open up your system environment variables by typing `path` into the windows search and click `Environment Variables` 
             - Add the path to the `oc.exe` to the system variable's `PATH` (see the image below)
+        - **Option 3** - If you do not have admin rights on your machine, move the `oc.exe` to one of the locations already listed in path (e.g. follow the Mac instructions)
     - Mac:
         - Open up a terminal
         - Type `echo $PATH`
         - Choose one of paths that was printed and move the `oc` file in that location
         - Restart the terminal
 
+- Windows Path Example
 <p align="center">
     <img src="../images/oc_cli.PNG" width="825" height="400">
 </p>

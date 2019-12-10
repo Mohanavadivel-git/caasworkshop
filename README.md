@@ -22,8 +22,6 @@ This workshop will provide instructions to build application container images, t
 1. [Object Manifests](./lessons/12-objectmanifest.md)
 1. [Updating Deployments](./lessons/13-deploymentchange.md)
 1. [Continuous Deployments](./lessons/14-contdeploy.md)
-1. [ImageStreams](./lessons/15-imagestreams.md)
-1. [DeploymentConfigs](./lessons/16-deploymentconfig.md)
 1. [End to End Example](./lessons/17-endtoend.md)
 1. [Intro to Volumes](./lessons/18-volumesintro.md)
 1. [Monitoring](./lessons/19-monitoring.md)
