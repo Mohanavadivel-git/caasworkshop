@@ -8,7 +8,7 @@ If you need more app performance monitoring capabilities than the basic monitori
 
 ### Grafana
 
-![Grafana](https://github.ford.com/DevEnablement/caas-workshop/blob/master/images/monitoring.png)
+![Grafana](../images/monitoring1.png)
 
 Grafana is a basic, out of the box monitoring tool. It allows teams to monitor their CPU and memory utilization. Teams can view the current or most recently running pods and see the CPU and memory usage over time. You can view the production instance of grafana [here](https://monitoring.app.caas.ford.com/)
 
