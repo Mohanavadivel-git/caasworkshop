@@ -26,7 +26,7 @@ You can scale horizontally with Stateful Sets, but note that if PVCs and PVs are
 
 ## Resources
 
-- [Kubernetes Docss](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/)
+- [Kubernetes Docs](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/)
 - [Kubernetes Tutorial](https://kubernetes.io/docs/tutorials/stateful-application/basic-stateful-set/)
 
 ---

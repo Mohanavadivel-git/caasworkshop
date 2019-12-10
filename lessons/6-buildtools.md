@@ -12,7 +12,7 @@ A [previous version](https://github.ford.com/DevEnablement/caas-workshop/tree/ar
 
 There are numerous advantages of using and developing with localdev, namely that you can test and run your container images before pushing them to the production cluster. Anytime you come across issues or "break" your application, you can destroy everything and rebuild it quickly. Localdev is maintained to be the same, or one version ahead of, the production instance of CaaS. In the words of the CaaS engineering team: "if it works in localdev, it will work on the production cluster." 
 
-Localdev comes packaged with Docker, Buildah, and Podman. Buildah and Podman are the more preferable container image build tools maintained by RedHat that has [advantages over Docker](https://developers.redhat.com/blog/2019/02/21/podman-and-buildah-for-docker-users/). Localdev provides these tools so that you do not need to install them seperately.
+Localdev comes packaged with Docker, Buildah, and Podman. Buildah and Podman are the more preferable container image build tools maintained by RedHat that has [advantages over Docker](https://developers.redhat.com/blog/2019/02/21/podman-and-buildah-for-docker-users/). Localdev provides these tools so that you do not need to install them separately.
 
 The disadvantage of localdev is that it requires a lot of setup and a powerful machine. To properly set up localdev, you will need a 4 core CPU machine and 8 GB of RAM (i.e. a developer machine). Localdev also runs on VirtualBox, which is prone to errors and is notoriously buggy. 
 
@@ -24,7 +24,7 @@ The Openshift product provides a way to build container images within the cluste
 
 The disadvantage is that you now can no longer test and view your container images locally. Generally, the building of your container image will be done in your team's DEV environment to compensate for this disadvantage. 
 
-This workshop uses `BuildConfigs` to build our container images. If you have a developer machine, you are still encouraged to download [localdev](https://github.ford.com/Containers/localdev) and can build container images that way if you want the ability to test and run images locall. A [troubleshooting guide](https://github.ford.com/DevEnablement/caas-workshop/blob/archived/troubleshooting.md) is provided in the old version of the workshop. 
+This workshop uses `BuildConfigs` to build our container images. If you have a developer machine, you are still encouraged to download [localdev](https://github.ford.com/Containers/localdev) and can build container images that way if you want the ability to test and run images locally. A [troubleshooting guide](https://github.ford.com/DevEnablement/caas-workshop/blob/archived/troubleshooting.md) is provided in the old version of the workshop. 
 
 ---
 

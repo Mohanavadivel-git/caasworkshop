@@ -9,7 +9,7 @@ ENV \
     HOME=/app \
     USER_UID=1001 \
     SUMMARY="A simple python web app"	\
-    DESCRIPTION="This is a python web app to demonstrate basic continer and kubernetes concepts." \
+    DESCRIPTION="This is a python web app to demonstrate basic container and kubernetes concepts." \
     NAME=World
 
 # Set the working directory to /app

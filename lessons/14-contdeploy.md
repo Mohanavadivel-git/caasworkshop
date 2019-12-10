@@ -8,7 +8,7 @@ As you can see from the sample deployment, image changes need to be constantly u
 
 ## ImageStreams
 
-An `ImageStream` object acts as a pointer to Quay. It polls Quay and receives updates whenever a specific tag in Quay is updated. You will notice that our image tag in the `Deployment` is hardcoded (line 57). `ImageStreams` allow us to abstract this information and automatically re-deploy our application when a new image is posted to Quay. 
+An `ImageStream` object acts as a pointer to Quay. It polls Quay and receives updates whenever a specific tag in Quay is updated. You will notice that our image tag in the `Deployment` is hard-coded (line 57). `ImageStreams` allow us to abstract this information and automatically re-deploy our application when a new image is posted to Quay. 
 
 1. Open the `image-stream.yaml` file. Replace `<CDSID>` with your CDSID. 
 

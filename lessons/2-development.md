@@ -10,7 +10,7 @@ You might make some tweaks to you application preferences, but you will still ne
 
 ## Dockerfile
 
-A `Dockerfile` is a list of commands used to assemble a container image. It is here you will specify all the necessary tools that are needed to run your application. For example, to run a basic python application, your Dockerfile would provide the instructions to download python and pip (a package isntaller for python). 
+A `Dockerfile` is a list of commands used to assemble a container image. It is here you will specify all the necessary tools that are needed to run your application. For example, to run a basic python application, your Dockerfile would provide the instructions to download python and pip (a package installer for python). 
 
 ## Building Container Image
 

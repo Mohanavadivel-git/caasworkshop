@@ -17,7 +17,7 @@ ENV \
     HOME=/app \
     USER_UID=1001 \
     SUMMARY="A simple python web app"	\
-    DESCRIPTION="A simple python web app to demonstrate basic continer and kubernetes concepts." \
+    DESCRIPTION="A simple python web app to demonstrate basic container and kubernetes concepts." \
     NAME=World
     
 WORKDIR $HOME

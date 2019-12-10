@@ -29,9 +29,9 @@ The **PodDisruptionBudget** object ensures that OpenShift will maintain a minimu
 
 The **HorizontalPodAutoscaler** object configures OpenShift to automatically increase and decrease the number of app instances based on CPU utilization. Review the documentation on [autoscaler](https://docs.openshift.com/container-platform/3.11/dev_guide/pod_autoscaling.html) in the OpenShift Dev Guide.
 
-The **Secret** object type provides a mechanism to hold sensitive information, such as passwords, OpenShift Container Platform client configuration files, `dockercfg` files, private source repoistory credentials, and so on. Review the documentation on [secrets](https://docs.openshift.com/container-platform/3.9/dev_guide/secrets.html) and [using image pull secrets](https://docs.openshift.com/container-platform/3.11/dev_guide/managing_images.html#using-image-pull-secrets) in the Openshift Dev Guide.
+The **Secret** object type provides a mechanism to hold sensitive information, such as passwords, OpenShift Container Platform client configuration files, `dockercfg` files, private source repository credentials, and so on. Review the documentation on [secrets](https://docs.openshift.com/container-platform/3.9/dev_guide/secrets.html) and [using image pull secrets](https://docs.openshift.com/container-platform/3.11/dev_guide/managing_images.html#using-image-pull-secrets) in the Openshift Dev Guide.
 
-The **ConfigMap** object provides mechanisms to inject containers with configuration data while keeping containers agnostic of Openshift Container Platform. It is similar to Secrets, but designed to more convienently support working with strings/files that do not contain sensitive information. For example, this may be values for your application.properties of a Springboot application. 
+The **ConfigMap** object provides mechanisms to inject containers with configuration data while keeping containers agnostic of Openshift Container Platform. It is similar to Secrets, but designed to more conveniently support working with strings/files that do not contain sensitive information. For example, this may be values for your application.properties of a Springboot application. 
 
 ---  
 

@@ -22,7 +22,7 @@ spec:
         app: <CDSID>-deployment
 ```
 - Name: Define your deployment name which will also be the name of the application
-- Labels: You can use labels to better query your Openshift objects. For each Openshift object, we are definining an `app` label with the value of our app name. For every object that contains the label `app=<CDSID>-deployment`, we can query based on that label. 
+- Labels: You can use labels to better query your Openshift objects. For each Openshift object, we are defining an `app` label with the value of our app name. For every object that contains the label `app=<CDSID>-deployment`, we can query based on that label. 
 - Replicas: Number of instances to start your application with
 
 #### *Affinity Rules*

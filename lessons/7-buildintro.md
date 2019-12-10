@@ -12,7 +12,7 @@ In the next lessons, we will briefly explain and walk through an example `BuildC
 
 There are a variety of different inputs that `BuildConfigs` accept. The simple way that we will be using is directly providing a `Dockerfile` within the `BuildConfig`.
 
-Another way to provide an input for a `BuildConfig` is through GitHub. This does require extra steps to setup the authenitcation with GitHub. When set up, the `BuildConfig` can then clone your repository and will have access to your code. Most importantly, it can have access to a `Dockerfile` that you provide in the GitHub repository. 
+Another way to provide an input for a `BuildConfig` is through GitHub. This does require extra steps to setup the authentication with GitHub. When set up, the `BuildConfig` can then clone your repository and will have access to your code. Most importantly, it can have access to a `Dockerfile` that you provide in the GitHub repository. 
 
 ### Strategy
 

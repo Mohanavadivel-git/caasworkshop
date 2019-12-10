@@ -1,14 +1,14 @@
 apiVersion: build.openshift.io/v1
 kind: BuildConfig
 metadata:
-  name: app-build-<CDSID>
+  name: app-build-malyass
 spec:
   output:
     pushSecret:
       name: devenablement-workshop-pull-secret
     to:
       kind: DockerImage
-      name: 'registry.ford.com/devenablement/workshop:<CDSID>'
+      name: 'registry.ford.com/devenablement/workshop:malyass'
   resources:
     requests:
       cpu: 250m
@@ -24,7 +24,7 @@ spec:
         HOME=/app \
         USER_UID=1001 \
         SUMMARY="A simple python web app"	\
-        DESCRIPTION="This is a python web app to demonstrate basic continer and kubernetes concepts." \
+        DESCRIPTION="This is a python web app to demonstrate basic container and kubernetes concepts." \
         NAME=World
       WORKDIR $HOME
       COPY ./src $HOME
