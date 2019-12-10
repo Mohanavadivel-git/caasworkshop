@@ -1,4 +1,4 @@
-## Building a Container Image Using BuildConfigs
+# Building a Container Image Using BuildConfigs
 
 In the next lessons, we will briefly explain and walk through an example `BuildConfig`, and then one for our application. 
 

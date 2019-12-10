@@ -38,6 +38,6 @@ $ oc create -f ./manifests/deploymentconfig.yaml
 
 ---
 
-Continue to [DeploymentConfigs](./15-endtoend.md).
+Continue to [end to end example](./15-endtoend.md).
 
 Return to [Table of Contents](../README.md#agenda)
