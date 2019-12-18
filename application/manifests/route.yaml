@@ -2,7 +2,7 @@ apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
   labels:
-    app: <CDSID>-deployment-config
+    app: <CDSID>-deployment
   name: <CDSID>-route
 spec:
   host: <CDSID>.app.caas.ford.com
