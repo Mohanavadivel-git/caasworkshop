@@ -1,14 +1,14 @@
 apiVersion: build.openshift.io/v1
 kind: BuildConfig
 metadata:
-  name: test-build-malyass
+  name: test-build-<CDSID>
 spec:
   output:
     pushSecret:
       name: devenablement-workshop-pull-secret
     to:
       kind: DockerImage
-      name: 'registry.ford.com/devenablement/workshop:malyass'
+      name: 'registry.ford.com/devenablement/workshop:<CDSID>'
   resources:
     requests:
       cpu: 250m
