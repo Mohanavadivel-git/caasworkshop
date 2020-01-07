@@ -116,7 +116,7 @@ We now have a fully running application that is accessible via a route and servi
 
 Through the CaaS manifest you have significant control over how CaaS will run your application. App teams can define, test, and revise the resources allocation to an application without any action from an operations team.
 
-In this workshop, all these Openshift objects have been combined in one manifest. You might find it more practical to separate these into separate manifests (i.e. deployment.yaml, service.yaml, route.yaml, etc). This might be a better option for version control and viewing history. You will likely change your deployment object many times, for example, but you will generally only create a service object once and not edit it much.  
+In this workshop, all these Openshift objects have been seperated into multiple manifests. You can combine multiple manifests into one, but you might find it more practical to separate these into separate manifests (i.e. deployment.yaml, service.yaml, route.yaml, etc). This might be a better option for version control and viewing history. You will likely change your deployment object many times, for example, but you will generally only create a service object once and not edit it much.  
 
 ### Avoid defaults
 
