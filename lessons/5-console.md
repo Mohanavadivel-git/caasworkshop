@@ -12,7 +12,9 @@ In Openshift, `project` and `namespace` are used interchangeably. It is a logica
 
 To deploy objects into Openshift, you will need the `oc` CLI. 
 
-1. Go to https://files.caas.ford.com:9443/oc-cli/latest/ and click on the proper download for your operating system.
+1. Go to https://files.caas.ford.com:9443/oc-cli/latest/ and click on the proper download for your operating system.<br>
+   Or:<br>
+   Go to https://mirror.openshift.com/pub/openshift-v3/clients/, it will show list of version, select a appropriate version to download, for eample: ....../3.11.157/windows/oc.zip. The oc.zip will be downloaded to C:\Users\{CDSID}\Downloads
 
 1. Extract the contents of the zip/tar. If you are on Windows, the contents will be `oc.exe` and on Mac it will be the `oc` file. 
 
