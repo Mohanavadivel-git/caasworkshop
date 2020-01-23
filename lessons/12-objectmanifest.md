@@ -36,7 +36,7 @@ spec:
   port:
     targetPort: 8080
   tls:
-    termintaion: edge
+    termination: edge
     #termination: passthrough
     insecureEdgeTerminationPolicy: Redirect
   to:

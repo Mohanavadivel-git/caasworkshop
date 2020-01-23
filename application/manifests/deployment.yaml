@@ -4,6 +4,7 @@ metadata:
   name: <CDSID>-deployment
   labels:
     app: <CDSID>-deployment
+    source: caas-workshop
 spec:
   replicas: 1
   selector:

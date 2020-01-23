@@ -2,6 +2,8 @@ apiVersion: build.openshift.io/v1
 kind: BuildConfig
 metadata:
   name: app-build-<CDSID>
+  labels:
+    source: caas-workshop
 spec:
   output:
     pushSecret:

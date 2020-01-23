@@ -1,6 +1,6 @@
 ## Kubernetes Volumes
 
-Since containers are not persistent, all their contents are cleared whenever the pod they are contianed within is destroyed. The file system is completely fresh with each pod and file systems do not persist unless you define them through persistent volume claims.
+Since containers are not persistent, all their contents are cleared whenever the pod they are contained within is destroyed. The file system is completely fresh with each pod and file systems do not persist unless you define them through persistent volume claims.
 
 Openshift comes with an NFS provisioner in localdev. The provisioner carries out the responsibility of creating or deleting new storages. You can request storage by providing a class type, a name, an access type, and a storage size.
 

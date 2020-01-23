@@ -1,6 +1,6 @@
 # Openshift Objects
 
-There are many more objects in CaaS besides `BuildConfigs`, `ImageStreams`, and `Deployments`. These 3 objects help build and deploy your container image. Accessing and maintaining your application is done through various other objects. 
+There are many more objects in CaaS besides `BuildConfigs` and `Deployments`. These objects help build and deploy your container image. Accessing and maintaining your application is done through various other objects.
 
 You can learn more about [objects](https://docs.openshift.com/container-platform/3.11/architecture/core_concepts/index.html#architecture-core-concepts-index) and [manifests](https://docs.openshift.com/container-platform/3.11/dev_guide/templates.html) in the OpenShift [Dev Guide](https://docs.openshift.com/container-platform/3.11/dev_guide/index.html).
 

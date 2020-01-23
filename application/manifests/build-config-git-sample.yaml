@@ -3,6 +3,8 @@ kind: BuildConfig
 metadata:
   name: spring-sample
   namespace: devenablement-dev
+  labels:
+    source: caas-workshop
 spec:
   failedBuildsHistoryLimit: 5
   nodeSelector: null

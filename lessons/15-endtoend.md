@@ -30,18 +30,33 @@ Uploading finished
 build.build.openshift.io/app-build-<CDSID>-4 started
 ```
 
+### Point Service to DeploymentConfig
+
+5. In order for us to see the updated code at the URL we created, we need to change the `Service` to point to the `DeploymentConfig` rather than the `Deployment` we were using earlier.
+
+   Open `./manifests/service.yaml` and append `-config` to line 10, so it reads:
+   ```yaml
+   app: <CDSID>-deployment-config
+   ```
+
+6. Apply the new `Service` configuration to the cluster.
+
+```bash
+$ oc apply -f ./manifests/service.yaml
+```
+
 ### Watch Updates
 
-5. Go to the [image streams](https://api.caas.ford.com/console/project/devenablement-workshop-dev/browse/images) section in Openshift. It make take approximately 5 minutes for the `ImageStream` to receive the updated image in Quay. 
+7. Go to the [image streams](https://api.caas.ford.com/console/project/devenablement-workshop-dev/browse/images) section in Openshift. It may take up to 15 minutes for the `ImageStream` to detect the updated image in Quay.
 
-6. Once you see that your `ImageStream` has updated, go to the [deployments](https://api.caas.ford.com/console/project/devenablement-workshop-dev/browse/deployments) section in Openshift and select your `DeploymentConfig`. We can now watch the process of the `DeploymentConfig` doing the following steps:
+8. Once you see that your `ImageStream` has updated, go to the [deployments](https://api.caas.ford.com/console/project/devenablement-workshop-dev/browse/deployments) section in Openshift and select your `DeploymentConfig`. We can now watch the process of the `DeploymentConfig` doing the following steps:
 
 - Bringing up your new deployment in the background
 - Ensuring your deployment passes its probes
 - Scale down and delete your old deployment
-- Make the new deployment the actively running deployment 
+- Make the new deployment the actively running deployment
 
-7. When these steps are made, your can go to your route (MY-CDSID.app.caas.ford.com) and see your new greeting. 
+9. When these steps are made, your can go to your route (MY-CDSID.app.caas.ford.com) and see your new greeting.
 
 ---
 

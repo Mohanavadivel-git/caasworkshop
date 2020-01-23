@@ -1,8 +1,8 @@
 ### Monitoring Apps
 
-### Production Monitoring 
+### Production Monitoring
 
-If your app is deployed on CaaS, you get basic monitoring of your app's resource utilization by default. The platform will provide a real-time monitoring dashboard built using SysDig, which is still in a POC stage. 
+If your app is deployed on CaaS, you get basic monitoring of your app's resource utilization by default. The platform will provide a real-time monitoring dashboard built using SysDig, which is still in a POC stage.
 
 If you need more app performance monitoring capabilities than the basic monitoring provided by the platform, you can connect your app to Ford's Dynatrace instance for a cost. You can sign up on the [Dynatrace team website](https://it1.spt.ford.com/sites/L1POE/Public/SitePages/Dynatrace.aspx).
 
@@ -14,27 +14,23 @@ Grafana is a basic, out of the box monitoring tool. It allows teams to monitor t
 
 ### SysDig
 
-SysDig is a monitoring tool that will allow for basic monitoring and alerting. The following is a list of some features and monitoring it provides: 
+SysDig is a monitoring tool that will allow for basic monitoring and alerting. The following is a list of some features and monitoring it provides:
 
-- Minor application process monitoring 
-- Container level monitoring 
-- Pod level monitoring 
-- Compilation of all events 
-- Ability to create alerts on any metric and event 
+- Minor application process monitoring
+- Container level monitoring
+- Pod level monitoring
+- Compilation of all events
+- Ability to create alerts on any metric and event
 - File System usage
 
-The tool is still in the POC stage and will be available in production in Q4. 
-
-### Dynatrace
-
-Dynatrace is available in production - but not on a system wide level. It will be the application team's responsibility to add the Dynatrace agent to the team's Dockerfile. However, the additions are relatively simple add-ons to any existing Dockerfile. When the final implementation is decided on by the Dynatrace team, this configuration will be made public for app teams to use. 
+The tool is still in the POC stage and will be available in production in Q4.
 
 <!--
-> NOTE: This implementation is subject to change 
+> NOTE: This implementation is subject to change
 
 #### Dockerfile Changes
 
-Open Dockerfile-2 located in `springboot/image` for your own reference. We will review the additions that you can simply add to your Dockerfiles to include a Dyntrace agent in your containers. 
+Open Dockerfile-2 located in `springboot/image` for your own reference. We will review the additions that you can simply add to your Dockerfiles to include a Dyntrace agent in your containers.
 
 ```Dockerfile
 FROM registry.redhat.io/rhscl/python-27-rhel7 AS builder

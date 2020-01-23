@@ -3,6 +3,7 @@ kind: PodDisruptionBudget
 metadata:
   labels:
     name: <CDSID>-deployment-config
+    source: caas-workshop
   name: <CDSID>-disruption
 spec:
   selector:

@@ -3,6 +3,7 @@ kind: HorizontalPodAutoscaler
 metadata:
   labels:
     app: <CDSID>-deployment-config
+    source: caas-workshop
   name: <CDSID>-autoscaler
 spec:
   scaleTargetRef:

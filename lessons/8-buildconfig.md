@@ -1,27 +1,27 @@
 # Building a Container Image Using BuildConfigs
 
-In this lesson we will deploy a test `BuildConfig` and the `BuildConfig` for the sample application. 
+In this lesson we will deploy a test `BuildConfig` and the `BuildConfig` for the sample application.
 
 ---
 
 ## Exercise - Test BuildConfig
 
-1. Navigate to the directory you cloned the samples repository. Open the `application` directory. We will make all the edits within this directory.  
+1. Navigate to the directory you cloned the samples repository. Open the `application/manifests` directory. We will make all the edits within this directory.
 
-2. Open `build-config-1.yaml` in a text editor (Visual Studio Code, Notepad++, etc). 
+2. Open `build-config-1.yaml` in a text editor (Visual Studio Code, Notepad++, etc).
 
 3. Replace the parts that say `<CDSID>` with your CDSID (lines 4 and 11).
 
-4. In your terminal window, ensure you are still at the root of the `caas-workshop` directory. 
+4. In your terminal window, ensure you are still at the root of the `caas-workshop` directory.
 
-5. Navigate to the `application` directory in a terminal. This is the directory we will be working out of for all of the examples. List the contents of the directory to ensure it aligns with the contents shown below. 
+5. Navigate to the `application` directory in a terminal. This is the directory we will be working out of for all of the examples. List the contents of the directory to ensure it aligns with the contents shown below.
 
 ```bash
 $ ls
 Dockerfile  manifests/  README.md  src/
 ```
 
-6. Create the `BuildConfig` object using the following command: 
+6. Create the `BuildConfig` object using the following command:
 
 ```bash
 $ oc create -f ./manifests/build-config-1.yaml
