@@ -34,7 +34,7 @@ You will have to work with the FIM team to
 To add members:
 
 Edit the body of the POST request by replacing `CDSID` with the cdsid of the individual you want to add. To add multiple individuals, separate each cdsid with “,”, e.g. “cdsid01”, “cdsid02”, “cdsid03”.<br>
-![CaaS Workflow](https://github.ford.com/jchen45/caas-workshop/blob/master/images/Postman01.png)
+![CaaS Workflow](https://github.ford.com/jchen45/caas-workshop/blob/master/images/Postman05.png)
 To delete members:
 
 *Do something similar*
