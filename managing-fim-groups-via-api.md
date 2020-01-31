@@ -18,8 +18,8 @@ You will have to work with the FIM team to
   - For Other OS, download Postman from [getpostman.com](https://www.getpostman.com/).
 - Get the Collection from our shared network drive
   - Map ` \\ecc9000201` to a drive, e.g. W:
-  - Check that you have permissions to access folder `\\ecc9000201\j2ee` where we store the collection file containing client_id, client_secret and app_id.
-  #![CaaS Workflow](https://github.ford.com/jchen45/caas-workshop/blob/master/images/ShareDrive.png)
+  - Check that you have permissions to access folder `\\ecc9000201\j2ee` where we store the collection file containing client_id, client_secret and app_id.<br>
+  ![CaaS Workflow](https://github.ford.com/jchen45/caas-workshop/blob/master/images/ShareDrive.png)
 - Open Postman, click on `Import` button shown as screenshot below:
   - Select `Choose Files`
   - Select `W:\j2ee\CaaSWorkshopSGPAPI\CaaSWorkshopSGPAPI.json`
