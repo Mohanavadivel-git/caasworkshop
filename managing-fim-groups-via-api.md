@@ -20,17 +20,21 @@ You will have to work with the FIM team to
   - Map ` \\ecc9000201` to a drive, e.g. W:
   - Check that you have permissions to access folder `\\ecc9000201\j2ee` where we store the collection file containing client_id, client_secret and app_id.<br>
   ![CaaS Workflow](https://github.ford.com/jchen45/caas-workshop/blob/master/images/ShareDrive.png)
-- Open Postman, click on `Import` button shown as screenshot below:
+- Open Postman, click on `Import` button shown as screenshot below:<br>
+ ![CaaS Workflow](https://github.ford.com/jchen45/caas-workshop/blob/master/images/Postman01.png)
   - Select `Choose Files`
+  ![CaaS Workflow](https://github.ford.com/jchen45/caas-workshop/blob/master/images/Postman02.png)
   - Select `W:\j2ee\CaaSWorkshopSGPAPI\CaaSWorkshopSGPAPI.json`
-  - Click Open
-- The collection should be imported like the screenshot below:
+  - Click Open<br>
+  ![CaaS Workflow](https://github.ford.com/jchen45/caas-workshop/blob/master/images/Postman03.png)
+- The collection should be imported like the screenshot below:<br>
+ ![CaaS Workflow](https://github.ford.com/jchen45/caas-workshop/blob/master/images/Postman04.png)
 - You can invoke an API by clicking on it
 
 To add members:
 
-Edit the body of the POST request by replacing `CDSID` with the cdsid of the individual you want to add. To add multiple individuals, separate each cdsid with “,”, e.g. “cdsid01”, “cdsid02”, “cdsid03”.
-
+Edit the body of the POST request by replacing `CDSID` with the cdsid of the individual you want to add. To add multiple individuals, separate each cdsid with “,”, e.g. “cdsid01”, “cdsid02”, “cdsid03”.<br>
+![CaaS Workflow](https://github.ford.com/jchen45/caas-workshop/blob/master/images/Postman01.png)
 To delete members:
 
 *Do something similar*
