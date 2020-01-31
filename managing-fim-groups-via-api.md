@@ -32,11 +32,12 @@ You will have to work with the FIM team to
 - You can invoke an API by clicking on it
 
 To add members:
-
 Edit the body of the POST request by replacing `CDSID` with the cdsid of the individual you want to add. To add multiple individuals, separate each cdsid with “,”, e.g. “cdsid01”, “cdsid02”, “cdsid03”.<br>
 ![CaaS Workflow](https://github.ford.com/jchen45/caas-workshop/blob/master/images/Postman05.png)
-To delete members:
 
+To delete members:
+Select the API shown as screenshot below. Edit the body of the PATCH request similar to "add member" process above to delete single or multiple individuals.
+![CaaS Workflow](https://github.ford.com/jchen45/caas-workshop/blob/master/images/Postman06.png)
 *Do something similar*
 
 ## Errors
