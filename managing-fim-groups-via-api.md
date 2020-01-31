@@ -38,7 +38,6 @@ Edit the body of the POST request by replacing `CDSID` with the cdsid of the ind
 To delete members:
 Select the API shown as screenshot below. Edit the body of the PATCH request similar to "add member" process above to delete single or multiple individuals.
 ![CaaS Workflow](https://github.ford.com/jchen45/caas-workshop/blob/master/images/Postman06.png)
-*Do something similar*
 
 ## Errors
 
