@@ -20,7 +20,7 @@ A robot account was created for the workshop repository. This robot has read and
 
 ## RedHat 
 
-You may also find that you need to authenticate against RedHat's container catalog to use their images. In this class, you will notice the `FROM` statement of the `Dockerfile` is from RedHat's registry, not Quay. To be able to authenticate against RedHat's registry in your namespace, you need a RedHat developer account (which is free to sign up for). <!--, see [these instructions](). -->
+You may also find that you need to authenticate against RedHat's container catalog to use their images. In this class, you will notice the `FROM` statement of the `Dockerfile` is from RedHat's registry, not Quay. To be able to authenticate against RedHat's registry in your namespace, you need a RedHat developer and service account (which is free to sign up for). Go to [here](./RedhatSvrAcct.md) for details on how to do it.
 
 For the purpose of the workshop, this credential has already been created and we will be able to use it to utilize RedHat's container catalog, which you can view [here](https://registry.redhat.io). 
 
