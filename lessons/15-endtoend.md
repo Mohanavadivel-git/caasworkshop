@@ -8,11 +8,11 @@ Now that we've introduced a number of concepts and objects, let's make a code ch
 
 ### Change Code
 
-1. Let's revert our changes from earlier. Remove the `-v2` in `build-config-2.yaml` (line 11) so that our tag is back to just being our CDSID. 
+1. Let's revert our changes from earlier. Remove the `-v2` in `build-config-2.yaml` (line 11) so that our tag is back to just being our CDSID.
 
-2. Change the value(s) of line 26, 27, 28 to whatever message you'd like in the quoted sections for the `SUMMARY`, `DESCRIPTION`, and `NAME` environment variables. **Do not** remove the `\` at the end of lines 26 and 27. 
+2. Change the value(s) of line 26, 27, 28 to whatever message you'd like in the quoted sections for the `SUMMARY`, `DESCRIPTION`, and `NAME` environment variables. **Do not** remove the `\` at the end of lines 26 and 27.
 
-3. Apply the changes to your build config. 
+3. Apply the changes to your build config.
 
 ```bash
 $ oc apply -f ./manifests/build-config-2.yaml
@@ -51,10 +51,10 @@ $ oc apply -f ./manifests/service.yaml
 
 8. Once you see that your `ImageStream` has updated, go to the [deployments](https://api.caas.ford.com/console/project/devenablement-workshop-dev/browse/deployments) section in Openshift and select your `DeploymentConfig`. We can now watch the process of the `DeploymentConfig` doing the following steps:
 
-- Bringing up your new deployment in the background
-- Ensuring your deployment passes its probes
-- Scale down and delete your old deployment
-- Make the new deployment the actively running deployment
+- Bringing up a `ReplicationController` with your new application image in the background
+- Ensuring your pods pass their probes
+- Scale down and delete your old `ReplicationController`
+- Make the  `ReplicationController` with the new application the actively running application
 
 9. When these steps are made, your can go to your route (MY-CDSID.app.caas.ford.com) and see your new greeting.
 

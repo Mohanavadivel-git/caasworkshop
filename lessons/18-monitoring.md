@@ -4,8 +4,6 @@
 
 If your app is deployed on CaaS, you get basic monitoring of your app's resource utilization by default. The platform will provide a real-time monitoring dashboard built using SysDig, which is still in a POC stage.
 
-If you need more app performance monitoring capabilities than the basic monitoring provided by the platform, you can connect your app to Ford's Dynatrace instance for a cost. You can sign up on the [Dynatrace team website](https://it1.spt.ford.com/sites/L1POE/Public/SitePages/Dynatrace.aspx).
-
 ### Grafana
 
 ![Grafana](../images/monitoring1.png)
@@ -45,24 +43,24 @@ RUN mkdir -p "$DT_HOME" && \
     rm "$DT_HOME/oneagent.zip"
 ```
 
-The first part of the Dockerfile sets arguments and environment variables for the Dynatrace URL, token, options, and home directory. The `RUN` step uses all these variables to make a directory in which to play the Dynatrace agent and unzip it. 
+The first part of the Dockerfile sets arguments and environment variables for the Dynatrace URL, token, options, and home directory. The `RUN` step uses all these variables to make a directory in which to play the Dynatrace agent and unzip it.
 
-The rest of the Dockerfile is the Dockerfile is nearly the same as our previous Dockerfile, with another `FROM` statement. This is known as a [multi-stage build](https://docs.docker.com/develop/develop-images/multistage-build/). Each `FROM` statement can use a different base. Below is the rest of the Dockerfile. 
+The rest of the Dockerfile is the Dockerfile is nearly the same as our previous Dockerfile, with another `FROM` statement. This is known as a [multi-stage build](https://docs.docker.com/develop/develop-images/multistage-build/). Each `FROM` statement can use a different base. Below is the rest of the Dockerfile.
 
 ```Dockerfile
 FROM registry.redhat.io/redhat-openjdk-18/openjdk18-openshift
 EXPOSE 8080
 COPY --from=builder /opt/dynatrace/oneagent /opt/dynatrace/oneagent #<--New Line
 RUN sh /opt/dynatrace/oneagent/dynatrace-agent64.sh                 #<--New Line
-ARG JAR_FILE=../build/libs/devenablement-service-helloworld.jar     
+ARG JAR_FILE=../build/libs/devenablement-service-helloworld.jar
 ADD ${JAR_FILE} devenablement-service-helloworld.jar
 USER root                                                           #<--New Line
 ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","devenablement-service-helloworld.jar"]
 ```
 
-In the second stage of our multi-stage build, we have most of the same Dockerfile as we did previously. There are 3 changes to include Dynatrace. 
+In the second stage of our multi-stage build, we have most of the same Dockerfile as we did previously. There are 3 changes to include Dynatrace.
 
-These additions to your Dockerfile will enable your pods to send data to Dynatrace. 
+These additions to your Dockerfile will enable your pods to send data to Dynatrace.
 -->
 ---
 
