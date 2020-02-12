@@ -1,0 +1,30 @@
+node(label: 'jenkins-pipeline') {
+    stage ('Clone Repo') {
+        git branch: 'cleanup', credentialsId: 'github-dvncaas-access-token', url: 'https://github.ford.com/DevEnablement/caas-workshop'
+    }
+    stage ('Registry Cleanup') {
+        withCredentials([string(credentialsId: 'caas_workshop_quay', variable: 'QUAY_TOKEN')]) {
+            dir('./scripts/workshop_cleanup') {
+                sh 'python clean_registry.py devenablement/workshop ${QUAY_TOKEN}'
+            }
+        }
+    }
+    stage('Namespace Cleanup') {
+        ocLogin()
+        // I do each of these individually because using `all` causes a non-zero exit and failed pipeline
+        sh 'oc delete bc -l source=caas-workshop'
+        sh 'oc delete deployment -l source=caas-workshop'
+        sh 'oc delete deploymentconfig -l source=caas-workshop'
+        sh 'oc delete imagestream -l source=caas-workshop'
+        sh 'oc delete route -l source=caas-workshop'
+        sh 'oc delete service -l source=caas-workshop'
+    }
+}
+
+def ocLogin() {
+    withCredentials([usernamePassword(credentialsId: 'caas_generic', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+        sh 'oc login api.caas.ford.com -u $USERNAME -p $PASSWORD --insecure-skip-tls-verify'
+        sh 'oc project devenablement-workshop-dev'
+    }
+}
+
