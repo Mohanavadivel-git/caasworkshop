@@ -20,7 +20,7 @@ $ oc apply -f ./manifests/build-config-2.yaml
 
 ### Build New Image
 
-4. Let's start a new build with our new code, which will result in a new container image deployed to Quay
+4. Let's start a new build with our new code, which will result in a new container image stored in Quay
 
 ```bash
 $ oc start-build app-build-<CDSID> --from-dir=./ --wait=true

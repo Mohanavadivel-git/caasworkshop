@@ -17,7 +17,7 @@ To deploy objects into Openshift, you will need the `oc` CLI.
 
 1. Extract the contents of the zip/tar. If you are on Windows, the contents will be `oc.exe` and on Mac it will be the `oc` file.
 
-1. Add the path to the `oc` binary to your system's path.
+1. Add the path to the `oc` binary to your system's PATH.
    - Windows:
      - **Option 1**
        - Copy the `oc.exe` file into your `System32` directory (C:\Windows\System32)
@@ -78,6 +78,6 @@ As mentioned previously, this is a namespace used only for this workshop. The wo
 
 ---
 
-Continue to [container build tools](./6-buildtools.md).
+Continue to [container build tools](./06-buildtools.md).
 
 Return to [Table of Contents](../README.md#agenda)
