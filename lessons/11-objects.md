@@ -7,12 +7,12 @@ You can learn more about [objects](https://docs.openshift.com/container-platform
 ### Object Diagram
 
 <p align="center">
-  <img src="https://github.ford.com/DevEnablement/caas-workshop/blob/master/images/RouteServiceDiagram.PNG" width="700" height="450">
+  <img src="../images/RouteServiceDiagram.PNG" width="700" height="450">
 </p>
 
 ### Openshift Objects
 
-This list is **NOT** a complete list of objects, but it does include the objects you will most likely work with. 
+This list is **NOT** a complete list of objects, but it does include the objects you will most likely work with.
 
 - Service
 - Route
@@ -21,7 +21,7 @@ This list is **NOT** a complete list of objects, but it does include the objects
 - Secret
 - ConfigMap
 
-The **Service** object configures an internal load balancer that will load balance traffic across multiple instances of your app container. The service object will be dynamically assigned an IP address and will proxy traffic to the app container. Review the documentation on [services](https://docs.openshift.com/container-platform/3.11/architecture/core_concepts/pods_and_services.html#services) in the OpenShift Dev Guide. Generally, your service will not change. 
+The **Service** object configures an internal load balancer that will load balance traffic across multiple instances of your app container. The service object will be dynamically assigned an IP address and will proxy traffic to the app container. Review the documentation on [services](https://docs.openshift.com/container-platform/3.11/architecture/core_concepts/pods_and_services.html#services) in the OpenShift Dev Guide. Generally, your service will not change.
 
 The **Route** object configures a host name that is associated with the Service object allowing external clients to reach your app container through a URL. Review the documentation on [routes](https://docs.openshift.com/container-platform/3.11/architecture/networking/routes.html) in the OpenShift Dev Guide.
 
@@ -31,9 +31,9 @@ The **HorizontalPodAutoscaler** object configures OpenShift to automatically inc
 
 The **Secret** object type provides a mechanism to hold sensitive information, such as passwords, OpenShift Container Platform client configuration files, `dockercfg` files, private source repository credentials, and so on. Review the documentation on [secrets](https://docs.openshift.com/container-platform/3.9/dev_guide/secrets.html) and [using image pull secrets](https://docs.openshift.com/container-platform/3.11/dev_guide/managing_images.html#using-image-pull-secrets) in the Openshift Dev Guide.
 
-The **ConfigMap** object provides mechanisms to inject containers with configuration data while keeping containers agnostic of Openshift Container Platform. It is similar to Secrets, but designed to more conveniently support working with strings/files that do not contain sensitive information. For example, this may be values for your application.properties of a Springboot application. 
+The **ConfigMap** object provides mechanisms to inject containers with configuration data while keeping containers agnostic of the Openshift Container Platform. It is similar to Secrets, but designed to more conveniently support working with strings/files that do not contain sensitive information. For example, this may be values for your application.properties of a Springboot application.
 
----  
+---
 
 Continue to [manifest definitions](./12-objectmanifest.md).
 

@@ -16,6 +16,6 @@ In contrast, the CaaS platform is highly configurable. For example, app teams ha
 
 ---
 
-Continue to an [overview](./2-development.md).
+Continue to the [Development Workflow](./02-development-workflow.md).
 
 Return to [Table of Contents](../README.md#agenda)

@@ -1,16 +1,16 @@
 ## Kubernetes Volumes
 
-Since containers are not persistent, all their contents are cleared whenever the pod they are contained within is destroyed. The file system is completely fresh with each pod and file systems do not persist unless you define them through persistent volume claims.
+Since containers are not persistent, all their contents are cleared whenever the pod they are contained within is destroyed. The file system is completely fresh with each pod and file systems do not persist unless you define them through Persistent Volume Claims.
 
-Openshift comes with an NFS provisioner in localdev. The provisioner carries out the responsibility of creating or deleting new storages. You can request storage by providing a class type, a name, an access type, and a storage size.
+[Persistent Volume Claims](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) represent a desire for some amount of storage with a certain performance, name, and access type. Openshift has a provisioner that will look at a new Persistent Volume Claim and allocate a Persistent Volume that can satisfy the needs of the claim. In other words there is a big chunk of storage managed by Openshift which will be divided up and provided to applications when they create a Persistent Volume Claim.
 
 ### Diagram
 
-![Dynamic Persistent Volume](https://github.ford.com/DevEnablement/caas-workshop/blob/master/images/PVC_Diagram.png)
+![Dynamic Persistent Volume](../images/PVC_Diagram.png)
 
 ### Class Types
 
-The StorageClass are different "classes" of storage that are offered. They might differ in quality-of-service levels, backup policies, or other arbitrary policies. In localdev, the available storage class is nfs. In production Openshift, the classes are:
+There are different classes of storage available in Ford's Openshift. They might differ in quality-of-service levels, backup policies, or other arbitrary policies. In localdev, the available storage class is nfs. In production Openshift, the classes are:
 
 - ecc-block-performance
 - ecc-file-performance

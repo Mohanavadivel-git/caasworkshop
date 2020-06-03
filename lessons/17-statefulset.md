@@ -2,7 +2,7 @@
 
 Kubernetes provides two similar controller objects, Deployment and StatefulSet. Generally, stateless applications should use Deployment objects and stateful applications should use StatefulSet.
 
-Stateful Sets are useful when the desired number of pod replicas is roughly static and the pods needs a sticky identity. Scaling horizontally with Stateful Sets is not as elegant as with a Deployment, but can be done with more effort. If you find yourself scaling up or down a Stateful Set frequently, it may be a sign that a Deployment is a better fit for your use case.
+StatefulSets are useful when the desired number of pod replicas is roughly static and the pods need a sticky identity. Scaling horizontally with StatefulSets is not as elegant as with a Deployment, but can be done with more effort. If you find yourself scaling a StatefulSet up or down frequently, it may be a sign that a Deployment is a better fit for your use case.
 
 ## Storage Impacts
 
@@ -18,11 +18,11 @@ Stateful set pods also keep their same name although their IP addresses will cha
 
 ### Routing Impacts
 
-Stateful Sets are also useful when you need a client to be routed to the same pod for each call. Stateful technologies like Casandra, MongoDB, and others require this functionality.
+Stateful Sets are also useful when you need a client to be routed to the same pod for each call. Stateful technologies like Cassandra, MongoDB, and others require this functionality.
 
 ### Scaling Scenario
 
-You can scale horizontally with Stateful Sets, but note that if PVCs and PVs are created during a scale up event, those objects are persistent after scale down. They must be deleted manually if that is the desired behavior. Additionally, Kubernetes does not notify clients calling a Stateful Set that a scale event has occurred. For these reasons, scaling with a Stateful Set is not as straightforward as scaling with a Deployment fronted by a Load Balancer.
+You can scale horizontally with StatefulSets, but note that if PVCs and PVs are created during a scale up event, those objects are persistent after scale down. They must be deleted manually if that is the desired behavior. Additionally, Kubernetes does not notify clients calling a StatefulSet that a scale event has occurred. For these reasons, scaling with a StatefulSet is not as straightforward as scaling with a Deployment fronted by a Load Balancer.
 
 ## Resources
 

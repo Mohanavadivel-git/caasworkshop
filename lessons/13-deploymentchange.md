@@ -6,7 +6,7 @@ In this exercise, we will change a small part of the code and then re-build the 
 
 1. Re-open `build-config-2.yaml`.
 
-2. Change line 11. Replace your CDSID at the end of the line with CDSID-v2. Example: `registry.ford.com/devenablement/workshop:malyass` -> `registry.ford.com/devenablement/workshop:malyass-v2`.
+2. Change line 11. Replace your CDSID at the end of the line with CDSID-v2. Example: `registry.ford.com/devenablement/workshop:malyass` → `registry.ford.com/devenablement/workshop:malyass-v2`.
 
 3. Line 28 reads `NAME=World`. Change `World` to be your CDSID.
 
@@ -40,7 +40,7 @@ $ oc apply -f ./manifests/deployment.yaml
 deployment.apps/malyass-deployment configured
 ```
 
-4. Due to a configuration change, your deployment will begin creating a new pod with your new image. You can view the `Deployments` section in the console. You can also go to your route and consistently refresh. You will be able to see how your application changes are deployed without any downtime.
+4. Due to a configuration change, your deployment will begin creating a new pod with your new image. You can view the `Deployments` section in the console. You can also go to your route and repeatedly refresh. You will be able to see how your application changes are deployed without any downtime.
 
 ---
 

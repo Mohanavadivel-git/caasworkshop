@@ -18,13 +18,13 @@ An `ImageStream` object acts as a pointer to Quay. It polls Quay and receives up
 $ oc create -f ./manifests/image-stream.yaml
 ```
 
-3. Go to the [image streams](https://api.caas.ford.com/console/project/devenablement-workshop-dev/browse/images) section in Openshift. Notice how the SHA256 tag is the same as the one in Quay for your first image.
+3. Go to the [image streams](https://api.caas.ford.com/console/project/devenablement-workshop-dev/browse/images) section in Openshift. You should see a stream with you CDSID. If you click on it you will see the **From** section pointing to your image in the workshop repository.
 
 4. Now whenever the URL provided to Quay is updated with a new image, the `ImageStream` object will get updated with the new image. We can now introduce a new object called a `DeploymentConfig`, which uses our `ImageStream` to deploy our container image.
 
 ## DeploymentConfigs
 
-A `DeploymentConfig` is different than a `Deployment`. A `DeploymentConfig` spins up a `ReplicationController` which manages a certain number of pod replicas. What we will do is set up a trigger in our `DeploymentConfig` so that every time our image is updated in Quay, a new `ReplicationController` will be automatically spun up by the `DeploymentConfig`.
+A `DeploymentConfig` is different than a `Deployment`. A `DeploymentConfig` spins up a `ReplicationController` which manages a certain number of pod replicas. What we will do is set up a trigger in our `DeploymentConfig` so that every time our image is updated in Quay, a new `ReplicationController` will be automatically created up by the `DeploymentConfig` and will deploy our new image.
 
 1. Open the `deploymentconfig.yaml` file. Replace <CDSID> with your CDSID.
 
@@ -34,7 +34,7 @@ A `DeploymentConfig` is different than a `Deployment`. A `DeploymentConfig` spin
 $ oc create -f ./manifests/deploymentconfig.yaml
 ```
 
-3. Go to the [deployments](https://api.caas.ford.com/console/project/devenablement-workshop-dev/browse/deployments) section in Openshift. Notice the separate section for `DeploymentConfigs`. We can watch the logs and the pods to see how the `DeploymentConfig` spins up a `Deployment` which spins up our pods.
+3. Go to the [deployments](https://api.caas.ford.com/console/project/devenablement-workshop-dev/browse/deployments) section in Openshift. Notice the separate section for `DeploymentConfigs`. We can watch the logs and the pods to see how the `DeploymentConfig` spins up a `ReplicationController` which spins up our pods.
 
 ---
 
