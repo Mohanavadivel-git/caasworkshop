@@ -1,4 +1,4 @@
-# Building a Container Image Using BuildConfigs
+# BuildConfig Exercise
 
 In this lesson we will deploy a test `BuildConfig` and the `BuildConfig` for the sample application.
 
@@ -6,11 +6,11 @@ In this lesson we will deploy a test `BuildConfig` and the `BuildConfig` for the
 
 ## Exercise - Test BuildConfig
 
-1. Navigate to the directory you cloned the samples repository. Open the `application/manifests` directory. We will make all the edits within this directory.
+1. Navigate to the directory where you cloned the samples repository. Open the `application/manifests` directory. We will make all the edits within this directory.
 
 2. Open `build-config-1.yaml` in a text editor (Visual Studio Code, Notepad++, etc).
 
-3. Replace the parts that say `<CDSID>` with your CDSID (lines 4 and 11).
+3. Replace the parts that say `<CDSID>` with your CDSID (lines 4 and 13).
 
 4. In your terminal window, ensure you are still at the root of the `caas-workshop` directory.
 
@@ -32,9 +32,9 @@ buildconfig.build.openshift.io/test-build-<CDSID> created
 
 Console:
 
-- Go to [builds](https://api.caas.ford.com/console/project/devenablement-workshop-dev/browse/builds) section.
+- Go to [builds](https://console-openshift-console.apps.pd01.edc.caas.ford.com/k8s/ns/devenablement-workshop-dev/buildconfigs) section.
 - Click on your build.
-- On the far right, click "start build"
+- On the far right, click the `Actions` dropdown and select `Start Build`
 
 Terminal:
 
@@ -50,7 +50,7 @@ build.build.openshift.io/test-build-<CDSID>-1 started
 
 1. Open `build-config-2.yaml` in a text editor.
 
-2. Replace the parts that say `<CDSID>` with your CDSID (lines 4 and 11).
+2. Replace the parts that say `<CDSID>` with your CDSID (lines 4 and 13).
 
 3. Create the `BuildConfig` object in the same fashion:
 
@@ -78,6 +78,6 @@ build.build.openshift.io/app-build-<CDSID>-2 started
 
 ---
 
-Continue to [container image registry](./09-image-registries.md).
+Continue to [Container Image Registries](./09-image-registries.md).
 
 Return to [Table of Contents](../README.md#agenda)

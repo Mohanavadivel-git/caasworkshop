@@ -1,4 +1,4 @@
-## Container Image Registries
+# Container Image Registries
 
 This lesson focuses on understanding container image registries. At Ford, we use a tool called Quay to provide an on-premise registry to store images. If you are familiar with Docker Hub on the public internet, Quay is similar. The production instance of Quay is at https://registry.ford.com/.
 
@@ -30,6 +30,6 @@ App teams that need access to Quay can request it using these [instructions](htt
 
 ---
 
-Continue to [deployments](./10-deployment.md).
+Continue to [Deployments](./10-deployment.md).
 
 Return to [Table of Contents](../README.md#agenda)

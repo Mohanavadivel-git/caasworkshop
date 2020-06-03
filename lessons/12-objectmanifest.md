@@ -1,6 +1,6 @@
-## Manifests
+# Manifests
 
-In this lesson, we will break down some of the other manifest files and Openshift objects talked about in the previous lesson.
+In this lesson, we will break down some of the other manifest files and OpenShift objects talked about in the previous lesson.
 
 ### Service
 ```yaml
@@ -21,7 +21,7 @@ spec:
     targetPort: 8080
 ```
 - Define the ports you want to be accessible for your application and the protocol it will be accessed by
-- `selector` will look for a pod with the label `app=<CDSID>-deployment-config` and direct traffic coming to the service on port 8080 to that pod on pord 8080
+- `selector` will look for a pod with the label `app=<CDSID>-deployment-config` and direct traffic coming to the service on port 8080 to that pod on port 8080
 - If multiple pods with that label are found it will load balance traffic across all matching pods
 
 ### Route
@@ -50,7 +50,7 @@ spec:
 - To: Reference the service object you want to tie your route to
 - TLS
   - Termination: Edge (encryption terminates at the route) or passthrough (encryption continues all the way to the Pod)
-  - Termination Policy: Only allowed with edge termination. Tells Openshift whether to allow, re-direct, or disable traffic through insecure schemes (HTTP)
+  - Termination Policy: Only allowed with edge termination. Tells OpenShift whether to allow, re-direct, or disable traffic through insecure schemes (HTTP)
 - Host: The URL to access your application. You can have multiple hosts for a single route object.
 
 ### Pod Disruption Budget
@@ -94,7 +94,7 @@ spec:
 
 To view our running application we only need a route and a service at the moment.
 
-1. Open the `Route.yaml` and `Service.yaml` files. Replace any instance of `<CDSID>` with your CDSID.
+1. Open the `route.yaml` and `service.yaml` files. Replace any instance of `<CDSID>` with your CDSID.
 
 2. Create the objects:
 
@@ -106,11 +106,11 @@ $ oc create -f ./manifests/route.yaml
 route.route.openshift.io/<CDSID>-route created
 ```
 
-3. Go to the [services](https://api.caas.ford.com/console/project/devenablement-workshop-dev/browse/services) section of the console and select your service. At the bottom of the page, you should see your service has identified your running pods.
+3. Go to the [services](https://console-openshift-console.apps.pd01.edc.caas.ford.com/k8s/ns/devenablement-workshop-dev/services) section of the console and select your service. At the bottom of the page, you should see your service has identified your running pods.
 
-4. Go to the [routes](https://api.caas.ford.com/console/project/devenablement-workshop-dev/browse/routes) section of the console and select your route.
+4. Go to the [routes](https://console-openshift-console.apps.pd01.edc.caas.ford.com/k8s/ns/devenablement-workshop-dev/routes) section of the console and select your route.
 
-https://MY-CDSID.app.caas.ford.com/
+   https://MY-CDSID.apps.pd01.edc.caas.ford.com
 
 We now have a fully running application that is accessible via a route and service that handles load balancing.
 
@@ -118,7 +118,7 @@ We now have a fully running application that is accessible via a route and servi
 
 Through the CaaS manifest you have significant control over how CaaS will run your application. App teams can define, test, and revise the resources allocated to an application without any action from an operations team.
 
-In this workshop, all these Openshift objects have been seperated into multiple manifests. You can combine multiple manifests into one, but you might find it more practical to separate these into separate manifests (i.e. deployment.yaml, service.yaml, route.yaml, etc). This might be a better option for version control and viewing history. You will likely change your deployment object many times, for example, but you will generally only create a service object once and not edit it much.
+In this workshop, all these OpenShift objects have been separated into multiple manifests. You can combine multiple manifests into one, but you might find it more practical to separate these into separate manifests (i.e. deployment.yaml, service.yaml, route.yaml, etc). This might be a better option for version control and viewing history. You will likely change your deployment object many times, for example, but you will generally only create a service object once and not edit it much.
 
 ### Avoid defaults
 
@@ -128,6 +128,6 @@ The manifests in the samples repository should get you started. For more details
 
 ---
 
-Continue to [deployment updates](./13-deploymentchange.md).
+Continue to [Deployment Changes](./13-deploymentchange.md).
 
 Return to [Table of Contents](../README.md#agenda)

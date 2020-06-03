@@ -6,7 +6,7 @@ In the next lessons, we will briefly explain and walk through an example `BuildC
 
 ## BuildConfig Overview
 
-`BuildConfigs` are an Openshift specific object that allow the building of container images within the cluster. There are various ways of setting up `BuildConfig` configurations, inputs, outputs, strategies, etc. of which we will review a few. See the [Openshift DevGuide](https://docs.openshift.com/container-platform/4.1/builds/understanding-buildconfigs.html) for more information on `BuildConfigs`.
+`BuildConfigs` are an OpenShift specific object that allow the building of container images within the cluster. There are various ways of setting up `BuildConfig` configurations, inputs, outputs, strategies, etc. of which we will review a few. See the [OpenShift DevGuide](https://docs.openshift.com/container-platform/4.3/builds/understanding-buildconfigs.html) for more information on `BuildConfigs`. 
 
 ### Inputs
 
@@ -22,14 +22,14 @@ Docker strategies are what we will use in the workshop, which is when a `Dockerf
 
 ### Outputs
 
-The output of a `BuildConfig` is a container image. That container image will be stored in Quay. The container image can be output to image registries other than Quay, but for images deployed to Openshift, Quay is the preferred container image store.
+The output of a `BuildConfig` is a container image. That container image will be stored in Quay. The container image can be output to image registries other than Quay, but for images deployed to OpenShift, Quay is the preferred container image store. 
 
 ### Triggers
 
-A `BuildConfig` can be triggered in various ways. The most common way to trigger a `BuildConfig` would be from a Github webhook so that a code change could trigger a new build. A `BuildConfig` can also be triggered off a change in the base image. That would require setting up an `ImageStream`, which will be covered later.
+A `BuildConfig` can be triggered in various ways. The Dev Enablement team recommends using Jenkins to trigger your `BuildConfig`, but you can also trigger a `BuildConfig` from a Github webhook when a code change occurs. A `BuildConfig` can also be triggered off a change in the base image. That would require setting up an `ImageStream`, which will be covered later.
 
 ---
 
-Continue to [build config exercise](./08-buildconfig-exercise.md).
+Continue to the [BuildConfig Exercise](./08-buildconfig-exercise.md).
 
 Return to [Table of Contents](../README.md#agenda)

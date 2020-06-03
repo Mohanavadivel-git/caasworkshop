@@ -8,7 +8,7 @@ In this exercise, we will change a small part of the code and then re-build the 
 
 2. Change line 11. Replace your CDSID at the end of the line with CDSID-v2. Example: `registry.ford.com/devenablement/workshop:malyass` → `registry.ford.com/devenablement/workshop:malyass-v2`.
 
-3. Line 28 reads `NAME=World`. Change `World` to be your CDSID.
+3. Line 30 reads `NAME=World`. Change `World` to be your CDSID.
 
 4. Apply the changes to your build config with the following command:
 
@@ -29,7 +29,7 @@ build.build.openshift.io/app-build-<CDSID>-3 started
 
 ## Exercise - Apply Image Change
 
-1. When you build is successful, re-open `deployment.yaml`.
+1. When your build is successful, re-open `deployment.yaml`.
 
 2. Change line 58 to reference your new image with the same tag you applied to the `BuildConfig`. (i.e `<CDSID>` to `<CDSID>-v2`)
 
@@ -44,6 +44,6 @@ deployment.apps/malyass-deployment configured
 
 ---
 
-Continue to [continuous delivery](./14-contdeploy.md).
+Continue to [Kubernetes Volumes](./14-volumesintro.md).
 
 Return to [Table of Contents](../README.md#agenda)

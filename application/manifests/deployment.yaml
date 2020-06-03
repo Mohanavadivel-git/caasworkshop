@@ -56,7 +56,7 @@ spec:
       containers:
       - name: <CDSID>-deployment
         image: registry.ford.com/devenablement/workshop:<CDSID>
-        imagePullPolicy: Always        
+        imagePullPolicy: Always
         ports:
           - name: http
             containerPort: 8080

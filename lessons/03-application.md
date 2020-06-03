@@ -1,4 +1,4 @@
-## Sample Application
+# Cloning the Sample Application
 
 For this workshop, we will use a sample application located within the `application` directory of this repository.
 

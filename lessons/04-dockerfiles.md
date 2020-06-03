@@ -1,4 +1,4 @@
-## Writing Dockerfiles
+# Writing Dockerfiles
 
 This lesson will go over Dockerfile basics and the process of writing a Dockerfile.
 
@@ -57,6 +57,6 @@ The capitalized keywords at the beginning of each line above are Docker instruct
 
 ---
 
-Continue to [Openshift console](./05-openshift-console.md).
+Continue to the [OpenShift Console and CLI](./05-openshift-console.md).
 
 Return to [Table of Contents](../README.md#agenda)

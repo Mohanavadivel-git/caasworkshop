@@ -54,7 +54,7 @@ spec:
       - name: devenablement-workshop-pull-secret
       containers:
       - name: <CDSID>-deployment-config
-        imagePullPolicy: Always        
+        imagePullPolicy: Always
         ports:
           - name: http
             containerPort: 8080
@@ -117,7 +117,7 @@ spec:
          # successThreshold: 1
           #failureThreshold: 10
           timeoutSeconds: 5
-  triggers:    
+  triggers:
   - type: "ImageChange"
     imageChangeParams:
       automatic: true # this is required to link the build and deployment
