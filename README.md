@@ -32,8 +32,8 @@ This workshop will provide instructions to build application container images, t
 
 The workshop is offered once per month. The duration is two 4-hour sessions offered typically on two consecutive days. It is currently offered for no charge.
 
-To attend, sign up [here](https://it2.spt.ford.com/sites/dev/Lists/RegisterForEvent/newform.aspx).
+To attend, sign up [here](https://azureford.sharepoint.com/sites/SDE/SitePages/TrainMe.aspx).
 
 ## Begin Workshop
 
-Begin with an [Overview of CaaS at Ford](https://it2.spt.ford.com/sites/dev/Documents/CaaS-At-Ford_Workshop.pptx) then [Lesson 1](./lessons/01-introduction.md).
+Begin with an [Overview of CaaS at Ford](https://azureford.sharepoint.com/sites/SDE/_layouts/15/search.aspx/siteall?q=CaaS) then [Lesson 1](./lessons/01-introduction.md).
