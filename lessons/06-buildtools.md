@@ -1,4 +1,4 @@
-## Container Build Tools
+# Container Build Tools
 
 There are numerous ways of building a container image. We will provide an overview of some of the ways you can do that on your machine.
 
@@ -14,13 +14,13 @@ There are numerous advantages of using and developing with localdev, namely that
 
 Localdev comes packaged with Docker, Buildah, and Podman. Buildah and Podman are the more preferable container image build tools maintained by RedHat that has [advantages over Docker](https://developers.redhat.com/blog/2019/02/21/podman-and-buildah-for-docker-users/). Localdev provides these tools so that you do not need to install them separately.
 
-The disadvantage of localdev is that it requires a lot of setup and a powerful machine. To properly set up localdev, you will need a 4 core CPU machine and 8 GB of RAM (i.e. a developer machine). Localdev also runs on VirtualBox, which is prone to errors and is notoriously buggy.
+The disadvantage of localdev is that it requires a lot of setup and a powerful machine. To properly set up localdev, you will need a 4 core CPU machine and 8 GB of RAM (i.e. a developer machine). Localdev also runs on VirtualBox, which is prone to errors and is notoriously buggy. We have also found that it will not work while the VPN is on, making it impossible to push from localdev to CaaS while working from home.
 
 **Note**: Localdev uses VirtualBox, which conflicts with `Hyper-V` used by Docker. You can only have 1 running on your system at a time without workarounds.
 
 ## BuildConfigs
 
-The Openshift product provides a way to build container images within the cluster itself with an object called `BuildConfigs`. This way, we avoid installing any other command line tools or virtual machines. This makes it a quicker and cleaner process that is less prone to machine errors.
+The OpenShift product provides a way to build container images within the cluster itself with an object called `BuildConfigs`. This way, we avoid installing any other command line tools or virtual machines. This makes it a quicker and cleaner process that is less prone to machine errors.
 
 The disadvantage is that you now can no longer test and view your container images locally. Generally, the building of your container image will be done in your team's DEV environment to compensate for this disadvantage.
 
@@ -28,6 +28,6 @@ This workshop uses `BuildConfigs` to build our container images. If you have a d
 
 ---
 
-Continue to [build configs introduction](./07-buildintro.md).
+Continue to [Building a Container Image Using BuildConfigs](./07-buildintro.md).
 
 Return to [Table of Contents](../README.md#agenda)

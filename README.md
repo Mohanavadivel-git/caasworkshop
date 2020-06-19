@@ -1,4 +1,4 @@
-## Deploying Apps to Ford's CaaS Platform
+# Deploying Apps to Ford's CaaS Platform
 
 ![OpenShift Logo](images/OpenShift_Logo.svg)
 
@@ -9,24 +9,24 @@ This workshop will provide instructions to build application container images, t
 ## Agenda
 
 1. [Introduction](./lessons/01-introduction.md)
-1. [Development Process](./lessons/02-development-workflow.md)
-1. [Sample Application](./lessons/03-application.md)
-1. [Dockerfiles](./lessons/04-dockerfiles.md)
-1. [Openshift Console and CLI](./lessons/05-openshift-console.md)
-1. [Other Build Tools](./lessons/06-buildtools.md)
-1. [BuildConfig Introduction](./lessons/07-buildintro.md)
+1. [Development Workflow](./lessons/02-development-workflow.md)
+1. [Cloning the Sample Application](./lessons/03-application.md)
+1. [Writing Dockerfiles](./lessons/04-dockerfiles.md)
+1. [OpenShift Console and CLI](./lessons/05-openshift-console.md)
+1. [Container Build Tools](./lessons/06-buildtools.md)
+1. [Building a Container Image Using BuildConfigs](./lessons/07-buildintro.md)
 1. [BuildConfig Exercise](./lessons/08-buildconfig-exercise.md)
-1. [Image Registries](./lessons/09-image-registries.md)
+1. [Container Image Registries](./lessons/09-image-registries.md)
 1. [Deployments](./lessons/10-deployment.md)
-1. [Openshift Objects](./lessons/11-objects.md)
-1. [Object Manifests](./lessons/12-objectmanifest.md)
-1. [Updating Deployments](./lessons/13-deploymentchange.md)
-1. [Continuous Delivery](./lessons/14-contdeploy.md)
-1. [End to End Example](./lessons/15-endtoend.md)
-1. [Intro to Volumes](./lessons/16-volumesintro.md)
-1. [Stateful Sets](./lessons/17-statefulset.md)
-1. [Monitoring](./lessons/18-monitoring.md)
-1. [Github Integration](./lessons/19-contint.md)
+1. [OpenShift Objects](./lessons/11-objects.md)
+1. [Manifests](./lessons/12-objectmanifest.md)
+1. [Deployments Changes](./lessons/13-deploymentchange.md)
+1. [Kubernetes Volumes](./lessons/14-volumesintro.md)
+1. [Stateful Sets](./lessons/15-statefulset.md)
+1. [Monitoring](./lessons/16-monitoring.md)
+1. [Continuous Deployment](./lessons/17-contdeploy.md)
+1. [End to End Example](./lessons/18-endtoend.md)
+1. [Continuous Integration](./lessons/19-contint.md)
 
 ## Schedule
 

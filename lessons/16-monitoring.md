@@ -1,4 +1,4 @@
-### Monitoring Apps
+# Monitoring
 
 ### Production Monitoring
 
@@ -28,7 +28,7 @@ The tool is still in the POC stage and will be available in production in Q4.
 
 #### Dockerfile Changes
 
-Open Dockerfile-2 located in `springboot/image` for your own reference. We will review the additions that you can simply add to your Dockerfiles to include a Dyntrace agent in your containers.
+Open Dockerfile-2 located in `springboot/image` for your own reference. We will review the additions that you can simply add to your Dockerfiles to include a Dynatrace agent in your containers.
 
 ```Dockerfile
 FROM registry.redhat.io/rhscl/python-27-rhel7 AS builder
@@ -64,6 +64,6 @@ These additions to your Dockerfile will enable your pods to send data to Dynatra
 -->
 ---
 
-Continue to [Github integration](./19-contint.md)
+Continue to [Continuous Deployment](./17-contdeploy.md)
 
 Return to [Table of Contents](../README.md#agenda)

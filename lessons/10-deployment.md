@@ -1,4 +1,4 @@
-## Deployments
+# Deployments
 
 The `Deployment` object provides the definition for deploying our container image in CaaS. `Deployments` are the object that spins up individual pods. You could opt to define a `pod` definition, but that requires more hands on work to constantly update and configure the pods. `Deployments` can do this automatically and handle the task of bringing up our requested number of pods.
 
@@ -22,7 +22,7 @@ spec:
         app: <CDSID>-deployment
 ```
 - Name: Define your deployment name which will also be the name of the application
-- Labels: You can use labels to better query your Openshift objects. For each Openshift object, we are defining an `app` label with the value of our app name. For every object that contains the label `app=<CDSID>-deployment`, we can query based on that label.
+- Labels: You can use labels to better query your OpenShift objects. For each OpenShift object, we are defining an `app` label with the value of our app name. For every object that contains the label `app=<CDSID>-deployment`, we can query based on that label.
 - Replicas: Number of instances to start your application with
 
 #### *Affinity Rules*
@@ -143,7 +143,7 @@ See the [pod affinity guide](../images/affinity/README.md) for more information 
 
 ## Exercise - Deploy Application
 
-1. Open the `deployment.yaml` file. Replace all the `<CDSID>`'s with your CDSID. (Lines 4, 6, 11, 15, 30, 40, 56, and 57). Use Ctrl+H (CMD+H on Mac) to replace all at once.
+1. Open the `deployment.yaml` file. Replace all the `<CDSID>`'s with your CDSID. (Lines 4, 6, 12, 16, 31, 41, 57, and 58). Use Ctrl+H (CMD+H on Mac) to replace all at once.
 
 2. We can deploy our application using the `deployment.yaml` file.
 
@@ -152,10 +152,10 @@ $ oc create -f ./manifests/deployment.yaml
 deployment.apps/<CDSID>-deployment created
 ```
 
-3. Access the Openshift Console and navigate to your deployment. You can select the [running pod](https://api.caas.ford.com/console/project/devenablement-workshop-dev/browse/pods) and view the logs of the application.
+3. Access the OpenShift Console and navigate to your deployment. You can select the [running pod](https://console-openshift-console.apps.pd01.edc.caas.ford.com/k8s/ns/devenablement-workshop-dev/pods) and view the logs of the application.
 
 ---
 
-Continue to [Openshift objects](./11-objects.md).
+Continue to [OpenShift Objects](./11-objects.md).
 
 Return to [Table of Contents](../README.md#agenda)

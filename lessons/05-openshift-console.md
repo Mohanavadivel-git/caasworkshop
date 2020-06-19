@@ -1,19 +1,18 @@
-## Openshift Console and CLI
+# OpenShift Console and CLI
 
-Before we build our container image and deploy the application, we will interact with the Openshift console and use the `oc` CLI. In this class, we will be interacting with the production cluster of Openshift. You will be granted access to a namespace to run your application in the production cluster.
+Before we build our container image and deploy the application, we will interact with the OpenShift console and use the `oc` CLI. In this class, we will be interacting with the production cluster of OpenShift. You will be granted access to a namespace to run your application in the production cluster.
 
 At the moment, there is only a single, production cluster of CaaS. This is different from PCF, which has separate "clusters" (referred to as foundations in PCF) for pre-prod and prod and different "clusters" for the different data centers. To have separate environments in CaaS, you will have a separate namespace for each environment. For example, you could have 3 separate namespaces, `dev`, `qa`, and `prod`, for your single application.
 
-In Openshift, `project` and `namespace` are used interchangeably. It is a logical construct where you deploy your Openshift objects. Your application instances/replicas may span different nodes and data centers, but you can manage them all within your single namespace.
+In OpenShift, `project` and `namespace` are used interchangeably. It is a logical construct where you deploy your OpenShift objects. Your application instances/replicas may span different nodes and data centers, but you can manage them all within your single namespace.
 
 ---
 
 ### Download OC CLI
 
-To deploy objects into Openshift, you will need the `oc` CLI.
+To deploy objects into OpenShift, you will need the `oc` CLI.
 
-1. Go to https://files.caas.ford.com:9443/oc-cli/latest/ and click on the proper download for your operating system. Alternatively, `oc` can be downloaded from the public [mirrors](https://mirror.openshift.com/pub/openshift-v3/clients/).
-   For Ubuntu, follow [these instructions](./ubuntu-install.md)
+1. Go to the public [mirrors](https://mirror.openshift.com/pub/openshift-v4/clients/oc/4.3/) and click on the proper download for your operating system.
 
 1. Extract the contents of the zip/tar. If you are on Windows, the contents will be `oc.exe` and on Mac it will be the `oc` file.
 
@@ -39,11 +38,11 @@ To deploy objects into Openshift, you will need the `oc` CLI.
       <img src="../images/oc_cli.PNG" width="825" height="400">
   </p>
 
-### Openshift Console
+### OpenShift Console
 
-1. Go to https://api.caas.ford.com
+1. Go to https://console-openshift-console.apps.pd01.edc.caas.ford.com/
 2. Login with your CDSID and password
-3. Confirm you see the `devenablement-workshop-dev` namespace on the far right side of the webpage.
+3. Confirm you see the `devenablement-workshop-dev` namespace in the Projects list.
 
 ### Terminal Login
 
@@ -52,24 +51,24 @@ To deploy objects into Openshift, you will need the `oc` CLI.
 
 ```bash
 # If using git bash
-$ winpty oc login api.caas.ford.com
+$ winpty oc login api.pd01.edc.caas.ford.com:6443
 
 # If using terminal/powershell
-$ oc login api.caas.ford.com
+$ oc login api.pd01.edc.caas.ford.com:6443
 ```
 
 3. Confirm your project selection with the following commands.
 
 ```bash
 $ oc project
-Using project "devenablement-workshop-dev" on server "https://api.caas.ford.com:443".
+Using project "devenablement-workshop-dev" on server "https://api.pd01.edc.caas.ford.com:6443".
 ```
 
 If you are defaulted to a different project, run the command below to select the `devenablement-workshop-dev` namespace.
 
 ```bash
 $ oc project devenablement-workshop-dev
-Now using project "devenablement-workshop-dev" on server "https://api.caas.ford.com:443".
+Now using project "devenablement-workshop-dev" on server "https://api.pd01.edc.caas.ford.com:6443".
 ```
 
 ## Requesting a Namespace
@@ -78,6 +77,6 @@ As mentioned previously, this is a namespace used only for this workshop. The wo
 
 ---
 
-Continue to [container build tools](./06-buildtools.md).
+Continue to [Container Build Tools](./06-buildtools.md).
 
 Return to [Table of Contents](../README.md#agenda)

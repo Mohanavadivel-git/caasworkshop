@@ -34,6 +34,6 @@ Some monitoring is provided out of the box with CaaS where you can view the memo
 
 ---
 
-Continue to [cloning sample application](./03-application.md).
+Continue to [Cloning the Sample Application](./03-application.md).
 
 Return to [Table of Contents](../README.md#agenda)
