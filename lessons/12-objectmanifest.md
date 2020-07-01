@@ -34,7 +34,7 @@ metadata:
     app: <CDSID>-deployment-config
   name: <CDSID>-route
 spec:
-  host: <CDSID>.app.caas.ford.com
+  host: <CDSID>.apps.pd01.edc.caas.ford.com
   port:
     targetPort: 8080
   tls:
