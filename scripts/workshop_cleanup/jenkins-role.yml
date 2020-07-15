@@ -1,0 +1,23 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: jenkins-clean-up
+rules:
+- apiGroups:
+  - apps.openshift.io
+  - build.openshift.io
+  - extensions
+  - image.openshift.io
+  - route.openshift.io
+  - ""
+  resources:
+  - buildconfigs
+  - deploymentconfigs
+  - deployments
+  - imagestreams
+  - routes
+  - services
+  verbs:
+  - get
+  - list
+  - delete

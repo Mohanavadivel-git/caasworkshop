@@ -45,7 +45,7 @@ def api_url():
 def current_tag(tag_body):
     '''
     The tags list holds a record of tags that are no longer used. These tags
-    will have and `end_ts` field indicating when they were removed.
+    will have an `end_ts` field indicating when they were removed.
     '''
     return tag_body.get("end_ts") is None
 

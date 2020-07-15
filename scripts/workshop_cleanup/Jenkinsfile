@@ -1,6 +1,8 @@
 node(label: 'jenkins-pipeline') {
     stage ('Clone Repo') {
-        git branch: 'cleanup', credentialsId: 'github-dvncaas-access-token', url: 'https://github.ford.com/DevEnablement/caas-workshop'
+        // You may need to temporarily change this branch if you make updates to
+        // the Python script and would like to test it with a non-master branch
+        git branch: 'master', credentialsId: 'github-dvncaas-access-token', url: 'https://github.ford.com/DevEnablement/caas-workshop'
     }
     stage ('Registry Cleanup') {
         withCredentials([string(credentialsId: 'caas_workshop_quay', variable: 'QUAY_TOKEN')]) {
@@ -12,19 +14,20 @@ node(label: 'jenkins-pipeline') {
     stage('Namespace Cleanup') {
         ocLogin()
         // I do each of these individually because using `all` causes a non-zero exit and failed pipeline
-        sh 'oc delete bc -l source=caas-workshop'
-        sh 'oc delete deployment -l source=caas-workshop'
-        sh 'oc delete deploymentconfig -l source=caas-workshop'
-        sh 'oc delete imagestream -l source=caas-workshop'
-        sh 'oc delete route -l source=caas-workshop'
-        sh 'oc delete service -l source=caas-workshop'
+        // The `-n` specifies the namespace to operate on because you can't enter
+        // a project while logged in as a very limited service account
+        sh 'oc -n devenablement-workshop-dev delete bc -l source=caas-workshop'
+        sh 'oc -n devenablement-workshop-dev delete deployment -l source=caas-workshop'
+        sh 'oc -n devenablement-workshop-dev delete deploymentconfig -l source=caas-workshop'
+        sh 'oc -n devenablement-workshop-dev delete imagestream -l source=caas-workshop'
+        sh 'oc -n devenablement-workshop-dev delete route -l source=caas-workshop'
+        sh 'oc -n devenablement-workshop-dev delete service -l source=caas-workshop'
     }
 }
 
 def ocLogin() {
-    withCredentials([usernamePassword(credentialsId: 'caas_generic', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-        sh 'oc login api.caas.ford.com -u $USERNAME -p $PASSWORD --insecure-skip-tls-verify'
-        sh 'oc project devenablement-workshop-dev'
+    withCredentials([usernamePassword(credentialsId: 'caas-workshop-clean-up', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+        sh 'oc login api.pd01.edc.caas.ford.com:6443 --token $PASSWORD --insecure-skip-tls-verify'
     }
 }
 
