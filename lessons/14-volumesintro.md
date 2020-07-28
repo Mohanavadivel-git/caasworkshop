@@ -13,8 +13,6 @@ Since containers are not persistent, all their contents are cleared whenever the
 There are different classes of storage available in Ford's OpenShift. They might differ in quality-of-service levels, backup policies, or other arbitrary policies. In localdev, the available storage class is nfs. In production OpenShift, the classes are:
 
 #### OpenShift 4.x
-- px-repl1-block
-- px-repl1-file
 - px-repl2-block
 - px-repl2-db-block
 - px-repl2-file
@@ -25,9 +23,7 @@ Below are further definitions for the storage classes.
 
 | Name              | Type                                          | Purpose                                |
 | ----------------- | --------------------------------------------- | -------------------------------------- |
-| px-repl1-block    | Block Storage                                 | Single storage copy                    |
 | px-repl2-block    | Block Storage (High Available)                | Two storage copies across data centers |
-| px-repl1-file     | File storage (shared- NFSV4)                  | Single storage copy                    |
 | px-repl2-file     | File storage (shared- NFSV4)                  | Two storage copies across data centers |
 | px-repl2-db-block | Block Storage (optimized for nosql databases) | Two storage copies across data centers |
 
