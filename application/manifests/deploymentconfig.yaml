@@ -13,8 +13,8 @@ spec:
     metadata:
       labels:
         app: <CDSID>-deployment-config
-    spec:
-      # https://docs.openshift.com/container-platform/3.11/admin_guide/scheduling/pod_affinity.html
+    spec:     
+      # https://docs.openshift.com/container-platform/4.3/nodes/scheduling/nodes-scheduler-pod-affinity.html
       # https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#affinity-and-anti-affinity
       # https://medium.com/kokster/scheduling-in-kubernetes-part-2-pod-affinity-c2b217312ae1
       # https://github.com/kubernetes/kubernetes/issues/66992
@@ -47,7 +47,9 @@ spec:
       #- key: nvidia.com/gpu
       #  operator: Exists
       #  effect: NoSchedule
-      # https://docs.openshift.com/container-platform/3.11/dev_guide/service_accounts.html
+      # https://docs.openshift.com/container-platform/4.3/authentication/understanding-and-creating-service-accounts.html
+      # https://docs.openshift.com/container-platform/4.3/authentication/using-service-accounts-in-applications.html
+      # https://docs.openshift.com/container-platform/4.3/authentication/using-service-accounts-as-oauth-client.html
       serviceAccountName: default
       dnsPolicy: ClusterFirst
       imagePullSecrets:
@@ -65,7 +67,7 @@ spec:
         #  value: /etc/tls/tls.key
         - name: TCP_PORT
           value: "8080"
-        # https://docs.openshift.com/container-platform/3.11/dev_guide/downward_api.html
+        # https://docs.openshift.com/container-platform/4.3/nodes/containers/nodes-containers-downward-api.html
         # https://kubernetes.io/docs/tasks/inject-data-application/downward-api-volume-expose-pod-information/#the-downward-api
         - name: NODE_NAME
           valueFrom:
@@ -87,8 +89,10 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: spec.serviceAccountName
-        # https://docs.openshift.com/container-platform/3.11/dev_guide/application_memory_sizing.html
-        # https://docs.openshift.com/container-platform/3.11/dev_guide/compute_resources.html#dev-compute-resources
+        # https://docs.openshift.com/container-platform/4.3/nodes/clusters/nodes-cluster-resource-configure.html
+        # https://docs.openshift.com/container-platform/4.3/applications/quotas/quotas-setting-per-project.html
+        # https://docs.openshift.com/container-platform/4.3/applications/quotas/quotas-setting-across-multiple-projects.html
+        # https://docs.openshift.com/container-platform/4.3/scalability_and_performance/using-cpu-manager.html
         resources:
           requests:
             memory: "50Mi"
@@ -96,7 +100,7 @@ spec:
           limits:
             memory: "100Mi"
             cpu: "100m"
-        # https://docs.openshift.com/container-platform/3.11/dev_guide/application_health.html
+        # https://docs.openshift.com/container-platform/4.3/applications/application-health.html
         livenessProbe:
           httpGet:
             path: /
