@@ -88,7 +88,7 @@ def get_tag_page(repo, token, page=1, limit=100):
     ```
     '''
     params = urllib.urlencode({'page': page, 'limit': limit})
-    tag_url = '{api}/repository/{repo}/tag?{params}'.format(
+    tag_url = '{api}/repository/{repo}/tag/?{params}'.format(
         api=api_url(),
         repo=repo,
         params=params,
