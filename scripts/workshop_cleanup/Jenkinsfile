@@ -2,7 +2,7 @@ node(label: 'jenkins-pipeline') {
     stage ('Clone Repo') {
         // You may need to temporarily change this branch if you make updates to
         // the Python script and would like to test it with a non-master branch
-        git branch: 'master', credentialsId: 'github-dvncaas-access-token', url: 'https://github.ford.com/DevEnablement/caas-workshop'
+        git branch: 'update-cleanup-script', credentialsId: 'github-dvncaas-access-token', url: 'https://github.ford.com/DevEnablement/caas-workshop'
     }
     stage ('Registry Cleanup') {
         withCredentials([string(credentialsId: 'caas_workshop_quay', variable: 'QUAY_TOKEN')]) {
