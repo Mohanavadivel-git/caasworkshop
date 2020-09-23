@@ -4,12 +4,6 @@
 
 If your app is deployed on CaaS, you get basic monitoring of your app's resource utilization by default. The platform will provide a real-time monitoring dashboard built using SysDig, which is still in a POC stage.
 
-### Grafana
-
-![Grafana](../images/monitoring1.png)
-
-Grafana is a basic, out of the box monitoring tool. It allows teams to monitor their CPU and memory utilization. Teams can view the current or most recently running pods and see the CPU and memory usage over time. You can view the production instance of grafana [here](https://monitoring.app.caas.ford.com/)
-
 ### SysDig
 
 SysDig is a monitoring tool that will allow for basic monitoring and alerting. The following is a list of some features and monitoring it provides:
