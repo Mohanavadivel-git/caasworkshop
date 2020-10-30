@@ -31,7 +31,7 @@ build.build.openshift.io/app-build-<CDSID>-3 started
 
 1. When your build is successful, re-open `deployment.yaml`.
 
-2. Change line 58 to reference your new image with the same tag you applied to the `BuildConfig`. (i.e `<CDSID>` to `<CDSID>-v2`)
+2. Change line 60 to reference your new image with the same tag you applied to the `BuildConfig`. (i.e `<CDSID>` to `<CDSID>-v2`)
 
 3. Apply the changes to your deployment with the following command:
 
