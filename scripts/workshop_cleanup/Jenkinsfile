@@ -12,24 +12,23 @@ node(label: 'jenkins-pipeline') {
         }
     }
     stage('Namespace Cleanup') {
-        withEnv(["OC_PATH=${tool 'oc_4_3'}"]) {
-            ocLogin()
+        withEnv(["PATH+OC=${tool 'oc_4_3'}"]) {
             // I do each of these individually because using `all` causes a non-zero exit and failed pipeline
             // The `-n` specifies the namespace to operate on because you can't enter
             // a project while logged in as a very limited service account
-            sh '$OC_PATH/oc -n devenablement-workshop-dev delete bc -l source=caas-workshop'
-            sh '$OC_PATH/oc -n devenablement-workshop-dev delete deployment -l source=caas-workshop'
-            sh '$OC_PATH/oc -n devenablement-workshop-dev delete deploymentconfig -l source=caas-workshop'
-            sh '$OC_PATH/oc -n devenablement-workshop-dev delete imagestream -l source=caas-workshop'
-            sh '$OC_PATH/oc -n devenablement-workshop-dev delete route -l source=caas-workshop'
-            sh '$OC_PATH/oc -n devenablement-workshop-dev delete service -l source=caas-workshop'
+            openshift.withCluster('Ford') {
+                openshift.withProject('devenablement-workshop-dev') {
+                    openshift.withCredentials('caas-workshop-clean-up') {
+                        openshift.selector('bc', [source:'caas-workshop']).delete()
+                        openshift.selector('deployment', [source:'caas-workshop']).delete()
+                        openshift.selector('deploymentconfig', [source:'caas-workshop']).delete()
+                        openshift.selector('imagestream', [source:'caas-workshop']).delete()
+                        openshift.selector('route', [source:'caas-workshop']).delete()
+                        openshift.selector('service', [source:'caas-workshop']).delete()
+                    }
+                }
+            }
         }
-    }
-}
-
-def ocLogin() {
-    withCredentials([usernamePassword(credentialsId: 'caas-workshop-clean-up', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-        sh '$OC_PATH/oc login api.pd01.edc.caas.ford.com:6443 --token $PASSWORD --insecure-skip-tls-verify'
     }
 }
 
