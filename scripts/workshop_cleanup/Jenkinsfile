@@ -1,4 +1,4 @@
-node(label: 'master') {
+node(label: 'jenkins-pipeline') {
     stage ('Clone Repo') {
         // You may need to temporarily change this branch if you make updates to
         // the Python script and would like to test it with a non-master branch
