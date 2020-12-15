@@ -10,6 +10,7 @@ rules:
   - image.openshift.io
   - route.openshift.io
   - ""
+  - apps
   resources:
   - buildconfigs
   - deploymentconfigs
