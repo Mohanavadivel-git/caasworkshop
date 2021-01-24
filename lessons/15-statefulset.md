@@ -31,6 +31,6 @@ You can scale horizontally with StatefulSets, but note that if PVCs and PVs are 
 
 ---
 
-Continue to [Monitoring](./16-monitoring.md)
+Continue to [Monitoring](./16-monitoring.md).
 
 Return to [Table of Contents](../README.md#agenda)
