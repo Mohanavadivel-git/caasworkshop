@@ -1,8 +1,10 @@
 # Development Workflow
 
+<!--
 ![CaaS Workflow](https://github.ford.com/Containers/localdev/blob/master/docs/images/CaaS-LocalDev.png)
 
 This image represents a high level overview of developing applications for CaaS. The workshop will go over all of these topics in some fashion.
+-->
 
 ## Application Code
 
