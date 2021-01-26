@@ -71,8 +71,13 @@ $ oc set image deployment/<CDSID>-deployment <CDSID>-deployment=registry.ford.co
 - Ensuring it passes its probes
 - Terminate the old pod
 
-7. When these steps are complete, you can go to your route (https://MY-CDSID.apps.pd01.edc.caas.ford.com) and see the latest version of your app which should just say Hello CDSID
-with your CDSID having been set in the build config via the parameter in `build-config.env`. 
+7. When these steps are complete, you can go to your route (https://MY-CDSID.apps.pd01.edc.caas.ford.com) and see the latest version of your app.
+
+   It should say Hello CDSID with your CDSID.
+
+   And have a new summary: A simple python web app built by your CDSID using a template.
+
+   Both having been set in the build config via the parameter in `build-config.env`. 
 
 ---
 
