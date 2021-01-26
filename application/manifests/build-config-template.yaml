@@ -31,7 +31,7 @@ objects:
           ENV \
             HOME=/app \
             USER_UID=1001 \
-            SUMMARY="A simple python web app built by ${CDSID} using a template."	\
+            SUMMARY="A simple python web app built by ${CDSID} during the Continuous Deployment exercise."	\
             DESCRIPTION="This is a python web app to demonstrate basic container and kubernetes concepts." \
             NAME=${CDSID}
           WORKDIR $HOME

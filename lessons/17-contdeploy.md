@@ -75,7 +75,7 @@ $ oc set image deployment/<CDSID>-deployment <CDSID>-deployment=registry.ford.co
 
    It should say Hello CDSID with your CDSID.
 
-   And have a new summary: A simple python web app built by your CDSID using a template.
+   And have a new summary: A simple python web app built by your CDSID during the Continuous Deployment exercise.
 
    Both having been set in the build config via the parameter in `build-config.env`. 
 
