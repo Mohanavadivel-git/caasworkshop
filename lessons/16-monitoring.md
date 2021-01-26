@@ -58,6 +58,6 @@ These additions to your Dockerfile will enable your pods to send data to Dynatra
 -->
 ---
 
-Continue to [Continuous Deployment](./17-contdeploy.md)
+Continue to [Continuous Deployment](./17-contdeploy.md).
 
 Return to [Table of Contents](../README.md#agenda)

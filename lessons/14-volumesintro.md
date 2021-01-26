@@ -56,6 +56,6 @@ CaaS Engineering also has a [document](https://docs.caas.ford.com/docs/persisten
 
 ---
 
-Continue to [Stateful Sets](./15-statefulset.md)
+Continue to [Stateful Sets](./15-statefulset.md).
 
 Return to [Table of Contents](../README.md#agenda)

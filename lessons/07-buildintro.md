@@ -26,7 +26,8 @@ The output of a `BuildConfig` is a container image. That container image will be
 
 ### Triggers
 
-A `BuildConfig` can be triggered in various ways. The Dev Enablement team recommends using Jenkins to trigger your `BuildConfig`, but you can also trigger a `BuildConfig` from a Github webhook when a code change occurs. A `BuildConfig` can also be triggered off a change in the base image. That would require setting up an `ImageStream`, which will be covered later.
+A `BuildConfig` can be triggered in various ways. The Dev Enablement team recommends using Jenkins to trigger your `BuildConfig`, but you can also trigger a `BuildConfig` from a Github webhook when a code change occurs. A `BuildConfig` can also be triggered off a change in the base image.
+That would require setting up an `ImageStream`, an approach we do not promote but will describe briefly later.
 
 ---
 

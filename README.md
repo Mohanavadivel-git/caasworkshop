@@ -20,13 +20,12 @@ This workshop will provide instructions to build application container images, t
 1. [Deployments](./lessons/10-deployment.md)
 1. [OpenShift Objects](./lessons/11-objects.md)
 1. [Manifests](./lessons/12-objectmanifest.md)
-1. [Deployments Changes](./lessons/13-deploymentchange.md)
+1. [Deployment Changes](./lessons/13-deploymentchange.md)
 1. [Kubernetes Volumes](./lessons/14-volumesintro.md)
 1. [Stateful Sets](./lessons/15-statefulset.md)
 1. [Monitoring](./lessons/16-monitoring.md)
 1. [Continuous Deployment](./lessons/17-contdeploy.md)
-1. [End to End Example](./lessons/18-endtoend.md)
-1. [Continuous Integration](./lessons/19-contint.md)
+1. [Continuous Integration](./lessons/18-contint.md)
 
 ## Schedule
 
