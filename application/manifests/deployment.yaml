@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: <CDSID>-deployment
+  name: vmohanav-deployment
   labels:
-    app: <CDSID>-deployment
+    app: vmohanav-deployment
     source: caas-workshop
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: <CDSID>-deployment
+      app: vmohanav-deployment
   template:
     metadata:
       labels:
-        app: <CDSID>-deployment
+        app: vmohanav-deployment
     spec:
       # https://docs.openshift.com/container-platform/4.3/nodes/scheduling/nodes-scheduler-pod-affinity.html
       # https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#affinity-and-anti-affinity
@@ -28,7 +28,7 @@ spec:
               - key: app
                 operator: In
                 values:
-                - <CDSID>-deployment
+                - vmohanav-deployment
             topologyKey: "kubernetes.io/hostname"
           preferredDuringSchedulingIgnoredDuringExecution:
           - weight: 100
@@ -38,7 +38,7 @@ spec:
                 - key: app
                   operator: In
                   values:
-                  - <CDSID>-deployment
+                  - vmohanav-deployment
               topologyKey: failure-domain.ford.com/zone
       #tolerations:
       ## Allow this pod to be rescheduled while the node is in "critical add-ons only" mode.
@@ -54,10 +54,10 @@ spec:
       serviceAccountName: default
       dnsPolicy: ClusterFirst
       imagePullSecrets:
-      - name: devenablement-workshop-pull-secret
+      - name: testaccount-quay
       containers:
-      - name: <CDSID>-deployment
-        image: registry.ford.com/devenablement/workshop:<CDSID>
+      - name: vmohanav-deployment
+        image: registry.ford.com/vmohanav/nodejsdemo
         imagePullPolicy: Always
         ports:
           - name: http
@@ -96,12 +96,12 @@ spec:
         # https://docs.openshift.com/container-platform/4.3/applications/quotas/quotas-setting-across-multiple-projects.html
         # https://docs.openshift.com/container-platform/4.3/scalability_and_performance/using-cpu-manager.html
         resources:
-          requests:
-            memory: "50Mi"
-            cpu: "50m"
           limits:
-            memory: "100Mi"
-            cpu: "100m"
+            cpu: 250m
+            memory: 500Mi
+          requests:
+            cpu: 100m
+            memory: 100Mi
         # https://docs.openshift.com/container-platform/4.3/applications/application-health.html
         livenessProbe:
           httpGet:

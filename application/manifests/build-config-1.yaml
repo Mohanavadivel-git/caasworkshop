@@ -1,16 +1,14 @@
 apiVersion: build.openshift.io/v1
 kind: BuildConfig
 metadata:
-  name: test-build-<CDSID>
-  labels:
-    source: caas-workshop
+  name: helloworld
 spec:
   output:
     pushSecret:
-      name: devenablement-workshop-pull-secret
+      name: testaccount-quay
     to:
       kind: DockerImage
-      name: 'registry.ford.com/devenablement/workshop:<CDSID>'
+      name: 'registry.ford.com/vmohanav/nodejsdemo'
   resources:
     requests:
       cpu: 250m
@@ -19,11 +17,12 @@ spec:
       cpu: 500m
       memory: 500Mi
   source:
-    dockerfile: |-
-      FROM registry.ford.com/websphere/liberty:prod
-      USER example
+    type: Git
+    git:
+      uri: 'https://github.com/Mohanavadivel-git/nodejsdemo.git'
+      ref: main
   strategy:
     dockerStrategy:
       pullSecret:
-        name: devenablement-workshop-pull-secret
+        name: testaccount-quay
     type: Docker
