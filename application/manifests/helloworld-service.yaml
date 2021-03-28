@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: <CDSID>-service
+  labels:
+    app: <CDSID>-deployment
+    source: caas-workshop
+spec:
+  type: ClusterIP
+  selector:
+    app: <CDSID>-deployment
+  ports:
+  - protocol: "TCP"
+    name: http
+    port: 8080
+    targetPort: 8080
